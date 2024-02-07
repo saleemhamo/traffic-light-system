@@ -1,0 +1,8 @@
+//
+// Created by Saleem Hamo on 07/02/2024.
+//
+
+#ifndef _CROSS_GUARD_PROTOCOLHANDLER_H
+#define _CROSS_GUARD_PROTOCOLHANDLER_H
+
+#endif //_CROSS_GUARD_PROTOCOLHANDLER_H

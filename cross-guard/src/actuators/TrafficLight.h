@@ -1,0 +1,8 @@
+//
+// Created by Saleem Hamo on 07/02/2024.
+//
+
+#ifndef _CROSS_GUARD_TRAFFICLIGHT_H
+#define _CROSS_GUARD_TRAFFICLIGHT_H
+
+#endif //_CROSS_GUARD_TRAFFICLIGHT_H

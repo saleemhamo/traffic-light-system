@@ -1,0 +1,8 @@
+//
+// Created by Saleem Hamo on 07/02/2024.
+//
+
+#ifndef _CROSS_GUARD_PEDESTRIANEVENT_H
+#define _CROSS_GUARD_PEDESTRIANEVENT_H
+
+#endif //_CROSS_GUARD_PEDESTRIANEVENT_H
