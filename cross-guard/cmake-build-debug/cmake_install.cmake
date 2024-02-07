@@ -1,4 +1,4 @@
-# Install script for directory: /Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard
+# Install script for directory: /Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

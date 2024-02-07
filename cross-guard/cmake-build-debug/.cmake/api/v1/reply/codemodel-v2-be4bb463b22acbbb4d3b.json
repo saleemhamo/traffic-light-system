@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard/cmake-build-debug",
-		"source" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard"
+		"build" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug",
+		"source" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard"
 	},
 	"version" : 
 	{

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard/cmake-build-debug"
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -539,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard"
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -1127,7 +1127,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard/cmake-build-debug"
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug"
 		},
 		{
 			"name" : "_cross_guard_IS_TOP_LEVEL",
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/ cross-guard"
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard"
 		}
 	],
 	"kind" : "cache",
