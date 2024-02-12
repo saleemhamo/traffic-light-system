@@ -9,10 +9,10 @@ add_executable(
         src/actuators/PedestrianLight.h
         src/actuators/WarningSystem.h
         src/communication/ProtocolHandler.h
-        src/control_logic/TrafficLightController.h
-        src/control_logic/TrafficLightController.cpp
         src/control_logic/StateTransitionLogic.h
         src/control_logic/StateTransitionLogic.cpp
+        src/control_logic/TrafficControlSystem.h
+        src/control_logic/TrafficControlSystem.cpp
         src/models/PedestrianEvent.h
         src/models/TrafficState.h
         src/sensors/CameraSensor.cpp

@@ -55,23 +55,23 @@ build CMakeFiles/_cross_guard.dir/src/main.cpp.o: CXX_COMPILER___cross_guard_uns
   OBJECT_DIR = CMakeFiles/_cross_guard.dir
   OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src
 
-build CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/sensors/CameraSensor.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/sensors
-
-build CMakeFiles/_cross_guard.dir/src/control_logic/TrafficLightController.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficLightController.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/TrafficLightController.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
-
 build CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/StateTransitionLogic.cpp || cmake_object_order_depends_target__cross_guard
   DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/_cross_guard.dir
   OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
+
+build CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficControlSystem.cpp || cmake_object_order_depends_target__cross_guard
+  DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/_cross_guard.dir
+  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
+
+build CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/sensors/CameraSensor.cpp || cmake_object_order_depends_target__cross_guard
+  DEP_FILE = CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/_cross_guard.dir
+  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/sensors
 
 
 # =============================================================================
@@ -81,7 +81,7 @@ build CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o: 
 #############################################
 # Link the executable _cross_guard
 
-build _cross_guard: CXX_EXECUTABLE_LINKER___cross_guard_Debug CMakeFiles/_cross_guard.dir/src/main.cpp.o CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/TrafficLightController.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o
+build _cross_guard: CXX_EXECUTABLE_LINKER___cross_guard_Debug CMakeFiles/_cross_guard.dir/src/main.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/_cross_guard.dir
   POST_BUILD = :
