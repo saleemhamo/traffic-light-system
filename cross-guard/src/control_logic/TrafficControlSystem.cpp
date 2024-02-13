@@ -66,3 +66,7 @@ void TrafficControlSystem::handlePedestrianButtonPress() {
 void TrafficControlSystem::handlePedestrianSensorTrigger(bool isDetected) {
     // Implement according to how sensor detection affects the system state
 }
+
+TrafficControlSystem::State TrafficControlSystem::getCurrentState() {
+    return TrafficControlSystem::State::CAR_RED_PEDESTRIAN_GREEN;
+}

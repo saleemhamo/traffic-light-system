@@ -28,6 +28,8 @@ public:
 
     void handlePedestrianSensorTrigger(bool isDetected);
 
+    static State getCurrentState();
+
 private:
     State currentState; // Current state of the traffic control system
 

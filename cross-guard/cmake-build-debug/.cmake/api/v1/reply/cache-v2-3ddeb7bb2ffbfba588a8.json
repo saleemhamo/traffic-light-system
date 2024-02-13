@@ -530,6 +530,18 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_HAVE_LIBC_PTHREAD",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Test CMAKE_HAVE_LIBC_PTHREAD"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
 			"name" : "CMAKE_HOME_DIRECTORY",
 			"properties" : 
 			[
@@ -819,7 +831,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "_cross_guard"
+			"value" : "CrossGuard"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1118,7 +1130,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "_cross_guard_BINARY_DIR",
+			"name" : "CrossGuard_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1130,7 +1142,7 @@
 			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug"
 		},
 		{
-			"name" : "_cross_guard_IS_TOP_LEVEL",
+			"name" : "CrossGuard_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1142,7 +1154,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "_cross_guard_SOURCE_DIR",
+			"name" : "CrossGuard_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1152,6 +1164,66 @@
 			],
 			"type" : "STATIC",
 			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_GTest",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding GTest"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/opt/homebrew/lib/cmake/GTest/GTestConfig.cmake][c ][v1.14.0()]"
+		},
+		{
+			"name" : "GTest_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for GTest."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/homebrew/lib/cmake/GTest"
+		},
+		{
+			"name" : "_cross_guard_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/tests"
+		},
+		{
+			"name" : "_cross_guard_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "OFF"
+		},
+		{
+			"name" : "_cross_guard_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/tests"
 		}
 	],
 	"kind" : "cache",

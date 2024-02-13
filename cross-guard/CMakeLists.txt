@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.27)
-project(_cross_guard)
+project(CrossGuard)
 
 set(CMAKE_CXX_STANDARD 17)
+
+# Locate GTest
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(
         _cross_guard src/main.cpp
@@ -20,3 +24,11 @@ add_executable(
         src/utils/ErrorHandler.h
         src/utils/Logger.h
 )
+
+
+add_executable(GoogleTests tests/logic_tests/TrafficControlSystem_test.cpp src/control_logic/TrafficControlSystem.cpp)
+
+
+# Link GoogleTest to the test executable
+target_link_libraries(GoogleTests ${GTEST_LIBRARIES} pthread)
+
