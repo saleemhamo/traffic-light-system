@@ -8,7 +8,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(
-        _cross_guard src/main.cpp
+        _cross_guard src/main3.cpp
         src/actuators/TrafficLight.h
         src/actuators/PedestrianLight.h
         src/actuators/WarningSystem.h
@@ -23,6 +23,9 @@ add_executable(
         src/sensors/CameraSensor.h
         src/utils/ErrorHandler.h
         src/utils/Logger.h
+        src/control_logic/CarsTrafficLightComponent.h
+        src/control_logic/CarsTrafficLightComponent.cpp
+        src/main.cpp
 )
 
 

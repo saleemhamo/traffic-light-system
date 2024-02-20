@@ -16,8 +16,15 @@ public:
         // Additional states can be added as necessary
     };
 
-    TrafficControlSystem(); // Constructor
-    void update(); // To be called regularly to process logic and check for state transitions
+    // Constructor
+    TrafficControlSystem();
+
+    void run();
+
+    // To be called regularly to process logic and check for state transitions
+    void update();
+
+    static State getCurrentState();
 
     // Handlers for various triggers
     void handleCarTrafficLightChange(bool isGreen);
@@ -28,10 +35,12 @@ public:
 
     void handlePedestrianSensorTrigger(bool isDetected);
 
-    static State getCurrentState();
 
 private:
     State currentState; // Current state of the traffic control system
+    State defaultState = TrafficControlSystem::State::CAR_RED_PEDESTRIAN_GREEN;
+
+    void initializeSystemState();
 
     // Private method to change the state of the system
     void changeState(State newState);

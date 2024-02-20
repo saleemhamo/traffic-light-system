@@ -1,12 +1,10 @@
 # ninja log v5
-547	588	1707818777185187599	GoogleTests	2951805ad7f308b0
+670	722	1707822862986553480	GoogleTests	2951805ad7f308b0
+1	80	1707817221385478128	CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o	3773646328c68292
 7	207	1707818755040453795	CMakeFiles/GoogleTests.dir/src/control_logic/TrafficControlSystem.cpp.o	2c0f1d034a7d5900
 314	351	1707817221657245982	_cross_guard	acac1592d07407aa
 0	314	1707817221619315058	CMakeFiles/_cross_guard.dir/src/main.cpp.o	6eaed53bc74f5e87
-1	80	1707817221385478128	CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o	3773646328c68292
+5	669	1707822862930197574	CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o	2fc9d81eff16e845
 0	62	1707817221364457272	CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o	f9cd59e6581ff1fe
 1	62	1707817221364457230	CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o	943abb16d637eece
-6	547	1707818777139875288	CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o	2fc9d81eff16e845
-6	68	1707822862258986521	build.ninja	282f1f1e0c929a93
-5	669	1707822862930197574	CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o	2fc9d81eff16e845
-670	722	1707822862986553480	GoogleTests	2951805ad7f308b0
+6	68	1708425358446746737	build.ninja	282f1f1e0c929a93

@@ -9,6 +9,11 @@ TrafficControlSystem::TrafficControlSystem() : currentState(State::CAR_RED_PEDES
     updateOutputs(); // Ensure outputs match the initial state
 }
 
+// TODO: Create and move to system handler, create system handler interface and add it  to this system and the cars traffic light system
+void TrafficControlSystem::run() {
+
+}
+
 void TrafficControlSystem::update() {
     /*
      * This method would be called in a loop to regularly check for state transitions
@@ -16,10 +21,16 @@ void TrafficControlSystem::update() {
      */
 }
 
+
 void TrafficControlSystem::changeState(State newState) {
     currentState = newState;
     updateOutputs(); // Update outputs anytime the state changes
 }
+
+void TrafficControlSystem::initializeSystemState() {
+    updateOutputs(); // Update outputs anytime the state changes
+}
+
 
 void TrafficControlSystem::updateOutputs() {
     // Based on the current state, control the traffic lights, buzzer, and warning light
