@@ -2,7 +2,21 @@
 // Created by Saleem Hamo on 07/02/2024.
 //
 
-#ifndef _CROSS_GUARD_CAMERASENSOR_H
-#define _CROSS_GUARD_CAMERASENSOR_H
+#include <atomic>  // For std::atomic
 
-#endif //_CROSS_GUARD_CAMERASENSOR_H
+class UltrasonicSensor {
+public:
+    UltrasonicSensor(int triggerPin, int echoPin);
+
+    ~UltrasonicSensor();
+
+    void initialize();
+
+    double getDistance();  // Returns the distance measured by the sensor
+
+private:
+    int triggerPin;
+    int echoPin;
+    std::atomic<bool> isInitialized{false};
+};
+

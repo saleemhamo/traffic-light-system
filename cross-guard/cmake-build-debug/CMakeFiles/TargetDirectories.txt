@@ -1,4 +1,3 @@
-/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/_cross_guard.dir
-/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/GoogleTests.dir
+/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/CrossGuard.dir
 /Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/CMakeFiles/rebuild_cache.dir

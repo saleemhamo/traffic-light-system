@@ -7,4 +7,4 @@
 5	669	1707822862930197574	CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o	2fc9d81eff16e845
 0	62	1707817221364457272	CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o	f9cd59e6581ff1fe
 1	62	1707817221364457230	CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o	943abb16d637eece
-6	68	1708425358446746737	build.ninja	282f1f1e0c929a93
+6	68	1708434122002278984	build.ninja	282f1f1e0c929a93

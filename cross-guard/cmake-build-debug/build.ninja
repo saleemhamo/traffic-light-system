@@ -41,105 +41,89 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target _cross_guard
+# Object build statements for EXECUTABLE target CrossGuard
 
 
 #############################################
-# Order-only phony target for _cross_guard
+# Order-only phony target for CrossGuard
 
-build cmake_object_order_depends_target__cross_guard: phony || CMakeFiles/_cross_guard.dir
+build cmake_object_order_depends_target_CrossGuard: phony || CMakeFiles/CrossGuard.dir
 
-build CMakeFiles/_cross_guard.dir/src/main3.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main3.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/main3.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficControlSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/control_logic
 
-build CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/StateTransitionLogic.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/models/TrafficLight.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/models
 
-build CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficControlSystem.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/warning_system/WarningSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/warning_system
 
-build CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/sensors/CameraSensor.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/checking_system/CheckingSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/sensors
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/checking_system
 
-build CMakeFiles/_cross_guard.dir/src/control_logic/CarsTrafficLightComponent.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/CarsTrafficLightComponent.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/control_logic/CarsTrafficLightComponent.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/main.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src/control_logic
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src
 
-build CMakeFiles/_cross_guard.dir/src/main.cpp.o: CXX_COMPILER___cross_guard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main.cpp || cmake_object_order_depends_target__cross_guard
-  DEP_FILE = CMakeFiles/_cross_guard.dir/src/main.cpp.o.d
+build CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/actuators/LED.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
-  OBJECT_FILE_DIR = CMakeFiles/_cross_guard.dir/src
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/actuators
+
+build CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system
+
+build CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system
+
+build CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/actuators/Buzzer.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/actuators
+
+build CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/MainSystem.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target _cross_guard
+# Link build statements for EXECUTABLE target CrossGuard
 
 
 #############################################
-# Link the executable _cross_guard
+# Link the executable CrossGuard
 
-build _cross_guard: CXX_EXECUTABLE_LINKER___cross_guard_Debug CMakeFiles/_cross_guard.dir/src/main3.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/StateTransitionLogic.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/TrafficControlSystem.cpp.o CMakeFiles/_cross_guard.dir/src/sensors/CameraSensor.cpp.o CMakeFiles/_cross_guard.dir/src/control_logic/CarsTrafficLightComponent.cpp.o CMakeFiles/_cross_guard.dir/src/main.cpp.o
+build CrossGuard: CXX_EXECUTABLE_LINKER__CrossGuard_Debug CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  OBJECT_DIR = CMakeFiles/_cross_guard.dir
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = _cross_guard
-  TARGET_PDB = _cross_guard.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target GoogleTests
-
-
-#############################################
-# Order-only phony target for GoogleTests
-
-build cmake_object_order_depends_target_GoogleTests: phony || CMakeFiles/GoogleTests.dir
-
-build CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o: CXX_COMPILER__GoogleTests_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/tests/logic_tests/TrafficControlSystem_test.cpp || cmake_object_order_depends_target_GoogleTests
-  DEP_FILE = CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  INCLUDES = -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/GoogleTests.dir
-  OBJECT_FILE_DIR = CMakeFiles/GoogleTests.dir/tests/logic_tests
-
-build CMakeFiles/GoogleTests.dir/src/control_logic/TrafficControlSystem.cpp.o: CXX_COMPILER__GoogleTests_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficControlSystem.cpp || cmake_object_order_depends_target_GoogleTests
-  DEP_FILE = CMakeFiles/GoogleTests.dir/src/control_logic/TrafficControlSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  INCLUDES = -isystem /opt/homebrew/include
-  OBJECT_DIR = CMakeFiles/GoogleTests.dir
-  OBJECT_FILE_DIR = CMakeFiles/GoogleTests.dir/src/control_logic
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target GoogleTests
-
-
-#############################################
-# Link the executable GoogleTests
-
-build GoogleTests: CXX_EXECUTABLE_LINKER__GoogleTests_Debug CMakeFiles/GoogleTests.dir/tests/logic_tests/TrafficControlSystem_test.cpp.o CMakeFiles/GoogleTests.dir/src/control_logic/TrafficControlSystem.cpp.o | /opt/homebrew/lib/libgtest.a
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LINK_LIBRARIES = /opt/homebrew/lib/libgtest.a  -lpthread
-  OBJECT_DIR = CMakeFiles/GoogleTests.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = GoogleTests
-  TARGET_PDB = GoogleTests.dbg
+  TARGET_FILE = CrossGuard
+  TARGET_PDB = CrossGuard.dbg
 
 
 #############################################
@@ -175,7 +159,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug
 
-build all: phony _cross_guard GoogleTests
+build all: phony CrossGuard
 
 # =============================================================================
 # Built-in targets
@@ -184,14 +168,14 @@ build all: phony _cross_guard GoogleTests
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindGTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/GoogleTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/CMakeLists.txt /opt/homebrew/lib/cmake/GTest/GTestConfig.cmake /opt/homebrew/lib/cmake/GTest/GTestConfigVersion.cmake /opt/homebrew/lib/cmake/GTest/GTestTargets-release.cmake /opt/homebrew/lib/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindGTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/GoogleTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/CMakeLists.txt /opt/homebrew/lib/cmake/GTest/GTestConfig.cmake /opt/homebrew/lib/cmake/GTest/GTestConfigVersion.cmake /opt/homebrew/lib/cmake/GTest/GTestTargets-release.cmake /opt/homebrew/lib/cmake/GTest/GTestTargets.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

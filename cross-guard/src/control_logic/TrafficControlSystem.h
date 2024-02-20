@@ -5,7 +5,9 @@
 #ifndef TRAFFICCONTROLSYSTEM_H
 #define TRAFFICCONTROLSYSTEM_H
 
-class TrafficControlSystem {
+#include "../main/SystemInterface.h"
+
+class TrafficControlSystem : public SystemInterface {
 public:
     // Enum to represent the various states of the traffic control system
     enum class State {
@@ -19,12 +21,7 @@ public:
     // Constructor
     TrafficControlSystem();
 
-    void run();
-
-    // To be called regularly to process logic and check for state transitions
-    void update();
-
-    static State getCurrentState();
+    TrafficControlSystem::State getCurrentState();
 
     // Handlers for various triggers
     void handleCarTrafficLightChange(bool isGreen);
@@ -35,10 +32,12 @@ public:
 
     void handlePedestrianSensorTrigger(bool isDetected);
 
+    // Override system interface
+    void run() const override;
 
 private:
-    State currentState; // Current state of the traffic control system
-    State defaultState = TrafficControlSystem::State::CAR_RED_PEDESTRIAN_GREEN;
+    State currentState;
+    State defaultState;
 
     void initializeSystemState();
 
@@ -47,6 +46,10 @@ private:
 
     // Private method to update the outputs (lights, buzzer) based on the current state
     void updateOutputs();
+
+    void run();
+
+    void update();
 };
 
 #endif // TRAFFICCONTROLSYSTEM_H

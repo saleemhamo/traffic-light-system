@@ -15,8 +15,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
@@ -31,8 +30,7 @@
 					"name" : "CrossGuard",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
@@ -40,16 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "GoogleTests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-GoogleTests-Debug-fdcd9b233af34626fc17.json",
-					"name" : "GoogleTests",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "_cross_guard::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-_cross_guard-Debug-fa91e5f12f824573b6d2.json",
-					"name" : "_cross_guard",
+					"id" : "CrossGuard::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CrossGuard-Debug-922ddfe4477764fd2b09.json",
+					"name" : "CrossGuard",
 					"projectIndex" : 0
 				}
 			]

@@ -4,34 +4,41 @@ project(CrossGuard)
 set(CMAKE_CXX_STANDARD 17)
 
 # Locate GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
+#find_package(GTest REQUIRED)
+#include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(
-        _cross_guard src/main3.cpp
-        src/actuators/TrafficLight.h
-        src/actuators/PedestrianLight.h
-        src/actuators/WarningSystem.h
-        src/communication/ProtocolHandler.h
-        src/control_logic/StateTransitionLogic.h
-        src/control_logic/StateTransitionLogic.cpp
+add_executable(CrossGuard
+        src/actuators/Buzzer.h
+        src/actuators/LED.h
         src/control_logic/TrafficControlSystem.h
         src/control_logic/TrafficControlSystem.cpp
-        src/models/PedestrianEvent.h
-        src/models/TrafficState.h
-        src/sensors/CameraSensor.cpp
-        src/sensors/CameraSensor.h
         src/utils/ErrorHandler.h
         src/utils/Logger.h
-        src/control_logic/CarsTrafficLightComponent.h
-        src/control_logic/CarsTrafficLightComponent.cpp
+        src/models/TrafficLight.cpp
+        src/models/TrafficLight.h
+        src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h
+        src/main/cars_traffic_light_system/CarsTrafficLightSystem.h
+        src/main/warning_system/WarningSystem.cpp
+        src/main/warning_system/WarningSystem.h
+        src/main/checking_system/CheckingSystem.cpp
         src/main.cpp
+        src/actuators/LED.cpp
+        src/main/SystemInterface.h
+        src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp
+        src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp
+        src/actuators/Buzzer.cpp
+        src/sensors/UltrasonicSensor.h
+        src/sensors/CameraSensor.h
+        src/main/checking_system/CheckingSystem.h
+        src/main/MainSystem.h
+        src/main/MainSystem.cpp
+        src/utils/Constants.h
 )
 
 
-add_executable(GoogleTests tests/logic_tests/TrafficControlSystem_test.cpp src/control_logic/TrafficControlSystem.cpp)
+#add_executable(GoogleTests tests/logic_tests/TrafficControlSystem_test.cpp src/control_logic/TrafficControlSystem.cpp)
 
 
 # Link GoogleTest to the test executable
-target_link_libraries(GoogleTests ${GTEST_LIBRARIES} pthread)
+#target_link_libraries(GoogleTests ${GTEST_LIBRARIES} pthread)
 

@@ -1,28 +1,34 @@
-#include "control_logic/TrafficControlSystem.h"
-#include "control_logic/CarsTrafficLightComponent.h"
 
-// Function prototypes for initializing GPIO and reading inputs
-void initializeSystem();
-
+#include "./main/MainSystem.h"
+#include <iostream>
+#include <string>
+#include <chrono>  // For std::chrono
+#include <thread>  // For std::this_thread
 
 int main() {
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.run();
 
-    TrafficControlSystem trafficControlSystem;
-    CarsTrafficLightComponent carsTrafficLightComponent;
+    // Keep the application running in a loop
+    std::string command;
+    while (true) {
+        // Here, for simplicity, we just sleep and keep the program alive
+        // In a real application, you might check for input to shut down,
+        // monitor system status, or perform other background tasks.
+        std::this_thread::sleep_for(std::chrono::seconds(1));  // Sleep for a bit to reduce CPU usage
 
-    // Initialize the traffic control system and GPIO
-    initializeSystem();
+        // Example: Check for a termination command or condition
+        std::cout << "Type 'exit' to stop the system: ";
+        std::getline(std::cin, command);
+        if (command == "exit") {
+            break;  // Exit the loop if 'exit' command is given
+        }
+    }
 
-    // start cars traffic light
-    carsTrafficLightComponent.run();
-
-    // start traffic control logic
-    trafficControlSystem.run();
+    // Implement any necessary cleanup before shutting down
+    // Note: Depending on your system's requirements, you might need to properly
+    // shut down subsystems or handle other cleanup tasks here.
 
     return 0;
-}
-
-void initializeSystem() {
-    // Initialize GPIO pins for inputs and outputs
-    // This is placeholder logic. Use specific GPIO library calls here.
 }
