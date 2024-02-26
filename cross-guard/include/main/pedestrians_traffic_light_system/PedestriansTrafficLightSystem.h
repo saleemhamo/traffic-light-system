@@ -3,12 +3,15 @@
 //
 #include "models/TrafficLight.h"
 #include "main/SystemInterface.h"
-
+#include "utils/Constants.h"
 
 class PedestriansTrafficLightSystem : public TrafficLight, public SystemInterface {
 public:
     // Constructor
-    PedestriansTrafficLightSystem(int redPin, int greenPin);
+    PedestriansTrafficLightSystem();
+
+    static const int redPin = Constants::PedestriansTrafficLightGreenPin;
+    static const int greenPin = Constants::PedestriansTrafficLightRedPin;
 
     // ISystem interface methods
     void initialize() override;

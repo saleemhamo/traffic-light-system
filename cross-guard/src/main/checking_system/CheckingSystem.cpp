@@ -4,18 +4,7 @@
 #include "main/checking_system/CheckingSystem.h"
 #include <chrono>  // For std::chrono
 
-CheckingSystem::CheckingSystem(
-        int ultrasonic1TriggerPin,
-        int ultrasonic1EchoPin,
-        int ultrasonic2TriggerPin,
-        int ultrasonic2EchoPin,
-        int buttonPin
-) :
-        ultrasonic1TriggerPin(ultrasonic1TriggerPin),
-        ultrasonic1EchoPin(ultrasonic1EchoPin),
-        ultrasonic2TriggerPin(ultrasonic2TriggerPin),
-        ultrasonic2EchoPin(ultrasonic2EchoPin),
-        buttonPin(buttonPin) {
+CheckingSystem::CheckingSystem() {
 //    pedestrianSensor
 }
 

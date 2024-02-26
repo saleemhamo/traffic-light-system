@@ -4,8 +4,7 @@
 #include "main/cars_traffic_light_system/CarsTrafficLightSystem.h"
 #include <unistd.h>  // For sleep()
 
-CarsTrafficLightSystem::CarsTrafficLightSystem(int redPin, int greenPin)
-        : TrafficLight(redPin, greenPin) {}
+CarsTrafficLightSystem::CarsTrafficLightSystem() : TrafficLight(redPin, greenPin) {}
 
 void CarsTrafficLightSystem::initialize() {
     // run all states with delays!

@@ -3,26 +3,12 @@
 //
 
 #include "main/MainSystem.h"
-#include "utils/Constants.h"
-
-using namespace Constants;
 
 MainSystem::MainSystem() :
-        pedestriansTrafficLight(
-                PedestriansTrafficLightRedPin, PedestriansTrafficLightGreenPin
-        ),
-        carsTrafficLight(
-                CarsTrafficLightRedPin, CarsTrafficLightGreenPin
-        ),
-        checkingSystem(
-                CheckingSystemUltrasonic1TriggerPin,
-                CheckingSystemUltrasonic1EchoPin,
-                CheckingSystemUltrasonic2TriggerPin,
-                CheckingSystemUltrasonic2EchoPin,
-                CheckingSystemButtonPin
-        ),
-        warningSystem(
-                WarningSystemLedPin, WarningSystemBuzzerPin) {
+        pedestriansTrafficLight(),
+        carsTrafficLight(),
+        checkingSystem(),
+        warningSystem() {
     // Constructor implementation
 }
 

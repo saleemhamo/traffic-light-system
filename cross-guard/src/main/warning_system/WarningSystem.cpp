@@ -3,8 +3,10 @@
 //
 #include "main/warning_system/WarningSystem.h"
 
-WarningSystem::WarningSystem(int ledPin, int buzzerPin)
-        : warningLED(ledPin), warningBuzzer(buzzerPin), isInitialized(false) {}
+WarningSystem::WarningSystem() :
+        warningLED(ledPin),
+        warningBuzzer(buzzerPin),
+        isInitialized(false) {}
 
 void WarningSystem::initialize() {
     // Initialize the LED and buzzer (if necessary)

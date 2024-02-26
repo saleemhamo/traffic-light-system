@@ -2,6 +2,9 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
+#ifndef CONSTANTS_H // If CONSTANTS_H is not defined
+#define CONSTANTS_H // Define CONSTANTS_H
+
 namespace Constants {
     constexpr int PedestriansTrafficLightRedPin = 5;
     constexpr int PedestriansTrafficLightGreenPin = 6;
@@ -17,3 +20,4 @@ namespace Constants {
     // Add more constants here
 }
 
+#endif // End of the header guard

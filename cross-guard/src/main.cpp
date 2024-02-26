@@ -6,7 +6,7 @@
 //#include <thread>  // For std::this_thread
 
 int main() {
-    PedestriansTrafficLightSystem trafficLight(1, 2); // Assuming '1' is a GPIO pin number
+    PedestriansTrafficLightSystem trafficLight; // Assuming '1' is a GPIO pin number
     trafficLight.turnOff();
     trafficLight.turnGreen();
     trafficLight.turnRed();
