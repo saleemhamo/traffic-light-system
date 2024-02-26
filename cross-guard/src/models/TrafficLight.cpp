@@ -26,7 +26,7 @@ void TrafficLight::turnOff() {
 
 void TrafficLight::changeStateAfterTimeout(int timeoutMillis) {
 //    TODO
-//    sleep(timeoutSeconds);
+//    sleep(timeoutMillis);
 //    if (newState == "RED") {
 //        turnRed();
 //    } else if (newState == "GREEN") {

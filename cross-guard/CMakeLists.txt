@@ -33,6 +33,9 @@ add_executable(CrossGuard
         src/main/MainSystem.h
         src/main/MainSystem.cpp
         src/utils/Constants.h
+        tests/hardware_tests/actuators/LED_test.cpp
+        tests/hardware_tests/actuators/Buzzer_test.cpp
+        src/sensors/UltrasonicSensor.cpp
 )
 
 
