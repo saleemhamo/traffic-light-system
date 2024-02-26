@@ -4,17 +4,17 @@
 
 #ifdef __APPLE__
 
-#include "../wiringPiStub.h"
+#include "wiringPiStub.h"
 
 #else
 #include <wiringPi.h>
 #endif
 
-#include "LED.h"
+#include "actuators/LED.h"
 
 
 LED::LED(int pin) : pin(pin) {
-    wiringPiSetup();  // Setup the wiringPi library
+//    wiringPiSetup();  // Setup the wiringPi library
     pinMode(pin, OUTPUT);  // Set the pin mode to output
 }
 

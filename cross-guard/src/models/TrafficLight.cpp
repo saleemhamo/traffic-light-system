@@ -1,7 +1,7 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "TrafficLight.h"
+#include "../../include/models/TrafficLight.h"
 #include <unistd.h>  // For sleep()
 
 TrafficLight::TrafficLight(int redPin, int greenPin) : redLED(redPin), greenLED(greenPin), currentState(0) {}

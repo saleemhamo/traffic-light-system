@@ -226,6 +226,15 @@ CrossGuard_SOURCE_DIR:STATIC=/Users/saleemhamo/Desktop/University/Semester 2/Rea
 GTest_DIR:PATH=/opt/homebrew/lib/cmake/GTest
 
 //Value Computed by CMake
+MyProject_BINARY_DIR:STATIC=/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug
+
+//Value Computed by CMake
+MyProject_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+MyProject_SOURCE_DIR:STATIC=/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard
+
+//Value Computed by CMake
 _cross_guard_BINARY_DIR:STATIC=/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/cmake-build-debug/tests
 
 //Value Computed by CMake

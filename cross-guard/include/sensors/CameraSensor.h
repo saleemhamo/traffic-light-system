@@ -9,7 +9,7 @@ class CameraSensor {
 public:
     CameraSensor();
 
-    ~CameraSensor();
+//    ~CameraSensor();
 
     void initialize();
 

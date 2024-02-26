@@ -49,83 +49,33 @@ cmake_ninja_workdir = /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Tim
 
 build cmake_object_order_depends_target_CrossGuard: phony || CMakeFiles/CrossGuard.dir
 
-build CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/control_logic/TrafficControlSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/control_logic
-
-build CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/models/TrafficLight.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/models
-
-build CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/warning_system/WarningSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/warning_system
-
-build CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/checking_system/CheckingSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/checking_system
-
 build CMakeFiles/CrossGuard.dir/src/main.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main.cpp || cmake_object_order_depends_target_CrossGuard
   DEP_FILE = CMakeFiles/CrossGuard.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -I"/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/include"
+  OBJECT_DIR = CMakeFiles/CrossGuard.dir
+  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src
+
+build CMakeFiles/CrossGuard.dir/src/wiringPiStub.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/wiringPiStub.cpp || cmake_object_order_depends_target_CrossGuard
+  DEP_FILE = CMakeFiles/CrossGuard.dir/src/wiringPiStub.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -I"/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/include"
   OBJECT_DIR = CMakeFiles/CrossGuard.dir
   OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src
 
 build CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/actuators/LED.cpp || cmake_object_order_depends_target_CrossGuard
   DEP_FILE = CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -I"/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/include"
   OBJECT_DIR = CMakeFiles/CrossGuard.dir
   OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/actuators
-
-build CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system
-
-build CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system
 
 build CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/actuators/Buzzer.cpp || cmake_object_order_depends_target_CrossGuard
   DEP_FILE = CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -I"/Users/saleemhamo/Desktop/University/Semester 2/Real Time Embedded Programming/traffic-light-system/cross-guard/include"
   OBJECT_DIR = CMakeFiles/CrossGuard.dir
   OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/actuators
-
-build CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/main/MainSystem.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/main
-
-build CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/LED_test.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/tests/hardware_tests/actuators/LED_test.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/LED_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators
-
-build CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/Buzzer_test.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/tests/hardware_tests/actuators/Buzzer_test.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/Buzzer_test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators
-
-build CMakeFiles/CrossGuard.dir/src/sensors/UltrasonicSensor.cpp.o: CXX_COMPILER__CrossGuard_unscanned_Debug /Users/saleemhamo/Desktop/University/Semester$ 2/Real$ Time$ Embedded$ Programming/traffic-light-system/cross-guard/src/sensors/UltrasonicSensor.cpp || cmake_object_order_depends_target_CrossGuard
-  DEP_FILE = CMakeFiles/CrossGuard.dir/src/sensors/UltrasonicSensor.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/CrossGuard.dir
-  OBJECT_FILE_DIR = CMakeFiles/CrossGuard.dir/src/sensors
 
 
 # =============================================================================
@@ -135,7 +85,7 @@ build CMakeFiles/CrossGuard.dir/src/sensors/UltrasonicSensor.cpp.o: CXX_COMPILER
 #############################################
 # Link the executable CrossGuard
 
-build CrossGuard: CXX_EXECUTABLE_LINKER__CrossGuard_Debug CMakeFiles/CrossGuard.dir/src/control_logic/TrafficControlSystem.cpp.o CMakeFiles/CrossGuard.dir/src/models/TrafficLight.cpp.o CMakeFiles/CrossGuard.dir/src/main/warning_system/WarningSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main/checking_system/CheckingSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o CMakeFiles/CrossGuard.dir/src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp.o CMakeFiles/CrossGuard.dir/src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o CMakeFiles/CrossGuard.dir/src/main/MainSystem.cpp.o CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/LED_test.cpp.o CMakeFiles/CrossGuard.dir/tests/hardware_tests/actuators/Buzzer_test.cpp.o CMakeFiles/CrossGuard.dir/src/sensors/UltrasonicSensor.cpp.o
+build CrossGuard: CXX_EXECUTABLE_LINKER__CrossGuard_Debug CMakeFiles/CrossGuard.dir/src/main.cpp.o CMakeFiles/CrossGuard.dir/src/wiringPiStub.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/LED.cpp.o CMakeFiles/CrossGuard.dir/src/actuators/Buzzer.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   OBJECT_DIR = CMakeFiles/CrossGuard.dir
   POST_BUILD = :

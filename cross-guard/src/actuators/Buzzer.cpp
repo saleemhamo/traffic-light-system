@@ -4,15 +4,13 @@
 
 #ifdef __APPLE__
 
-#include "../wiringPiStub.h"
+#include "wiringPiStub.h"
 
 #else
 #include <wiringPi.h>
 #endif
 
-#include "LED.h"
-
-#include "Buzzer.h"
+#include "actuators/Buzzer.h"
 
 Buzzer::Buzzer(int pin) : pin(pin) {
     wiringPiSetup();  // Setup the wiringPi library

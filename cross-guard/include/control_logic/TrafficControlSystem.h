@@ -33,7 +33,7 @@ public:
     void handlePedestrianSensorTrigger(bool isDetected);
 
     // Override system interface
-    void run() const override;
+    void run();
 
 private:
     State currentState;
@@ -46,8 +46,6 @@ private:
 
     // Private method to update the outputs (lights, buzzer) based on the current state
     void updateOutputs();
-
-    void run();
 
     void update();
 };
