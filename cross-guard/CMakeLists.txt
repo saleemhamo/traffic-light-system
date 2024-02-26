@@ -12,6 +12,7 @@ include_directories(include)
 add_executable(CrossGuard
         src/main.cpp
         src/wiringPiStub.cpp # Stub file
+        src/utils/Logger.cpp
 
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
@@ -25,6 +26,10 @@ add_executable(CrossGuard
         src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp
         src/main/warning_system/WarningSystem.cpp
         src/main/checking_system/CheckingSystem.cpp
+
+
+        src/main/MainSystem.cpp
+
 
 )
 

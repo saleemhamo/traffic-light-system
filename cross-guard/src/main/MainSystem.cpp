@@ -5,12 +5,9 @@
 #include "main/MainSystem.h"
 
 MainSystem::MainSystem() :
-        pedestriansTrafficLight(),
-        carsTrafficLight(),
-        checkingSystem(),
-        warningSystem() {
-    // Constructor implementation
-}
+        carsTrafficLight(&mtx, &cv, &carLightGreen),
+        pedestriansTrafficLight(&mtx, &cv, &carLightGreen) {}
+
 
 MainSystem::~MainSystem() {
     // Destructor for cleaning up resources
@@ -37,3 +34,10 @@ void MainSystem::run() {
     // This could be done using observer patterns, events, or direct method calls based on the state
 }
 
+void MainSystem::runSystems() {
+    std::thread carsThread(&CarsTrafficLightSystem::run, &carsTrafficLight);
+    std::thread pedestriansThread(&PedestriansTrafficLightSystem::run, &pedestriansTrafficLight);
+
+    carsThread.join();
+    pedestriansThread.join();
+}
