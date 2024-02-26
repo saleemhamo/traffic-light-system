@@ -5,7 +5,7 @@
 #ifndef TRAFFICCONTROLSYSTEM_H
 #define TRAFFICCONTROLSYSTEM_H
 
-#include "../main/SystemInterface.h"
+#include "main/SystemInterface.h"
 
 class TrafficControlSystem : public SystemInterface {
 public:

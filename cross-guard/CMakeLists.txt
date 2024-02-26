@@ -12,13 +12,25 @@ include_directories(include)
 add_executable(CrossGuard
         src/main.cpp
         src/wiringPiStub.cpp # Stub file
+
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
+
+        # src/sensors/CameraSensor.cpp
+        # src/sensors/UltrasonicSensor.cpp
+
+        src/models/TrafficLight.cpp
+
+        src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp
+        src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp
+        src/main/warning_system/WarningSystem.cpp
+        src/main/checking_system/CheckingSystem.cpp
+
 )
 
 # Uncomment below to add Google Test (if you have tests)
-# enable_testing()
-# add_subdirectory(tests)
+#enable_testing()
+#add_subdirectory(tests/hardware_tests/actuators)
 
 
 #cmake_minimum_required(VERSION 3.27)

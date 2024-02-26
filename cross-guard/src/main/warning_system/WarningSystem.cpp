@@ -1,7 +1,7 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "../../../include/main/warning_system/WarningSystem.h"
+#include "main/warning_system/WarningSystem.h"
 
 WarningSystem::WarningSystem(int ledPin, int buzzerPin)
         : warningLED(ledPin), warningBuzzer(buzzerPin), isInitialized(false) {}

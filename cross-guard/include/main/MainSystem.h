@@ -2,10 +2,10 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
-#include "./pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
-#include "./cars_traffic_light_system/CarsTrafficLightSystem.h"
-#include "./checking_system/CheckingSystem.h"
-#include "./warning_system/WarningSystem.h"
+#include "main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
+#include "main/cars_traffic_light_system/CarsTrafficLightSystem.h"
+#include "main/checking_system/CheckingSystem.h"
+#include "main/warning_system/WarningSystem.h"
 
 class MainSystem {
 public:

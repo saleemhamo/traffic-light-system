@@ -2,7 +2,7 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 #include <string>
-#include "../actuators/LED.h"
+#include "actuators/LED.h"
 
 #ifndef CROSSGUARD_TRAFFICLIGHT_H
 #define CROSSGUARD_TRAFFICLIGHT_H

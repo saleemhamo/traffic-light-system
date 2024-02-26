@@ -1,9 +1,9 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "../../actuators/LED.h"
-#include "../../actuators/Buzzer.h"
-#include "../SystemInterface.h"
+#include "actuators/LED.h"
+#include "actuators/Buzzer.h"
+#include "main/SystemInterface.h"
 
 class WarningSystem : public SystemInterface {  // Inherit from ISystem
 public:

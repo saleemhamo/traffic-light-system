@@ -1,15 +1,15 @@
 
-#include "./main/MainSystem.h"
+#include "main/MainSystem.h"
 //#include <iostream>
 //#include <string>
 //#include <chrono>  // For std::chrono
 //#include <thread>  // For std::this_thread
 
 int main() {
-    Buzzer buzzer(1); // Assuming '1' is a GPIO pin number
-    buzzer.on();
-    // Add delay or other logic as needed
-    buzzer.off();
+    PedestriansTrafficLightSystem trafficLight(1, 2); // Assuming '1' is a GPIO pin number
+    trafficLight.turnOff();
+    trafficLight.turnGreen();
+    trafficLight.turnRed();
     return 0;
 
 //    MainSystem mainSystem;

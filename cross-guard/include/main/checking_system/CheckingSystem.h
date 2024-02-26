@@ -2,9 +2,9 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
-#include "../SystemInterface.h"
-#include "../../sensors/CameraSensor.h"
-#include "../../sensors/UltrasonicSensor.h"
+#include "main/SystemInterface.h"
+#include "sensors/CameraSensor.h"
+#include "sensors/UltrasonicSensor.h"
 #include <thread>
 #include <atomic>
 
@@ -37,7 +37,7 @@ private:
     int ultrasonic2EchoPin;
     int buttonPin;
 
-    CameraSensor camera;
+//    CameraSensor camera;
 //    UltrasonicSensor pedestrianSensor;
 //    UltrasonicSensor roadSensor;
 

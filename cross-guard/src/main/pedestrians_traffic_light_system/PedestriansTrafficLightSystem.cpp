@@ -1,7 +1,7 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "../../../include/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
+#include "main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
 #include <unistd.h>  // For sleep()
 
 PedestriansTrafficLightSystem::PedestriansTrafficLightSystem(int redPin, int greenPin)

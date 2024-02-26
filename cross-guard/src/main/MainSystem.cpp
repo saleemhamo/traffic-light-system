@@ -2,8 +2,8 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
-#include "../../include/main/MainSystem.h"
-#include "../../include/utils/Constants.h"
+#include "main/MainSystem.h"
+#include "utils/Constants.h"
 
 using namespace Constants;
 

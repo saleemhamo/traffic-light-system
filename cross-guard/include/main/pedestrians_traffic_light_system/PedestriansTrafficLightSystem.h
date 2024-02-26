@@ -1,8 +1,8 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "../../models/TrafficLight.h"
-#include "../SystemInterface.h"
+#include "models/TrafficLight.h"
+#include "main/SystemInterface.h"
 
 
 class PedestriansTrafficLightSystem : public TrafficLight, public SystemInterface {
