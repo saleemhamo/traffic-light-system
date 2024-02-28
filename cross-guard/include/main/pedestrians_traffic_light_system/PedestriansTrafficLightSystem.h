@@ -6,6 +6,9 @@
 #include "utils/Constants.h"
 #include <thread>
 #include <atomic>
+#include <mutex>
+#include <condition_variable>
+
 
 class PedestriansTrafficLightSystem : public TrafficLight, public SystemInterface {
 private:
