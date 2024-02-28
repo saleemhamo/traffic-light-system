@@ -33,6 +33,9 @@ add_executable(CrossGuard
 
 )
 
+# Link with wiringPi library
+target_link_libraries(CrossGuard wiringPi)
+
 # Uncomment below to add Google Test (if you have tests)
 #enable_testing()
 #add_subdirectory(tests/hardware_tests/actuators)
