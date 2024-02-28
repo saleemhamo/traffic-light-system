@@ -14,7 +14,7 @@
 
 
 LED::LED(int pin) : pin(pin) {
-//    wiringPiSetup();  // Setup the wiringPi library
+    wiringPiSetup();  // Setup the wiringPi library
     pinMode(pin, OUTPUT);  // Set the pin mode to output
 }
 
