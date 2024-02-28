@@ -6,10 +6,11 @@
 #define CONSTANTS_H // Define CONSTANTS_H
 
 namespace Constants {
-    constexpr int PedestriansTrafficLightRedPin = 5;
-    constexpr int PedestriansTrafficLightGreenPin = 6;
-    constexpr int CarsTrafficLightRedPin = 13;
-    constexpr int CarsTrafficLightGreenPin = 19;
+    constexpr int PedestriansTrafficLightRedPin = 7;
+    constexpr int PedestriansTrafficLightGreenPin = 11;
+    constexpr int CarsTrafficLightRedPin = 29;
+//    constexpr int CarsTrafficLightRedPin = 1; // TODO: yellow
+    constexpr int CarsTrafficLightGreenPin = 18;
     constexpr int CheckingSystemUltrasonic1TriggerPin = 23;
     constexpr int CheckingSystemUltrasonic1EchoPin = 23;
     constexpr int CheckingSystemUltrasonic2TriggerPin = 23;
