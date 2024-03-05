@@ -1,85 +1,34 @@
-#include "control_logic/TrafficControlSystem.h"
-#include <chrono>
-#include <thread>
 
-using namespace std;
-
-// Function prototypes for initializing GPIO and reading inputs
-void initializeSystem();
-
-bool readCarTrafficLightSensor();
-
-bool readRoadStatusSensor();
-
-bool readPedestrianButton();
-
-bool readPedestrianSensor();
+#include "main/MainSystem.h"
+#include <iostream>
+#include <string>
+#include <chrono>  // For std::chrono
+#include <thread>  // For std::this_thread
 
 int main() {
-    // Initialize the traffic control system and GPIO
-    TrafficControlSystem trafficControlSystem;
-    initializeSystem();
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.runSystems();
 
-    // TODO: initialize a thread that acts as the normal cars traffic light
-    // Our system should read input from there and just send a signal to make it red when necessary (transition to CAR_RED_PEDESTRIAN_GREEN_SAFE)
-
-    // Main loop
+    // Keep the application running in a loop
+    std::string command;
     while (true) {
-        // Check inputs
-        bool carLightGreen = readCarTrafficLightSensor(); // TODO: Take input from cars traffic light
-        bool roadIsEmpty = readRoadStatusSensor(); // TODO: Read from camera
-        bool pedestrianButtonPressed = readPedestrianButton(); // TODO: Convert this a signal (interrupt)
-        bool pedestrianDetected = readPedestrianSensor(); // TODO: Read from ultrasonic sensor
+        // Here, for simplicity, we just sleep and keep the program alive
+        // In a real application, you might check for input to shut down,
+        // monitor system status, or perform other background tasks.
+//        std::this_thread::sleep_for(std::chrono::seconds(1));  // Sleep for a bit to reduce CPU usage
 
-        // Update system based on inputs
-        trafficControlSystem.handleCarTrafficLightChange(carLightGreen);
-        trafficControlSystem.handleRoadStatusChange(roadIsEmpty);
-        if (pedestrianButtonPressed) {
-            trafficControlSystem.handlePedestrianButtonPress();
+        // Example: Check for a termination command or condition
+        std::cout << "Type 'exit' to stop the system: ";
+        std::getline(std::cin, command);
+        if (command == "exit") {
+            break;  // Exit the loop if 'exit' command is given
         }
-        if (pedestrianDetected) {
-            trafficControlSystem.handlePedestrianSensorTrigger(true);
-        }
-
-        // Process any state changes and update outputs
-        trafficControlSystem.update();
-
-        // Sleep for a short duration before checking inputs again
-        this_thread::sleep_for(chrono::milliseconds(100));
     }
 
+    // Implement any necessary cleanup before shutting down
+    // Note: Depending on your system's requirements, you might need to properly
+    // shut down subsystems or handle other cleanup tasks here.
+
     return 0;
-}
-
-void initializeSystem() {
-    // Initialize GPIO pins for inputs and outputs
-    // This is placeholder logic. Use specific GPIO library calls here.
-}
-
-// TODO: Move to CarTrafficLightController
-bool readCarTrafficLightSensor() {
-    // Read the sensor/state that indicates whether the car traffic light is green
-    // Placeholder logic
-    return false; // Replace with actual GPIO read
-}
-
-// TODO: Read from Camera module
-bool readRoadStatusSensor() {
-    // Read the sensor that indicates whether the road is empty
-    // Placeholder logic
-    return false; // Replace with actual GPIO read
-}
-
-// TODO: Convert to interrupt
-bool readPedestrianButton() {
-    // Read the state of the pedestrian button
-    // Placeholder logic
-    return false; // Replace with actual GPIO read
-}
-
-// TODO: Read from Ultrasonic
-bool readPedestrianSensor() {
-    // Read the sensor that detects pedestrians waiting to cross
-    // Placeholder logic
-    return false; // Replace with actual GPIO read
 }

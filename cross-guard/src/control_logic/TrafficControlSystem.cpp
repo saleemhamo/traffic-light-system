@@ -2,11 +2,16 @@
 // Created by Saleem Hamo on 12/02/2024.
 //
 
-#include "TrafficControlSystem.h"
+#include "control_logic/TrafficControlSystem.h"
 
 TrafficControlSystem::TrafficControlSystem() : currentState(State::CAR_RED_PEDESTRIAN_GREEN) {
     // Initialize system, possibly setting initial states of lights, etc.
     updateOutputs(); // Ensure outputs match the initial state
+}
+
+// TODO: Create and move to system handler, create system handler interface and add it  to this system and the cars traffic light system
+void TrafficControlSystem::run() {
+
 }
 
 void TrafficControlSystem::update() {
@@ -16,10 +21,16 @@ void TrafficControlSystem::update() {
      */
 }
 
+
 void TrafficControlSystem::changeState(State newState) {
     currentState = newState;
     updateOutputs(); // Update outputs anytime the state changes
 }
+
+void TrafficControlSystem::initializeSystemState() {
+    updateOutputs(); // Update outputs anytime the state changes
+}
+
 
 void TrafficControlSystem::updateOutputs() {
     // Based on the current state, control the traffic lights, buzzer, and warning light

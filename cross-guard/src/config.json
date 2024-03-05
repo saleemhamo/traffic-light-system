@@ -1,0 +1,19 @@
+{
+  "PedestriansTrafficLightSystem": {
+    "redPin": 5,
+    "greenPin": 6
+  },
+  "CarsTrafficLightSystem": {
+    "redPin": 13,
+    "greenPin": 19
+  },
+  "CheckingSystem": {
+    "ultrasonicPin1": 23,
+    "ultrasonicPin2": 24,
+    "buttonPin": 25
+  },
+  "WarningSystem": {
+    "ledPin": 12,
+    "buzzerPin": 18
+  }
+}
