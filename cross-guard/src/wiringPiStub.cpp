@@ -11,17 +11,14 @@ const int HIGH = 1;
 const int OUTPUT = 2;
 
 void pinMode(int pin, int mode) {
-    cout << "pinMode(int pin, int mode) called" << endl;
-    // Stub function: do nothing
+    cout << "pinMode(int pin: " << pin << ", int mode: " << mode << ") called" << endl;
 }
 
 void digitalWrite(int pin, int value) {
-    // Stub function: do nothing
-    cout << "digitalWrite(int pin, int value) called" << endl;
+    cout << "digitalWrite(int pin: " << pin << ", int value: " << value << ") called" << endl;
 }
 
 int wiringPiSetup() {
-    // Stub function: return 0 for success
     cout << "wiringPiSetup() called" << endl;
     return 0;
 }
