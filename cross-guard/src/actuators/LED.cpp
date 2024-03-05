@@ -2,12 +2,13 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
-#ifdef __APPLE__
+// Check if we are on a typical Raspberry Pi OS and ARM architecture
+#if defined(__linux__) && defined(__arm__)
+#include <wiringPi.h>
+#else
 
 #include "wiringPiStub.h"
 
-#else
-#include <wiringPi.h>
 #endif
 
 #include "actuators/LED.h"

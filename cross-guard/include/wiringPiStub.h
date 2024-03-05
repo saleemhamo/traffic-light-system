@@ -2,7 +2,7 @@
 // Created by Saleem Hamo on 20/02/2024.
 //
 
-#ifdef __APPLE__
+#if !defined(__linux__) || !defined(__arm__)
 #pragma once
 
 void pinMode(int pin, int mode);

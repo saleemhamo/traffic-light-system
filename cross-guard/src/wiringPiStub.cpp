@@ -1,5 +1,5 @@
 // Check if we are on a Mac system
-#ifdef __APPLE__
+#if !defined(__linux__) || !defined(__arm__)
 
 #include "wiringPiStub.h"
 #include <iostream>

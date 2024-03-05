@@ -33,8 +33,13 @@ add_executable(CrossGuard
 
 )
 
-# Link with wiringPi library
-target_link_libraries(CrossGuard wiringPi)
+# Conditional linking with the wiringPi library
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    # Check if the processor is ARM (common in Raspberry Pi)
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
+        target_link_libraries(CrossGuard wiringPi)
+    endif()
+endif()
 
 # Uncomment below to add Google Test (if you have tests)
 #enable_testing()
