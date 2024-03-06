@@ -1,50 +1,41 @@
 //
 // Created by Saleem Hamo on 26/02/2024.
 //
+#include "utils/Logger.h"
 
-#ifndef CROSSGUARD_LOGGER_CPP
-#define CROSSGUARD_LOGGER_CPP
+// Initialize static members
+const std::string Logger::defaultFileName = "app.log";
+std::ofstream Logger::logFile;
 
-#include <iostream>
+void Logger::init(const std::string &filename) {
+    logFile.open(filename, std::ios::app);
+    if (!logFile.is_open()) {
+        throw std::runtime_error("Unable to open log file: " + filename);
+    }
+}
 
-class Logger {
+void Logger::logInfo(const std::string &message) {
+    log("INFO", message);
+}
 
-public:
-    static void logInfo(const std::string &message) {
-        std::cout << "INFO: " << message << std::endl;
+void Logger::logError(const std::string &message) {
+    log("ERROR", message);
+}
+
+void Logger::close() {
+    if (logFile.is_open()) {
+        logFile.close();
+    }
+}
+
+void Logger::log(const std::string &level, const std::string &message) {
+    if (!logFile.is_open()) {
+        throw std::runtime_error("Log file is not open.");
     }
 
-    static void logError(const std::string &message) {
-        std::cerr << "ERROR: " << message << std::endl;
-    }
-};
+    std::time_t now = std::time(nullptr);
+    char timestamp[20];
+    std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
 
-#endif
-// TODO: Add file logger
-//#include <fstream>
-//#include <string>
-//
-//class Logger {
-//private:
-//    std::ofstream logFile;
-//
-//public:
-//    Logger(const std::string& filename) {
-//        logFile.open(filename, std::ios::app); // Open in append mode
-//    }
-//
-//    ~Logger() {
-//        if (logFile.is_open()) {
-//            logFile.close();
-//        }
-//    }
-//
-//    void log(const std::string& message) {
-//        if (logFile.is_open()) {
-//            logFile << message << std::endl;
-//        }
-//    }
-//};
-
-//Logger logger("app.log");
-//logger.log("This is a log message.");
+    logFile << "[" << timestamp << "] [" << level << "] " << message << std::endl;
+}

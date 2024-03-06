@@ -1,6 +1,6 @@
 #include "main/cars_traffic_light_system/CarsTrafficLightSystem.h"
 #include <chrono>  // For std::chrono
-#include "../../utils/Logger.cpp"
+#include "utils/Logger.h"
 
 
 CarsTrafficLightSystem::CarsTrafficLightSystem(std::mutex *mtx, std::condition_variable *cv, bool *signalChanged)
