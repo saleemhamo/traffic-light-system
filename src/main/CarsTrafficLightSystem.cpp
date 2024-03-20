@@ -1,14 +1,14 @@
-#include "main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
+#include "main/CarsTrafficLightSystem.h"
 #include <chrono>  // For std::chrono
 #include "utils/Logger.h"
 
-PedestriansTrafficLightSystem::PedestriansTrafficLightSystem(
-        std::mutex *mtx, std::condition_variable *cv, bool *signalChanged
-) : TrafficLight(redPin, greenPin),
-    mtx(mtx), cv(cv), signalChanged(signalChanged), stopRequested(false) {}
+
+CarsTrafficLightSystem::CarsTrafficLightSystem(std::mutex *mtx, std::condition_variable *cv, bool *signalChanged)
+        : TrafficLight(redPin, greenPin),
+          mtx(mtx), cv(cv), signalChanged(signalChanged), stopRequested(false) {}
 
 
-void PedestriansTrafficLightSystem::initialize() {
+void CarsTrafficLightSystem::initialize() {
     // Initialize default state
     turnRed();
     std::this_thread::sleep_for(std::chrono::milliseconds(2000)); // Use std::chrono for non-blocking sleep
@@ -17,12 +17,12 @@ void PedestriansTrafficLightSystem::initialize() {
     turnOff();
 }
 
-void PedestriansTrafficLightSystem::activate() {
+void CarsTrafficLightSystem::activate() {
     stopRequested = false;
-    lightThread = std::thread(&PedestriansTrafficLightSystem::run, this);
+    lightThread = std::thread(&CarsTrafficLightSystem::run, this);
 }
 
-void PedestriansTrafficLightSystem::deactivate() {
+void CarsTrafficLightSystem::deactivate() {
     stopRequested = true;
     if (lightThread.joinable()) {
         lightThread.join();
@@ -30,28 +30,28 @@ void PedestriansTrafficLightSystem::deactivate() {
     turnOff(); // Ensure the light is turned off
 }
 
-void PedestriansTrafficLightSystem::run() {
-    Logger::logInfo("PedestriansTrafficLightSystem::run called");
+void CarsTrafficLightSystem::run() {
+    Logger::logInfo("CarsTrafficLightSystem::run called");
     while (!stopRequested) {
         std::unique_lock<std::mutex> lk(*mtx);
-        cv->wait(lk, [this] { return !(*signalChanged); }); // Wait until cars light changes
+        cv->wait(lk, [this] { return *signalChanged; }); // Wait until pedestrians light changes
         // Code to switch lights
-        Logger::logInfo("PedestriansTrafficLightSystem::turnGreen called");
+        Logger::logInfo("CarsTrafficLightSystem::turnGreen called");
         turnGreen();
 
-        *signalChanged = true; // Reset the signal
+        *signalChanged = false; // Reset the signal
         lk.unlock();
-        cv->notify_all(); // Notify car system
+        cv->notify_all(); // Notify pedestrian system
 
         // Add delay or conditions for light change
     }
 }
 
-void PedestriansTrafficLightSystem::requestStop() {
+void CarsTrafficLightSystem::requestStop() {
     stopRequested = true;
 }
 
-//void PedestriansTrafficLightSystem::run() {
+//void CarsTrafficLightSystem::run() {
 //    while (!stopRequested) {
 //        // Traffic light control logic
 //        turnGreen();

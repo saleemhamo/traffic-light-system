@@ -18,10 +18,10 @@ add_executable(CrossGuard
         # src/sensors/CameraSensor.cpp
         # src/sensors/UltrasonicSensor.cpp
         src/models/TrafficLight.cpp
-        src/main/cars_traffic_light_system/CarsTrafficLightSystem.cpp
-        src/main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.cpp
-        src/main/warning_system/WarningSystem.cpp
-        src/main/checking_system/CheckingSystem.cpp
+        src/main/CarsTrafficLightSystem.cpp
+        src/main/PedestriansTrafficLightSystem.cpp
+        src/main/WarningSystem.cpp
+        src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
 )
 

@@ -2,7 +2,7 @@
 // Created by Saleem Hamo on 12/02/2024.
 //
 
-#include "control_logic/TrafficControlSystem.h"
+#include "main/TrafficControlSystem.h"
 
 TrafficControlSystem::TrafficControlSystem() : currentState(State::CAR_RED_PEDESTRIAN_GREEN) {
     // Initialize system, possibly setting initial states of lights, etc.
