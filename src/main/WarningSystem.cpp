@@ -1,7 +1,7 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
-#include "main/warning_system/WarningSystem.h"
+#include "main/WarningSystem.h"
 
 WarningSystem::WarningSystem() :
         warningLED(ledPin),

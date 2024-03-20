@@ -3,10 +3,10 @@
 //
 #include <mutex>
 #include <condition_variable>
-#include "main/pedestrians_traffic_light_system/PedestriansTrafficLightSystem.h"
-#include "main/cars_traffic_light_system/CarsTrafficLightSystem.h"
-#include "main/checking_system/CheckingSystem.h"
-#include "main/warning_system/WarningSystem.h"
+#include "PedestriansTrafficLightSystem.h"
+#include "CarsTrafficLightSystem.h"
+#include "CheckingSystem.h"
+#include "WarningSystem.h"
 
 class MainSystem {
 private:
