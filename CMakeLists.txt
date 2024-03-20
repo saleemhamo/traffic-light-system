@@ -12,6 +12,7 @@ include_directories(include)
 add_executable(CrossGuard
         src/main.cpp
         src/wiringPiStub.cpp # Stub file
+        src/pigpio_stub.cpp # Stub file
         src/utils/Logger.cpp
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
