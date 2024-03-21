@@ -47,40 +47,55 @@ void MainSystem::deactivateSubsystems() {
 
 void MainSystem::onCarsMotionDetected() {
     std::cout << "Cars motion detected";
-    if (trafficLightState == CARS_GREEN_PEDESTRIANS_RED) {
+    if (trafficLightState != CARS_RED_PEDESTRIANS_GREEN) {
         return; // Do Nothing
     }
+
     // State is CARS_RED_PEDESTRIANS_GREEN
-
-
-    // -> Stop the normal behaviour
-    // -> State is OFF (all red)
-    // -> fire the alarm for 5 seconds
-    // after 5 seconds -> run normal system
-
-    // Implement logic to be executed when car motion is detected
+    disableTrafficLightsNormalBehaviour();
+    carsTrafficLight.turnRed();
+    pedestriansTrafficLight.turnRed();
+    warningSystem.activate();
+    // after 5 seconds
+    warningSystem.deactivate();
+    enableTrafficLightsNormalBehaviour();
 }
 
 void MainSystem::onPedestriansMotionDetected() {
     std::cout << "Pedestrians motion detected";
-    if (trafficLightState == CARS_RED_PEDESTRIANS_GREEN) {
+    if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
     }
+
     // State is CARS_GREEN_PEDESTRIANS_RED
+    disableTrafficLightsNormalBehaviour();
+    checkingSystem.disableCarsMotionDetection();
+    checkingSystem.disablePedestriansMotionDetection();
+    checkingSystem.disablePedestriansButton();
 
-    // -> Stop the normal behaviour
-    // -> State is OFF (all red)
-    // -> fire the alarm for 5 seconds
-    // after 5 seconds -> run normal system
+    carsTrafficLight.turnRed();
+    pedestriansTrafficLight.turnRed();
+    warningSystem.activate();
 
+    // after 5 seconds
 
+    warningSystem.deactivate();
+    enableTrafficLightsNormalBehaviour();
 }
 
 void MainSystem::onPedestriansButtonClicked() {
+    if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
+        return; // Do Nothing
+    }
+
+    // State is CARS_GREEN_PEDESTRIANS_RED
+    // if road status is empty (sensor or camera) -> turn to CARS_RED_PEDESTRIANS_GREEN
+    // continue normal behaviour
 
 }
 
 void MainSystem::enableTrafficLightsNormalBehaviour() {
+    // TODO: set starting state
     isTrafficLightRunningInNormalBehaviour = true;
 }
 
