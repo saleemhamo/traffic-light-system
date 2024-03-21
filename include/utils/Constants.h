@@ -16,7 +16,7 @@ namespace Constants {
     constexpr int CheckingSystemUltrasonic2TriggerPin = 3;
     constexpr int CheckingSystemUltrasonic2EchoPin = 2; //Pedestrian ultrasonic
     constexpr int CheckingSystemButtonPin = 21; //push botton
-    // constexpr int WarningSystemLedPin = -; //25 24 23
+    constexpr int WarningSystemLedPin = 25; //25 24 23
     constexpr int WarningSystemBuzzerPin = 14;
     // Add more constants here
     // buzzer 14
