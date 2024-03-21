@@ -8,6 +8,7 @@
 #include "main/interfaces/SystemInterface.h"
 #include "sensors/CameraSensor.h"
 #include "sensors/UltrasonicSensor.h"
+#include "sensors/PushButton.h"
 #include <thread>
 #include <atomic>
 #include <functional>
@@ -25,6 +26,8 @@ public:
     void run();
 
     void deactivate();
+
+    void onPedestriansButtonPress();
 
     void registerCarsMotionCallback(const std::function<void()> &callback);
 
@@ -58,6 +61,7 @@ private:
     //    CameraSensor camera;
     UltrasonicSensor pedestrianSensor;
     UltrasonicSensor roadSensor;
+    PushButton pedestriansPushButton;
 
     std::thread pedestrianThread;
     std::thread roadThread;

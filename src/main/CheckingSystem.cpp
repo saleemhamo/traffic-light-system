@@ -8,7 +8,10 @@ CheckingSystem::CheckingSystem() :
         monitorRoadsActive(false),
         pedestriansButtonEnabled(false),
         pedestrianSensor(Constants::CheckingSystemUltrasonic1TriggerPin, Constants::CheckingSystemUltrasonic1EchoPin),
-        roadSensor(Constants::CheckingSystemUltrasonic2TriggerPin, Constants::CheckingSystemUltrasonic2EchoPin) {}
+        roadSensor(Constants::CheckingSystemUltrasonic2TriggerPin, Constants::CheckingSystemUltrasonic2EchoPin),
+        pedestriansPushButton(Constants::CheckingSystemButtonPin) {
+
+}
 
 CheckingSystem::~CheckingSystem() {
     deactivate();  // Ensure threads are properly joined and sensors are deactivated
@@ -18,6 +21,9 @@ void CheckingSystem::initialize() {
     // Initialize your ultrasonic sensors here
     pedestrianSensor.initialize();
     roadSensor.initialize();
+    pedestriansPushButton.initialize();
+
+    pedestriansPushButton.registerButtonPressCallback([this]() { this->onPedestriansButtonPress(); });
 }
 
 void CheckingSystem::run() {
@@ -30,6 +36,12 @@ void CheckingSystem::run() {
     // Detach threads if you don't need to synchronize them back
     pedestrianThread.detach(); // TODO
     roadThread.detach();
+}
+
+void CheckingSystem::onPedestriansButtonPress() {
+    if (pedestriansButtonEnabled && pedestriansButtonClicked) {
+        pedestriansButtonClicked();
+    }
 }
 
 void CheckingSystem::monitorPedestrian() {

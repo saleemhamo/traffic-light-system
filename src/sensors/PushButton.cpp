@@ -23,7 +23,7 @@ void PushButton::initialize() {
     // More initialization as necessary
 }
 
-void PushButton::registerMotionCallback(ButtonCallback callback) {
+void PushButton::registerButtonPressCallback(ButtonCallback callback) {
     this->buttonPressCallback = callback;
 }
 

@@ -23,7 +23,7 @@ public:
 
     void initialize();
 
-    void registerMotionCallback(ButtonCallback callback);
+    void registerButtonPressCallback(ButtonCallback callback);
 
     // Disabling copy constructor and assignment operator
     PushButton(const PushButton &) = delete;
