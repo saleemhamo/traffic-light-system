@@ -24,8 +24,8 @@ public:
 
     void requestStop();
 
-    static const int redPin = Constants::PedestriansTrafficLightGreenPin;
-    static const int greenPin = Constants::PedestriansTrafficLightRedPin;
+    static const int redPin = Constants::PedestriansTrafficLightRedPin;
+    static const int greenPin = Constants::PedestriansTrafficLightGreenPin;
 
     // ISystem interface methods
     void initialize() override;
