@@ -35,9 +35,14 @@ void MainSystem::run() {
 }
 
 void MainSystem::runSystems() {
-    std::thread carsThread(&CarsTrafficLightSystem::run, &carsTrafficLight);
-    std::thread pedestriansThread(&PedestriansTrafficLightSystem::run, &pedestriansTrafficLight);
-
-    carsThread.join();
-    pedestriansThread.join();
+    // std::thread carsThread(&CarsTrafficLightSystem::run, &carsTrafficLight);
+    // std::thread pedestriansThread(&PedestriansTrafficLightSystem::run, &pedestriansTrafficLight);
+    while (true) {
+        carsTrafficLight.turnGreen();
+        std::this_thread::sleep_for(std::chrono::seconds(5)); // Wait for 5 seconds
+        carsTrafficLight.turnRed();
+        std::this_thread::sleep_for(std::chrono::seconds(2)); // Wait for 2 seconds
+    }
+    // carsThread.join();
+    // pedestriansThread.join();
 }

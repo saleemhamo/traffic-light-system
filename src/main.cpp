@@ -14,7 +14,8 @@ void init();
 
 void close();
 
-int main() {
+int main()
+{
     init();
     MainSystem mainSystem;
     mainSystem.initialize();
@@ -22,17 +23,19 @@ int main() {
 
     // Keep the application running in a loop
     std::string command;
-    while (true) {
+    while (true)
+    {
         // Here, for simplicity, we just sleep and keep the program alive
         // In a real application, you might check for input to shut down,
         // monitor system status, or perform other background tasks.
-//        std::this_thread::sleep_for(std::chrono::seconds(1));  // Sleep for a bit to reduce CPU usage
+        //        std::this_thread::sleep_for(std::chrono::seconds(1));  // Sleep for a bit to reduce CPU usage
 
         // Example: Check for a termination command or condition
         std::cout << "Type 'exit' to stop the system: ";
         std::getline(std::cin, command);
-        if (command == "exit") {
-            break;  // Exit the loop if 'exit' command is given
+        if (command == "exit")
+        {
+            break; // Exit the loop if 'exit' command is given
         }
     }
 
@@ -43,6 +46,24 @@ int main() {
     close();
     return 0;
 }
+
+// int main() {
+//     init();
+//     // MainSystem mainSystem;
+//     // mainSystem.initialize();
+//     // mainSystem.runSystems();
+//     LED redLED(7);
+//     LED greenLED(5);
+//     redLED.on();
+//     greenLED.off();
+//     std::this_thread::sleep_for(std::chrono::seconds(2));
+//     redLED.off();
+//     greenLED.on();
+//     std::this_thread::sleep_for(std::chrono::seconds(2));
+
+//     close();
+//     return 0;
+// }
 
 void init() {
     try {
