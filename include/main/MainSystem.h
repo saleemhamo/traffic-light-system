@@ -1,32 +1,64 @@
-//
-// Created by Saleem Hamo on 20/02/2024.
-//
+#ifndef MAINSYSTEM_H
+#define MAINSYSTEM_H
+
 #include <mutex>
-#include <condition_variable>
-#include "PedestriansTrafficLightSystem.h"
+#include <thread>
+#include <atomic>
 #include "CarsTrafficLightSystem.h"
+#include "PedestriansTrafficLightSystem.h"
 #include "CheckingSystem.h"
 #include "WarningSystem.h"
 
 class MainSystem {
-private:
-    std::mutex mtx;
-    std::condition_variable cv;
-    bool carLightGreen = true; // Initial state, car light is green
-    CarsTrafficLightSystem carsTrafficLight;
-    PedestriansTrafficLightSystem pedestriansTrafficLight;
-    CheckingSystem checkingSystem;
-    WarningSystem warningSystem;
-
 public:
+    enum TrafficLightState {
+        OFF,
+        CARS_RED_PEDESTRIANS_GREEN,
+        CARS_GREEN_PEDESTRIANS_RED
+    };
+
     MainSystem();
 
     ~MainSystem();
 
     void initialize();
 
-    void run();
+    void runSystems();
 
-//    MainSystem();
-    void runSystems(); // Starts and manages the traffic systems
+    void shutdown();
+
+private:
+    TrafficLightState trafficLightState;
+    std::mutex mtx;
+    std::atomic<bool> running;
+
+    CarsTrafficLightSystem carsTrafficLight;
+    PedestriansTrafficLightSystem pedestriansTrafficLight;
+    CheckingSystem checkingSystem;
+    WarningSystem warningSystem;
+
+    std::thread carsThread;
+    std::thread pedestriansThread;
+    std::thread checkingThread;
+    std::thread warningThread;
+
+    std::atomic<bool> isTrafficLightRunningInNormalBehaviour;
+
+    void deactivateSubsystems();
+
+    void onCarsMotionDetected();
+
+    void onPedestriansMotionDetected();
+
+    void manageTrafficStates();
+
+    void onPedestriansButtonClicked();
+
+    void enableTrafficLightsNormalBehaviour();
+
+    void disableTrafficLightsNormalBehaviour();
+
+    void runTrafficLightsNormalBehaviour();
 };
+
+#endif // MAINSYSTEM_H

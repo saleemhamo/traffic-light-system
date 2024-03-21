@@ -1,22 +1,44 @@
-//
-// Created by Saleem Hamo on 07/02/2024.
-//
+#ifndef ULTRASONICSENSOR_H
+#define ULTRASONICSENSOR_H
 
-#include <atomic>  // For std::atomic
+// Including the pigpio library conditionally
+#ifdef RASPBERRY_PI
+#include <pigpio.h>
+#else
+
+#include "pigpio_stub.h" // This will be your stub for non-RPi platforms.
+
+#endif
+
+#include <functional>
 
 class UltrasonicSensor {
 public:
+    using MotionDetectedCallback = std::function<void()>;
+
     UltrasonicSensor(int triggerPin, int echoPin);
 
     ~UltrasonicSensor();
 
     void initialize();
 
-    double getDistance();  // Returns the distance measured by the sensor
+    void registerMotionCallback(MotionDetectedCallback callback);
+
+    bool isMotionDetected();
 
 private:
-    int triggerPin;
-    int echoPin;
-    std::atomic<bool> isInitialized{false};
+    int triggerPin, echoPin;
+    MotionDetectedCallback motionCallback;
+    float distanceThreshold; // Change in distance to trigger motion detection
+    std::chrono::steady_clock::time_point lastCheck;
+    float lastDistance;
+    bool isMonitoring;
+
+    std::chrono::steady_clock::time_point lastMeasurementTime;
+    int measurementInterval = 100; // Time between measurements in milliseconds
+
+    void sendPulse();
+    float calculateDistance();
 };
 
+#endif // ULTRASONICSENSOR_H

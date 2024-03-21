@@ -17,25 +17,19 @@ public:
 
     };
 
-    // Constructor with pins for the red and green LEDs
     TrafficLight(int redPin, int greenPin);
 
-    // Turns the traffic light red
+
     void turnRed();
 
-    // Turns the traffic light green
     void turnGreen();
 
-    // Turns off all lights
     void turnOff();
-
-    // Changes the state after a timeout
-    void changeStateAfterTimeout(int timeoutMillis);
 
 private:
     LED redLED;
     LED greenLED;
-    int currentState;  // 0 = off, 1 = red, 2 = green
+    State currentState;  // 0 = off, 1 = red, 2 = green
 };
 
 

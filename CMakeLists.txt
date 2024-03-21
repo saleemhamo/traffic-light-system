@@ -17,7 +17,7 @@ add_executable(CrossGuard
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
         # src/sensors/CameraSensor.cpp
-        # src/sensors/UltrasonicSensor.cpp
+        src/sensors/UltrasonicSensor.cpp
         src/models/TrafficLight.cpp
         src/main/CarsTrafficLightSystem.cpp
         src/main/PedestriansTrafficLightSystem.cpp

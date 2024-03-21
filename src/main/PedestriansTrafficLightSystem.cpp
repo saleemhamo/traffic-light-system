@@ -1,62 +1,31 @@
 #include "main/PedestriansTrafficLightSystem.h"
 #include <chrono>  // For std::chrono
 #include "utils/Logger.h"
+#include "utils/Constants.h"
+#include <thread>
 
-PedestriansTrafficLightSystem::PedestriansTrafficLightSystem(
-        std::mutex *mtx, std::condition_variable *cv, bool *signalChanged
-) : TrafficLight(redPin, greenPin),
-    mtx(mtx), cv(cv), signalChanged(signalChanged), stopRequested(false) {}
-
+PedestriansTrafficLightSystem::PedestriansTrafficLightSystem()
+        : TrafficLight(Constants::PedestriansTrafficLightRedPin,
+                       Constants::PedestriansTrafficLightGreenPin),
+          isActive(false) {}
 
 void PedestriansTrafficLightSystem::initialize() {
-    // Initialize default state
-    turnRed();
-    std::this_thread::sleep_for(std::chrono::milliseconds(2000)); // Use std::chrono for non-blocking sleep
-    turnGreen();
-    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    turnOff();
-}
 
-void PedestriansTrafficLightSystem::activate() {
-    stopRequested = false;
-    lightThread = std::thread(&PedestriansTrafficLightSystem::run, this);
-}
-
-void PedestriansTrafficLightSystem::deactivate() {
-    stopRequested = true;
-    if (lightThread.joinable()) {
-        lightThread.join();
-    }
-    turnOff(); // Ensure the light is turned off
 }
 
 void PedestriansTrafficLightSystem::run() {
-    Logger::logInfo("PedestriansTrafficLightSystem::run called");
-    while (!stopRequested) {
-        std::unique_lock<std::mutex> lk(*mtx);
-        cv->wait(lk, [this] { return !(*signalChanged); }); // Wait until cars light changes
-        // Code to switch lights
-        Logger::logInfo("PedestriansTrafficLightSystem::turnGreen called");
+    isActive = true;
+    while (isActive) {
         turnGreen();
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000)); // Example timing
+        if (!isActive) break; // Check again after waking up
 
-        *signalChanged = true; // Reset the signal
-        lk.unlock();
-        cv->notify_all(); // Notify car system
-
-        // Add delay or conditions for light change
+        turnRed();
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000)); // Example timing
     }
 }
 
-void PedestriansTrafficLightSystem::requestStop() {
-    stopRequested = true;
+void PedestriansTrafficLightSystem::deactivate() {
+    isActive = false;
+    turnOff();
 }
-
-//void PedestriansTrafficLightSystem::run() {
-//    while (!stopRequested) {
-//        // Traffic light control logic
-//        turnGreen();
-//        std::this_thread::sleep_for(std::chrono::seconds(10)); // Adjust timing as needed
-//        turnRed();
-//        std::this_thread::sleep_for(std::chrono::seconds(10)); // Adjust timing as needed
-//    }
-//}

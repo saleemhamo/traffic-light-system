@@ -1,41 +1,71 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
 //
+#ifndef CHECKINGSYSTEM_H
+#define CHECKINGSYSTEM_H
 
-#include "main/SystemInterface.h"
+
+#include "main/interfaces/SystemInterface.h"
 #include "sensors/CameraSensor.h"
 #include "sensors/UltrasonicSensor.h"
 #include <thread>
 #include <atomic>
+#include <functional>
 #include "utils/Constants.h"
 
-class CheckingSystem : public SystemInterface {
+
+class CheckingSystem {
 public:
     CheckingSystem();
 
     ~CheckingSystem();
 
-    static const int ultrasonic1TriggerPin = Constants::CheckingSystemUltrasonic1TriggerPin;
-    static const int ultrasonic1EchoPin = Constants::CheckingSystemUltrasonic1EchoPin;
-    static const int ultrasonic2TriggerPin = Constants::CheckingSystemUltrasonic2TriggerPin;
-    static const int ultrasonic2EchoPin = Constants::CheckingSystemUltrasonic2EchoPin;
-    static const int buttonPin = Constants::CheckingSystemButtonPin;
+    void initialize();
 
-    void initialize() override;
+    void run();
 
-    void activate() override;
+    void deactivate();
 
-    void deactivate() override;
+    void registerCarsMotionCallback(const std::function<void()> &callback);
 
-    void monitorPedestrians();
+    void registerPedestriansMotionCallback(const std::function<void()> &callback);
 
-    void checkRoadStatus();
+    void registerPedestriansButtonCallback(const std::function<void()> &callback);
+
+    void enablePedestriansMotionDetection();
+
+    void disablePedestriansMotionDetection();
+
+    void enableCarsMotionDetection();
+
+    void disableCarsMotionDetection();
+
+    void enablePedestriansButton();
+
+    void disablePedestriansButton();
+
 
 private:
-//    CameraSensor camera;
-//    UltrasonicSensor pedestrianSensor;
-//    UltrasonicSensor roadSensor;
+    std::atomic<bool> isActive;
+    std::atomic<bool> monitorPedestriansActive;
+    std::atomic<bool> monitorRoadsActive;
+    std::atomic<bool> pedestriansButtonEnabled;
+
+    std::function<void()> carsMotionDetected;
+    std::function<void()> pedestriansMotionDetected;
+    std::function<void()> pedestriansButtonClicked;
+
+    //    CameraSensor camera;
+    UltrasonicSensor pedestrianSensor;
+    UltrasonicSensor roadSensor;
 
     std::thread pedestrianThread;
-    std::atomic<bool> active{false};
+    std::thread roadThread;
+
+    void monitorPedestrian();
+
+    void monitorRoad();
+
 };
+
+#endif // CHECKINGSYSTEM_H

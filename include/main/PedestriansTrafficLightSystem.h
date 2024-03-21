@@ -1,39 +1,22 @@
-//
-// Created by Saleem Hamo on 20/02/2024.
-//
+#ifndef PEDESTRIANSTRAFFICLIGHTSYSTEM_H
+#define PEDESTRIANSTRAFFICLIGHTSYSTEM_H
+
 #include "models/TrafficLight.h"
-#include "main/SystemInterface.h"
-#include "utils/Constants.h"
-#include <thread>
 #include <atomic>
-#include <mutex>
-#include <condition_variable>
+#include <thread>
 
-
-class PedestriansTrafficLightSystem : public TrafficLight, public SystemInterface {
-private:
-    std::atomic<bool> stopRequested;
-    std::thread lightThread;
-    std::mutex *mtx;
-    std::condition_variable *cv;
-    bool *signalChanged;
-
+class PedestriansTrafficLightSystem : public TrafficLight {
 public:
-    // Constructor
-    PedestriansTrafficLightSystem(std::mutex *mtx, std::condition_variable *cv, bool *signalChanged);
+    PedestriansTrafficLightSystem();
 
-    void requestStop();
+    void initialize();
 
-    static const int redPin = Constants::PedestriansTrafficLightGreenPin;
-    static const int greenPin = Constants::PedestriansTrafficLightRedPin;
+    void run();
 
-    // ISystem interface methods
-    void initialize() override;
+    void deactivate();
 
-    void activate() override;
-
-    void deactivate() override;
-
-    // Additional methods specific to pedestrian traffic light system
-    void run();  // Function for thread to run
+private:
+    std::atomic<bool> isActive;
 };
+
+#endif // PEDESTRIANSTRAFFICLIGHTSYSTEM_H

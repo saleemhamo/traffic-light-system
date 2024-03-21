@@ -13,8 +13,12 @@ const int PI_INPUT = 0;
 const int PI_HIGH = 1;
 const int PI_LOW = 0;
 
+// Adding a variable to simulate the tick counter.
+unsigned int simulatedTick = 0;
+
 void gpioInitialise() {
     Logger::logInfo("gpioInitialise() called");
+    simulatedTick = 0; // Reset simulated tick on initialization
 }
 
 void gpioTerminate() {
@@ -34,7 +38,22 @@ void gpioWrite(unsigned pin, unsigned level) {
 int gpioRead(unsigned pin) {
     string message = "gpioRead(unsigned pin: " + to_string(pin) + ") called";
     Logger::logInfo(message);
+    // Simulating a read might involve conditional logic based on your test setup.
     return PI_LOW; // Default to LOW, adjust as needed for your testing.
+}
+
+void gpioDelay(unsigned micros) {
+    string message = "gpioDelay(" + to_string(micros) + " microseconds) called";
+    Logger::logInfo(message);
+    // Simulate delay by incrementing the simulatedTick counter
+    simulatedTick += micros;
+}
+
+unsigned gpioTick() {
+    Logger::logInfo("gpioTick() called");
+    // Return the current value of simulatedTick
+    // In a real application, this would wrap around at the max value of unsigned int
+    return simulatedTick;
 }
 
 #endif
