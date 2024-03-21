@@ -20,7 +20,7 @@ int main() {
     // mainSystem.initialize();
     // mainSystem.runSystems();
     LED redLED(7);
-    LED greenLED(11);
+    LED greenLED(5);
     redLED.on();
     greenLED.off();
     std::this_thread::sleep_for(std::chrono::seconds(2));
