@@ -44,6 +44,9 @@ void PedestriansTrafficLightSystem::run() {
         cv->notify_all(); // Notify car system
 
         // Add delay or conditions for light change
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        Logger::logInfo("PedestriansTrafficLightSystem::turnRed called");
+        turnRed();
     }
 }
 
