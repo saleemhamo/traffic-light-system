@@ -16,9 +16,10 @@ const int PI_LOW = 0;
 // Adding a variable to simulate the tick counter.
 unsigned int simulatedTick = 0;
 
-void gpioInitialise() {
+int gpioInitialise() {
     Logger::logInfo("gpioInitialise() called");
     simulatedTick = 0; // Reset simulated tick on initialization
+    return 0;
 }
 
 void gpioTerminate() {

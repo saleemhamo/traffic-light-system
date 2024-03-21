@@ -13,7 +13,7 @@ extern const int PI_HIGH;
 extern const int PI_LOW;
 
 // Function declarations to mimic those in the pigpio library.
-void gpioInitialise();
+int gpioInitialise();
 
 void gpioTerminate();
 

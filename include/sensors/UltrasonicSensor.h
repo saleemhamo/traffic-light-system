@@ -6,7 +6,7 @@
 #include <pigpio.h>
 #else
 
-#include "pigpio_stub.h" // This will be your stub for non-RPi platforms.
+#include "pigpio_stub.h"
 
 #endif
 
