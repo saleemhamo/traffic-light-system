@@ -106,17 +106,67 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
 void MainSystem::runTrafficLightsNormalBehaviour() {
     while (true) {
         if (isTrafficLightRunningInNormalBehaviour) {
-            carsTrafficLight.turnGreen();
-            pedestriansTrafficLight.turnRed();
-            trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-            // wait 2 second
-            carsTrafficLight.turnRed();
-            pedestriansTrafficLight.turnGreen();
-            trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
-            // wait 2 second
+            // Start cars timer for 2 seconds
+            carsTimer.start(2000, []()
+                            {
+                carsTrafficLight.turnRed();
+                pedestriansTrafficLight.turnGreen();
+                trafficLightState = CARS_RED_PEDESTRIANS_GREEN; });
+
+            // Wait for cars timer to finish
+            while (carsTimer.isRunning())
+            {
+                // Implement logic here if needed
+            }
+
+            // Start pedestrians timer for 2 seconds
+            pedestriansTimer.start(2000, []()
+                                   {
+                carsTrafficLight.turnGreen();
+                pedestriansTrafficLight.turnRed();
+                trafficLightState = CARS_GREEN_PEDESTRIANS_RED; });
+
+            // Wait for pedestrians timer to finish
+            while (pedestriansTimer.isRunning())
+            {
+                // Implement logic here if needed
+            }
         }
     }
 }
+
+/*
+#include "CarsTimer.h"
+#include "PedestriansTimer.h"
+
+void MainSystem::manageTrafficStates() {
+    // Create timer instances
+    CarsTimer carsTimer;
+    PedestriansTimer pedestriansTimer;
+
+    // Start the timers
+    carsTimer.start(1000); // Start the cars timer with a 1 second interval
+    pedestriansTimer.start(1000); // Start the pedestrians timer with a 1 second interval
+
+    // Rest of your code...
+}
+void CarsTimer::timerEvent() {
+    // Code to execute when the cars timer expires
+    // For example, you could check the state of the cars traffic light and change it if necessary
+}
+void PedestriansTimer::timerEvent() {
+    // Code to execute when the pedestrians timer expires
+    // For example, you could check the state of the pedestrians traffic light and change it if necessary
+}
+void MainSystem::manageTrafficStates() {
+    // Rest of your code...
+
+    // Stop the timers when you're done with them
+    carsTimer.stop();
+    pedestriansTimer.stop();
+}
+
+*/
 
 void MainSystem::manageTrafficStates() {
     // Set initial states
