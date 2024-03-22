@@ -12,6 +12,9 @@ void MainSystem::initialize() {
     pedestriansTrafficLight.initialize();
     checkingSystem.initialize();
     warningSystem.initialize();
+    carsTimer.initialize();
+    pedestriansTimer.initialize();
+;
 
     // Set traffic light initial state
     trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
@@ -94,18 +97,46 @@ void MainSystem::onPedestriansButtonClicked() {
 
 }
 
-void MainSystem::manageTrafficStates()
-{
-    // Create timer instances
-    CarsTimer carsTimer;
-    PedestriansTimer pedestriansTimer;
-
+void MainSystem::manageTrafficStates() {
     // Start the timers
     carsTimer.start(1000);        // Start the cars timer with a 1 second interval
     pedestriansTimer.start(1000); // Start the pedestrians timer with a 1 second interval
 
-    // Rest of your code...
+    // Main loop
+    while (running) {
+        // Check if the cars timer has expired
+        if (carsTimer.isExpired()) {
+            // Turn the cars traffic light red
+            carsTrafficLight.turnRed();
+
+            // Turn the pedestrians traffic light green
+            pedestriansTrafficLight.turnGreen();
+
+            // Update the traffic light state
+            trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
+
+            // Restart the cars timer
+            carsTimer.restart();
+        }
+
+        // Check if the pedestrians timer has expired
+        if (pedestriansTimer.isExpired()) {
+            // Turn the cars traffic light green
+            carsTrafficLight.turnGreen();
+
+            // Turn the pedestrians traffic light red
+            pedestriansTrafficLight.turnRed();
+
+            // Update the traffic light state
+            trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
+
+            // Restart the pedestrians timer
+            pedestriansTimer.restart();
+        }
+    }
 }
+
+
 void MainSystem::enableTrafficLightsNormalBehaviour() {
     // TODO: set starting state
     isTrafficLightRunningInNormalBehaviour = true;

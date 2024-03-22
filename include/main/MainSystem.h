@@ -4,6 +4,8 @@
 #include <mutex>
 #include <thread>
 #include <atomic>
+#include "CarsTimer.h>
+#include "PedestriansTimer.h"
 #include "CarsTrafficLightSystem.h"
 #include "PedestriansTrafficLightSystem.h"
 #include "CheckingSystem.h"
@@ -61,6 +63,8 @@ private:
     void disableTrafficLightsNormalBehaviour();
 
     void runTrafficLightsNormalBehaviour();
+
+    void manageTrafficStates();
 };
 
 #endif // MAINSYSTEM_H
