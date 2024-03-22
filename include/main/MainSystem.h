@@ -36,6 +36,8 @@ private:
     PedestriansTrafficLightSystem pedestriansTrafficLight;
     CheckingSystem checkingSystem;
     WarningSystem warningSystem;
+    CarsTimer carsTimer;
+    PedestriansTimer pedestriansTimer;
 
     std::thread carsThread;
     std::thread pedestriansThread;

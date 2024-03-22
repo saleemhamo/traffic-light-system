@@ -94,6 +94,18 @@ void MainSystem::onPedestriansButtonClicked() {
 
 }
 
+void MainSystem::manageTrafficStates()
+{
+    // Create timer instances
+    CarsTimer carsTimer;
+    PedestriansTimer pedestriansTimer;
+
+    // Start the timers
+    carsTimer.start(1000);        // Start the cars timer with a 1 second interval
+    pedestriansTimer.start(1000); // Start the pedestrians timer with a 1 second interval
+
+    // Rest of your code...
+}
 void MainSystem::enableTrafficLightsNormalBehaviour() {
     // TODO: set starting state
     isTrafficLightRunningInNormalBehaviour = true;
@@ -107,8 +119,7 @@ void MainSystem::runTrafficLightsNormalBehaviour() {
     while (true) {
         if (isTrafficLightRunningInNormalBehaviour) {
             // Start cars timer for 2 seconds
-            carsTimer.start(2000, []()
-                            {
+            carsTimer.start(2000, [this]() { 
                 carsTrafficLight.turnRed();
                 pedestriansTrafficLight.turnGreen();
                 trafficLightState = CARS_RED_PEDESTRIANS_GREEN; });
@@ -118,10 +129,11 @@ void MainSystem::runTrafficLightsNormalBehaviour() {
             {
                 // Implement logic here if needed
             }
+            // Stop the cars timer
+            carsTimer.stop();
 
             // Start pedestrians timer for 2 seconds
-            pedestriansTimer.start(2000, []()
-                                   {
+            pedestriansTimer.start(2000, [this]() { 
                 carsTrafficLight.turnGreen();
                 pedestriansTrafficLight.turnRed();
                 trafficLightState = CARS_GREEN_PEDESTRIANS_RED; });
@@ -131,6 +143,8 @@ void MainSystem::runTrafficLightsNormalBehaviour() {
             {
                 // Implement logic here if needed
             }
+            // Stop the pedestrians timer
+            pedestriansTimer.stop();
         }
     }
 }
@@ -139,17 +153,6 @@ void MainSystem::runTrafficLightsNormalBehaviour() {
 #include "CarsTimer.h"
 #include "PedestriansTimer.h"
 
-void MainSystem::manageTrafficStates() {
-    // Create timer instances
-    CarsTimer carsTimer;
-    PedestriansTimer pedestriansTimer;
-
-    // Start the timers
-    carsTimer.start(1000); // Start the cars timer with a 1 second interval
-    pedestriansTimer.start(1000); // Start the pedestrians timer with a 1 second interval
-
-    // Rest of your code...
-}
 void CarsTimer::timerEvent() {
     // Code to execute when the cars timer expires
     // For example, you could check the state of the cars traffic light and change it if necessary
