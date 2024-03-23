@@ -9,7 +9,7 @@ WarningSystem::WarningSystem(CameraSensor& camera, UltrasonicSensor& ultrasonic,
 : cameraSensor(camera), ultrasonicSensor(ultrasonic), trafficControlSystem(trafficSystem),
   warningLED(Constants::WarningSystemLedPin), warningBuzzer(Constants::WarningSystemBuzzerPin),
   eventOccurred(false), stopRequested(false), isInitialized(false) {
-    // You might initialize other non-hardware related members here
+   
 }
 
 WarningSystem::~WarningSystem() {
