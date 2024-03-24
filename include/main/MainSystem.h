@@ -4,8 +4,7 @@
 #include <mutex>
 #include <thread>
 #include <atomic>
-#include "CarsTimer.h>
-#include "PedestriansTimer.h"
+#include "utils/SystemTimer.h"
 #include "CarsTrafficLightSystem.h"
 #include "PedestriansTrafficLightSystem.h"
 #include "CheckingSystem.h"
@@ -18,6 +17,22 @@ public:
         CARS_RED_PEDESTRIANS_GREEN,
         CARS_GREEN_PEDESTRIANS_RED
     };
+
+    void startTimer(long millisecs, cppTimerType_t type = PERIODIC)
+    {
+        m_timer.startTimer(millisecs, type);
+    }
+
+    void stopTimer()
+    {
+        m_timer.stopTimer();
+    }
+
+    void handleTimerEvent()
+    {
+        // Implement the desired behavior when the timer fires
+        // This could involve changing the state of the traffic lights or performing other actions
+    }
 
     MainSystem();
 
@@ -36,10 +51,9 @@ private:
 
     CarsTrafficLightSystem carsTrafficLight;
     PedestriansTrafficLightSystem pedestriansTrafficLight;
+    SystemTimer m_timer{*this};
     CheckingSystem checkingSystem;
     WarningSystem warningSystem;
-    CarsTimer carsTimer;
-    PedestriansTimer pedestriansTimer;
 
     std::thread carsThread;
     std::thread pedestriansThread;

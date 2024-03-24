@@ -12,9 +12,6 @@ void MainSystem::initialize() {
     pedestriansTrafficLight.initialize();
     checkingSystem.initialize();
     warningSystem.initialize();
-    carsTimer.initialize();
-    pedestriansTimer.initialize();
-;
 
     // Set traffic light initial state
     trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
@@ -60,8 +57,10 @@ void MainSystem::onCarsMotionDetected() {
     pedestriansTrafficLight.turnRed();
     warningSystem.activate();
     // after 5 seconds
-    warningSystem.deactivate();
-    enableTrafficLightsNormalBehaviour();
+    m_timer.startms(5000, ONESHOT, [this]() {
+        warningSystem.deactivate();
+        enableTrafficLightsNormalBehaviour(); 
+    });
 }
 
 void MainSystem::onPedestriansMotionDetected() {
@@ -81,9 +80,10 @@ void MainSystem::onPedestriansMotionDetected() {
     warningSystem.activate();
 
     // after 5 seconds
-
-    warningSystem.deactivate();
-    enableTrafficLightsNormalBehaviour();
+    m_timer.startms(5000, ONESHOT, [this]() {
+        warningSystem.deactivate();
+        enableTrafficLightsNormalBehaviour(); 
+    });
 }
 
 void MainSystem::onPedestriansButtonClicked() {
@@ -97,46 +97,6 @@ void MainSystem::onPedestriansButtonClicked() {
 
 }
 
-void MainSystem::manageTrafficStates() {
-    // Start the timers
-    carsTimer.start(1000);        // Start the cars timer with a 1 second interval
-    pedestriansTimer.start(1000); // Start the pedestrians timer with a 1 second interval
-
-    // Main loop
-    while (running) {
-        // Check if the cars timer has expired
-        if (carsTimer.isExpired()) {
-            // Turn the cars traffic light red
-            carsTrafficLight.turnRed();
-
-            // Turn the pedestrians traffic light green
-            pedestriansTrafficLight.turnGreen();
-
-            // Update the traffic light state
-            trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
-
-            // Restart the cars timer
-            carsTimer.restart();
-        }
-
-        // Check if the pedestrians timer has expired
-        if (pedestriansTimer.isExpired()) {
-            // Turn the cars traffic light green
-            carsTrafficLight.turnGreen();
-
-            // Turn the pedestrians traffic light red
-            pedestriansTrafficLight.turnRed();
-
-            // Update the traffic light state
-            trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-
-            // Restart the pedestrians timer
-            pedestriansTimer.restart();
-        }
-    }
-}
-
-
 void MainSystem::enableTrafficLightsNormalBehaviour() {
     // TODO: set starting state
     isTrafficLightRunningInNormalBehaviour = true;
@@ -149,58 +109,34 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
 void MainSystem::runTrafficLightsNormalBehaviour() {
     while (true) {
         if (isTrafficLightRunningInNormalBehaviour) {
-            // Start cars timer for 2 seconds
-            carsTimer.start(2000, [this]() { 
+            // Start a 2-second timer for cars
+            m_timer.startms(2000, ONESHOT, [this]() {
                 carsTrafficLight.turnRed();
                 pedestriansTrafficLight.turnGreen();
-                trafficLightState = CARS_RED_PEDESTRIANS_GREEN; });
+                trafficLightState = CARS_RED_PEDESTRIANS_GREEN; 
+            });
 
-            // Wait for cars timer to finish
-            while (carsTimer.isRunning())
+            // Wait for the cars timer to finish
+            while (m_timer.isRunning())
             {
                 // Implement logic here if needed
             }
-            // Stop the cars timer
-            carsTimer.stop();
 
-            // Start pedestrians timer for 2 seconds
-            pedestriansTimer.start(2000, [this]() { 
+            // Start a 2-second timer for pedestrians
+            m_timer.startms(2000, ONESHOT, [this]() {
                 carsTrafficLight.turnGreen();
                 pedestriansTrafficLight.turnRed();
-                trafficLightState = CARS_GREEN_PEDESTRIANS_RED; });
+                trafficLightState = CARS_GREEN_PEDESTRIANS_RED; 
+            });
 
-            // Wait for pedestrians timer to finish
-            while (pedestriansTimer.isRunning())
+            // Wait for the pedestrians timer to finish
+            while (m_timer.isRunning())
             {
                 // Implement logic here if needed
             }
-            // Stop the pedestrians timer
-            pedestriansTimer.stop();
         }
     }
 }
-
-/*
-#include "CarsTimer.h"
-#include "PedestriansTimer.h"
-
-void CarsTimer::timerEvent() {
-    // Code to execute when the cars timer expires
-    // For example, you could check the state of the cars traffic light and change it if necessary
-}
-void PedestriansTimer::timerEvent() {
-    // Code to execute when the pedestrians timer expires
-    // For example, you could check the state of the pedestrians traffic light and change it if necessary
-}
-void MainSystem::manageTrafficStates() {
-    // Rest of your code...
-
-    // Stop the timers when you're done with them
-    carsTimer.stop();
-    pedestriansTimer.stop();
-}
-
-*/
 
 void MainSystem::manageTrafficStates() {
     // Set initial states
