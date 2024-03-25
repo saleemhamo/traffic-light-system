@@ -89,7 +89,7 @@ void MainSystem::onPedestriansMotionDetected() {
 void MainSystem::enterEmergencyState()
 {
     // Stop any running timers
-    m_systemTimer.stopTimer();
+    m_timer.stopTimer();
 
     // Set the traffic lights to the desired emergency state (e.g., turn all lights red)
     carsTrafficLight.turnRed();
@@ -97,7 +97,7 @@ void MainSystem::enterEmergencyState()
     trafficLightState = EMERGENCY_STATE;
 
     // Start a new emergency timer to handle the emergency state duration
-    m_systemTimer.startTimer(10000, ONESHOT, [this]() {
+    m_timer.startTimer(10000, ONESHOT, [this]() {
         // Reset the system to the normal state
         enableTrafficLightsNormalBehaviour(); 
     });
