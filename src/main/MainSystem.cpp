@@ -57,8 +57,10 @@ void MainSystem::onCarsMotionDetected() {
     pedestriansTrafficLight.turnRed();
     warningSystem.activate();
     // after 5 seconds
-    warningSystem.deactivate();
-    enableTrafficLightsNormalBehaviour();
+    m_timer.startms(5000, ONESHOT, [this]() {
+        warningSystem.deactivate();
+        enableTrafficLightsNormalBehaviour();
+    });
 }
 
 void MainSystem::onPedestriansMotionDetected() {
@@ -78,10 +80,37 @@ void MainSystem::onPedestriansMotionDetected() {
     warningSystem.activate();
 
     // after 5 seconds
-
-    warningSystem.deactivate();
-    enableTrafficLightsNormalBehaviour();
+    m_timer.startms(5000, ONESHOT, [this]() {
+        warningSystem.deactivate();
+        enableTrafficLightsNormalBehaviour();
+    });
 }
+
+void MainSystem::enterEmergencyState() {
+    // Stop any running timers
+    m_timer.stopTimer();
+
+    // Set the traffic lights to the desired emergency state (e.g., turn all lights red)
+    carsTrafficLight.turnRed();
+    pedestriansTrafficLight.turnRed();
+    trafficLightState = EMERGENCY_STATE;
+
+    // Start a new emergency timer to handle the emergency state duration
+    m_timer.startTimer(10000, ONESHOT, [this]() {
+        // Reset the system to the normal state
+        enableTrafficLightsNormalBehaviour();
+    });
+}
+
+//void MainSystem::onCarsMotionDetected() {
+//    std::cout << "Cars motion detected";
+//    enterEmergencyState();
+//}
+//
+//void MainSystem::onPedestriansMotionDetected() {
+//    std::cout << "Pedestrians motion detected";
+//    enterEmergencyState();
+//}
 
 void MainSystem::onPedestriansButtonClicked() {
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
@@ -106,14 +135,29 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
 void MainSystem::runTrafficLightsNormalBehaviour() {
     while (true) {
         if (isTrafficLightRunningInNormalBehaviour) {
-            carsTrafficLight.turnGreen();
-            pedestriansTrafficLight.turnRed();
-            trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-            // wait 2 second
-            carsTrafficLight.turnRed();
-            pedestriansTrafficLight.turnGreen();
-            trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
-            // wait 2 second
+            // Start a 2-second timer for cars
+            m_timer.startms(2000, ONESHOT, [this]() {
+                carsTrafficLight.turnRed();
+                pedestriansTrafficLight.turnGreen();
+                trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
+            });
+
+            // Wait for the cars timer to finish
+            while (m_timer.isRunning()) {
+                // Implement logic here if needed
+            }
+
+            // Start a 2-second timer for pedestrians
+            m_timer.startms(2000, ONESHOT, [this]() {
+                carsTrafficLight.turnGreen();
+                pedestriansTrafficLight.turnRed();
+                trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
+            });
+
+            // Wait for the pedestrians timer to finish
+            while (m_timer.isRunning()) {
+                // Implement logic here if needed
+            }
         }
     }
 }
