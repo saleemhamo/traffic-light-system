@@ -15,7 +15,8 @@ public:
     enum TrafficLightState {
         OFF,
         CARS_RED_PEDESTRIANS_GREEN,
-        CARS_GREEN_PEDESTRIANS_RED
+        CARS_GREEN_PEDESTRIANS_RED,
+        EMERGENCY_STATE
     };
 
     void startTimer(long millisecs, cppTimerType_t type = PERIODIC)

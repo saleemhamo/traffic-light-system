@@ -86,6 +86,35 @@ void MainSystem::onPedestriansMotionDetected() {
     });
 }
 
+void MainSystem::enterEmergencyState()
+{
+    // Stop any running timers
+    m_systemTimer.stopTimer();
+
+    // Set the traffic lights to the desired emergency state (e.g., turn all lights red)
+    carsTrafficLight.turnRed();
+    pedestriansTrafficLight.turnRed();
+    trafficLightState = EMERGENCY_STATE;
+
+    // Start a new emergency timer to handle the emergency state duration
+    m_systemTimer.startTimer(10000, ONESHOT, [this]() {
+        // Reset the system to the normal state
+        enableTrafficLightsNormalBehaviour(); 
+    });
+}
+
+void MainSystem::onCarsMotionDetected()
+{
+    std::cout << "Cars motion detected";
+    enterEmergencyState();
+}
+
+void MainSystem::onPedestriansMotionDetected()
+{
+    std::cout << "Pedestrians motion detected";
+    enterEmergencyState();
+}
+
 void MainSystem::onPedestriansButtonClicked() {
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
