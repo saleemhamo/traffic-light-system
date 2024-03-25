@@ -19,18 +19,15 @@ public:
         EMERGENCY_STATE
     };
 
-    void startTimer(long millisecs, cppTimerType_t type = PERIODIC)
-    {
+    void startTimer(long millisecs, cppTimerType_t type = PERIODIC) {
         m_timer.startTimer(millisecs, type);
     }
 
-    void stopTimer()
-    {
+    void stopTimer() {
         m_timer.stopTimer();
     }
 
-    void handleTimerEvent()
-    {
+    void handleTimerEvent() {
         // Implement the desired behavior when the timer fires
         // This could involve changing the state of the traffic lights or performing other actions
     }
@@ -80,11 +77,6 @@ private:
     void runTrafficLightsNormalBehaviour();
 
     void enterEmergencyState();
-
-    void onCarsMotionDetected();
-
-    void onPedestriansMotionDetected();
-
 
 };
 

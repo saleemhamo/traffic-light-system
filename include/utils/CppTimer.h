@@ -15,13 +15,20 @@
 #include <stdio.h>
 #include <time.h>
 #include <thread>
+
+#ifdef __linux__
+// Linux-specific timerfd code
 #include <sys/timerfd.h>
+#else
+
+#include "timerfd_stub.h"
+
+#endif
 
 /**
  * Enumeration of CppTimer types
  **/
-enum cppTimerType_t
-{
+enum cppTimerType_t {
     PERIODIC,
     ONESHOT
 };
@@ -30,8 +37,7 @@ enum cppTimerType_t
  * Timer class which repeatedly fires. It's wrapper around the
  * POSIX per-process timer.
  **/
-class CppTimer
-{
+class CppTimer {
 
 public:
     /**
@@ -44,31 +50,30 @@ public:
      * @param type Either PERIODIC or ONESHOT
      **/
     virtual void startns(long nanosecs, cppTimerType_t t = PERIODIC) {
-	if (uthread.joinable()) uthread.join();
-	if (running) return;
-	timerType = t;
-	if (fd < 0)
-	    throw("Could not start timer");
-	switch (timerType)
-	{
-	case (PERIODIC):
-	    //starts after specified period of nanoseconds
-	    its.it_value.tv_sec = nanosecs / 1000000000;
-	    its.it_value.tv_nsec = nanosecs % 1000000000;
-	    its.it_interval.tv_sec = nanosecs / 1000000000;
-	    its.it_interval.tv_nsec = nanosecs % 1000000000;
-	    break;
-	case (ONESHOT):
-	    //fires once after specified period of nanoseconds
-	    its.it_value.tv_sec = nanosecs / 1000000000;
-	    its.it_value.tv_nsec = nanosecs % 1000000000;
-	    its.it_interval.tv_sec = 0;
-	    its.it_interval.tv_nsec = 0;
-	    break;
-	}
-	if (timerfd_settime(fd, 0, &its, NULL) == -1)
-	    throw("Could not start timer");
-	uthread = std::thread(&CppTimer::worker,this);
+        if (uthread.joinable()) uthread.join();
+        if (running) return;
+        timerType = t;
+        if (fd < 0)
+            throw ("Could not start timer");
+        switch (timerType) {
+            case (PERIODIC):
+                //starts after specified period of nanoseconds
+                its.it_value.tv_sec = nanosecs / 1000000000;
+                its.it_value.tv_nsec = nanosecs % 1000000000;
+                its.it_interval.tv_sec = nanosecs / 1000000000;
+                its.it_interval.tv_nsec = nanosecs % 1000000000;
+                break;
+            case (ONESHOT):
+                //fires once after specified period of nanoseconds
+                its.it_value.tv_sec = nanosecs / 1000000000;
+                its.it_value.tv_nsec = nanosecs % 1000000000;
+                its.it_interval.tv_sec = 0;
+                its.it_interval.tv_nsec = 0;
+                break;
+        }
+        if (timerfd_settime(fd, 0, &its, NULL) == -1)
+            throw ("Could not start timer");
+        uthread = std::thread(&CppTimer::worker, this);
     }
 
     /**
@@ -81,31 +86,30 @@ public:
      * @param type Either PERIODIC or ONESHOT
      **/
     virtual void startms(long millisecs, cppTimerType_t t = PERIODIC) {
-	if (uthread.joinable()) uthread.join();
-	if (running) return;
-	timerType = t;
-	if (fd < 0)
-	    throw("Could not start timer");
-	switch (timerType)
-	{
-	case (PERIODIC):
-	    //starts after specified period of milliseconds
-	    its.it_value.tv_sec = millisecs / 1000;
-	    its.it_value.tv_nsec = (millisecs % 1000) * 1000000;
-	    its.it_interval.tv_sec = millisecs / 1000;
-	    its.it_interval.tv_nsec = (millisecs % 1000) * 1000000;
-	    break;
-	case (ONESHOT):
-	    //fires once after specified period of milliseconds
-	    its.it_value.tv_sec = millisecs / 1000;
-	    its.it_value.tv_nsec = (millisecs % 1000) * 1000000;
-	    its.it_interval.tv_sec = 0;
-	    its.it_interval.tv_nsec = 0;
-	    break;
-	}
-	if (timerfd_settime(fd, 0, &its, NULL) == -1)
-	    throw("Could not start timer");
-	uthread = std::thread(&CppTimer::worker,this);
+        if (uthread.joinable()) uthread.join();
+        if (running) return;
+        timerType = t;
+        if (fd < 0)
+            throw ("Could not start timer");
+        switch (timerType) {
+            case (PERIODIC):
+                //starts after specified period of milliseconds
+                its.it_value.tv_sec = millisecs / 1000;
+                its.it_value.tv_nsec = (millisecs % 1000) * 1000000;
+                its.it_interval.tv_sec = millisecs / 1000;
+                its.it_interval.tv_nsec = (millisecs % 1000) * 1000000;
+                break;
+            case (ONESHOT):
+                //fires once after specified period of milliseconds
+                its.it_value.tv_sec = millisecs / 1000;
+                its.it_value.tv_nsec = (millisecs % 1000) * 1000000;
+                its.it_interval.tv_sec = 0;
+                its.it_interval.tv_nsec = 0;
+                break;
+        }
+        if (timerfd_settime(fd, 0, &its, NULL) == -1)
+            throw ("Could not start timer");
+        uthread = std::thread(&CppTimer::worker, this);
     }
 
     /**
@@ -113,8 +117,8 @@ public:
      * with start().
      **/
     virtual void stop() {
-	running = false;
-	if (uthread.joinable()) uthread.join();
+        running = false;
+        if (uthread.joinable()) uthread.join();
     }
 
     /**
@@ -122,8 +126,8 @@ public:
      * disconnect the signal handler.
      **/
     virtual ~CppTimer() {
-	stop();
-	close(fd);
+        stop();
+        close(fd);
     }
 
 protected:
@@ -139,24 +143,25 @@ private:
     struct itimerspec its;
     bool running = false;
     std::thread uthread;
+
     void worker() {
-	running = true;
-	while (running) {
-	    uint64_t exp;
-	    const long int s = read(fd, &exp, sizeof(uint64_t));
-	    if (s != sizeof(uint64_t) ) {
-		throw "Timer didn't work.";
-	    }
-	    timerEvent();
-	    if (ONESHOT == timerType) running = false;
-	}
-	// disarm
-	struct itimerspec itsnew;
-	itsnew.it_value.tv_sec = 0;
-	itsnew.it_value.tv_nsec = 0;
-	itsnew.it_interval.tv_sec = 0;
-	itsnew.it_interval.tv_nsec = 0;
-	timerfd_settime(fd, 0, &itsnew, &its);
+        running = true;
+        while (running) {
+            uint64_t exp;
+            const long int s = read(fd, &exp, sizeof(uint64_t));
+            if (s != sizeof(uint64_t)) {
+                throw "Timer didn't work.";
+            }
+            timerEvent();
+            if (ONESHOT == timerType) running = false;
+        }
+        // disarm
+        struct itimerspec itsnew;
+        itsnew.it_value.tv_sec = 0;
+        itsnew.it_value.tv_nsec = 0;
+        itsnew.it_interval.tv_sec = 0;
+        itsnew.it_interval.tv_nsec = 0;
+        timerfd_settime(fd, 0, &itsnew, &its);
     }
 };
 

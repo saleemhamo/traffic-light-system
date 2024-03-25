@@ -11,7 +11,7 @@ extern const int PI_INPUT;
 extern const int PI_HIGH;
 extern const int PI_LOW;
 
-void gpioInitialise();
+int gpioInitialise();
 
 void gpioTerminate();
 
