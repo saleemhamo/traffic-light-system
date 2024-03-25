@@ -79,7 +79,13 @@ private:
 
     void runTrafficLightsNormalBehaviour();
 
-    void manageTrafficStates();
+    void enterEmergencyState();
+
+    void onCarsMotionDetected();
+
+    void onPedestriansMotionDetected();
+
+
 };
 
 #endif // MAINSYSTEM_H
