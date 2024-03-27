@@ -8,6 +8,7 @@
 #include "PedestriansTrafficLightSystem.h"
 #include "CheckingSystem.h"
 #include "WarningSystem.h"
+#include "utils/Timer.cpp"
 
 class MainSystem {
 public:
@@ -29,8 +30,9 @@ public:
 
 private:
     TrafficLightState trafficLightState;
-    std::mutex mtx;
-    std::atomic<bool> running;
+    Timer carsTrafficLightTimer;
+    Timer pedestriansTrafficLightTimer;
+    Timer mainSystemTimer;
 
     CarsTrafficLightSystem carsTrafficLight;
     PedestriansTrafficLightSystem pedestriansTrafficLight;
@@ -44,13 +46,10 @@ private:
 
     std::atomic<bool> isTrafficLightRunningInNormalBehaviour;
 
-    void deactivateSubsystems();
 
     void onCarsMotionDetected();
 
     void onPedestriansMotionDetected();
-
-    void manageTrafficStates();
 
     void onPedestriansButtonClicked();
 
@@ -59,6 +58,14 @@ private:
     void disableTrafficLightsNormalBehaviour();
 
     void runTrafficLightsNormalBehaviour();
+
+    void turnCarsGreen();
+
+    void turnPedestriansGreen();
+
+    void turnAllRed();
+
+//    void resetTrafficLightTimer();
 };
 
 #endif // MAINSYSTEM_H

@@ -25,6 +25,7 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
+#        include/utils/Timer.cpp
 )
 
 # Conditional linking with the wiringPi library

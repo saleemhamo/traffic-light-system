@@ -34,8 +34,8 @@ void CheckingSystem::run() {
     std::thread roadThread([this]() { this->monitorRoad(); });
 
     // Detach threads if you don't need to synchronize them back
-    pedestrianThread.detach(); // TODO
-    roadThread.detach();
+    pedestrianThread.join(); // TODO
+    roadThread.join();
 }
 
 void CheckingSystem::onPedestriansButtonPress() {
@@ -112,5 +112,17 @@ void CheckingSystem::registerPedestriansMotionCallback(const std::function<void(
 
 void CheckingSystem::registerPedestriansButtonCallback(const std::function<void()> &callback) {
     pedestriansButtonClicked = callback;
+}
+
+void CheckingSystem::enableSensing() {
+    enablePedestriansButton();
+    enablePedestriansMotionDetection();
+    enableCarsMotionDetection();
+}
+
+void CheckingSystem::disableSensing() {
+    disablePedestriansButton();
+    disablePedestriansMotionDetection();
+    disableCarsMotionDetection();
 }
 
