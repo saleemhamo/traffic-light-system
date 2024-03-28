@@ -9,6 +9,7 @@
 #include "CheckingSystem.h"
 #include "WarningSystem.h"
 #include "utils/Timer.cpp"
+#include <iostream>
 
 class MainSystem {
 public:
