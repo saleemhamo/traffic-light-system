@@ -28,6 +28,7 @@ void PushButton::registerButtonPressCallback(ButtonCallback callback) {
 }
 
 void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user) {
+    std::cout << "PushButton::buttonPressHandler called" << std::endl;
     // This function is called in the context of a new thread when the button is pressed
     PushButton *button = static_cast<PushButton *>(user);
     if (button->buttonPressCallback) {

@@ -2,6 +2,7 @@
 #define CROSSGUARD_PUSHBUTTON_H
 
 #include <cstdint>
+#include <iostream>
 
 // Including the pigpio library conditionally
 #ifdef RASPBERRY_PI

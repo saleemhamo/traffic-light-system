@@ -42,6 +42,7 @@ void CheckingSystem::run() {
 }
 
 void CheckingSystem::onPedestriansButtonPress() {
+    std::cout << "CheckingSystem::onPedestriansButtonPress called" << std::endl;
     if (pedestriansButtonEnabled && pedestriansButtonClicked) {
         pedestriansButtonClicked();
     }
