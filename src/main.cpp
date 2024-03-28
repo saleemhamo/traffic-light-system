@@ -14,12 +14,21 @@ void init();
 
 // void close();
 
+void myCallback() {
+    std::cout << "myCallback called" << std::endl;
+}
+
 int main() {
     init();
+    PushButton pushButton(21);
+    pushButton.registerButtonPressCallback(myCallback);
+    pushButton.initialize();
 
-    MainSystem mainSystem;
-    mainSystem.initialize();
-    mainSystem.runSystems();
+    while (true);
+
+//    MainSystem mainSystem;
+//    mainSystem.initialize();
+//    mainSystem.runSystems();
 
     // close();
     return 0;
