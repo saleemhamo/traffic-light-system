@@ -20,7 +20,7 @@ void myCallback() {
 
 int main() {
     init();
-    PushButton pushButton(21);
+    PushButton pushButton(22);
     pushButton.registerButtonPressCallback(myCallback);
     pushButton.initialize();
 
