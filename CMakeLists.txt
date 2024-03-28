@@ -11,7 +11,6 @@ include_directories(include)
 # Add the main executable
 add_executable(CrossGuard
         src/main.cpp
-        src/wiringPiStub.cpp # Stub file
         src/pigpio_stub.cpp # Stub file
         src/utils/Logger.cpp
         src/actuators/LED.cpp
@@ -28,9 +27,9 @@ add_executable(CrossGuard
 #        include/utils/Timer.cpp
 )
 
-# Conditional linking with the wiringPi library
+# Conditional linking with the pigpio library
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
-    target_link_libraries(CrossGuard wiringPi)
+    target_link_libraries(CrossGuard pigpio)
 endif ()
 
 ####### Testing Configuration #######
