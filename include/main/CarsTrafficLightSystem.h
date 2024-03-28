@@ -1,39 +1,22 @@
-//
-// Created by Saleem Hamo on 20/02/2024.
-//
+#ifndef CARSTRAFFICLIGHTSYSTEM_H
+#define CARSTRAFFICLIGHTSYSTEM_H
+
 #include "models/TrafficLight.h"
-#include "main/SystemInterface.h"
-#include "utils/Constants.h"
-#include <thread>
 #include <atomic>
-#include <mutex>
-#include <condition_variable>
+#include <thread>
 
-class CarsTrafficLightSystem : public TrafficLight, public SystemInterface {
-private:
-    std::mutex *mtx;
-    std::condition_variable *cv;
-    bool *signalChanged;
-    bool stopRequested;
-    std::thread lightThread;
-
+class CarsTrafficLightSystem : public TrafficLight {
 public:
-    // Constructor
-    CarsTrafficLightSystem(std::mutex *mtx, std::condition_variable *cv, bool *signalChanged);
+    CarsTrafficLightSystem();
 
-    void requestStop();
+    void initialize();
 
-    static const int redPin = Constants::CarsTrafficLightRedPin;
-    static const int greenPin = Constants::CarsTrafficLightGreenPin;
+    void run();
 
+    void deactivate();
 
-    // ISystem interface methods
-    void initialize() override;
-
-    void activate() override;
-
-    void deactivate() override;
-
-    // Additional methods specific to car traffic light system
-    void run();  // Function for thread to run
+private:
+    std::atomic<bool> isActive;
 };
+
+#endif // CARSTRAFFICLIGHTSYSTEM_H

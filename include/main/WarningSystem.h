@@ -3,7 +3,7 @@
 //
 #include "actuators/LED.h"
 #include "actuators/Buzzer.h"
-#include "main/SystemInterface.h"
+#include "main/interfaces/SystemInterface.h"
 #include "utils/Constants.h"
 
 class WarningSystem : public SystemInterface {  // Inherit from ISystem
