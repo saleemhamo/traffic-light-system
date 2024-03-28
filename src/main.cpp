@@ -12,7 +12,7 @@
 
 void init();
 
-void close();
+// void close();
 
 int main() {
     init();
@@ -21,7 +21,7 @@ int main() {
     mainSystem.initialize();
     mainSystem.runSystems();
 
-    close();
+    // close();
     return 0;
 }
 
@@ -36,7 +36,7 @@ void init() {
     }
 }
 
-void close(MainSystem mainSystem) {
-    mainSystem.shutdown();
-    Logger::close();
-}
+// void close(MainSystem mainSystem) {
+//     mainSystem.shutdown();
+//     Logger::close();
+// }

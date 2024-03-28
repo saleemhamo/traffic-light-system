@@ -7,12 +7,14 @@
 #else
 
 #include "pigpio_stub.h"
+#include <chrono>
 
 #endif
 
 #include <functional>
 
-class UltrasonicSensor {
+class UltrasonicSensor
+{
 public:
     using MotionDetectedCallback = std::function<void()>;
 
