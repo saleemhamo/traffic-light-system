@@ -1,6 +1,8 @@
 #ifndef CROSSGUARD_PUSHBUTTON_H
 #define CROSSGUARD_PUSHBUTTON_H
 
+#include <cstdint>
+
 // Including the pigpio library conditionally
 #ifdef RASPBERRY_PI
 #include <pigpio.h>
