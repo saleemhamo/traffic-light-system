@@ -14,19 +14,25 @@ void init();
 
 // void close();
 
-void myCallback() {
-    std::cout << "myCallback called" << std::endl;
+void myCallback(UltrasonicSensor &ultrasonicSensor) {
+    while (true) {
+        if (ultrasonicSensor.isMotionDetected()) {
+            std::cout << "Motion detected" << std::endl;
+        }
+        // Consider adding a small delay or an exit condition to avoid spinning too fast
+        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Example delay
+    }
 }
+
 
 int main() {
     init();
     UltrasonicSensor ultrasonicSensor(30, 31);
     ultrasonicSensor.initialize();
-    while (true) {
-        if (ultrasonicSensor.isMotionDetected()) {
-            std::cout << "Motion detected" << std::endl;
-        }
-    }
+    // The line below seems to be incorrect based on the provided context and is commented out
+    // ultrasonicSensor.registerMotionCallback(myCallback(ultrasonicSensor));
+    std::thread myThread(myCallback, std::ref(ultrasonicSensor));
+    myThread.join();
 
 //    MainSystem mainSystem;
 //    mainSystem.initialize();
