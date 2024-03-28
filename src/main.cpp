@@ -20,11 +20,13 @@ void myCallback() {
 
 int main() {
     init();
-    PushButton pushButton(22);
-    pushButton.registerButtonPressCallback(myCallback);
-    pushButton.initialize();
-
-    while (true);
+    UltrasonicSensor ultrasonicSensor(30, 31);
+    ultrasonicSensor.initialize();
+    while (true) {
+        if (ultrasonicSensor.isMotionDetected()) {
+            std::cout << "Motion detected" << std::endl;
+        }
+    }
 
 //    MainSystem mainSystem;
 //    mainSystem.initialize();
