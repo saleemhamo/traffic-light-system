@@ -8,3 +8,11 @@ latex/
 .idea/
 cmake-build-debug/
 .vscode/
+
+CMakeFiles/
+app.log
+cmake_install.cmake
+CMakeCache.txt
+CTestTestfile.cmake
+CrossGuard
+Makefile
