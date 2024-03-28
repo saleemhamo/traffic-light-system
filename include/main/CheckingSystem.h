@@ -47,6 +47,10 @@ public:
 
     void disablePedestriansButton();
 
+    void enableSensing();
+
+    void disableSensing();
+
 
 private:
     std::atomic<bool> isActive;

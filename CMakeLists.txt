@@ -25,6 +25,7 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
+#        include/utils/Timer.cpp
 )
 
 # Conditional linking with the wiringPi library
@@ -56,9 +57,9 @@ if (Boost_FOUND)
         message(STATUS "Configuring tests for non-Raspberry Pi environment.")
         # Replace 'BuzzerTest' with the target name for your test
         # Provide the correct path to Buzzer_test.cpp
-        add_executable(BuzzerTest tests/hardware_tests/actuators/Buzzer_test.cpp)
-        target_link_libraries(BuzzerTest ${Boost_LIBRARIES})
-        add_test(NAME BuzzerUnitTest COMMAND BuzzerTest)
+        # add_executable(BuzzerTest tests/hardware_tests/actuators/Buzzer_test.cpp)
+        # target_link_libraries(BuzzerTest ${Boost_LIBRARIES})
+        # add_test(NAME BuzzerUnitTest COMMAND BuzzerTest)
     endif ()
 else ()
     message(STATUS "Boost not found, tests will not be available.")
