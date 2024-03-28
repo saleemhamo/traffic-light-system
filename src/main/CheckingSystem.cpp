@@ -24,8 +24,8 @@ void CheckingSystem::initialize() {
     pedestriansPushButton.initialize();
 
     enablePedestriansButton();
-    enableCarsMotionDetection();
-    enablePedestriansMotionDetection();
+//    enableCarsMotionDetection();
+//    enablePedestriansMotionDetection();
     pedestriansPushButton.registerButtonPressCallback([this]() { this->onPedestriansButtonPress(); });
 }
 
