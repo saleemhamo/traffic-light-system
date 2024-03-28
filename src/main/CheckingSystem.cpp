@@ -23,6 +23,9 @@ void CheckingSystem::initialize() {
     roadSensor.initialize();
     pedestriansPushButton.initialize();
 
+    enablePedestriansButton();
+    enableCarsMotionDetection();
+    enablePedestriansMotionDetection();
     pedestriansPushButton.registerButtonPressCallback([this]() { this->onPedestriansButtonPress(); });
 }
 
