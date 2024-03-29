@@ -47,7 +47,6 @@ private:
 
     std::atomic<bool> isTrafficLightRunningInNormalBehaviour;
 
-
     void onCarsMotionDetected();
 
     void onPedestriansMotionDetected();
@@ -60,13 +59,12 @@ private:
 
     void runTrafficLightsNormalBehaviour();
 
-    void turnCarsGreen();
+    void turnCarsTrafficLightGreen();
 
-    void turnPedestriansGreen();
+    void turnPedestriansTrafficLightGreen();
 
-    void turnAllRed();
+    void turnAllTrafficLightsRed();
 
-//    void resetTrafficLightTimer();
 };
 
 #endif // MAINSYSTEM_H

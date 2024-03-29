@@ -1,4 +1,5 @@
 #include "main/MainSystem.h"
+#include "utils/Logger.h"
 
 MainSystem::MainSystem() : trafficLightState(OFF) {}
 
@@ -37,6 +38,7 @@ void MainSystem::shutdown() {
 }
 
 void MainSystem::onCarsMotionDetected() {
+    Logger::logInfo("Cars motion detected");
     std::cout << "Cars motion detected" << std::endl;
     if (trafficLightState != CARS_RED_PEDESTRIANS_GREEN) {
         return; // Do Nothing
@@ -45,7 +47,7 @@ void MainSystem::onCarsMotionDetected() {
     // State is CARS_RED_PEDESTRIANS_GREEN
     checkingSystem.disableSensing();
     disableTrafficLightsNormalBehaviour();
-    turnAllRed();
+    turnAllTrafficLightsRed();
     warningSystem.activate();
 
     // after 5 seconds
@@ -58,6 +60,7 @@ void MainSystem::onCarsMotionDetected() {
 }
 
 void MainSystem::onPedestriansMotionDetected() {
+    Logger::logInfo("Pedestrians motion detected");
     std::cout << "Pedestrians motion detected" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
@@ -66,7 +69,7 @@ void MainSystem::onPedestriansMotionDetected() {
     // State is CARS_GREEN_PEDESTRIANS_RED
     checkingSystem.disableSensing();
     disableTrafficLightsNormalBehaviour();
-    turnAllRed();
+    turnAllTrafficLightsRed();
     warningSystem.activate();
 
     // after 5 seconds
@@ -100,33 +103,35 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
     pedestriansTrafficLightTimer.stopTimer();
 }
 
-void MainSystem::turnCarsGreen() {
-    std::cout << "turnCarsGreen called" << std::endl;
+void MainSystem::turnCarsTrafficLightGreen() {
+    Logger::logInfo("turnCarsTrafficLightGreen called");
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
     carsTrafficLight.turnGreen();
     pedestriansTrafficLight.turnRed();
     trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-    pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansGreen(); }, 5000);
-    std::cout << "turnCarsGreen finished" << std::endl;
+    pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+    Logger::logInfo("turnCarsTrafficLightGreen finished");
 
 }
 
-void MainSystem::turnPedestriansGreen() {
-    std::cout << "turnPedestriansGreen called" << std::endl;
+void MainSystem::turnPedestriansTrafficLightGreen() {
+    Logger::logInfo("turnPedestriansTrafficLightGreen called");
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
     carsTrafficLight.turnRed();
     pedestriansTrafficLight.turnGreen();
     trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
-    carsTrafficLightTimer.setTimeout([this] { turnCarsGreen(); }, 5000);
-    std::cout << "turnPedestriansGreen finished" << std::endl;
+    carsTrafficLightTimer.setTimeout([this] { turnCarsTrafficLightGreen(); }, 5000);
+    Logger::logInfo("turnPedestriansTrafficLightGreen finished");
+
+
 }
 
-void MainSystem::turnAllRed() {
-    std::cout << "turnAllRed called" << std::endl;
+void MainSystem::turnAllTrafficLightsRed() {
+    Logger::logInfo("turnAllTrafficLightsRed called");
     carsTrafficLight.turnRed();
     pedestriansTrafficLight.turnRed();
     trafficLightState = OFF;
@@ -134,30 +139,6 @@ void MainSystem::turnAllRed() {
 
 
 void MainSystem::runTrafficLightsNormalBehaviour() {
-    std::cout << "runTrafficLightsNormalBehaviour called" << std::endl;
-    turnCarsGreen();
+    Logger::logInfo("runTrafficLightsNormalBehaviour called");
+    turnCarsTrafficLightGreen();
 }
-
-
-// Set initial states
-// States:
-//      - CARS_RED_PED_GREEN
-//      - CARS_GREEN_PED_RED
-
-// Scenario #1 -> CARS_RED_PED_GREEN -> monitor road -> when needed, turn all red and fire alarm.
-// Scenario #2 -> CARS_RED_PED_GREEN -> timeout      -> change state
-// Scenario #3 -> CARS_GREEN_PED_RED -> monitor ped -> when needed, turn all red and fire alarm.
-// Scenario #4 -> CARS_GREEN_PED_RED -> button pressed -> monitor road and decide
-// Scenario #5 -> CARS_GREEN_PED_RED -> timeout      -> change state
-
-
-// set traffic lights
-// start detection
-
-
-// runTrafficLightsNormalBehaviour
-// run what to check based on state ->
-//                                      CARS_RED_PED_GREEN -> check road only
-//                                      CARS_GREEN_PED_RED -> check pedestrians
-
-// callback from road -> Scenario #1
