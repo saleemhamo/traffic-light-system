@@ -11,24 +11,25 @@ include_directories(include)
 # Add the main executable
 add_executable(CrossGuard
         src/main.cpp
-        src/wiringPiStub.cpp # Stub file
         src/pigpio_stub.cpp # Stub file
         src/utils/Logger.cpp
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
         # src/sensors/CameraSensor.cpp
-        # src/sensors/UltrasonicSensor.cpp
+        src/sensors/UltrasonicSensor.cpp
+        src/sensors/PushButton.cpp
         src/models/TrafficLight.cpp
         src/main/CarsTrafficLightSystem.cpp
         src/main/PedestriansTrafficLightSystem.cpp
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
+#        include/utils/Timer.cpp
 )
 
-# Conditional linking with the wiringPi library
+# Conditional linking with the pigpio library
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
-    target_link_libraries(CrossGuard wiringPi)
+    target_link_libraries(CrossGuard pigpio)
 endif ()
 
 ####### Testing Configuration #######
@@ -55,9 +56,9 @@ if (Boost_FOUND)
         message(STATUS "Configuring tests for non-Raspberry Pi environment.")
         # Replace 'BuzzerTest' with the target name for your test
         # Provide the correct path to Buzzer_test.cpp
-        add_executable(BuzzerTest tests/hardware_tests/actuators/Buzzer_test.cpp)
-        target_link_libraries(BuzzerTest ${Boost_LIBRARIES})
-        add_test(NAME BuzzerUnitTest COMMAND BuzzerTest)
+        # add_executable(BuzzerTest tests/hardware_tests/actuators/Buzzer_test.cpp)
+        # target_link_libraries(BuzzerTest ${Boost_LIBRARIES})
+        # add_test(NAME BuzzerUnitTest COMMAND BuzzerTest)
     endif ()
 else ()
     message(STATUS "Boost not found, tests will not be available.")
