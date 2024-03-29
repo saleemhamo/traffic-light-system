@@ -1,18 +1,43 @@
 # Traffic Light Control System
 
-This project aims to develop a smart traffic light control system to optimize traffic flow and pedestrian safety using a Raspberry Pi. The system dynamically adjusts traffic light signals based on real-time traffic and pedestrian demand, reducing wait times and improving road safety.
+Welcome to the Traffic Light Control System project, an innovative solution designed to revolutionize urban traffic management. Our system intelligently optimizes traffic flow and enhances pedestrian safety using cutting-edge technology, all powered by a Raspberry Pi. By analyzing real-time traffic and pedestrian data, we dynamically adjust traffic signals to reduce waiting times and improve the overall safety of road intersections.
 
-## Features
+![Traffic Light Control System Logo](https://github.com/saleemhamo/traffic-light-system/blob/development/docs/LOGO.png)
 
-- Real-time traffic detection
-- Dynamic traffic light control
-- Pedestrian crossing optimization
-- Easy deployment on Raspberry Pi
+This project is a blend of hardware (HW) and software (SW) components, working in harmony to bring about a seamless traffic management experience.
 
-## Dependencies
+## Project Components
 
-This project requires the following:
+### Hardware
 
-- **Doxygen**: Utilized for generating the project documentation. Ensure that Doxygen is installed and correctly set up on your system for documentation generation. More information can be found at [Doxygen's official website](http://www.doxygen.nl/).
+The heart of our system lies in its carefully designed circuitry and the selection of equipment:
 
-- **Boost Libraries**: These libraries are used for added functionality, especially for system and file operations. Ensure that the Boost libraries are installed and properly configured in your environment. Visit the [Boost official website](https://www.boost.org/) for installation and usage instructions.
+- **Raspberry Pi**: Acts as the central processing unit of our traffic control system.
+- **Sensors**: For real-time traffic and pedestrian demand detection.
+- **Signal Lights**: To visually communicate with traffic participants.
+
+For a detailed overview of the circuit design and equipment, please refer to our [Wiki page on hardware setup](<CIRCUIT_DETAILS_LINK>).
+
+### Software
+
+Our software is developed with efficiency and scalability in mind, featuring:
+
+- **Dynamic Signal Adjustment Algorithms**: To process data from various sensors and adjust traffic lights accordingly.
+- **User-Friendly Interface**: For easy system setup and monitoring.
+
+The complete software architecture and design document can be found in our [GitHub Wiki](<DESIGN_DOCUMENT_LINK>).
+
+## Getting Started
+
+To get started with the Traffic Light Control System, you'll need to set up both the hardware and software components:
+
+1. **Hardware Setup**: Follow our [detailed hardware setup guide](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%233:-Implementation-Details#31-hardware-setup) to assemble and configure the sensors and signal lights.
+2. **Software Installation**: Consult our [software setup instructions](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%232:-Design-Document) to install and configure the necessary software on your Raspberry Pi.
+
+## Stay Connected
+
+Stay updated with the latest developments and share your feedback with us through our [Instagram profile](https://www.instagram.com/crossguard_2024). We're excited to see how our system enhances your urban traffic management projects!
+
+---
+
+Embrace the future of traffic control with our Traffic Light Control System, where innovation meets practicality.
