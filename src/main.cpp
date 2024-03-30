@@ -35,7 +35,7 @@ void initApplication() {
 
     try {
         FirestoreLogger::Initialize("INITIALIZE");
-        FirestoreLogger::Log("Application Started!");
+        FirestoreLogger::Log("INFO", "Application Started!");
     } catch (const std::exception &e) {
         std::cerr << "Failed to connect to firebase: " << e.what() << std::endl;
     }

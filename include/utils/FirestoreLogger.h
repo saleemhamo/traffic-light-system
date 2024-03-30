@@ -10,11 +10,14 @@
 
 class FirestoreLogger {
 public:
-    static void Initialize(const std::string& apiKey);
-    static void Log(const std::string& message);
+    static void Initialize(const std::string &apiKey);
+
+    static void Log(const std::string &level, const std::string &message);
+
 
 private:
     static std::string GenerateTimestamp();
+
     static std::string apiKey;
     static inline std::string baseUrl = "https://firestore.googleapis.com/v1/projects/traffic-light-control-uofg/databases/(default)/documents/logs";
 };

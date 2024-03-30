@@ -38,10 +38,7 @@ void Logger::log(const std::string &level, const std::string &message) {
     char timestamp[20];
     std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
 
-    std::ostringstream logStream;
-    logStream << "[" << level << "] " << message;
-    std::string logString = logStream.str();
-    FirestoreLogger::Log(logString);
+    FirestoreLogger::Log(level, message);
 
     logFile << "[" << timestamp << "] [" << level << "] " << message << std::endl;
 }

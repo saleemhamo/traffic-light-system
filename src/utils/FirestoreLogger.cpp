@@ -6,19 +6,20 @@ void FirestoreLogger::Initialize(const std::string &apiKeyParam) {
     apiKey = apiKeyParam;
 }
 
-void FirestoreLogger::Log(const std::string &message) {
+void FirestoreLogger::Log(const std::string &level, const std::string &message) {
     if (apiKey.empty()) {
         std::cerr << "FirestoreLogger not initialized with API key." << std::endl;
         return;
     }
 
     std::string logMessage = message;
+    std::string logLevel = level; // The new log level parameter
     std::string timestamp = GenerateTimestamp();
-    std::string fullUrl = baseUrl;
-
+    std::string fullUrl = baseUrl + "?key=" + apiKey; // Make sure to append the API key here
 
     std::ostringstream dataStream;
     dataStream << R"({ "fields": { "log": { "stringValue": ")" << logMessage
+               << R"(" }, "level": { "stringValue": ")" << logLevel
                << R"(" }, "timestamp": { "stringValue": ")" << timestamp << R"(" } } })";
 
     std::string data = dataStream.str();
