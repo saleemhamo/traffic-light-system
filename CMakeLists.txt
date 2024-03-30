@@ -5,6 +5,19 @@ project(CrossGuard)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Include FetchContent module for downloading external content
+include(FetchContent)
+
+# Declare CPR as an external project
+FetchContent_Declare(
+        cpr
+        GIT_REPOSITORY https://github.com/libcpr/cpr.git
+        GIT_TAG origin/master # It's better to lock this to a specific release version for consistency
+)
+
+# Make the fetched content available
+FetchContent_MakeAvailable(cpr)
+
 # Include directories
 include_directories(include)
 
@@ -24,8 +37,12 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
-#        include/utils/Timer.cpp
+        # include/utils/Timer.cpp
+        src/utils/FirestoreLogger.cpp
 )
+
+# Link CPR library
+target_link_libraries(CrossGuard PRIVATE cpr::cpr)
 
 # Conditional linking with the pigpio library
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
@@ -54,11 +71,7 @@ if (Boost_FOUND)
         add_test(NAME RPiBuzzerUnitTest COMMAND RPiBuzzerTest)
     else ()
         message(STATUS "Configuring tests for non-Raspberry Pi environment.")
-        # Replace 'BuzzerTest' with the target name for your test
-        # Provide the correct path to Buzzer_test.cpp
-        # add_executable(BuzzerTest tests/hardware_tests/actuators/Buzzer_test.cpp)
-        # target_link_libraries(BuzzerTest ${Boost_LIBRARIES})
-        # add_test(NAME BuzzerUnitTest COMMAND BuzzerTest)
+        # Tests for non-Raspberry Pi environment go here
     endif ()
 else ()
     message(STATUS "Boost not found, tests will not be available.")
