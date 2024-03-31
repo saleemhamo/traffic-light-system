@@ -41,13 +41,16 @@ add_executable(CrossGuard
         src/utils/FirestoreLogger.cpp
 )
 
-# Link CPR library
-target_link_libraries(CrossGuard PRIVATE cpr::cpr)
+# Prepare the list of libraries to link.
+set(LINK_LIBS cpr::cpr)
 
-# Conditional linking with the pigpio library
+# Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
-    target_link_libraries(CrossGuard pigpio)
-endif ()
+    list(APPEND LINK_LIBS pigpio)
+endif()
+
+# Link the libraries to the target.
+target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
 
 ####### Testing Configuration #######
 
