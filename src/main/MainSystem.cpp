@@ -101,6 +101,7 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = false;
     carsTrafficLightTimer.stopTimer();
     pedestriansTrafficLightTimer.stopTimer();
+    yellowTrafficLightTimer.stopTimer();
 }
 
 void MainSystem::turnCarsTrafficLightGreen() {
@@ -110,7 +111,7 @@ void MainSystem::turnCarsTrafficLightGreen() {
     }
     carsTrafficLight.turnYellow();
     pedestriansTrafficLight.turnRed();
-    pedestriansTrafficLightTimer.setTimeout([this] {
+    yellowTrafficLightTimer.setTimeout([this] {
         carsTrafficLight.turnGreen();
         pedestriansTrafficLight.turnRed();
         trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
