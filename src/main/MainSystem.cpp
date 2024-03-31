@@ -108,10 +108,15 @@ void MainSystem::turnCarsTrafficLightGreen() {
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
-    carsTrafficLight.turnGreen();
+    carsTrafficLight.turnYellow();
     pedestriansTrafficLight.turnRed();
-    trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-    pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+    pedestriansTrafficLightTimer.setTimeout([this] {
+        carsTrafficLight.turnGreen();
+        pedestriansTrafficLight.turnRed();
+        trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
+        pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+    }, 2000);
+
     Logger::logInfo("turnCarsTrafficLightGreen finished");
 
 }
