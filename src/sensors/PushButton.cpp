@@ -7,7 +7,7 @@ PushButton::PushButton(int pin) : gpioPin(pin) {
 PushButton::~PushButton() {
 //#ifdef RASPBERRY_PI
     // Reset ISR handling on this pin
-    gpioSetAlertFunc(gpioPin, NULL);
+    gpioSetAlertFunc(gpioPin, NULL, NULL);
 //#endif
     // Optional: gpioTerminate(); // Consider if you want to terminate pigpio on destruction. Beware if using multiple GPIO devices.
 }
@@ -23,7 +23,7 @@ void PushButton::initialize() {
     gpioSetMode(gpioPin, PI_INPUT);
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
     // Set ISR for falling edge (button press)
-    gpioSetAlertFunc(gpioPin, buttonPressHandler);
+    gpioSetAlertFunc(gpioPin, buttonPressHandler, this);
 //#endif
     // More initialization as necessary
 }
