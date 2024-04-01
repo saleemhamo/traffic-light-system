@@ -6,7 +6,8 @@
 
 CarsTrafficLightSystem::CarsTrafficLightSystem()
         : TrafficLight(Constants::CarsTrafficLightRedPin,
-                       Constants::CarsTrafficLightGreenPin),
+                       Constants::CarsTrafficLightGreenPin,
+                       Constants::CarsTrafficLightYellowPin),
           isActive(false) {}
 
 void CarsTrafficLightSystem::initialize() {
@@ -14,15 +15,7 @@ void CarsTrafficLightSystem::initialize() {
 }
 
 void CarsTrafficLightSystem::run() {
-    isActive = true;
-    while (isActive) {
-        turnGreen();
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000)); // Example timing
-        if (!isActive) break;  // Check again after waking up
 
-        turnRed();
-        std::this_thread::sleep_for(std::chrono::milliseconds(5000)); // Example timing
-    }
 }
 
 void CarsTrafficLightSystem::deactivate() {

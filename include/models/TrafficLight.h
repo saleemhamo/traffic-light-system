@@ -13,22 +13,28 @@ public:
     enum class State {
         OFF,
         RED,
-        GREEN
+        GREEN,
+        YELLOW
 
     };
 
     TrafficLight(int redPin, int greenPin);
+
+    TrafficLight(int redPin, int greenPin, int yellowPin);
 
 
     void turnRed();
 
     void turnGreen();
 
+    void turnYellow();
+
     void turnOff();
 
 private:
     LED redLED;
     LED greenLED;
+    LED yellowLED;
     State currentState;  // 0 = off, 1 = red, 2 = green
 };
 
