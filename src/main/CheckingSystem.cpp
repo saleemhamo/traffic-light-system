@@ -29,6 +29,8 @@ void CheckingSystem::initialize() {
 void CheckingSystem::run() {
     isActive = true;
 
+    enablePedestriansMotionDetection();
+    enableCarsMotionDetection();
     // Launch monitoring threads
     std::thread pedestrianThread([this]() { this->monitorPedestrian(); });
     std::thread roadThread([this]() { this->monitorRoad(); });
