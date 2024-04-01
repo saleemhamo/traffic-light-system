@@ -28,7 +28,7 @@ int main() {
 //    ultrasonicSensor.registerMotionCallback(callback);
 
     while (true) {
-        if (ultrasonicSensor.isMotionDetected()) {
+        if (ultrasonicSensor.isMotionDetected(0.1)) {
             std::cout << "Motion detected inside the loop" << std::endl;
         }
     }
