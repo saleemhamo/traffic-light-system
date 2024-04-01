@@ -9,6 +9,7 @@ MainSystem::~MainSystem() {
 
 void MainSystem::initialize() {
     // Initialize all subsystems here
+    Logger::logInfo("MainSystem::initialize called");
     carsTrafficLight.initialize();
     pedestriansTrafficLight.initialize();
     checkingSystem.initialize();
@@ -99,8 +100,8 @@ void MainSystem::enableTrafficLightsNormalBehaviour() {
 
 void MainSystem::disableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = false;
-//    carsTrafficLightTimer.stopTimer();
-//    pedestriansTrafficLightTimer.stopTimer();
+    carsTrafficLightTimer.stopTimer();
+    pedestriansTrafficLightTimer.stopTimer();
 }
 
 void MainSystem::turnCarsTrafficLightGreen() {

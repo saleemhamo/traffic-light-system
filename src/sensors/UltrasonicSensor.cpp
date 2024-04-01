@@ -3,11 +3,9 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <pigpio.h>
 #include <signal.h>
 
 UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin) : triggerPin(triggerPin), echoPin(echoPin),

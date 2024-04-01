@@ -1,6 +1,5 @@
 #include "main/CheckingSystem.h"
 #include <chrono>  // For std::chrono
-#include <iostream>
 
 CheckingSystem::CheckingSystem() :
         isActive(false),
@@ -105,6 +104,7 @@ void CheckingSystem::disablePedestriansButton() {
 
 
 void CheckingSystem::registerCarsMotionCallback(const std::function<void()> &callback) {
+    Logger::logInfo("MainSystem::initialize called");
     carsMotionDetected = callback;
 }
 

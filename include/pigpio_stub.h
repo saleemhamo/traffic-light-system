@@ -29,4 +29,8 @@ void gpioDelay(unsigned micros);
 // Simulate a microsecond tick counter.
 unsigned gpioTick();
 
+// Simulate setting a GPIO alert function with an additional user parameter.
+int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user);
+
+
 #endif
