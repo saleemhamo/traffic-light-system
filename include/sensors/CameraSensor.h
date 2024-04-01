@@ -1,14 +1,15 @@
 // created by Miguel Rosa on 3/25/2024 //
 
-#endif //_CROSS_GUARD_CAMERASENSOR_H
-
 #ifndef CAMERA_SENSOR_H
 #define CAMERA_SENSOR_H
 
 #include <atomic>
 #include <thread>
-#include <chrono>
-#include "WarningSystem.h" // Assuming you have a mechanism to notify the Warning System
+#include <mutex>
+#include <condition_variable>
+#include <raspicam/raspicam_cv.h>
+
+class WarningSystem; // Forward declaration
 
 class CameraSensor {
 public:
@@ -17,16 +18,16 @@ public:
 
     void startDetection();
     void stopDetection();
-    bool isCarIncoming() const;
+    bool isMovementDetected() const;
 
 private:
     WarningSystem& warningSystem;
-    std::atomic<bool> carDetected;
+    std::atomic<bool> movementDetected;
     std::atomic<bool> stopRequested;
     std::thread detectionThread;
+    raspicam::RaspiCam_Cv camera;
 
     void detectionLoop();
-    bool detectCar(); // Simulates car detection logic
 };
 
 #endif // CAMERA_SENSOR_H
