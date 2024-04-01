@@ -4,13 +4,13 @@
 #include <cstdint>
 
 // Including the pigpio library conditionally
-#ifdef RASPBERRY_PI
+//#ifdef RASPBERRY_PI
 #include <pigpio.h>
-#else
+//#else
 
-#include "pigpio_stub.h"
+//#include "pigpio_stub.h"
 
-#endif
+//#endif
 
 #include <functional>
 
