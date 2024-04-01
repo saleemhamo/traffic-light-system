@@ -10,7 +10,7 @@ public:
     ~UltrasonicSensor();
     void initialize();
     float calculateDistance();
-    bool isMotionDetected(float distanceThreshold = 0.2f); // Threshold in meters
+    bool isMotionDetected(float distanceThreshold = 0.1f); // Threshold in meters
 
 private:
     int triggerPin, echoPin;
