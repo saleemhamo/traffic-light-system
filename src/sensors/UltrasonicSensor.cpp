@@ -12,7 +12,7 @@
 
 UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin)
     : triggerPin(triggerPin), echoPin(echoPin), motionCallback(nullptr),
-      isMonitoring(false), lastDistance(0.0f), distanceThreshold(5.0f)
+      isMonitoring(true), lastDistance(0.0f), distanceThreshold(5.0f)
 {
     initialize();
 }
