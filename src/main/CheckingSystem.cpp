@@ -29,7 +29,7 @@ void CheckingSystem::run() {
     isActive = true;
 
     enablePedestriansMotionDetection();
-    enableCarsMotionDetection();
+//    enableCarsMotionDetection();
     // Launch monitoring threads
     std::thread pedestrianThread([this]() { this->monitorPedestrian(); });
     std::thread roadThread([this]() { this->monitorRoad(); });
