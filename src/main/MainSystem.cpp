@@ -99,8 +99,8 @@ void MainSystem::enableTrafficLightsNormalBehaviour() {
 
 void MainSystem::disableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = false;
-    carsTrafficLightTimer.stopTimer();
-    pedestriansTrafficLightTimer.stopTimer();
+//    carsTrafficLightTimer.stopTimer();
+//    pedestriansTrafficLightTimer.stopTimer();
 }
 
 void MainSystem::turnCarsTrafficLightGreen() {
