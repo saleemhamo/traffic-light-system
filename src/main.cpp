@@ -19,21 +19,21 @@ void callback() {
 int main() {
     initApplication();
 
-//    MainSystem mainSystem;
-//    mainSystem.initialize();
-//    mainSystem.runSystems();
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.runSystems();
 
-    UltrasonicSensor ultrasonicSensor(23, 24);
-    ultrasonicSensor.initialize();
-//    ultrasonicSensor.registerMotionCallback(callback);
+//    UltrasonicSensor ultrasonicSensor(23, 24);
+//    ultrasonicSensor.initialize();
+////    ultrasonicSensor.registerMotionCallback(callback);
+//
+//    while (true) {
+//        if (ultrasonicSensor.isMotionDetected(0.1)) {
+//            std::cout << "Motion detected inside the loop" << std::endl;
+//        }
+//    }
 
-    while (true) {
-        if (ultrasonicSensor.isMotionDetected(0.1)) {
-            std::cout << "Motion detected inside the loop" << std::endl;
-        }
-    }
-
-//    closeApplication(mainSystem);
+    closeApplication(mainSystem);
     return 0;
 }
 
