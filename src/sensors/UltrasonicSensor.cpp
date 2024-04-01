@@ -102,6 +102,7 @@ float UltrasonicSensor::calculateDistance()
 
     diff = gpioTick() - setTick;
     dist = diff * 343.0 / 1000000.0 / 2;
+    std::cout << "dist" << dist << std::endl;
     if (dist < 0)
         dist = 0;
     if (dist > 50)
