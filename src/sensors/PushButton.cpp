@@ -18,7 +18,7 @@ void PushButton::initialize() {
     if (gpioInitialise() < 0)
     {
         std::cerr << "Unable to connect PIGPIO, exiting" << std::endl;
-        return 1;
+        return;
     }
     gpioSetMode(gpioPin, PI_INPUT);
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
