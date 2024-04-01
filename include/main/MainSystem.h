@@ -33,6 +33,7 @@ private:
     TrafficLightState trafficLightState;
     Timer carsTrafficLightTimer;
     Timer pedestriansTrafficLightTimer;
+    Timer yellowTrafficLightTimer;
     Timer mainSystemTimer;
 
     CarsTrafficLightSystem carsTrafficLight;
