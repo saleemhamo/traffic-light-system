@@ -83,6 +83,7 @@ void MainSystem::onPedestriansMotionDetected() {
 }
 
 void MainSystem::onPedestriansButtonClicked() {
+    std::cout << "Pedestrians button clicked" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
     }
