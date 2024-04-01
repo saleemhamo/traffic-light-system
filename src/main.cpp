@@ -25,7 +25,7 @@ int main() {
 
     UltrasonicSensor ultrasonicSensor(23, 24);
     ultrasonicSensor.initialize();
-    ultrasonicSensor.registerMotionCallback(callback);
+//    ultrasonicSensor.registerMotionCallback(callback);
 
     while (true) {
         if (ultrasonicSensor.isMotionDetected()) {
