@@ -88,7 +88,7 @@ void UltrasonicSensor::sendPulse()
 
 float UltrasonicSensor::calculateDistance()
 {
-#ifdef RASPBERRY_PI
+//#ifdef RASPBERRY_PI
     static uint32_t setTick;
     uint32_t diff;
     double dist;
@@ -110,10 +110,10 @@ float UltrasonicSensor::calculateDistance()
 
     setTick = 0;
     return static_cast<float>(dist);
-#else
-    // Fallback or mock logic for non-RPi platforms
-    return -1.0f; // Example fallback, adjust as needed
-#endif
+//#else
+//    // Fallback or mock logic for non-RPi platforms
+//    return -1.0f; // Example fallback, adjust as needed
+//#endif
 }
 
 void UltrasonicSensor::sonarReceiveAlertFunction(int gpio, int level, uint32_t tick)
