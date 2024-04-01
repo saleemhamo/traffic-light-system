@@ -13,14 +13,25 @@ void initApplication();
 
 void closeApplication(MainSystem &mainSystem);
 
+void callback() {
+    std::cout << "Button clicked" << std::endl;
+}
 
 int main() {
     initApplication();
-    MainSystem mainSystem;
-    mainSystem.initialize();
-    mainSystem.runSystems();
 
-    closeApplication(mainSystem);
+    PushButton button(6);
+    button.initialize();
+    button.registerButtonPressCallback(callback);
+
+    while (true);
+
+
+//    MainSystem mainSystem;
+//    mainSystem.initialize();
+//    mainSystem.runSystems();
+
+//    closeApplication(mainSystem);
     return 0;
 }
 
