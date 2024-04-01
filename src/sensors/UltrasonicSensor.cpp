@@ -4,11 +4,17 @@
 #include <thread>
 #include <iostream>
 
-#ifdef RASPBERRY_PI
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 #include <pigpio.h>
-#else
-#include "pigpio_stub.h"
-#endif
+#include <signal.h>
+
+// #ifdef RASPBERRY_PI
+// #include <pigpio.h>
+// #else
+// #include "pigpio_stub.h"
+// #endif
 
 UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin)
     : triggerPin(triggerPin), echoPin(echoPin), motionCallback(nullptr),
@@ -20,15 +26,15 @@ UltrasonicSensor::UltrasonicSensor(int triggerPin, int echoPin)
 UltrasonicSensor::~UltrasonicSensor()
 {
     // Clean up pigpio resources, only on Raspberry Pi
-#ifdef RASPBERRY_PI
+// #ifdef RASPBERRY_PI
     gpioTerminate();
-#endif
+// #endif
 }
 
 void UltrasonicSensor::initialize()
 {
     // Initialize pigpio and set pin modes, only on Raspberry Pi
-#ifdef RASPBERRY_PI
+// #ifdef RASPBERRY_PI
     if (gpioInitialise() < 0)
     {
         std::cerr << "Error: Initialisation of the GPIO Failed." << std::endl;
@@ -39,7 +45,7 @@ void UltrasonicSensor::initialize()
     gpioSetMode(triggerPin, PI_OUTPUT);
     gpioSetMode(echoPin, PI_INPUT);
     gpioSetAlertFunc(echoPin, sonarReceiveAlertFunction);
-#endif
+// #endif
     // More initialization as necessary
 }
 
@@ -79,16 +85,16 @@ bool UltrasonicSensor::isMotionDetected()
 
 void UltrasonicSensor::sendPulse()
 {
-#ifdef RASPBERRY_PI
+// #ifdef RASPBERRY_PI
     gpioWrite(triggerPin, 1);
     usleep(10);
     gpioWrite(triggerPin, 0);
-#endif
+// #endif
 }
 
 float UltrasonicSensor::calculateDistance()
 {
-//#ifdef RASPBERRY_PI
+    // #ifdef RASPBERRY_PI
     static uint32_t setTick;
     uint32_t diff;
     double dist;
@@ -110,10 +116,10 @@ float UltrasonicSensor::calculateDistance()
 
     setTick = 0;
     return static_cast<float>(dist);
-//#else
-//    // Fallback or mock logic for non-RPi platforms
-//    return -1.0f; // Example fallback, adjust as needed
-//#endif
+    // #else
+    //     // Fallback or mock logic for non-RPi platforms
+    //     return -1.0f; // Example fallback, adjust as needed
+    // #endif
 }
 
 void UltrasonicSensor::sonarReceiveAlertFunction(int gpio, int level, uint32_t tick)
