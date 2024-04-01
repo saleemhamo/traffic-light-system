@@ -13,29 +13,29 @@ public:
     enum class State {
         OFF,
         RED,
-        GREEN
+        GREEN,
+        YELLOW
 
     };
 
-    // Constructor with pins for the red and green LEDs
     TrafficLight(int redPin, int greenPin);
 
-    // Turns the traffic light red
+    TrafficLight(int redPin, int greenPin, int yellowPin);
+
+
     void turnRed();
 
-    // Turns the traffic light green
     void turnGreen();
 
-    // Turns off all lights
-    void turnOff();
+    void turnYellow();
 
-    // Changes the state after a timeout
-    void changeStateAfterTimeout(int timeoutMillis);
+    void turnOff();
 
 private:
     LED redLED;
     LED greenLED;
-    int currentState;  // 0 = off, 1 = red, 2 = green
+    LED yellowLED;
+    State currentState;  // 0 = off, 1 = red, 2 = green
 };
 
 

@@ -1,27 +1,26 @@
-//
-// Created by Saleem Hamo on 20/02/2024.
-//
-
 // Check if we are on a typical Raspberry Pi OS and ARM architecture
 #if defined(__linux__) && defined(__arm__)
-#include <wiringPi.h>
+#include <pigpio.h>
 #else
 
-#include "wiringPiStub.h"
+#include "pigpio_stub.h"
 
 #endif
 
 #include "actuators/Buzzer.h"
 
-Buzzer::Buzzer(int pin) : pin(pin) {
-    wiringPiSetup();  // Setup the wiringPi library
-    pinMode(pin, OUTPUT);  // Set the pin mode to output
+Buzzer::Buzzer(int pin) : pin(pin)
+{
+    gpioInitialise();            // Initialize the pigpio library
+    gpioSetMode(pin, PI_OUTPUT); // Set the pin mode to output
 }
 
-void Buzzer::on() {
-    digitalWrite(pin, HIGH);  // Set the pin to high to turn the buzzer on
+void Buzzer::on()
+{
+    gpioWrite(pin, 1); // Set the pin to high to turn the buzzer on
 }
 
-void Buzzer::off() {
-    digitalWrite(pin, LOW);  // Set the pin to low to turn the buzzer off
+void Buzzer::off()
+{
+    gpioWrite(pin, 0); // Set the pin to low to turn the buzzer off
 }

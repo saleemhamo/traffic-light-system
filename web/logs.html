@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs - CrossGuard Dashboard</title>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Date Range Picker library -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .logs-container {
+            background: #fff; /* White background for log entries */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .log-entry {
+            border-bottom: 1px solid #eee; /* Light line between entries */
+            padding: 10px 0;
+        }
+
+        .log-timestamp {
+            color: #666;
+            margin-right: 10px;
+        }
+
+        .log-message {
+            color: #333;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px; /* Reduced from 60px to 40px */
+            height: 24px; /* Reduced from 34px to 24px */
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 24px; /* Make sure it's rounded adequately */
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px; /* Reduced from 26px to 18px */
+            width: 18px; /* Reduced from 26px to 18px */
+            left: 3px; /* Adjusted for smaller size */
+            bottom: 3px; /* Adjusted for smaller size */
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%; /* Keep it circular */
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(16px); /* Adjusted for smaller size */
+            -ms-transform: translateX(16px); /* Adjusted for smaller size */
+            transform: translateX(16px); /* Adjusted for smaller size */
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">
+        <img src="./images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        CrossGuard Dashboard
+    </a>
+</nav>
+
+
+<!-- Filter Section -->
+<!-- Filter Section -->
+<div class="filter-container">
+    <input type="text" id="dateRangePicker" name="daterange"/>
+    <button id="filterButton">Filter Logs</button>
+
+    <!-- Show Info Toggle -->
+    <label class="switch">
+        <input type="checkbox" id="showInfo" checked>
+        <span class="slider round"></span>
+    </label>
+    <label for="showInfo">Show Info</label>
+
+    <!-- Show Warning Toggle -->
+    <label class="switch">
+        <input type="checkbox" id="showWarning" checked>
+        <span class="slider round"></span>
+    </label>
+    <label for="showWarning">Show Warning</label>
+
+    <!-- Show Error Toggle -->
+    <label class="switch">
+        <input type="checkbox" id="showError" checked>
+        <span class="slider round"></span>
+    </label>
+    <label for="showError">Show Error</label>
+</div>
+
+
+<!-- Logs Container -->
+<div id="logs" class="logs-container">
+    <h2>Log Entries</h2>
+    <!-- Log entries will be dynamically inserted here -->
+</div>
+
+<script type="module">
+    import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+    import {getFirestore, collection, getDocs} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCuTJMC-My4Ri1Vu56ekK_Ih8CUFv_7njs",
+        authDomain: "traffic-light-control-uofg.firebaseapp.com",
+        projectId: "traffic-light-control-uofg",
+        storageBucket: "traffic-light-control-uofg.appspot.com",
+        messagingSenderId: "483530226425",
+        appId: "1:483530226425:web:57828303736310cd128028"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Define global variables for the start and end dates
+    let startDate = moment().subtract(29, 'days');
+    let endDate = moment();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set up event listeners for each switch
+        document.getElementById('showInfo').addEventListener('change', window.fetchLogs);
+        document.getElementById('showWarning').addEventListener('change', window.fetchLogs);
+        document.getElementById('showError').addEventListener('change', window.fetchLogs);
+
+        // Initialize the date range picker and other setup code...
+    });
+
+
+    // Define the fetchLogs function in the global scope
+    window.fetchLogs = async function () {
+        // Clear existing logs
+        const logsContainer = document.getElementById('logs');
+        logsContainer.innerHTML = '';
+
+        // Get toggle states
+        const showInfo = document.getElementById('showInfo').checked;
+        const showWarning = document.getElementById('showWarning').checked;
+        const showError = document.getElementById('showError').checked;
+
+        // Fetch logs from Firebase
+        const logsRef = collection(db, "logs");
+        const querySnapshot = await getDocs(logsRef);
+
+        // Filter logs by the date range and toggle states
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const logDate = moment(data.timestamp, 'YYYY-MM-DDTHH:mm:ssZ');
+            const formattedLogDate = logDate.format('MMMM Do YYYY, h:mm:ss a');
+
+            // Determine if log should be shown based on toggle states
+            const shouldShowLog = (
+                (data.level === "INFO" && showInfo) ||
+                (data.level === "WARNING" && showWarning) ||
+                (data.level === "ERROR" && showError)
+            );
+
+            if (shouldShowLog && logDate.isBetween(startDate, endDate)) {
+                const logEntryDiv = document.createElement('div');
+                logEntryDiv.className = 'log-entry';
+                logEntryDiv.innerHTML = `<span class="log-timestamp">${formattedLogDate}</span>: <span class="log-level">${data.level}</span>: <span class="log-message">${data.log}</span>`;
+                logsContainer.appendChild(logEntryDiv);
+            }
+        });
+    };
+
+    // Initialize the date range picker
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            startDate: startDate.format('MM/DD/YYYY'),
+            endDate: endDate.format('MM/DD/YYYY'),
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, function (start, end, label) {
+            startDate = start;
+            endDate = end;
+        });
+    });
+
+    // Add event listener to the filter button
+    document.getElementById('filterButton').addEventListener('click', window.fetchLogs);
+
+    // Load logs initially
+    window.fetchLogs();
+</script>
+</body>
+</html>

@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string>
 #include <ctime>
+#include "FirestoreLogger.h"
 
 class Logger {
 public:

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossGuard System Dashboard</title>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <!-- Bootstrap CSS for styling and layout -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4; /* Light background */
+            color: #333; /* Dark text for readability */
+        }
+        .navbar-custom {
+            background-color: #002366; /* Dark blue color based on the logo */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: #fff; /* White text color */
+        }
+        .navbar-custom .navbar-nav .nav-link:hover {
+            background-color: #f4f4f4; /* Light background on hover */
+            color: #333; /* Dark text on hover */
+        }
+        .welcome-section {
+            padding: 40px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px; /* Adjust size as needed */
+        }
+        .content-section {
+            padding: 20px;
+            background: #fff; /* White background for content */
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .footer {
+            background-color: #757575; /* Dark gray color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">CrossGuard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./logs.html">Logs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#warnings">Warnings & Alerts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../docs/index.html">Documentation</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Welcome Section -->
+<div id="home" class="welcome-section">
+<!--    <img src="./images/logo.png" style="width: 35rem;" alt="CrossGuard Logo" class="logo">-->
+    <img src="./images/cover.png" style="width: 35rem;" alt="CrossGuard Logo" class="logo">
+    <h1>Welcome to CrossGuard</h1>
+    <p>Optimizing traffic safety and efficiency.</p>
+    <a href="https://github.com/saleemhamo/traffic-light-system" class="btn btn-primary">View on GitHub</a>
+    <a href="https://www.instagram.com/crossguard_2024" class="btn btn-primary">View on Instagram</a>
+</div>
+
+<!-- Logs Section -->
+<a href="./logs.html" style="text-decoration: none; color: inherit;">
+    <div id="logs" class="content-section">
+        <h2>Log Entries</h2>
+        <p>View detailed logs and apply filters for specific time ranges.</p>
+    </div>
+</a>
+
+<!-- Documentation Section -->
+<a href="../docs/index.html" style="text-decoration: none; color: inherit;">
+    <div class="content-section">
+        <h2>Documentation</h2>
+        <p>Explore detailed documentation for developers and users.</p>
+    </div>
+</a>
+
+<!-- Warnings & Alerts Section -->
+<div id="warnings" class="content-section">
+    <h2>Warnings & Alerts</h2>
+    <!-- Warnings and alerts display area -->
+</div>
+
+<!-- Footer -->
+<!--<div class="footer">-->
+<!--    Contact us: <a href="mailto:contact@crossguard.com">contact@crossguard.com</a>-->
+<!--</div>-->
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
