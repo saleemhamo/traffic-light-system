@@ -13,6 +13,7 @@
 #include <atomic>
 #include <functional>
 #include "utils/Constants.h"
+#include "utils/Logger.h"
 
 
 class CheckingSystem {

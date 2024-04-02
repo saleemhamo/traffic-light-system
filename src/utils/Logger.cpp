@@ -2,6 +2,7 @@
 // Created by Saleem Hamo on 26/02/2024.
 //
 #include "utils/Logger.h"
+#include <iostream>
 
 // Initialize static members
 const std::string Logger::defaultFileName = "app.log";
@@ -16,7 +17,6 @@ void Logger::init(const std::string &filename) {
 
 void Logger::logInfo(const std::string &message) {
     log("INFO", message);
-
 }
 
 void Logger::logError(const std::string &message) {
@@ -37,8 +37,6 @@ void Logger::log(const std::string &level, const std::string &message) {
     std::time_t now = std::time(nullptr);
     char timestamp[20];
     std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
-
     FirestoreLogger::Log(level, message);
-
     logFile << "[" << timestamp << "] [" << level << "] " << message << std::endl;
 }

@@ -57,4 +57,15 @@ unsigned gpioTick() {
     return simulatedTick;
 }
 
+int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user) {
+    string message = "gpioSetAlertFuncEx(unsigned pin: " + to_string(pin) + ") called";
+    Logger::logInfo(message);
+    // In a real environment, here you would store the func and user pointers
+    // for later invocation when the pin's level changes.
+    // Since this is a stub, we'll not simulate the actual callback mechanism.
+
+    return 0; // Return 0 to indicate success, or an error code if you wish to simulate failure scenarios.
+}
+
+
 #endif

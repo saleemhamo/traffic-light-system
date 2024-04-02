@@ -27,7 +27,7 @@ namespace Constants
     constexpr int WarningSystemLed2Pin = 19;
     constexpr int WarningSystemLed3Pin = 13;
     constexpr int WarningSystemBuzzerPin = 11;
-    constexpr int CheckingSystemButtonPin = 5;
+    constexpr int CheckingSystemButtonPin = 6;
     // Add more constants here when needed
 } // End of namespace Constants
 
