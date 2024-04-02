@@ -12,6 +12,12 @@ extern const int PI_INPUT;
 extern const int PI_HIGH;
 extern const int PI_LOW;
 
+// Constants for pull-up/downs and interrupt edges
+#define PI_PUD_UP 0
+#define PI_PUD_DOWN 0
+#define PI_PUD_OFF 0
+#define FALLING_EDGE 0
+
 // Function declarations to mimic those in the pigpio library.
 int gpioInitialise();
 
@@ -32,5 +38,11 @@ unsigned gpioTick();
 // Simulate setting a GPIO alert function with an additional user parameter.
 int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user);
 
+// Function to mimic setting an interrupt service routine (ISR) for a GPIO pin, with an additional user parameter.
+int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int, unsigned, void *), void *user);
+
+// Add the function declaration for gpioSetPullUpDown
+// This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
+void gpioSetPullUpDown(unsigned pin, unsigned pud);
 
 #endif

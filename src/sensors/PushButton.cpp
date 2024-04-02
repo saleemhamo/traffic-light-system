@@ -5,18 +5,18 @@ PushButton::PushButton(int pin) : gpioPin(pin) {
 }
 
 PushButton::~PushButton() {
-//#ifdef RASPBERRY_PI
+#if defined(__linux__) && defined(__arm__)
     // Reset ISR handling on this pin
     gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, NULL, NULL);
-//#endif
-    // Optional: gpioTerminate(); // Consider if you want to terminate pigpio on destruction. Beware if using multiple GPIO devices.
+#else
+
+#endif
 }
 
 void PushButton::initialize() {
+#if defined(__linux__) && defined(__arm__)
     // Initialize pigpio and set pin modes, only on Raspberry Pi
-//#ifdef RASPBERRY_PI
-    if (gpioInitialise() < 0)
-    {
+    if (gpioInitialise() < 0) {
         std::cerr << "Unable to connect PIGPIO, exiting" << std::endl;
         return;
     }
@@ -24,8 +24,12 @@ void PushButton::initialize() {
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
     // Set ISR for falling edge (button press)
     gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, buttonPressHandler, this);
-    // #endif
     //  More initialization as necessary
+#else
+
+#endif
+
+
 }
 
 void PushButton::registerButtonPressCallback(ButtonCallback callback) {

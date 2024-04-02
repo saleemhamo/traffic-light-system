@@ -3,14 +3,13 @@
 
 #include <cstdint>
 
-// Including the pigpio library conditionally
-//#ifdef RASPBERRY_PI
+#if defined(__linux__) && defined(__arm__)
 #include <pigpio.h>
-//#else
+#else
 
-//#include "pigpio_stub.h"
+#include "pigpio_stub.h"
 
-//#endif
+#endif
 
 #include <functional>
 
