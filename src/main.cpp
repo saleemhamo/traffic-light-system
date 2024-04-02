@@ -13,10 +13,6 @@ void initApplication();
 
 void closeApplication(MainSystem &mainSystem);
 
-void callback() {
-    std::cout << "Button clicked" << std::endl;
-}
-
 int main() {
     initApplication();
 
