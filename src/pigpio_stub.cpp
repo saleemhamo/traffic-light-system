@@ -4,7 +4,9 @@
 #if !defined(__linux__) || !defined(__arm__)
 
 #include "pigpio_stub.h"
-#include "utils/Logger.h" // Make sure to have a Logger class similar to your current setup
+#include "utils/Logger.h"  // Assume Logger setup is correct
+#include <map>
+#include <string>
 
 using namespace std;
 
@@ -13,34 +15,47 @@ const int PI_INPUT = 0;
 const int PI_HIGH = 1;
 const int PI_LOW = 0;
 
+// Simulate GPIO pin states with a map
+map<unsigned int, unsigned int> pinStates;
+
 // Adding a variable to simulate the tick counter.
 unsigned int simulatedTick = 0;
 
 int gpioInitialise() {
     Logger::logInfo("gpioInitialise() called");
-    simulatedTick = 0; // Reset simulated tick on initialization
+    pinStates.clear();  // Clear pin states upon initialization
+    simulatedTick = 0;  // Reset simulated tick on initialization
     return 0;
 }
 
 void gpioTerminate() {
     Logger::logInfo("gpioTerminate() called");
+    pinStates.clear();  // Optionally clear pin states upon termination
 }
 
 void gpioSetMode(unsigned pin, unsigned mode) {
-    string message = "gpioSetMode(unsigned pin: " + to_string(pin) + ", unsigned mode: " + to_string(mode) + ") called";
+    string message = "gpioSetMode(pin: " + to_string(pin) + ", mode: " + to_string(mode) + ") called";
     Logger::logInfo(message);
+    // Mode setting not simulated in pinStates map, as it's primarily for direction
 }
 
 void gpioWrite(unsigned pin, unsigned level) {
-    string message = "gpioWrite(unsigned pin: " + to_string(pin) + ", unsigned level: " + to_string(level) + ") called";
+    string message = "gpioWrite(pin: " + to_string(pin) + ", level: " + to_string(level) + ") called";
     Logger::logInfo(message);
+    // Save the level of the pin in the map
+    pinStates[pin] = level;
 }
 
 int gpioRead(unsigned pin) {
-    string message = "gpioRead(unsigned pin: " + to_string(pin) + ") called";
+    string message = "gpioRead(pin: " + to_string(pin) + ") called";
     Logger::logInfo(message);
-    // Simulating a read might involve conditional logic based on your test setup.
-    return PI_LOW; // Default to LOW, adjust as needed for your testing.
+    // Return the stored state if available, otherwise default to LOW
+    auto it = pinStates.find(pin);
+    if (it != pinStates.end()) {
+        return it->second;
+    } else {
+        return PI_LOW; // Default to LOW if not set
+    }
 }
 
 void gpioDelay(unsigned micros) {
@@ -52,20 +67,15 @@ void gpioDelay(unsigned micros) {
 
 unsigned gpioTick() {
     Logger::logInfo("gpioTick() called");
-    // Return the current value of simulatedTick
-    // In a real application, this would wrap around at the max value of unsigned int
     return simulatedTick;
 }
 
 int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user) {
-    string message = "gpioSetAlertFuncEx(unsigned pin: " + to_string(pin) + ") called";
+    string message = "gpioSetAlertFuncEx(pin: " + to_string(pin) + ") called";
     Logger::logInfo(message);
-    // In a real environment, here you would store the func and user pointers
-    // for later invocation when the pin's level changes.
-    // Since this is a stub, we'll not simulate the actual callback mechanism.
+    // Callback mechanism simulation is beyond the scope of this stub.
 
-    return 0; // Return 0 to indicate success, or an error code if you wish to simulate failure scenarios.
+    return 0; // Success
 }
-
 
 #endif

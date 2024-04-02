@@ -47,35 +47,77 @@ set(LINK_LIBS cpr::cpr)
 # Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
     list(APPEND LINK_LIBS pigpio)
-endif()
+endif ()
 
 # Link the libraries to the target.
 target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
 
 ####### Testing Configuration #######
 
-# Enable CTest
-enable_testing()
 
 # Find Boost and use its unit test framework if available
-find_package(Boost COMPONENTS unit_test_framework)
+find_package(Boost COMPONENTS unit_test_framework QUIET)
 
-if (Boost_FOUND)
-    message(STATUS "Boost found, enabling tests.")
-    include_directories(${Boost_INCLUDE_DIRS})
+if (NOT Boost_FOUND)
+    include(FetchContent)
+    FetchContent_Declare(
+            boost
+            URL https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2
+    )
+    FetchContent_MakeAvailable(boost)
+    # Adjust the include path as needed based on how Boost is structured when fetched
+endif ()
 
-    # Conditional test paths based on whether the environment is Raspberry Pi
-    if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
-        message(STATUS "Configuring tests for Raspberry Pi environment.")
-        # Replace 'RPiBuzzerTest' with the target name for your test
-        # Replace 'rpi_specific_tests_dir/Buzzer_test.cpp' with the correct file path
-        add_executable(RPiBuzzerTest rpi_specific_tests_dir/Buzzer_test.cpp)
-        target_link_libraries(RPiBuzzerTest ${Boost_LIBRARIES})
-        add_test(NAME RPiBuzzerUnitTest COMMAND RPiBuzzerTest)
-    else ()
-        message(STATUS "Configuring tests for non-Raspberry Pi environment.")
-        # Tests for non-Raspberry Pi environment go here
-    endif ()
+####### Testing Configuration #######
+
+# Enable CTest for organizing tests
+enable_testing()
+
+# Check for Boost, now assumed to be available either locally or fetched
+find_package(Boost REQUIRED COMPONENTS unit_test_framework)
+include_directories(${Boost_INCLUDE_DIRS})
+
+function(add_hardware_test TEST_NAME TEST_FILE)
+    file(GLOB_RECURSE ACTUATORS_SOURCES "src/actuators/*.cpp")
+    file(GLOB_RECURSE MAIN_SOURCES "src/main/*.cpp")
+    file(GLOB_RECURSE MODELS_SOURCES "src/models/*.cpp")
+    file(GLOB_RECURSE SENSORS_SOURCES "src/sensors/*.cpp")
+    file(GLOB_RECURSE UTILS_SOURCES "src/utils/*.cpp")
+
+    set(SOURCES
+            ${ACTUATORS_SOURCES}
+            ${MAIN_SOURCES}
+            ${MODELS_SOURCES}
+            ${SENSORS_SOURCES}
+            ${UTILS_SOURCES}
+    )
+
+    # Define the executable for the test
+    add_executable(${TEST_NAME}
+            ${TEST_FILE}
+            src/pigpio_stub.cpp # Stub file
+            ${SOURCES}
+    )
+
+    # Link the necessary libraries
+    target_link_libraries(${TEST_NAME} ${Boost_LIBRARIES} cpr::cpr)
+
+    # Add the test to CTest
+    add_test(NAME ${TEST_NAME}UnitTest COMMAND ${TEST_NAME})
+endfunction(add_hardware_test)
+
+
+# Conditional test paths
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
+    message(STATUS "Configuring tests for Raspberry Pi environment.")
+    add_executable(RPiExampleTest tests/RPiExampleTest.cpp)
+    target_link_libraries(RPiExampleTest ${Boost_LIBRARIES} ${LINK_LIBS})
+    add_test(NAME RPiExampleUnitTest COMMAND RPiExampleTest)
 else ()
-    message(STATUS "Boost not found, tests will not be available.")
+    message(STATUS "Configuring tests for non-Raspberry Pi environment.")
+    include_directories(${CMAKE_SOURCE_DIR}/include)
+
+    add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
+    add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
+
 endif ()
