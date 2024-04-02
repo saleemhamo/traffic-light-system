@@ -1,57 +1,66 @@
 #include "main/CheckingSystem.h"
-#include <chrono>  // For std::chrono
+#include <chrono> // For std::chrono
 
-CheckingSystem::CheckingSystem() :
-        isActive(false),
-        monitorPedestriansActive(false),
-        monitorRoadsActive(false),
-        pedestriansButtonEnabled(false),
-        pedestrianSensor(Constants::CheckingSystemUltrasonic1TriggerPin, Constants::CheckingSystemUltrasonic1EchoPin),
-        roadSensor(Constants::CheckingSystemUltrasonic2TriggerPin, Constants::CheckingSystemUltrasonic2EchoPin),
-        pedestriansPushButton(Constants::CheckingSystemButtonPin) {
+CheckingSystem::CheckingSystem() : isActive(false),
+                                   monitorPedestriansActive(false),
+                                   monitorRoadsActive(false),
+                                   pedestriansButtonEnabled(false),
+                                   pedestrianSensor(Constants::CheckingSystemUltrasonic2TriggerPin, Constants::CheckingSystemUltrasonic2EchoPin),
+                                   roadSensor(Constants::CheckingSystemUltrasonic1TriggerPin, Constants::CheckingSystemUltrasonic1EchoPin),
+                                   pedestriansPushButton(Constants::CheckingSystemButtonPin) {}
 
+CheckingSystem::~CheckingSystem()
+{
+    deactivate(); // Ensure threads are properly joined and sensors are deactivated
 }
 
-CheckingSystem::~CheckingSystem() {
-    deactivate();  // Ensure threads are properly joined and sensors are deactivated
-}
-
-void CheckingSystem::initialize() {
+void CheckingSystem::initialize()
+{
     // Initialize your ultrasonic sensors here
     pedestrianSensor.initialize();
     roadSensor.initialize();
     pedestriansPushButton.initialize();
 
-    pedestriansPushButton.registerButtonPressCallback([this]() { this->onPedestriansButtonPress(); });
+    pedestriansPushButton.registerButtonPressCallback([this]()
+                                                      { this->onPedestriansButtonPress(); });
 }
 
-void CheckingSystem::run() {
+void CheckingSystem::run()
+{
     isActive = true;
 
     enablePedestriansMotionDetection();
     enablePedestriansButton();
     enableCarsMotionDetection();
-    
+
     // Launch monitoring threads
-    std::thread pedestrianThread([this]() { this->monitorPedestrian(); });
-    std::thread roadThread([this]() { this->monitorRoad(); });
+    std::thread pedestrianThread([this]()
+                                 { this->monitorPedestrian(); });
+    std::thread roadThread([this]()
+                           { this->monitorRoad(); });
 
     // Detach threads if you don't need to synchronize them back
     pedestrianThread.join(); // TODO
     roadThread.join();
 }
 
-void CheckingSystem::onPedestriansButtonPress() {
-    if (pedestriansButtonEnabled && pedestriansButtonClicked) {
+void CheckingSystem::onPedestriansButtonPress()
+{
+    if (pedestriansButtonEnabled && pedestriansButtonClicked)
+    {
         pedestriansButtonClicked();
     }
 }
 
-void CheckingSystem::monitorPedestrian() {
-    while (isActive) {
-        if (monitorPedestriansActive && pedestrianSensor.isMotionDetected()) {
-            if (pedestriansMotionDetected) {
-                pedestriansMotionDetected();  // Call the registered callback
+void CheckingSystem::monitorPedestrian()
+{
+    while (isActive)
+    {
+        if (monitorPedestriansActive && pedestrianSensor.isMotionDetected())
+        {
+            if (pedestriansMotionDetected)
+            {
+                pedestriansMotionDetected(); // Call the registered callback
             }
         }
         // Sleep to prevent hogging CPU - adjust the delay as needed
@@ -59,11 +68,15 @@ void CheckingSystem::monitorPedestrian() {
     }
 }
 
-void CheckingSystem::monitorRoad() {
-    while (isActive) {
-        if (monitorRoadsActive && roadSensor.isMotionDetected()) {
-            if (carsMotionDetected) {
-                carsMotionDetected();  // Call the registered callback
+void CheckingSystem::monitorRoad()
+{
+    while (isActive)
+    {
+        if (monitorRoadsActive && roadSensor.isMotionDetected())
+        {
+            if (carsMotionDetected)
+            {
+                carsMotionDetected(); // Call the registered callback
             }
         }
         // Sleep to prevent hogging CPU - adjust the delay as needed
@@ -71,7 +84,8 @@ void CheckingSystem::monitorRoad() {
     }
 }
 
-void CheckingSystem::deactivate() {
+void CheckingSystem::deactivate()
+{
     isActive = false;
     // Give time for threads to finish any ongoing work
     std::this_thread::sleep_for(std::chrono::seconds(1)); // Adjust as needed
@@ -79,54 +93,62 @@ void CheckingSystem::deactivate() {
     // but ensure any needed cleanup is performed here.
 }
 
-
-void CheckingSystem::enablePedestriansMotionDetection() {
+void CheckingSystem::enablePedestriansMotionDetection()
+{
     monitorRoadsActive = true;
 }
 
-void CheckingSystem::disablePedestriansMotionDetection() {
+void CheckingSystem::disablePedestriansMotionDetection()
+{
     monitorRoadsActive = false;
 }
 
-void CheckingSystem::enableCarsMotionDetection() {
+void CheckingSystem::enableCarsMotionDetection()
+{
     monitorPedestriansActive = true;
 }
 
-void CheckingSystem::disableCarsMotionDetection() {
+void CheckingSystem::disableCarsMotionDetection()
+{
     monitorRoadsActive = false;
 }
 
-void CheckingSystem::enablePedestriansButton() {
+void CheckingSystem::enablePedestriansButton()
+{
     pedestriansButtonEnabled = true;
 }
 
-void CheckingSystem::disablePedestriansButton() {
+void CheckingSystem::disablePedestriansButton()
+{
     pedestriansButtonEnabled = false;
 }
 
-
-void CheckingSystem::registerCarsMotionCallback(const std::function<void()> &callback) {
+void CheckingSystem::registerCarsMotionCallback(const std::function<void()> &callback)
+{
     Logger::logInfo("MainSystem::initialize called");
     carsMotionDetected = callback;
 }
 
-void CheckingSystem::registerPedestriansMotionCallback(const std::function<void()> &callback) {
+void CheckingSystem::registerPedestriansMotionCallback(const std::function<void()> &callback)
+{
     pedestriansMotionDetected = callback;
 }
 
-void CheckingSystem::registerPedestriansButtonCallback(const std::function<void()> &callback) {
+void CheckingSystem::registerPedestriansButtonCallback(const std::function<void()> &callback)
+{
     pedestriansButtonClicked = callback;
 }
 
-void CheckingSystem::enableSensing() {
+void CheckingSystem::enableSensing()
+{
     enablePedestriansButton();
     enablePedestriansMotionDetection();
     enableCarsMotionDetection();
 }
 
-void CheckingSystem::disableSensing() {
+void CheckingSystem::disableSensing()
+{
     disablePedestriansButton();
     disablePedestriansMotionDetection();
     disableCarsMotionDetection();
 }
-
