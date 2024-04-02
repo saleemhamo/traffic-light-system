@@ -20,18 +20,11 @@ void callback() {
 int main() {
     initApplication();
 
-    PushButton button(6);
-    button.initialize();
-    button.registerButtonPressCallback(callback);
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.runSystems();
 
-    while (true);
-
-
-//    MainSystem mainSystem;
-//    mainSystem.initialize();
-//    mainSystem.runSystems();
-
-//    closeApplication(mainSystem);
+    closeApplication(mainSystem);
     return 0;
 }
 
