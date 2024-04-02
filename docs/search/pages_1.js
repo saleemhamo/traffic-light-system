@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['light_20control_20system_0',['Traffic Light Control System',['../md__2_users_2saleemhamo_2_desktop_2_university_2_semester_012_2_real_01_time_01_embedded_01_prog55495fba0a07920d908a16b023e2cb14.html',1,'']]]
+  ['40_20src_20http_3a_20i_20imgur_20com_20d9xtyts_20png_0',['40 src http: i imgur com d9Xtyts png',['../md_build_2__deps_2cpr-src_2_r_e_a_d_m_e.html',1,'C++ Requests: Curl for People &lt;img align=&quot;right&quot; height=&quot;40&quot; src=&quot;http://i.imgur.com/d9Xtyts.png&quot;&gt;'],['../md_cmake-build-debug_2__deps_2cpr-src_2_r_e_a_d_m_e.html',1,'C++ Requests: Curl for People &lt;img align=&quot;right&quot; height=&quot;40&quot; src=&quot;http://i.imgur.com/d9Xtyts.png&quot;&gt;']]]
 ];
