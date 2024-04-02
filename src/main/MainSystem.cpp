@@ -9,6 +9,7 @@ MainSystem::~MainSystem() {
 
 void MainSystem::initialize() {
     // Initialize all subsystems here
+    Logger::logInfo("MainSystem::initialize called");
     carsTrafficLight.initialize();
     pedestriansTrafficLight.initialize();
     checkingSystem.initialize();
@@ -82,6 +83,7 @@ void MainSystem::onPedestriansMotionDetected() {
 }
 
 void MainSystem::onPedestriansButtonClicked() {
+    std::cout << "Pedestrians button clicked" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
     }
@@ -101,6 +103,7 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = false;
     carsTrafficLightTimer.stopTimer();
     pedestriansTrafficLightTimer.stopTimer();
+    yellowTrafficLightTimer.stopTimer();
 }
 
 void MainSystem::turnCarsTrafficLightGreen() {
@@ -108,10 +111,15 @@ void MainSystem::turnCarsTrafficLightGreen() {
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
-    carsTrafficLight.turnGreen();
+    carsTrafficLight.turnYellow();
     pedestriansTrafficLight.turnRed();
-    trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-    pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+    yellowTrafficLightTimer.setTimeout([this] {
+        carsTrafficLight.turnGreen();
+        pedestriansTrafficLight.turnRed();
+        trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
+        pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+    }, 2000);
+
     Logger::logInfo("turnCarsTrafficLightGreen finished");
 
 }

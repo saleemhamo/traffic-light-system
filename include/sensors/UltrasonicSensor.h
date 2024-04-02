@@ -1,46 +1,39 @@
-#ifndef ULTRASONICSENSOR_H
-#define ULTRASONICSENSOR_H
+#include <iostream>
+#include <chrono>
+#include <thread>
+#include <cmath>
 
-// Including the pigpio library conditionally
-#ifdef RASPBERRY_PI
+#if defined(__linux__) && defined(__arm__)
 #include <pigpio.h>
 #else
 
 #include "pigpio_stub.h"
-#include <chrono>
 
 #endif
 
-#include <functional>
-
-class UltrasonicSensor
-{
+class UltrasonicSensor {
 public:
-    using MotionDetectedCallback = std::function<void()>;
-
     UltrasonicSensor(int triggerPin, int echoPin);
 
     ~UltrasonicSensor();
 
     void initialize();
 
-    void registerMotionCallback(MotionDetectedCallback callback);
+    float calculateDistance();
 
-    bool isMotionDetected();
+    bool isMotionDetected(float distanceThreshold = 0.1f); // Threshold in meters
 
 private:
     int triggerPin, echoPin;
-    MotionDetectedCallback motionCallback;
-    float distanceThreshold; // Change in distance to trigger motion detection
-    std::chrono::steady_clock::time_point lastCheck;
-    float lastDistance;
-    bool isMonitoring;
+    float lastDistance = 0.0f;
+    std::chrono::steady_clock::time_point lastCheck = std::chrono::steady_clock::now();
 
-    std::chrono::steady_clock::time_point lastMeasurementTime;
-    int measurementInterval = 100; // Time between measurements in milliseconds
+    static void sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user);
+
+    uint32_t startTick, endTick;
+    bool measuring = false;
 
     void sendPulse();
-    float calculateDistance();
-};
 
-#endif // ULTRASONICSENSOR_H
+    static float timeToDistance(uint32_t time);
+};

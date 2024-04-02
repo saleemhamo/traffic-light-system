@@ -27,8 +27,6 @@ void FirestoreLogger::Log(const std::string &level, const std::string &message) 
     auto response = cpr::Post(cpr::Url{fullUrl},
                               cpr::Header{{"Content-Type", "application/json"}},
                               cpr::Body{data});
-
-    std::cout << response.text << std::endl;
 }
 
 std::string FirestoreLogger::GenerateTimestamp() {

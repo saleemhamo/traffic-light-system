@@ -9,10 +9,11 @@ namespace Constants
 {
     // Cars traffic
     constexpr int CarsTrafficLightRedPin = 21;
-    // constexpr int CarsTrafficLightRedPin = 16; // TODO: yellow Pto implement
+    constexpr int CarsTrafficLightYellowPin = 16;
     constexpr int CarsTrafficLightGreenPin = 20;
     constexpr int CheckingSystemUltrasonic1TriggerPin = 23;
     constexpr int CheckingSystemUltrasonic1EchoPin = 24;
+    constexpr int UnusedPin = 1;
 
     // Pedestrian traffic
     constexpr int PedestriansTrafficLightRedPin = 4;
@@ -26,7 +27,7 @@ namespace Constants
     constexpr int WarningSystemLed2Pin = 19;
     constexpr int WarningSystemLed3Pin = 13;
     constexpr int WarningSystemBuzzerPin = 11;
-    constexpr int CheckingSystemButtonPin = 5;
+    constexpr int CheckingSystemButtonPin = 6;
     // Add more constants here when needed
 } // End of namespace Constants
 
