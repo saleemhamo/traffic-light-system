@@ -2,11 +2,11 @@ name: C++ CI
 
 on:
   pull_request:
-    branches: [ main ] # or your default branch
+    branches: [ main, development ]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest # Choose an appropriate runner
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
