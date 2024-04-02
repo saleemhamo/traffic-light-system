@@ -3,8 +3,7 @@
 
 #include <cstdint>
 
-// Including the pigpio library conditionally
-#ifdef RASPBERRY_PI
+#if defined(__linux__) && defined(__arm__)
 #include <pigpio.h>
 #else
 

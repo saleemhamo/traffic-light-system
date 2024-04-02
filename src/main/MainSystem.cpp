@@ -9,6 +9,7 @@ MainSystem::~MainSystem() {
 
 void MainSystem::initialize() {
     // Initialize all subsystems here
+    Logger::logInfo("MainSystem::initialize called");
     carsTrafficLight.initialize();
     pedestriansTrafficLight.initialize();
     checkingSystem.initialize();
@@ -82,6 +83,7 @@ void MainSystem::onPedestriansMotionDetected() {
 }
 
 void MainSystem::onPedestriansButtonClicked() {
+    std::cout << "Pedestrians button clicked" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
     }
