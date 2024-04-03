@@ -26,11 +26,11 @@ BOOST_AUTO_TEST_CASE(CalculateDistanceTest)
     // sensor.sonarReceiveAlertFunction(echoPin, 0, endTick, &sensor);
 
     simulateCallback(echoPin, 1, startTick); // Rising edge
-    simulateCallback(echoPin, 0, endTick); // Falling edge
+    simulateCallback(echoPin, 0, endTick);   // Falling edge
 
     // Calculate the distance
     float distance = sensor.calculateDistance();
-    printf("Distance: %f\n", distance);
+    // printf("Distance: %f\n", distance);
     BOOST_TEST(std::abs(distance - 10.0f) < 0.1f, "Distance calculation is incorrect");
 }
 
@@ -57,8 +57,8 @@ BOOST_AUTO_TEST_CASE(MotionDetectionTest)
     simulateCallback(echoPin, 0, endTick1);
 
     // Check if motion was detected
-    bool motionDetected = sensor.isMotionDetected(5.0f); // Threshold of 0.2 meters
-    printf("Motion detected false: %d\n", motionDetected);
+    bool motionDetected = sensor.isMotionDetected(5.0f);
+    // printf("Motion detected false: %d\n", motionDetected);
     BOOST_TEST(!motionDetected, "Motion should not be detected");
 
     // Simulate motion
@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_CASE(MotionDetectionTest)
 
     // Check if motion was detected
     motionDetected = sensor.isMotionDetected(5.0f);
-    printf("Motion detected true: %d\n", motionDetected);
+    // printf("Motion detected true: %d\n", motionDetected);
     BOOST_TEST(motionDetected, "Motion should be detected");
 }
 
