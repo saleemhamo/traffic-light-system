@@ -51,13 +51,13 @@ void MainSystem::onCarsMotionDetected() {
     turnAllTrafficLightsRed();
     warningSystem.activate();
 
-    // after 5 seconds
+    // after 10 seconds
     mainSystemTimer.setTimeout([this] {
         warningSystem.deactivate();
         enableTrafficLightsNormalBehaviour();
         runTrafficLightsNormalBehaviour();
         checkingSystem.enableSensing();
-    }, 5000);
+    }, 10000);
 }
 
 void MainSystem::onPedestriansMotionDetected() {
@@ -73,13 +73,13 @@ void MainSystem::onPedestriansMotionDetected() {
     turnAllTrafficLightsRed();
     warningSystem.activate();
 
-    // after 5 seconds
+    // after 10 seconds
     mainSystemTimer.setTimeout([this] {
         warningSystem.deactivate();
         enableTrafficLightsNormalBehaviour();
         runTrafficLightsNormalBehaviour();
         checkingSystem.enableSensing();
-    }, 5000);
+    }, 10000);
 }
 
 void MainSystem::onPedestriansButtonClicked() {
@@ -117,7 +117,7 @@ void MainSystem::turnCarsTrafficLightGreen() {
         carsTrafficLight.turnGreen();
         pedestriansTrafficLight.turnRed();
         trafficLightState = CARS_GREEN_PEDESTRIANS_RED;
-        pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 5000);
+        pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 20000);
     }, 2000);
 
     Logger::logInfo("turnCarsTrafficLightGreen finished");
@@ -132,7 +132,7 @@ void MainSystem::turnPedestriansTrafficLightGreen() {
     carsTrafficLight.turnRed();
     pedestriansTrafficLight.turnGreen();
     trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
-    carsTrafficLightTimer.setTimeout([this] { turnCarsTrafficLightGreen(); }, 5000);
+    carsTrafficLightTimer.setTimeout([this] { turnCarsTrafficLightGreen(); }, 20000);
     Logger::logInfo("turnPedestriansTrafficLightGreen finished");
 
 
