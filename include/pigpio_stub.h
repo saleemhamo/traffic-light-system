@@ -45,4 +45,7 @@ int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int,
 // This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
 void gpioSetPullUpDown(unsigned pin, unsigned pud);
 
+// Simulate a callback function for a GPIO pin.
+void simulateCallback(unsigned pin, int level, unsigned tick);
+
 #endif
