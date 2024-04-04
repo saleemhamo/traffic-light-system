@@ -1,33 +1,34 @@
 // created by Miguel Rosa on 3/25/2024 //
+#ifndef CAMERASENSOR_H
+#define CAMERASENSOR_H
 
-#ifndef CAMERA_SENSOR_H
-#define CAMERA_SENSOR_H
-
-#include <atomic>
-#include <thread>
-#include <mutex>
-#include <condition_variable>
 #include "Libcam2OpenCV.h"
-
-class WarningSystem; // Forward declaration
+#include <opencv2/opencv.hpp>
 
 class CameraSensor {
 public:
-    CameraSensor(WarningSystem& warningSystem);
+    CameraSensor();
     ~CameraSensor();
 
-    void startDetection();
-    void stopDetection();
-    bool isMovementDetected() const;
+    // Start the camera sensor
+    void start();
+
+    // Stop the camera sensor
+    void stop();
+
+    // Set a callback for motion detection
+    void setMotionCallback(std::function<void()> callback);
 
 private:
-    WarningSystem& warningSystem;
-    std::atomic<bool> movementDetected;
-    std::atomic<bool> stopRequested;
-    std::thread detectionThread;
     Libcam2OpenCV camera;
+    cv::Mat prevFrame;
+    std::function<void()> motionCallback;
 
-    void detectionLoop();
+    // Internal callback for frame processing
+    void processFrame(const cv::Mat& frame);
+
+    // Method to check for motion between frames
+    bool detectMotion(const cv::Mat& prev, const cv::Mat& current);
 };
 
-#endif // CAMERA_SENSOR_H
+#endif // CAMERASENSOR_H

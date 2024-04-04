@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['control_20system_0',['Traffic Light Control System',['../md__2_users_2saleemhamo_2_desktop_2_university_2_semester_012_2_real_01_time_01_embedded_01_prog55495fba0a07920d908a16b023e2cb14.html',1,'']]]
+  ['2_20with_20curl_0',['2 with curl',['../md_build_2__deps_2curl-src_2docs_2_h_t_t_p2.html',1,'HTTP/2 with curl'],['../md_cmake-build-debug_2__deps_2curl-src_2docs_2_h_t_t_p2.html',1,'HTTP/2 with curl']]]
 ];

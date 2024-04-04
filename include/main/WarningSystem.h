@@ -1,55 +1,31 @@
 //
 // Created by Saleem Hamo on 20/02/2024.
-// Updated by Miguel Rosa on 23/03/2024\
-#ifndef WARNING_SYSTEM_H
-#define WARNING_SYSTEM_H
-
 //
+#include "actuators/LED.h"
+#include "actuators/Buzzer.h"
+#include "main/interfaces/SystemInterface.h"
+#include "utils/Constants.h"
 
-#include <mutex>
-#include <condition_variable>
-#include <thread>
-
-#include "sensors/CameraSensor.h" 
-#include "sensors/UltrasonicSensor.h"
-#include "TrafficControlSystem.h" 
-#include "PedestriansTrafficLightSystem.h"
-#include "actuators/LED.h" 
-#include "actuators/Buzzer.h" 
-#include "utils/Constants.h" 
-#include "SystemInterface.h"
-
-class WarningSystem : public SystemInterface { // Inherit from SystemInterface
+class WarningSystem : public SystemInterface
+{ // Inherit from ISystem
 public:
-    WarningSystem(CameraSensor& camera, UltrasonicSensor& ultrasonic, TrafficControlSystem& trafficSystem);
-    virtual ~WarningSystem(); // Implement the virtual destructor
+    WarningSystem();
 
-    // Implement SystemInterface's pure virtual functions
-    virtual void initialize() override;
-    virtual void activate() override;
-    virtual void deactivate() override;
+    static const int ledPin = Constants::WarningSystemLedPin;
+    static const int ledPin2 = Constants::WarningSystemLed2Pin;
+    static const int ledPin3 = Constants::WarningSystemLed3Pin;
+    static const int buzzerPin = Constants::WarningSystemBuzzerPin;
 
-    void run();
-    void stop();
-    void notifyEvent(); // Method to be called to trigger the warning system check
+    void initialize() override; // Implement ISystem methods
+
+    void activate() override; // Implement ISystem methods
+
+    void deactivate() override; // Implement ISystem methods
 
 private:
-    std::mutex mtx;
-    std::condition_variable cv;
-    bool eventOccurred;
-    bool stopRequested;
-    std::thread warningThread;
-
     LED warningLED;
+    LED warningLED2;
+    LED warningLED3;
     Buzzer warningBuzzer;
-    bool isInitialized;
-
-    // Sensors and system references
-    CameraSensor& cameraSensor;
-    UltrasonicSensor& ultrasonicSensor;
-    TrafficControlSystem& trafficControlSystem;
-
-    void checkAndActivate();
+    bool isInitialized; // Example state flag
 };
-
-#endif // WARNING_SYSTEM_H

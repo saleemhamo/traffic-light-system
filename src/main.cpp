@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief This is the main file of the project
+ * @brief Main entry point for the application. Initializes the application, runs the main system, and then performs cleanup upon exit.
  */
 
 #include "main/MainSystem.h"
@@ -9,16 +9,29 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Initializes the application's logging systems.
+ *
+ * This function initializes the FirestoreLogger and Logger to begin logging application events. It attempts to connect to Firestore for logging and sets up a local log file.
+ */
 void initApplication();
 
+/**
+ * @brief Shuts down the application, ensuring graceful termination of systems and logging.
+ *
+ * @param mainSystem Reference to the MainSystem object to shut down.
+ */
 void closeApplication(MainSystem &mainSystem);
 
-void callback() {
-    std::cout << "Button clicked" << std::endl;
-}
-
+/**
+ * @brief The main function of the application.
+ *
+ * Initializes the application, creates and runs the main system, and then closes the application on completion.
+ * @return int The exit code of the application, where 0 indicates successful termination.
+ */
 int main() {
     initApplication();
+
     WarningSystem warningSystem;
     CameraSensor cameraSensor(warningSystem);
 
@@ -41,16 +54,13 @@ int main() {
 
     std::cout << "Stopping motion detection..." << std::endl;
     cameraSensor.stopDetection();
-
-
 //    MainSystem mainSystem;
 //    mainSystem.initialize();
 //    mainSystem.runSystems();
-
+//
 //    closeApplication(mainSystem);
     return 0;
 }
-
 
 void initApplication() {
     try {
