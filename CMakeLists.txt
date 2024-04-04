@@ -37,7 +37,6 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
-        # include/utils/Timer.cpp
         src/utils/FirestoreLogger.cpp
 )
 
@@ -107,6 +106,17 @@ function(add_hardware_test TEST_NAME TEST_FILE)
 endfunction(add_hardware_test)
 
 
+# Assuming the Timer class is part of the 'utils' group of files
+set(TIMER_SOURCES include/utils/Timer.h) # Adjust path as necessary
+
+# Define a function for non-hardware tests if not already existing
+function(add_unit_test TEST_NAME TEST_FILE)
+    add_executable(${TEST_NAME} ${TEST_FILE} ${TIMER_SOURCES})
+    target_link_libraries(${TEST_NAME} ${Boost_LIBRARIES} cpr::cpr) # Add other dependencies as needed
+    target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+endfunction(add_unit_test)
+
 # Conditional test paths
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
     message(STATUS "Configuring tests for Raspberry Pi environment.")
@@ -119,5 +129,7 @@ else ()
 
     add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
+
+    add_unit_test(TimerTest "tests/TimerTest.cpp")
 
 endif ()

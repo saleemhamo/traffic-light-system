@@ -4,12 +4,12 @@
 #include <mutex>
 #include <thread>
 #include <atomic>
+#include <iostream>
 #include "CarsTrafficLightSystem.h"
 #include "PedestriansTrafficLightSystem.h"
 #include "CheckingSystem.h"
 #include "WarningSystem.h"
-#include "utils/Timer.cpp"
-#include <iostream>
+#include "utils/Timer.h"
 
 class MainSystem {
 public:
