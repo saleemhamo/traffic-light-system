@@ -7,7 +7,7 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-#include <raspicam/raspicam_cv.h>
+#include "Libcam2OpenCV.h"
 
 class WarningSystem; // Forward declaration
 
@@ -25,7 +25,7 @@ private:
     std::atomic<bool> movementDetected;
     std::atomic<bool> stopRequested;
     std::thread detectionThread;
-    raspicam::RaspiCam_Cv camera;
+    Libcam2OpenCV camera;
 
     void detectionLoop();
 };

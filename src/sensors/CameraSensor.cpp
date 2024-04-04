@@ -2,11 +2,11 @@
 // Created by Miguel Rosa on 03/26/2024
 
 #include "CameraSensor.h"
-#include "CheckingSystem.h" // Include the definition of checkingsystem
+#include "WarningSystem.h"definition of checkingsystem
 #include <opencv2/opencv.hpp>
 
-CameraSensor::CameraSensor(checkingsystem& system) 
-: checkingSystem(system), movementDetected(false), stopRequested(false) {
+CameraSensor::CameraSensor(WarningSystem& system) 
+: warningSystem(system), movementDetected(false), stopRequested(false) {
     // Initialize the camera
     camera.set(CV_CAP_PROP_FORMAT, CV_8UC1); // Use gray scale for faster processing
     if (!camera.open()) {
@@ -38,24 +38,25 @@ bool CameraSensor::isMovementDetected() const {
 }
 
 void CameraSensor::detectionLoop() {
-    cv::Mat frame, prevFrame, frameDelta, thresh;
+    cv::Mat frame;
     while (!stopRequested) {
-        if (camera.grab()) {
-            camera.retrieve(frame);
+        // Assuming Libcam2OpenCV provides a method to capture a frame
+        if (camera.capture(frame)) { // This method needs to be defined in Libcam2OpenCV
             cv::GaussianBlur(frame, frame, cv::Size(21, 21), 0);
-            
-            if (!prevFrame.empty()) {
-                cv::absdiff(prevFrame, frame, frameDelta);
-                cv::threshold(frameDelta, thresh, 25, 255, CV_THRESH_BINARY);
-                cv::dilate(thresh, thresh, cv::Mat(), cv::Point(-1, -1), 2);
-                std::vector<std::vector<cv::Point>> contours;
-                cv::findContours(thresh.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
-                if (!contours.empty()) {
-                    movementDetected = true;
-                    checkingsystem.notifyEvent(); // Assume checkingsystem has a notifyEvent() method
-                } else {
-                    movementDetected = false;
+            static cv::Mat prevFrame;
+            if (!prevFrame.empty()) {
+                cv::Mat frameDelta, thresh;
+                cv::absdiff(prevFrame, frame, frameDelta);
+                cv::threshold(frameDelta, thresh, 25, 255, cv::THRESH_BINARY);
+                cv::dilate(thresh, thresh, cv::Mat(), cv::Point(-1, -1), 2);
+
+                std::vector<std::vector<cv::Point>> contours;
+                cv::findContours(thresh.clone(), contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+
+                movementDetected = !contours.empty();
+                if (movementDetected) {
+                    warningSystem.notifyEvent(); // Notify the warning system
                 }
             }
             prevFrame = frame.clone();
