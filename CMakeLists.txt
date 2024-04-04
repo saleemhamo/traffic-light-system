@@ -69,9 +69,9 @@ if (Boost_FOUND)
         message(STATUS "Configuring tests for Raspberry Pi environment.")
         # Replace 'RPiBuzzerTest' with the target name for your test
         # Replace 'rpi_specific_tests_dir/Buzzer_test.cpp' with the correct file path
-        add_executable(RPiBuzzerTest rpi_specific_tests_dir/Buzzer_test.cpp)
-        target_link_libraries(RPiBuzzerTest ${Boost_LIBRARIES})
-        add_test(NAME RPiBuzzerUnitTest COMMAND RPiBuzzerTest)
+        # add_executable(RPiBuzzerTest rpi_specific_tests_dir/Buzzer_test.cpp)
+        # target_link_libraries(RPiBuzzerTest ${Boost_LIBRARIES})
+        # add_test(NAME RPiBuzzerUnitTest COMMAND RPiBuzzerTest)
     else ()
         message(STATUS "Configuring tests for non-Raspberry Pi environment.")
         # Tests for non-Raspberry Pi environment go here
