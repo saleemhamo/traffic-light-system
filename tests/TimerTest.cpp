@@ -1,6 +1,7 @@
 #define BOOST_TEST_MODULE TimerTest
 #include <boost/test/included/unit_test.hpp>
 #include "utils/Timer.h"
+#include <thread> // Include this header
 
 BOOST_AUTO_TEST_SUITE(TimerSuite)
 
