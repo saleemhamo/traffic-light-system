@@ -2,11 +2,11 @@
 // Created by Miguel Rosa on 03/26/2024
 
 #include "CameraSensor.h"
-#include "CheckingSystem.h" // Include the definition of checkingsystem
+// #include "CheckingSystem.h" // Include the definition of checkingsystem
 #include <opencv2/opencv.hpp>
 
-CameraSensor::CameraSensor(checkingsystem& system) 
-: checkingSystem(system), movementDetected(false), stopRequested(false) {
+CameraSensor::CameraSensor() 
+: movementDetected(false), stopRequested(false) {
     // Initialize the camera
     camera.set(CV_CAP_PROP_FORMAT, CV_8UC1); // Use gray scale for faster processing
     if (!camera.open()) {

@@ -19,12 +19,28 @@ void callback() {
 
 int main() {
     initApplication();
+    WarningSystem warningSystem;
+    CameraSensor cameraSensor(warningSystem);
 
-    PushButton button(6);
-    button.initialize();
-    button.registerButtonPressCallback(callback);
+    std::cout << "Starting motion detection..." << std::endl;
+    cameraSensor.startDetection();
 
-    while (true);
+    // Run the main loop for 60 seconds
+    auto startTime = std::chrono::steady_clock::now();
+    while (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - startTime).count() < 60)
+    {
+        // Check if motion was detected
+        if (cameraSensor.isMovementDetected())
+        {
+            std::cout << "Movement detected!" << std::endl;
+        }
+
+        // Sleep for a short duration to reduce CPU usage
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    std::cout << "Stopping motion detection..." << std::endl;
+    cameraSensor.stopDetection();
 
 
 //    MainSystem mainSystem;
