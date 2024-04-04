@@ -51,7 +51,7 @@ endif()
 
 # Link the libraries to the target.
 target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
-
+target_link_libraries(CrossGuard cam2opencv)
 ####### Testing Configuration #######
 
 # Enable CTest
