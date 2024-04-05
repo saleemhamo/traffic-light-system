@@ -39,7 +39,7 @@ void MainSystem::shutdown() {
 }
 
 void MainSystem::onCarsMotionDetected() {
-    Logger::logInfo("Cars motion detected");
+//    Logger::logInfo("Cars motion detected");
     std::cout << "Cars motion detected" << std::endl;
     if (trafficLightState != CARS_RED_PEDESTRIANS_GREEN) {
         return; // Do Nothing
@@ -61,7 +61,7 @@ void MainSystem::onCarsMotionDetected() {
 }
 
 void MainSystem::onPedestriansMotionDetected() {
-    Logger::logInfo("Pedestrians motion detected");
+//    Logger::logInfo("Pedestrians motion detected");
     std::cout << "Pedestrians motion detected" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
@@ -107,7 +107,8 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
 }
 
 void MainSystem::turnCarsTrafficLightGreen() {
-    Logger::logInfo("turnCarsTrafficLightGreen called");
+//    Logger::logInfo("turnCarsTrafficLightGreen called");
+    std::cout << "turnCarsTrafficLightGreen called" << std::endl;
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
@@ -120,12 +121,14 @@ void MainSystem::turnCarsTrafficLightGreen() {
         pedestriansTrafficLightTimer.setTimeout([this] { turnPedestriansTrafficLightGreen(); }, 20000);
     }, 2000);
 
-    Logger::logInfo("turnCarsTrafficLightGreen finished");
+//    Logger::logInfo("turnCarsTrafficLightGreen finished");
+    std::cout << "turnCarsTrafficLightGreen finished" << std::endl;
 
 }
 
 void MainSystem::turnPedestriansTrafficLightGreen() {
-    Logger::logInfo("turnPedestriansTrafficLightGreen called");
+//    Logger::logInfo("turnCarsTrafficLightGreen finished");
+    std::cout << "turnCarsTrafficLightGreen finished" << std::endl;
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
@@ -133,13 +136,15 @@ void MainSystem::turnPedestriansTrafficLightGreen() {
     pedestriansTrafficLight.turnGreen();
     trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
     carsTrafficLightTimer.setTimeout([this] { turnCarsTrafficLightGreen(); }, 20000);
-    Logger::logInfo("turnPedestriansTrafficLightGreen finished");
+//    Logger::logInfo("turnPedestriansTrafficLightGreen finished");
+    std::cout << "turnPedestriansTrafficLightGreen finished" << std::endl;
 
 
 }
 
 void MainSystem::turnAllTrafficLightsRed() {
-    Logger::logInfo("turnAllTrafficLightsRed called");
+//    Logger::logInfo("turnAllTrafficLightsRed called");
+    std::cout << "turnAllTrafficLightsRed called" << std::endl;
     carsTrafficLight.turnRed();
     pedestriansTrafficLight.turnRed();
     trafficLightState = OFF;
@@ -147,6 +152,7 @@ void MainSystem::turnAllTrafficLightsRed() {
 
 
 void MainSystem::runTrafficLightsNormalBehaviour() {
-    Logger::logInfo("runTrafficLightsNormalBehaviour called");
+//    Logger::logInfo("runTrafficLightsNormalBehaviour called");
+    std::cout << "runTrafficLightsNormalBehaviour called" << std::endl;
     turnCarsTrafficLightGreen();
 }
