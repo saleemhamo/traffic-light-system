@@ -59,4 +59,13 @@ void initApplication() {
 void closeApplication(MainSystem &mainSystem) {
     mainSystem.shutdown();
     Logger::close();
+
+    try {
+        Logger::logInfo("Application stopping");
+        Logger::close();
+    } catch (const std::exception &e) {
+        std::cerr << "Failed to close logger: " << e.what() << std::endl;
+    }
+
+
 }
