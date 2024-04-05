@@ -58,7 +58,7 @@ void CheckingSystem::monitorPedestrian()
     {
         if (monitorPedestriansActive && pedestrianSensor.isMotionDetected())
         {
-            if (pedestriansMotionDetected)
+            if (pedestriansMotionDetected && pedestrianSensor.calculateDistance() < Constants::CheckingSystemPedestrianDistanceThreshold)
             {
                 pedestriansMotionDetected(); // Call the registered callback
             }
@@ -74,7 +74,7 @@ void CheckingSystem::monitorRoad()
     {
         if (monitorRoadsActive && roadSensor.isMotionDetected())
         {
-            if (carsMotionDetected)
+            if (carsMotionDetected && roadSensor.calculateDistance() < Constants::CheckingSystemCarDistanceThreshold)
             {
                 carsMotionDetected(); // Call the registered callback
             }
