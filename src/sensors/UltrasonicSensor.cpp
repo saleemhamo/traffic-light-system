@@ -85,6 +85,6 @@ void UltrasonicSensor::sonarReceiveAlertFunction(int gpio, int level, uint32_t t
 
 float UltrasonicSensor::timeToDistance(uint32_t time)
 {
-    // Speed of sound in air (343.2 m/s) divided by 2 (to and back)
-    return ((static_cast<float>(time) / 1000000.0f) * 343.2f) / 2.0f;
+    // Speed of sound in air (34320 cm/s) divided by 2 (to and back)
+    return ((static_cast<float>(time) / 1000000.0f) * 34320.0f) / 2.0f;
 }
