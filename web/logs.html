@@ -189,7 +189,6 @@
         // Initialize the date range picker and other setup code...
     });
 
-
     // Define the fetchLogs function in the global scope
     window.fetchLogs = async function () {
         // Clear existing logs
@@ -205,6 +204,9 @@
         const logsRef = collection(db, "logs");
         const querySnapshot = await getDocs(logsRef);
 
+        // Prepare an array to hold log entries
+        let logEntries = [];
+
         // Filter logs by the date range and toggle states
         querySnapshot.forEach((doc) => {
             const data = doc.data();
@@ -219,11 +221,24 @@
             );
 
             if (shouldShowLog && logDate.isBetween(startDate, endDate)) {
-                const logEntryDiv = document.createElement('div');
-                logEntryDiv.className = 'log-entry';
-                logEntryDiv.innerHTML = `<span class="log-timestamp">${formattedLogDate}</span>: <span class="log-level">${data.level}</span>: <span class="log-message">${data.log}</span>`;
-                logsContainer.appendChild(logEntryDiv);
+                logEntries.push({
+                    date: logDate,
+                    formattedDate: formattedLogDate,
+                    level: data.level,
+                    message: data.log
+                });
             }
+        });
+
+        // Sort log entries by date
+        logEntries.sort((a, b) => a.date - b.date);
+
+        // Append sorted log entries to the container
+        logEntries.forEach(entry => {
+            const logEntryDiv = document.createElement('div');
+            logEntryDiv.className = 'log-entry';
+            logEntryDiv.innerHTML = `<span class="log-timestamp">${entry.formattedDate}</span>: <span class="log-level">${entry.level}</span>: <span class="log-message">${entry.message}</span>`;
+            logsContainer.appendChild(logEntryDiv);
         });
     };
 
