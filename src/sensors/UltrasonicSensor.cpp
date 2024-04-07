@@ -30,6 +30,8 @@ void UltrasonicSensor::initialize()
     gpioSetMode(triggerPin, PI_OUTPUT);
     gpioSetMode(echoPin, PI_INPUT);
     gpioSetAlertFuncEx(echoPin, sonarReceiveAlertFunction, this);
+
+    lastDistance = calculateDistance();
 }
 
 void UltrasonicSensor::sendPulse()
