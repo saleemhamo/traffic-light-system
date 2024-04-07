@@ -48,10 +48,9 @@ float UltrasonicSensor::calculateDistance()
     {
         auto now = std::chrono::steady_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - startTime).count();
-        if (elapsed > 1000)
-        { // Timeout after 1000 ms
+        if (elapsed > 100)
+        { // Timeout after 100 ms
             measuring = false;
-            // return -1.0f;
         }
     }
     uint32_t diff = endTick > startTick ? endTick - startTick : 0;
