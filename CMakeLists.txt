@@ -8,6 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Include FetchContent module for downloading external content
 include(FetchContent)
 
+# Find and configure OpenCV
+find_package(OpenCV REQUIRED)
+
+# Try to find libcamera (Modify this part according to the actual package name if different)
+find_package(libcamera REQUIRED)
+
 # Declare CPR as an external project
 FetchContent_Declare(
         cpr
@@ -19,16 +25,16 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(cpr)
 
 # Include directories
-include_directories(include)
+include_directories(include ${OpenCV_INCLUDE_DIRS} ${libcamera_INCLUDE_DIRS})
 
 # Add the main executable
 add_executable(CrossGuard
         src/main.cpp
-        src/pigpio_stub.cpp # Stub file
+        src/pigpio_stub.cpp
         src/utils/Logger.cpp
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
-        # src/sensors/CameraSensor.cpp
+        src/sensors/CameraSensor.cpp
         src/sensors/UltrasonicSensor.cpp
         src/sensors/PushButton.cpp
         src/models/TrafficLight.cpp
@@ -37,12 +43,11 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
-        # include/utils/Timer.cpp
         src/utils/FirestoreLogger.cpp
 )
 
 # Prepare the list of libraries to link.
-set(LINK_LIBS cpr::cpr)
+set(LINK_LIBS cpr::cpr ${OpenCV_LIBS} ${libcamera_LIBRARIES})
 
 # Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
@@ -52,8 +57,8 @@ endif ()
 # Link the libraries to the target.
 target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
 
-####### Testing Configuration #######
 
+####### Testing Configuration #######
 
 # Find Boost and use its unit test framework if available
 find_package(Boost COMPONENTS unit_test_framework QUIET)
@@ -121,7 +126,7 @@ else ()
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
     # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
-    
+
     # Ideas of tests to be implemented
     # add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
     # add_hardware_test(TrafficLightTest "tests/hardware_tests/models/TrafficLight_test.cpp")

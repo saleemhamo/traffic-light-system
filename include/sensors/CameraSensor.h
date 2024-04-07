@@ -1,19 +1,34 @@
-//
-// Created by Saleem Hamo on 07/02/2024.
-//
+// created by Miguel Rosa on 3/25/2024 //
+#ifndef CAMERASENSOR_H
+#define CAMERASENSOR_H
 
-#ifndef _CROSS_GUARD_CAMERASENSOR_H
-#define _CROSS_GUARD_CAMERASENSOR_H
+#include "Libcam2OpenCV.h"
+#include <opencv2/opencv.hpp>
 
 class CameraSensor {
 public:
     CameraSensor();
+    ~CameraSensor();
 
-//    ~CameraSensor();
+    // Start the camera sensor
+    void start();
 
-    void initialize();
+    // Stop the camera sensor
+    void stop();
 
-    bool detectMovement();  // Simulates detecting movement using the camera
+    // Set a callback for motion detection
+    void setMotionCallback(std::function<void()> callback);
+
+private:
+    Libcam2OpenCV camera;
+    cv::Mat prevFrame;
+    std::function<void()> motionCallback;
+
+    // Internal callback for frame processing
+    void processFrame(const cv::Mat& frame);
+
+    // Method to check for motion between frames
+    bool detectMotion(const cv::Mat& prev, const cv::Mat& current);
 };
 
-#endif //_CROSS_GUARD_CAMERASENSOR_H
+#endif // CAMERASENSOR_H

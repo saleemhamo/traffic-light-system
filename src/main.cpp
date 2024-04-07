@@ -32,11 +32,33 @@ void closeApplication(MainSystem &mainSystem);
 int main() {
     initApplication();
 
-    MainSystem mainSystem;
-    mainSystem.initialize();
-    mainSystem.runSystems();
+    WarningSystem warningSystem;
+    CameraSensor cameraSensor(warningSystem);
 
-    closeApplication(mainSystem);
+    std::cout << "Starting motion detection..." << std::endl;
+    cameraSensor.startDetection();
+
+    // Run the main loop for 60 seconds
+    auto startTime = std::chrono::steady_clock::now();
+    while (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - startTime).count() < 60)
+    {
+        // Check if motion was detected
+        if (cameraSensor.isMovementDetected())
+        {
+            std::cout << "Movement detected!" << std::endl;
+        }
+
+        // Sleep for a short duration to reduce CPU usage
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    std::cout << "Stopping motion detection..." << std::endl;
+    cameraSensor.stopDetection();
+//    MainSystem mainSystem;
+//    mainSystem.initialize();
+//    mainSystem.runSystems();
+//
+//    closeApplication(mainSystem);
     return 0;
 }
 
