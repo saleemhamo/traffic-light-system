@@ -125,7 +125,7 @@ void MainSystem::turnCarsTrafficLightGreen() {
 }
 
 void MainSystem::turnPedestriansTrafficLightGreen() {
-    Logger::logInfo("turnPedestriansTrafficLightGreen finished");
+    Logger::logInfo("turnPedestriansTrafficLightGreen called");
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
