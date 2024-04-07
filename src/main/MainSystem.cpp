@@ -108,7 +108,6 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
 
 void MainSystem::turnCarsTrafficLightGreen() {
     Logger::logInfo("turnCarsTrafficLightGreen called");
-    std::cout << "turnCarsTrafficLightGreen called" << std::endl;
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
@@ -122,10 +121,11 @@ void MainSystem::turnCarsTrafficLightGreen() {
     }, 2000);
 
     Logger::logInfo("turnCarsTrafficLightGreen finished");
+
 }
 
 void MainSystem::turnPedestriansTrafficLightGreen() {
-    Logger::logInfo("turnCarsTrafficLightGreen finished");
+    Logger::logInfo("turnPedestriansTrafficLightGreen finished");
     if (!isTrafficLightRunningInNormalBehaviour) {
         return;
     }
@@ -147,7 +147,6 @@ void MainSystem::turnAllTrafficLightsRed() {
 
 
 void MainSystem::runTrafficLightsNormalBehaviour() {
-//    Logger::logInfo("runTrafficLightsNormalBehaviour called");
-    std::cout << "runTrafficLightsNormalBehaviour called" << std::endl;
+    Logger::logInfo("runTrafficLightsNormalBehaviour called");
     turnCarsTrafficLightGreen();
 }
