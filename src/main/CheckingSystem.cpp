@@ -31,7 +31,7 @@ void CheckingSystem::run()
 
     enablePedestriansMotionDetection();
     enablePedestriansButton();
-    enableCarsMotionDetection();
+    // enableCarsMotionDetection();
 
     // Launch monitoring threads
     std::thread pedestrianThread([this]()
