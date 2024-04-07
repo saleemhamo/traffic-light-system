@@ -40,7 +40,7 @@ void Logger::stopLogger() {
 }
 
 void Logger::logInfo(const std::string &message) {
-//    log("INFO", message);
+    log("INFO", message);
 }
 
 void Logger::logError(const std::string &message) {
