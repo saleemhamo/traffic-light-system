@@ -32,6 +32,8 @@ BOOST_AUTO_TEST_CASE(CalculateDistanceTest)
     float distance = sensor.calculateDistance();
     // printf("Distance: %f\n", distance);
     BOOST_TEST(std::abs(distance - 10.0f) < 0.1f, "Distance calculation is incorrect");
+
+    Logger::close();
 }
 
 // Test the isMotionDetected function of the Ultrasonic class
@@ -76,6 +78,8 @@ BOOST_AUTO_TEST_CASE(MotionDetectionTest)
     motionDetected = sensor.isMotionDetected(5.0f);
     // printf("Motion detected true: %d\n", motionDetected);
     BOOST_TEST(motionDetected, "Motion should be detected");
+
+    Logger::close();
 }
 
 // BOOST_AUTO_TEST_CASE(UltrasonicTest)

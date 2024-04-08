@@ -15,4 +15,6 @@ BOOST_AUTO_TEST_CASE(buzzer_on_off_test) {
 
     led.off();
     BOOST_CHECK_EQUAL(gpioRead(17), 0); // Check if the pin state is off after calling off()
+
+    Logger::close();
 }
