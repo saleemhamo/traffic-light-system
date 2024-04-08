@@ -65,7 +65,7 @@ bool UltrasonicSensor::isMotionDetected(float distanceThreshold)
     // std::cout << "currentDistance: " << currentDistance << " " << triggerPin << std::endl;
     if (currentDistance < 0)
         return false; // Invalid reading
-    bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 50.0f;
+    bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f;
     lastDistance = currentDistance;
     return motionDetected;
 }
