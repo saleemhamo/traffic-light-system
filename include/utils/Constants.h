@@ -30,8 +30,8 @@ namespace Constants
     constexpr int CheckingSystemButtonPin = 6;
     
     // Add more constants here when needed
-    // constexpr float CheckingSystemPedestrianDistanceThreshold = 5.0f;
-    // constexpr float CheckingSystemCarDistanceThreshold = 5.0f;
+    constexpr float CheckingSystemPedestrianDistanceThreshold = 5.0f;
+    constexpr float CheckingSystemCarDistanceThreshold = 5.0f;
 } // End of namespace Constants
 
 #endif // End of the header guard
