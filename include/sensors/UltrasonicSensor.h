@@ -22,7 +22,7 @@ public:
 
     float calculateDistance();
 
-    bool isMotionDetected(float distanceThreshold = 5.0f); // Threshold in meters
+    bool isMotionDetected(float distanceThreshold = 5.0f); // Threshold in cm
 
 private:
     int triggerPin, echoPin;
