@@ -11,7 +11,8 @@
 
 #endif
 
-class UltrasonicSensor {
+class UltrasonicSensor
+{
 public:
     UltrasonicSensor(int triggerPin, int echoPin);
 
@@ -21,7 +22,7 @@ public:
 
     float calculateDistance();
 
-    bool isMotionDetected(float distanceThreshold = 0.1f); // Threshold in meters
+    bool isMotionDetected(float distanceThreshold = 5.0f); // Threshold in cm
 
 private:
     int triggerPin, echoPin;

@@ -30,6 +30,8 @@ void UltrasonicSensor::initialize()
     gpioSetMode(triggerPin, PI_OUTPUT);
     gpioSetMode(echoPin, PI_INPUT);
     gpioSetAlertFuncEx(echoPin, sonarReceiveAlertFunction, this);
+
+    lastDistance = calculateDistance();
 }
 
 void UltrasonicSensor::sendPulse()
@@ -48,10 +50,9 @@ float UltrasonicSensor::calculateDistance()
     {
         auto now = std::chrono::steady_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - startTime).count();
-        if (elapsed > 1000)
-        { // Timeout after 1000 ms
+        if (elapsed > 100)
+        { // Timeout after 100 ms
             measuring = false;
-            // return -1.0f;
         }
     }
     uint32_t diff = endTick > startTick ? endTick - startTick : 0;
@@ -61,10 +62,10 @@ float UltrasonicSensor::calculateDistance()
 bool UltrasonicSensor::isMotionDetected(float distanceThreshold)
 {
     float currentDistance = calculateDistance();
-    // std::cout << "currentDistance: " << currentDistance << std::endl;
+    // std::cout << "currentDistance: " << currentDistance << " " << triggerPin << std::endl;
     if (currentDistance < 0)
         return false; // Invalid reading
-    bool motionDetected = std::fabs(currentDistance - lastDistance) <= distanceThreshold;
+    bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f;
     lastDistance = currentDistance;
     return motionDetected;
 }
@@ -85,6 +86,6 @@ void UltrasonicSensor::sonarReceiveAlertFunction(int gpio, int level, uint32_t t
 
 float UltrasonicSensor::timeToDistance(uint32_t time)
 {
-    // Speed of sound in air (343.2 m/s) divided by 2 (to and back)
-    return ((static_cast<float>(time) / 1000000.0f) * 343.2f) / 2.0f;
+    // Speed of sound in air (34320 cm/s) divided by 2 (to and back)
+    return ((static_cast<float>(time) / 1000000.0f) * 34320.0f) / 2.0f;
 }
