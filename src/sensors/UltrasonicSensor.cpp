@@ -59,14 +59,22 @@ float UltrasonicSensor::calculateDistance()
     return timeToDistance(diff);
 }
 
-bool UltrasonicSensor::isMotionDetected(float distanceThreshold)
-{
+bool UltrasonicSensor::isMotionDetected(float distanceThreshold) {
+    auto now = std::chrono::steady_clock::now();
+    // Check if enough time has elapsed since the last detection
+    if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastDetectionTime).count() < 500) { // 500 ms cooldown
+        return false;
+    }
+
     float currentDistance = calculateDistance();
-    // std::cout << "currentDistance: " << currentDistance << " " << triggerPin << std::endl;
     if (currentDistance < 0)
         return false; // Invalid reading
+
     bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f;
-    lastDistance = currentDistance;
+    if (motionDetected) {
+        lastDistance = currentDistance;
+        lastDetectionTime = now; // Update the last detection time
+    }
     return motionDetected;
 }
 
