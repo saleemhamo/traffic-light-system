@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['urldecode_0',['urlDecode',['../structcpr_1_1_curl_holder.html#a933c684249c29a8620b22785050458af',1,'cpr::CurlHolder::urlDecode(const std::string &amp;s) const'],['../structcpr_1_1_curl_holder.html#a933c684249c29a8620b22785050458af',1,'cpr::CurlHolder::urlDecode(const std::string &amp;s) const']]],
-  ['urlencode_1',['urlEncode',['../structcpr_1_1_curl_holder.html#aa37d6bce3799080931d325d7707fc573',1,'cpr::CurlHolder::urlEncode(const std::string &amp;s) const'],['../structcpr_1_1_curl_holder.html#aa37d6bce3799080931d325d7707fc573',1,'cpr::CurlHolder::urlEncode(const std::string &amp;s) const']]]
+  ['timer_95',['Timer',['../classTimer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer']]],
+  ['turngreen_96',['turnGreen',['../classTrafficLight.html#a4e139c7b1f5d167ea48635c64a80de9d',1,'TrafficLight']]],
+  ['turnoff_97',['turnOff',['../classTrafficLight.html#ae9bf0d41c485e15ec6cf48d57eacec11',1,'TrafficLight']]],
+  ['turnred_98',['turnRed',['../classTrafficLight.html#a4d9533331d7e0e261979a7d3beece057',1,'TrafficLight']]],
+  ['turnyellow_99',['turnYellow',['../classTrafficLight.html#a9188a5578ba352886ca372bef4e0ed1a',1,'TrafficLight']]]
 ];
