@@ -11,8 +11,7 @@
 
 #endif
 
-class UltrasonicSensor
-{
+class UltrasonicSensor {
 public:
     UltrasonicSensor(int triggerPin, int echoPin);
 
@@ -28,7 +27,7 @@ private:
     int triggerPin, echoPin;
     float lastDistance = 0.0f;
     std::chrono::steady_clock::time_point lastCheck = std::chrono::steady_clock::now();
-    std::chrono::steady_clock::time_point lastDetectionTime;
+    std::chrono::steady_clock::time_point lastDetectionTime = std::chrono::steady_clock::now();
 
     static void sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user);
 
