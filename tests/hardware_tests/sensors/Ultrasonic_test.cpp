@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_SUITE(UltrasonicTest)
 
         // Calculate the distance
         float distance = sensor.calculateDistance();
-        //    printf("Distance: %f\n", distance);
+        printf("Distance: %f\n", distance);
         BOOST_TEST(std::abs(distance - 10.0f) < 0.1f, "Distance calculation is incorrect");
 
         // Logger::close();
