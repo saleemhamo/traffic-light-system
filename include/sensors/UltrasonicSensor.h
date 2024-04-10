@@ -22,7 +22,7 @@ public:
 
     float calculateDistance();
 
-    bool isMotionDetected(float distanceThreshold = 5.0f, int debounceMs = 500); // Threshold in cm
+    bool isMotionDetected(float distanceThreshold = 5.0f); // Threshold in cm
 
 private:
     int triggerPin, echoPin;
@@ -33,6 +33,8 @@ private:
 
     static void sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user);
 
+    void waitForMeasurement();
+    
     uint32_t startTick, endTick;
     bool measuring = false;
 
