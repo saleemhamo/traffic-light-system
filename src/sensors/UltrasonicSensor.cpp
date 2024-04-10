@@ -59,22 +59,43 @@ float UltrasonicSensor::calculateDistance()
     return timeToDistance(diff);
 }
 
-bool UltrasonicSensor::isMotionDetected(float distanceThreshold) {
-    auto now = std::chrono::steady_clock::now();
-    // Check if enough time has elapsed since the last detection
-    if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastDetectionTime).count() < 500) { // 500 ms cooldown
-        return false;
-    }
+// bool UltrasonicSensor::isMotionDetected(float distanceThreshold) {
+//     auto now = std::chrono::steady_clock::now();
+//     // Check if enough time has elapsed since the last detection
+//     if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastDetectionTime).count() < 500) { // 500 ms cooldown
+//         return false;
+//     }
 
+//     float currentDistance = calculateDistance();
+//     if (currentDistance < 0)
+//         return false; // Invalid reading
+
+//     bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f;
+//     if (motionDetected) {
+//         lastDistance = currentDistance;
+//         lastDetectionTime = now; // Update the last detection time
+//     }
+//     return motionDetected;
+// }
+
+bool UltrasonicSensor::isMotionDetected(float distanceThreshold, int debounceMs)
+{
     float currentDistance = calculateDistance();
     if (currentDistance < 0)
         return false; // Invalid reading
 
-    bool motionDetected = std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f;
-    if (motionDetected) {
-        lastDistance = currentDistance;
-        lastDetectionTime = now; // Update the last detection time
+    bool motionDetected = false;
+    auto now = std::chrono::steady_clock::now();
+    if (std::fabs(currentDistance - lastDistance) >= distanceThreshold && currentDistance < 25.0f)
+    {
+        if (now - lastMotionDetectedAt >= std::chrono::milliseconds(debounceMs))
+        {
+            motionDetected = true;
+            lastMotionDetectedAt = now;
+        }
     }
+
+    lastDistance = currentDistance;
     return motionDetected;
 }
 
