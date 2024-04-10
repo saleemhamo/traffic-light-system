@@ -59,7 +59,7 @@ float UltrasonicSensor::calculateDistance()
     secondDistance = timeToDistance(endTick - startTick);
 
     // Check if the two measurements are within a reasonable threshold
-    if (std::fabs(firstDistance - secondDistance) < 2.0f)
+    if (std::fabs(firstDistance - secondDistance) <= 2.0f)
     {
         return (firstDistance + secondDistance) / 2.0f; // Return the average if similar
     }
@@ -97,14 +97,20 @@ bool UltrasonicSensor::isMotionDetected(float distanceThreshold)
 void UltrasonicSensor::sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user)
 {
     UltrasonicSensor *sensor = static_cast<UltrasonicSensor *>(user);
+    static int edgeCount = 0; // Counter for debouncing
     if (level == 1)
     { // Rising edge
         sensor->startTick = tick;
     }
     else if (level == 0)
-    { // Falling edge
-        sensor->endTick = tick;
-        sensor->measuring = false;
+    {                // Falling edge
+        edgeCount++; // Increment edgeCount
+        if (edgeCount > 1)
+        { // Debounce: only set endTick on consistent falling edge
+            sensor->endTick = tick;
+            sensor->measuring = false;
+            edgeCount = 0; // Reset counter
+        }
     }
 }
 
