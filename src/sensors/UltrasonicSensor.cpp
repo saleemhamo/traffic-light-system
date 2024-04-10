@@ -43,25 +43,38 @@ void UltrasonicSensor::sendPulse()
 
 float UltrasonicSensor::calculateDistance()
 {
-    float firstDistance, secondDistance;
+    float distances[3] = {0.0f, 0.0f, 0.0f};
+    int numValidMeasurements = 0;
 
-    // Initial measurement
-    sendPulse();
-    measuring = true;
-    waitForMeasurement();
-    firstDistance = timeToDistance(endTick - startTick);
-
-    // Debounce by requiring a second, similar measurement
-    std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Wait before taking another measurement to ensure independence
-    sendPulse();
-    measuring = true;
-    waitForMeasurement();
-    secondDistance = timeToDistance(endTick - startTick);
-
-    // Check if the two measurements are within a reasonable threshold
-    if (std::fabs(firstDistance - secondDistance) <= 2.0f)
+    for (int i = 0; i < 3; i++)
     {
-        return (firstDistance + secondDistance) / 2.0f; // Return the average if similar
+        sendPulse();
+        measuring = true;
+        waitForMeasurement();
+        distances[i] = timeToDistance(endTick - startTick);
+
+        // Check if the current measurement is valid
+        if (distances[i] >= 0.0f && distances[i] <= 25.0f)
+        {
+            numValidMeasurements++;
+        }
+
+        // Wait for 50 ms before taking the next measurement
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+
+    // If we have at least two valid measurements, return the average
+    if (numValidMeasurements >= 2)
+    {
+        float sum = 0.0f;
+        for (int i = 0; i < 3; i++)
+        {
+            if (distances[i] >= 0.0f && distances[i] <= 25.0f)
+            {
+                sum += distances[i];
+            }
+        }
+        return sum / static_cast<float>(numValidMeasurements);
     }
     else
     {
