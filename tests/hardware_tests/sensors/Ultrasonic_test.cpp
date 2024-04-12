@@ -34,12 +34,6 @@ BOOST_AUTO_TEST_CASE(CalculateDistanceTest)
     printf("Distance: %f\n", distance3);
 
     // Check if the distance calculation is within the expected range
-
-    // float distance = sensor.calculateDistance();
-    // printf("Distance: %f\n", distance);
-    // // BOOST_TEST(std::abs(distance - 10.0f) < 0.1f, "Distance calculation is incorrect");
-    // BOOST_TEST(distance >= 5.0f, "Distance calculation is lower than expected");
-    // BOOST_TEST(distance <= 15.0f, "Distance calculation is higher than expected");
     BOOST_TEST(std::abs(distance1 - 10.0f) < 0.1f, "First distance calculation is incorrect");
     BOOST_TEST(std::abs(distance2 - 5.0f) < 0.1f, "Second distance calculation is incorrect");
     BOOST_TEST(std::abs(distance3 - 20.0f) < 0.1f, "Third distance calculation is incorrect");
