@@ -76,5 +76,3 @@ private:
      */
     static float timeToDistance(uint32_t time);
 };
-
-#endif // ULTRASONICSENSOR_H

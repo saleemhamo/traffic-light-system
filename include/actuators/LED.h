@@ -1,7 +1,7 @@
 //
 // Created by Saleem Hamo on 20/02/2024. Documented by Miguel Rosa
 //
-
+#pragma once
 /**
  * @file LED.h
  * @brief Header file for the LED class, which controls an LED via a GPIO pin.
