@@ -18,8 +18,11 @@ FetchContent_Declare(
 # Make the fetched content available
 FetchContent_MakeAvailable(cpr)
 
+# Find OpenCV package
+find_package(OpenCV REQUIRED)
+
 # Include directories
-include_directories(include)
+include_directories(include ${OpenCV_INCLUDE_DIRS})
 
 # Add the main executable
 add_executable(CrossGuard
@@ -28,7 +31,7 @@ add_executable(CrossGuard
         src/utils/Logger.cpp
         src/actuators/LED.cpp
         src/actuators/Buzzer.cpp
-        # src/sensors/CameraSensor.cpp
+        src/sensors/CameraSensor.cpp
         src/sensors/UltrasonicSensor.cpp
         src/sensors/PushButton.cpp
         src/models/TrafficLight.cpp
@@ -41,7 +44,7 @@ add_executable(CrossGuard
 )
 
 # Prepare the list of libraries to link.
-set(LINK_LIBS cpr::cpr)
+set(LINK_LIBS cpr::cpr ${OpenCV_LIBS})
 
 # Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
@@ -130,12 +133,12 @@ else ()
     add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
-    
+
     # Ideas of tests to be implemented (priority order):
     # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
     # add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
     add_unit_test(TimerTest "tests/TimerTest.cpp")
-    # add_unit_test(CheckingSystemTest "tests/hardware_tests/main/CheckingSystem_test.cpp")
+#    add_unit_test(CheckingSystemTest "tests/hardware_tests/main/CheckingSystem_test.cpp")
     # add_unit_test(WarningSystemTest "tests/hardware_tests/main/WarningSystem_test.cpp")
     # add_unit_test(TrafficLightTest "tests/hardware_tests/models/TrafficLight_test.cpp")
     # add_unit_test(CarsTrafficLightSystemTest "tests/hardware_tests/main/CarsTrafficLightSystem_test.cpp")

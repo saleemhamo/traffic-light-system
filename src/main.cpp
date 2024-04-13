@@ -29,14 +29,32 @@ void closeApplication(MainSystem &mainSystem);
  * Initializes the application, creates and runs the main system, and then closes the application on completion.
  * @return int The exit code of the application, where 0 indicates successful termination.
  */
+void motionDetected() {
+    std::cout << "Motion detected!" << std::endl;
+}
+
 int main() {
     initApplication();
+    CameraSensor camera;
+    if (camera.initialize()) {
+        camera.setMotionDetectedCallback(motionDetected);
+        camera.run();
 
-    MainSystem mainSystem;
-    mainSystem.initialize();
-    mainSystem.runSystems();
+        // Keep the main thread running to simulate prolonged observation
+        std::this_thread::sleep_for(std::chrono::minutes(10));
 
-    closeApplication(mainSystem);
+        camera.stop();
+    } else {
+        std::cerr << "Failed to initialize the camera." << std::endl;
+    }
+
+    return 0;
+
+//    MainSystem mainSystem;
+//    mainSystem.initialize();
+//    mainSystem.runSystems();
+//
+//    closeApplication(mainSystem);
     return 0;
 }
 
