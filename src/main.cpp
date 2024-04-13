@@ -29,51 +29,53 @@ void closeApplication(MainSystem &mainSystem);
  * Initializes the application, creates and runs the main system, and then closes the application on completion.
  * @return int The exit code of the application, where 0 indicates successful termination.
  */
-void callback() {
-    std::cout << "Button Pressed" << std::endl;
-}
-
-int main() {
+int main()
+{
     initApplication();
 
-    // MainSystem mainSystem;
-    // mainSystem.initialize();
-    // mainSystem.runSystems();
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.runSystems();
 
-    // closeApplication(mainSystem);
-
-    PushButton button(6);
-    button.initialize();
-    button.registerButtonPressCallback(callback);
+    closeApplication(mainSystem);
     return 0;
 }
 
-void initApplication() {
-    try {
+void initApplication()
+{
+    try
+    {
         FirestoreLogger::Initialize("INITIALIZE");
         FirestoreLogger::Log("INFO", "Application Started!");
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << "Failed to connect to firebase: " << e.what() << std::endl;
     }
 
-    try {
+    try
+    {
         Logger::init("app.log");
         Logger::logInfo("Application starting");
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << "Failed to initialize logger: " << e.what() << std::endl;
     }
 }
 
-void closeApplication(MainSystem &mainSystem) {
+void closeApplication(MainSystem &mainSystem)
+{
     mainSystem.shutdown();
     Logger::close();
 
-    try {
+    try
+    {
         Logger::logInfo("Application stopping");
         Logger::close();
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << "Failed to close logger: " << e.what() << std::endl;
     }
-
-
 }
