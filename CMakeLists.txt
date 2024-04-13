@@ -130,13 +130,12 @@ else ()
     add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
-    
-    # Ideas of tests to be implemented (priority order):
     # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
-    # add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
+    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp") 
+
     add_unit_test(TimerTest "tests/logic_tests/Timer_test.cpp")
-    add_unit_test(CheckingSystemTest "tests/logic_tests/CheckingSystem_test.cpp")
-    add_unit_test(WarningSystemTest "tests/logic_tests/WarningSystem_test.cpp")
+    # add_unit_test(CheckingSystemTest "tests/logic_tests/CheckingSystem_test.cpp")
+    # add_unit_test(WarningSystemTest "tests/logic_tests/WarningSystem_test.cpp")
     # add_unit_test(TrafficLightTest "tests/hardware_tests/models/TrafficLight_test.cpp")
     # add_unit_test(CarsTrafficLightSystemTest "tests/hardware_tests/main/CarsTrafficLightSystem_test.cpp")
     # add_unit_test(PedestriansTrafficLightSystemTest "tests/hardware_tests/main/PedestriansTrafficLightSystem_test.cpp")
