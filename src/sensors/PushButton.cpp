@@ -1,4 +1,5 @@
 #include "sensors/PushButton.h"
+#include <iostream>
 #include <unistd.h>
 
 PushButton::PushButton(int pin) : gpioPin(pin) {
