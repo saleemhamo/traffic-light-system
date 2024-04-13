@@ -78,28 +78,227 @@ $(function() {
   <div class="headertitle"><div class="title">Logger Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_logger_8h_source.html">Logger.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acbe8722670c211f945efece2bf7345dd" id="r_acbe8722670c211f945efece2bf7345dd"><td class="memItemLeft" align="right" valign="top"><a id="acbe8722670c211f945efece2bf7345dd" name="acbe8722670c211f945efece2bf7345dd"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (const std::string &amp;filename=defaultFileName)</td></tr>
+<tr class="memitem:acbe8722670c211f945efece2bf7345dd" id="r_acbe8722670c211f945efece2bf7345dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbe8722670c211f945efece2bf7345dd">init</a> (const std::string &amp;filename=<a class="el" href="#a8bc7d2cca97424723ed8e9ffbf7178cb">defaultFileName</a>)</td></tr>
+<tr class="memdesc:acbe8722670c211f945efece2bf7345dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_logger.html" title="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.">Logger</a> with the specified file name.  <br /></td></tr>
 <tr class="separator:acbe8722670c211f945efece2bf7345dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b2e97470572358030fa427c649cf8d5" id="r_a3b2e97470572358030fa427c649cf8d5"><td class="memItemLeft" align="right" valign="top"><a id="a3b2e97470572358030fa427c649cf8d5" name="a3b2e97470572358030fa427c649cf8d5"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>logInfo</b> (const std::string &amp;message)</td></tr>
+<tr class="memitem:ab4fde5e962a2e76fae85afb42449a800" id="r_ab4fde5e962a2e76fae85afb42449a800"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4fde5e962a2e76fae85afb42449a800">start</a> ()</td></tr>
+<tr class="memdesc:ab4fde5e962a2e76fae85afb42449a800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the logging process by spawning worker threads.  <br /></td></tr>
+<tr class="separator:ab4fde5e962a2e76fae85afb42449a800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2225b31ef14a04eed00071a3e073572f" id="r_a2225b31ef14a04eed00071a3e073572f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2225b31ef14a04eed00071a3e073572f">stopLogger</a> ()</td></tr>
+<tr class="memdesc:a2225b31ef14a04eed00071a3e073572f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops all logging activity.  <br /></td></tr>
+<tr class="separator:a2225b31ef14a04eed00071a3e073572f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b2e97470572358030fa427c649cf8d5" id="r_a3b2e97470572358030fa427c649cf8d5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b2e97470572358030fa427c649cf8d5">logInfo</a> (const std::string &amp;message)</td></tr>
+<tr class="memdesc:a3b2e97470572358030fa427c649cf8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an informational message.  <br /></td></tr>
 <tr class="separator:a3b2e97470572358030fa427c649cf8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00cc5c454a6af6300e5457ae277897d9" id="r_a00cc5c454a6af6300e5457ae277897d9"><td class="memItemLeft" align="right" valign="top"><a id="a00cc5c454a6af6300e5457ae277897d9" name="a00cc5c454a6af6300e5457ae277897d9"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>logError</b> (const std::string &amp;message)</td></tr>
+<tr class="memitem:a00cc5c454a6af6300e5457ae277897d9" id="r_a00cc5c454a6af6300e5457ae277897d9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00cc5c454a6af6300e5457ae277897d9">logError</a> (const std::string &amp;message)</td></tr>
+<tr class="memdesc:a00cc5c454a6af6300e5457ae277897d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an error message.  <br /></td></tr>
 <tr class="separator:a00cc5c454a6af6300e5457ae277897d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afee2bab560c2db0190c980884d33868c" id="r_afee2bab560c2db0190c980884d33868c"><td class="memItemLeft" align="right" valign="top"><a id="afee2bab560c2db0190c980884d33868c" name="afee2bab560c2db0190c980884d33868c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()</td></tr>
+<tr class="memitem:afee2bab560c2db0190c980884d33868c" id="r_afee2bab560c2db0190c980884d33868c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee2bab560c2db0190c980884d33868c">close</a> ()</td></tr>
+<tr class="memdesc:afee2bab560c2db0190c980884d33868c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the <a class="el" href="class_logger.html" title="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.">Logger</a> and cleans up resources.  <br /></td></tr>
 <tr class="separator:afee2bab560c2db0190c980884d33868c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8bc7d2cca97424723ed8e9ffbf7178cb" id="r_a8bc7d2cca97424723ed8e9ffbf7178cb"><td class="memItemLeft" align="right" valign="top"><a id="a8bc7d2cca97424723ed8e9ffbf7178cb" name="a8bc7d2cca97424723ed8e9ffbf7178cb"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>defaultFileName</b> = &quot;app.log&quot;</td></tr>
+<tr class="memdesc:a8bc7d2cca97424723ed8e9ffbf7178cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default filename for local log files. <br /></td></tr>
 <tr class="separator:a8bc7d2cca97424723ed8e9ffbf7178cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore. </p>
+<p><a class="el" href="class_logger.html" title="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.">Logger</a> is designed to be used across different parts of an application to log various messages like information and errors. It supports simultaneous file and Firestore logging and handles concurrent access using a queue-based system with multiple worker threads. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afee2bab560c2db0190c980884d33868c" name="afee2bab560c2db0190c980884d33868c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee2bab560c2db0190c980884d33868c">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the <a class="el" href="class_logger.html" title="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.">Logger</a> and cleans up resources. </p>
+<p>Ensures all logging activities are stopped and resources are released properly. </p>
+
+</div>
+</div>
+<a id="acbe8722670c211f945efece2bf7345dd" name="acbe8722670c211f945efece2bf7345dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe8722670c211f945efece2bf7345dd">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::init </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>filename</em><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a8bc7d2cca97424723ed8e9ffbf7178cb">defaultFileName</a></span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the <a class="el" href="class_logger.html" title="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore.">Logger</a> with the specified file name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Name of the file to which logs will be written. Defaults to 'defaultFileName'. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a00cc5c454a6af6300e5457ae277897d9" name="a00cc5c454a6af6300e5457ae277897d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00cc5c454a6af6300e5457ae277897d9">&#9670;&#160;</a></span>logError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::logError </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs an error message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The error message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b2e97470572358030fa427c649cf8d5" name="a3b2e97470572358030fa427c649cf8d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b2e97470572358030fa427c649cf8d5">&#9670;&#160;</a></span>logInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::logInfo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Logs an informational message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The info message to log. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab4fde5e962a2e76fae85afb42449a800" name="ab4fde5e962a2e76fae85afb42449a800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4fde5e962a2e76fae85afb42449a800">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the logging process by spawning worker threads. </p>
+<p>Initializes worker threads that handle asynchronous log writing. Must be called after init. </p>
+
+</div>
+</div>
+<a id="a2225b31ef14a04eed00071a3e073572f" name="a2225b31ef14a04eed00071a3e073572f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2225b31ef14a04eed00071a3e073572f">&#9670;&#160;</a></span>stopLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::stopLogger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops all logging activity. </p>
+<p>Signals worker threads to complete their tasks and stop running. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/utils/<a class="el" href="_logger_8h_source.html">Logger.h</a></li>
 <li>src/utils/<b>Logger.cpp</b></li>

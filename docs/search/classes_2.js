@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['firestorelogger_56',['FirestoreLogger',['../classFirestoreLogger.html',1,'']]]
+  ['firestorelogger_0',['FirestoreLogger',['../class_firestore_logger.html',1,'']]]
 ];

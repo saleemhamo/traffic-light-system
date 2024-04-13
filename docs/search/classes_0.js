@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buzzer_52',['Buzzer',['../classBuzzer.html',1,'']]]
+  ['buzzer_0',['Buzzer',['../class_buzzer.html',1,'']]]
 ];

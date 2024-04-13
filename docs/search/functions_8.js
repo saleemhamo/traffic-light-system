@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['settimeout_91',['setTimeout',['../classTimer.html#a2b4b71f19c8e36ae253ac69eee149ef1',1,'Timer']]],
-  ['shutdown_92',['shutdown',['../classMainSystem.html#a5c2b784cff65a21da6f17e50e5df4221',1,'MainSystem']]],
-  ['simulatecallback_93',['simulateCallback',['../pigpio__stub_8cpp.html#aa879ecdd3452057f5094b51397dc26bb',1,'pigpio_stub.cpp']]],
-  ['stoptimer_94',['stopTimer',['../classTimer.html#a27f97da1b1d19ad74a847703ca25c455',1,'Timer']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['mainsystem_1',['MainSystem',['../class_main_system.html#aed9d007c8b9294f4ff8d578675d53b22',1,'MainSystem']]]
 ];

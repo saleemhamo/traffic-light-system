@@ -96,35 +96,37 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_ultrasonic_sensor.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ultrasonic_sensor.html">UltrasonicSensor</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_ultrasonic_sensor.html">UltrasonicSensor</a>(<span class="keywordtype">int</span> triggerPin, <span class="keywordtype">int</span> echoPin);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_ultrasonic_sensor.html">~UltrasonicSensor</a>();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> initialize();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">float</span> calculateDistance();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> isMotionDetected(<span class="keywordtype">float</span> distanceThreshold = 0.1f); <span class="comment">// Threshold in meters</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> triggerPin, echoPin;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">float</span> lastDistance = 0.0f;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::chrono::steady_clock::time_point lastCheck = std::chrono::steady_clock::now();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> sonarReceiveAlertFunction(<span class="keywordtype">int</span> gpio, <span class="keywordtype">int</span> level, uint32_t tick, <span class="keywordtype">void</span> *user);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    uint32_t startTick, endTick;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> measuring = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> sendPulse();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> timeToDistance(uint32_t time);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_ultrasonic_sensor.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ultrasonic_sensor.html">UltrasonicSensor</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="class_ultrasonic_sensor.html#ac9b8f56595387f22404a4cba92c29dcd">UltrasonicSensor</a>(<span class="keywordtype">int</span> triggerPin, <span class="keywordtype">int</span> echoPin);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="class_ultrasonic_sensor.html#aec2722048b7070bd2b0f665b210f0d1a">~UltrasonicSensor</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ultrasonic_sensor.html#a14359169b99de6a1cbdf82863a434c9f">initialize</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_ultrasonic_sensor.html#a476774acedbda499ba57d86cb11e4165">calculateDistance</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_ultrasonic_sensor.html#a76b26277da09aa2112a4b4a83a264c37">isMotionDetected</a>(<span class="keywordtype">float</span> distanceThreshold = 5.0f); <span class="comment">// Threshold in cm</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">int</span> triggerPin, echoPin;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">float</span> lastDistance = 0.0f;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::chrono::steady_clock::time_point lastCheck = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> sonarReceiveAlertFunction(<span class="keywordtype">int</span> gpio, <span class="keywordtype">int</span> level, uint32_t tick, <span class="keywordtype">void</span> *user);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>     uint32_t startTick, endTick; </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> measuring = <span class="keyword">false</span>; </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> sendPulse();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">static</span> <span class="keywordtype">float</span> timeToDistance(uint32_t time);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
 </div>
-<div class="ttc" id="aclass_ultrasonic_sensor_html"><div class="ttname"><a href="class_ultrasonic_sensor.html">UltrasonicSensor</a></div><div class="ttdef"><b>Definition</b> UltrasonicSensor.h:14</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html"><div class="ttname"><a href="class_ultrasonic_sensor.html">UltrasonicSensor</a></div><div class="ttdoc">Provides functionality for interfacing with an ultrasonic sensor for distance measurement.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.h:23</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html_a14359169b99de6a1cbdf82863a434c9f"><div class="ttname"><a href="class_ultrasonic_sensor.html#a14359169b99de6a1cbdf82863a434c9f">UltrasonicSensor::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the sensor and prepares it for distance measurements.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:34</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html_a476774acedbda499ba57d86cb11e4165"><div class="ttname"><a href="class_ultrasonic_sensor.html#a476774acedbda499ba57d86cb11e4165">UltrasonicSensor::calculateDistance</a></div><div class="ttdeci">float calculateDistance()</div><div class="ttdoc">Calculates the distance to an object in front of the sensor.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:67</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html_a76b26277da09aa2112a4b4a83a264c37"><div class="ttname"><a href="class_ultrasonic_sensor.html#a76b26277da09aa2112a4b4a83a264c37">UltrasonicSensor::isMotionDetected</a></div><div class="ttdeci">bool isMotionDetected(float distanceThreshold=5.0f)</div><div class="ttdoc">Checks for motion detection based on changes in measured distance.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:93</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html_ac9b8f56595387f22404a4cba92c29dcd"><div class="ttname"><a href="class_ultrasonic_sensor.html#ac9b8f56595387f22404a4cba92c29dcd">UltrasonicSensor::UltrasonicSensor</a></div><div class="ttdeci">UltrasonicSensor(int triggerPin, int echoPin)</div><div class="ttdoc">Constructs an UltrasonicSensor with specified GPIO pins.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:16</div></div>
+<div class="ttc" id="aclass_ultrasonic_sensor_html_aec2722048b7070bd2b0f665b210f0d1a"><div class="ttname"><a href="class_ultrasonic_sensor.html#aec2722048b7070bd2b0f665b210f0d1a">UltrasonicSensor::~UltrasonicSensor</a></div><div class="ttdeci">~UltrasonicSensor()</div><div class="ttdoc">Destructs the UltrasonicSensor instance.</div><div class="ttdef"><b>Definition</b> UltrasonicSensor.cpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

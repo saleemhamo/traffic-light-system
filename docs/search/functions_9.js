@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['timer_95',['Timer',['../classTimer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer']]],
-  ['turngreen_96',['turnGreen',['../classTrafficLight.html#a4e139c7b1f5d167ea48635c64a80de9d',1,'TrafficLight']]],
-  ['turnoff_97',['turnOff',['../classTrafficLight.html#ae9bf0d41c485e15ec6cf48d57eacec11',1,'TrafficLight']]],
-  ['turnred_98',['turnRed',['../classTrafficLight.html#a4d9533331d7e0e261979a7d3beece057',1,'TrafficLight']]],
-  ['turnyellow_99',['turnYellow',['../classTrafficLight.html#a9188a5578ba352886ca372bef4e0ed1a',1,'TrafficLight']]]
+  ['off_0',['off',['../class_buzzer.html#a5f80b023c04fa42185e431aca7c43d32',1,'Buzzer::off()'],['../class_l_e_d.html#a346e4b72ca59cde82feeb4ea61b23b79',1,'LED::off()']]],
+  ['on_1',['on',['../class_buzzer.html#a9f9b9beeaa9790be935708dfb4f0d87e',1,'Buzzer::on()'],['../class_l_e_d.html#ae712764359a7dd95cc7c7829a1e71ac1',1,'LED::on()']]],
+  ['onpedestriansbuttonpress_2',['onPedestriansButtonPress',['../class_checking_system.html#ab817ecd20ce33cff966f37d02f7b9311',1,'CheckingSystem']]]
 ];
