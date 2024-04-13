@@ -45,7 +45,7 @@ void UltrasonicSensor::initialize()
 
     lastDistance = calculateDistance();// Measure distance initially to set a baseline.
 }
-}
+
 /**
  * @brief Sends a trigger pulse to the sensor.
  *
