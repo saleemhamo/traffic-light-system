@@ -7,8 +7,8 @@ PushButton::PushButton(int pin) : gpioPin(pin) {
 PushButton::~PushButton() {
 #if defined(__linux__) && defined(__arm__)
     // Reset ISR handling on this pin
-    // gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, NULL, NULL);
-    gpioSetAlertFunc(gpioPin, NULL);
+    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, NULL, NULL);
+    // gpioSetAlertFunc(gpioPin, NULL);
 #else
 
 #endif
@@ -24,12 +24,12 @@ void PushButton::initialize() {
     gpioSetMode(gpioPin, PI_INPUT);
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
     // Set ISR for falling edge (button press)
-    // gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, buttonPressHandler, this);
-    gpioSetAlertFunc(gpioPin, [](int gpio, int level, uint32_t tick) {
-        // This lambda function is called in the context of a new thread when the button is pressed
-        std::cout << "Button Pressed " << gpio << " " << level << " " << tick << std::endl;
-        // Handle the button press event here
-    });
+    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, buttonPressHandler, this);
+    // gpioSetAlertFunc(gpioPin, [](int gpio, int level, uint32_t tick) {
+    //     // This lambda function is called in the context of a new thread when the button is pressed
+    //     std::cout << "Button Pressed " << gpio << " " << level << " " << tick << std::endl;
+    //     // Handle the button press event here
+    // });
 #else
 
 #endif
@@ -41,11 +41,11 @@ void PushButton::registerButtonPressCallback(ButtonCallback callback) {
     this->buttonPressCallback = callback;
 }
 
-// void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user) {
-//     // This function is called in the context of a new thread when the button is pressed
-//     std::cout << "Button Pressed " << gpio << " " << level << " " << tick << std::endl;
-//     PushButton *button = static_cast<PushButton *>(user);
-//     if (button->buttonPressCallback) {
-//         button->buttonPressCallback(); // Call the user's callback
-//     }
-// }
+void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user) {
+    // This function is called in the context of a new thread when the button is pressed
+    std::cout << "Button Pressed " << gpio << " " << level << " " << tick << std::endl;
+    PushButton *button = static_cast<PushButton *>(user);
+    if (button->buttonPressCallback) {
+        button->buttonPressCallback(); // Call the user's callback
+    }
+}
