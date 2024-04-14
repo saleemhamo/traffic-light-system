@@ -16,6 +16,8 @@ public:
     static const int ledPin3 = Constants::WarningSystemLed3Pin;
     static const int buzzerPin = Constants::WarningSystemBuzzerPin;
 
+    bool isInitialized() const { return isInitialized_; }
+
     void initialize() override; // Implement ISystem methods
 
     void activate() override; // Implement ISystem methods
@@ -27,5 +29,5 @@ private:
     LED warningLED2;
     LED warningLED3;
     Buzzer warningBuzzer;
-    bool isInitialized; // Example state flag
+    bool isInitialized_; // Example state flag
 };

@@ -8,16 +8,16 @@ WarningSystem::WarningSystem() :
         warningLED2(ledPin2),
         warningLED3(ledPin3),
         warningBuzzer(buzzerPin),
-        isInitialized(false) {}
+        isInitialized_(false) {}
 
 void WarningSystem::initialize() {
     // Initialize the LED and buzzer (if necessary)
     // For example, you might set an initial state or perform a self-check
-    isInitialized = true;
+    isInitialized_ = true;
 }
 
 void WarningSystem::activate() {
-    if (isInitialized) {
+    if (isInitialized_) {
         warningLED.on();
         warningLED2.on();
         warningLED3.on();
@@ -26,7 +26,7 @@ void WarningSystem::activate() {
 }
 
 void WarningSystem::deactivate() {
-    if (isInitialized) {
+    if (isInitialized_) {
         warningLED.off();
         warningLED2.off();
         warningLED3.off();

@@ -7,16 +7,16 @@
 
 BOOST_AUTO_TEST_SUITE(WarningSystemTests)
 
-// BOOST_AUTO_TEST_CASE(WarningSystem_Initialize)
-// {
-//     // Create an instance of the WarningSystem
-//     WarningSystem warningSystem;
+BOOST_AUTO_TEST_CASE(WarningSystem_Initialize)
+{
+    // Create an instance of the WarningSystem
+    WarningSystem warningSystem;
 
-//     // Test the initialization of the warning system
-//     BOOST_CHECK(!warningSystem.isInitialized);
-//     warningSystem.initialize();
-//     BOOST_CHECK(warningSystem.isInitialized);
-// }
+    // Test the initialization of the warning system
+    BOOST_CHECK(!warningSystem.isInitialized());
+    warningSystem.initialize();
+    BOOST_CHECK(warningSystem.isInitialized());
+}
 
 BOOST_AUTO_TEST_CASE(WarningSystem_Activate)
 {

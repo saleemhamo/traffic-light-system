@@ -38,11 +38,29 @@ void CheckingSystem::run()
                                  { this->monitorPedestrian(); });
     std::thread roadThread([this]()
                            { this->monitorRoad(); });
+    // std::thread buttonThread([this]()
+    //                          { this->monitorPedestriansButton(); });
 
     // Detach threads if you don't need to synchronize them back
     pedestrianThread.join(); // TODO
     roadThread.join();
 }
+
+// void CheckingSystem::monitorPedestriansButton()
+// {
+//     while (isActive)
+//     {
+//         if (pedestriansPushButton.isPressed())
+//         {
+//             if (pedestriansButtonClicked)
+//             {
+//                 pedestriansButtonClicked(); // Call the registered callback
+//             }
+//         }
+//         // Sleep to prevent hogging CPU - adjust the delay as needed
+//         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+//     }
+// }
 
 void CheckingSystem::onPedestriansButtonPress()
 {
