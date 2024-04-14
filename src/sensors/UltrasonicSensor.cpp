@@ -66,20 +66,57 @@ void UltrasonicSensor::sendPulse()
  */
 float UltrasonicSensor::calculateDistance()
 {
-    sendPulse();
-    measuring = true;
+    float distances[3] = {0.0f, 0.0f, 0.0f};
+    int numValidMeasurements = 0;
+
+    for (int i = 0; i < 3; i++)
+    {
+        sendPulse();
+        measuring = true;
+        waitForMeasurement();
+        distances[i] = timeToDistance(endTick - startTick);
+
+        // Check if the current measurement is valid
+        if (distances[i] >= 0.0f && distances[i] <= 25.0f)
+        {
+            numValidMeasurements++;
+        }
+
+        // Wait for 50 ms before taking the next measurement
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+
+    // If we have at least two valid measurements, return the average
+    if (numValidMeasurements >= 2)
+    {
+        float sum = 0.0f;
+        for (int i = 0; i < 3; i++)
+        {
+            if (distances[i] >= 0.0f && distances[i] <= 25.0f)
+            {
+                sum += distances[i];
+            }
+        }
+        return sum / static_cast<float>(numValidMeasurements);
+    }
+    else
+    {
+        return -1.0f; // Indicate an unreliable measurement
+    }
+}
+
+void UltrasonicSensor::waitForMeasurement()
+{
     auto startTime = std::chrono::steady_clock::now();
     while (measuring)
     {
         auto now = std::chrono::steady_clock::now();
-        auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - startTime).count();
-        if (elapsed > 100)
-        { // Timeout after 100 ms
+        if (std::chrono::duration_cast<std::chrono::milliseconds>(now - startTime).count() > 100)
+        {
+            // Timeout after 100 ms
             measuring = false;
         }
     }
-    uint32_t diff = endTick > startTick ? endTick - startTick : 0;
-    return timeToDistance(diff);
 }
 /**
  * @brief Detects motion based on changes in measured distances.

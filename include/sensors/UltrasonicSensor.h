@@ -19,10 +19,9 @@
  * connected to specified GPIO pins on a Raspberry Pi. It encapsulates details of sending pulses and measuring
  * response times to calculate distances.
  */
-class UltrasonicSensor
-{
+class UltrasonicSensor {
 public:
-    /**
+/**
      * @brief Constructs an UltrasonicSensor with specified GPIO pins.
      * @param triggerPin The GPIO pin used to trigger the sensor.
      * @param echoPin The GPIO pin used to receive the echo signal from the sensor.
@@ -35,33 +34,37 @@ public:
      * where GPIO pins require manual cleanup.
      */
     ~UltrasonicSensor();
-     /**
-     * @brief Initializes the sensor and prepares it for distance measurements.
-     *
-     * Sets the GPIO modes for the trigger and echo pins, and registers the echo
-     * reception callback.
-     */
+    /**
+    * @brief Initializes the sensor and prepares it for distance measurements.
+    *
+    * Sets the GPIO modes for the trigger and echo pins, and registers the echo
+    * reception callback.
+    */
     void initialize();
     /**
      * @brief Calculates the distance to an object in front of the sensor.
      * @return The measured distance in centimeters.
      */
     float calculateDistance();
-     /**
-     * @brief Checks for motion detection based on changes in measured distance.
-     * @param distanceThreshold The minimum change in distance to consider as motion (default is 5.0 cm).
-     * @return True if motion is detected, false otherwise.
-     */
+    /**
+    * @brief Checks for motion detection based on changes in measured distance.
+    * @param distanceThreshold The minimum change in distance to consider as motion (default is 5.0 cm).
+    * @return True if motion is detected, false otherwise.
+    */
     bool isMotionDetected(float distanceThreshold = 5.0f); // Threshold in cm
 
 private:
     int triggerPin, echoPin;///< GPIO pin number used for triggering the sensor. GPIO pin number used for receiving the echo.
     float lastDistance = 0.0f;///< Last measured distance.
     std::chrono::steady_clock::time_point lastCheck = std::chrono::steady_clock::now();///< Last time the distance was checked.
+    std::chrono::steady_clock::time_point lastDetectionTime = std::chrono::steady_clock::now(); ///< Last time the motion was detected.
+    std::chrono::steady_clock::time_point lastMotionDetectedAt; ///< Last time the motion was detected at.
 
-    static void sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user);///< Callback function for receiving echo.
+    static void sonarReceiveAlertFunction(int gpio, int level, uint32_t tick, void *user); ///< Callback function for receiving echo.
 
-     uint32_t startTick, endTick; ///< Timestamps captured at the start and end of echo.
+    void waitForMeasurement();
+
+    uint32_t startTick, endTick; ///< Timestamps captured at the start and end of echo.
     bool measuring = false; ///< Flag to indicate if measurement is ongoing.
 
     /**
