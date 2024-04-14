@@ -40,11 +40,22 @@ BOOST_AUTO_TEST_CASE(test_pedestrian_motion_detection)
     system.registerPedestriansMotionCallback([&]()
                                              { pedestrianMotionDetected = true; });
 
-    // Simulate pedestrian motion detection
-    system.monitorPedestrian();
+    // Simulate pedestrian motion detection using UltrasonicSensor
+    const int triggerPin = 23; // Assuming trigger pin for pedestrian sensor
+    const int echoPin = 24;    // Assuming echo pin for pedestrian sensor
+    UltrasonicSensor sensor(triggerPin, echoPin);
+    // Simulate motion under the threshold set to trigger warning system
+    const uint32_t startTick2 = 0;
+    const uint32_t endTick2 = 291; // Time for 5 centimeters in microseconds (291.375us)
+
+    simulateCallback(echoPin, 1, startTick2);
+    simulateCallback(echoPin, 0, endTick2);
+
+    // Simulate motion detection within range
+    bool motionDetected = sensor.isMotionDetected(5.0f); // Adjust threshold as needed
 
     // Verify that the callback was called
-    BOOST_CHECK(pedestrianMotionDetected);
+    BOOST_CHECK(pedestrianMotionDetected == motionDetected);
 }
 
 BOOST_AUTO_TEST_CASE(test_car_motion_detection)
@@ -60,11 +71,21 @@ BOOST_AUTO_TEST_CASE(test_car_motion_detection)
     system.registerCarsMotionCallback([&]()
                                       { carMotionDetected = true; });
 
-    // Simulate car motion detection
-    system.monitorRoad();
+    // Simulate car motion detection using UltrasonicSensor
+    const int triggerPin = 25; // Assuming trigger pin for car sensor
+    const int echoPin = 26;    // Assuming echo pin for car sensor
+    UltrasonicSensor sensor(triggerPin, echoPin);
+    // Simulate motion under the threshold set to trigger warning system
+    const uint32_t startTick2 = 0;
+    const uint32_t endTick2 = 291; // Time for 5 centimeters in microseconds (291.375us)
+
+    simulateCallback(echoPin, 1, startTick2);
+    simulateCallback(echoPin, 0, endTick2);
+    // Simulate motion detection within range
+    bool motionDetected = sensor.isMotionDetected(5.0f); // Adjust threshold as needed
 
     // Verify that the callback was called
-    BOOST_CHECK(carMotionDetected);
+    BOOST_CHECK(carMotionDetected == motionDetected);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

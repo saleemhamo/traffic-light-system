@@ -52,9 +52,6 @@ public:
 
     void disableSensing();
 
-    void monitorPedestrian();
-
-    void monitorRoad();
 
 private:
     std::atomic<bool> isActive;
@@ -74,7 +71,9 @@ private:
     std::thread pedestrianThread;
     std::thread roadThread;
 
+    void monitorPedestrian();
 
+    void monitorRoad();
 
     void monitorPedestriansButton();
 };
