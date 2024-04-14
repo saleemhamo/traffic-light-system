@@ -83,32 +83,36 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">CarsTrafficLightSystem.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CARSTRAFFICLIGHTSYSTEM_H</span></div>
+<a href="_cars_traffic_light_system_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CARSTRAFFICLIGHTSYSTEM_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CARSTRAFFICLIGHTSYSTEM_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;models/TrafficLight.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_cars_traffic_light_system.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cars_traffic_light_system.html">CarsTrafficLightSystem</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_traffic_light.html">TrafficLight</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_cars_traffic_light_system.html">CarsTrafficLightSystem</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> initialize();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> run();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> deactivate();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::atomic&lt;bool&gt; isActive;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_cars_traffic_light_system.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cars_traffic_light_system.html">CarsTrafficLightSystem</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_traffic_light.html">TrafficLight</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="class_cars_traffic_light_system.html#a58faddb9ef9cfa4e57ef586bd4d4a01f">CarsTrafficLightSystem</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cars_traffic_light_system.html#a4a8030eb69a9316d56021faee7232c0f">initialize</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cars_traffic_light_system.html#a24dc6a77d12881ae6af0727c40a94f6c">run</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cars_traffic_light_system.html#a305c8a479d46f43b6644b25832b6d1ec">deactivate</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::atomic&lt;bool&gt; isActive; <span class="comment">//Indicates whether the traffic light system is currently active.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">// CARSTRAFFICLIGHTSYSTEM_H</span></div>
-<div class="ttc" id="aclass_cars_traffic_light_system_html"><div class="ttname"><a href="class_cars_traffic_light_system.html">CarsTrafficLightSystem</a></div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.h:8</div></div>
-<div class="ttc" id="aclass_traffic_light_html"><div class="ttname"><a href="class_traffic_light.html">TrafficLight</a></div><div class="ttdef"><b>Definition</b> TrafficLight.h:10</div></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">// CARSTRAFFICLIGHTSYSTEM_H</span></div>
+<div class="ttc" id="aclass_cars_traffic_light_system_html"><div class="ttname"><a href="class_cars_traffic_light_system.html">CarsTrafficLightSystem</a></div><div class="ttdoc">Implements traffic light control specifically for cars.</div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.h:26</div></div>
+<div class="ttc" id="aclass_cars_traffic_light_system_html_a24dc6a77d12881ae6af0727c40a94f6c"><div class="ttname"><a href="class_cars_traffic_light_system.html#a24dc6a77d12881ae6af0727c40a94f6c">CarsTrafficLightSystem::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Runs the main logic of the traffic light control.</div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.cpp:43</div></div>
+<div class="ttc" id="aclass_cars_traffic_light_system_html_a305c8a479d46f43b6644b25832b6d1ec"><div class="ttname"><a href="class_cars_traffic_light_system.html#a305c8a479d46f43b6644b25832b6d1ec">CarsTrafficLightSystem::deactivate</a></div><div class="ttdeci">void deactivate()</div><div class="ttdoc">Deactivates the traffic light system.</div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.cpp:52</div></div>
+<div class="ttc" id="aclass_cars_traffic_light_system_html_a4a8030eb69a9316d56021faee7232c0f"><div class="ttname"><a href="class_cars_traffic_light_system.html#a4a8030eb69a9316d56021faee7232c0f">CarsTrafficLightSystem::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the traffic light system.</div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.cpp:34</div></div>
+<div class="ttc" id="aclass_cars_traffic_light_system_html_a58faddb9ef9cfa4e57ef586bd4d4a01f"><div class="ttname"><a href="class_cars_traffic_light_system.html#a58faddb9ef9cfa4e57ef586bd4d4a01f">CarsTrafficLightSystem::CarsTrafficLightSystem</a></div><div class="ttdeci">CarsTrafficLightSystem()</div><div class="ttdoc">Constructs a new Cars Traffic Light System object.</div><div class="ttdef"><b>Definition</b> CarsTrafficLightSystem.cpp:23</div></div>
+<div class="ttc" id="aclass_traffic_light_html"><div class="ttname"><a href="class_traffic_light.html">TrafficLight</a></div><div class="ttdoc">A class to control a traffic light system using LEDs.</div><div class="ttdef"><b>Definition</b> TrafficLight.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

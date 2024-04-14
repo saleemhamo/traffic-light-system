@@ -67,7 +67,7 @@ void initApplication()
 void closeApplication(MainSystem &mainSystem)
 {
     mainSystem.shutdown();
-    Logger::close();
+    // Logger::close(); //why there's another loger here when try catch already handles that?
 
     try
     {

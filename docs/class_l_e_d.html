@@ -77,20 +77,28 @@ $(function() {
   <div class="headertitle"><div class="title">LED Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controls an <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> connected to a GPIO pin.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_l_e_d_8h_source.html">LED.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ed40c3dddf14dc9c6fdf01316a15ebd" id="r_a0ed40c3dddf14dc9c6fdf01316a15ebd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ed40c3dddf14dc9c6fdf01316a15ebd">LED</a> (int pin)</td></tr>
-<tr class="memdesc:a0ed40c3dddf14dc9c6fdf01316a15ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_l_e_d.html">LED</a> class.  <br /></td></tr>
+<tr class="memdesc:a0ed40c3dddf14dc9c6fdf01316a15ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes an <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> object attached to a specified GPIO pin.  <br /></td></tr>
 <tr class="separator:a0ed40c3dddf14dc9c6fdf01316a15ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae712764359a7dd95cc7c7829a1e71ac1" id="r_ae712764359a7dd95cc7c7829a1e71ac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae712764359a7dd95cc7c7829a1e71ac1">on</a> ()</td></tr>
-<tr class="memdesc:ae712764359a7dd95cc7c7829a1e71ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the <a class="el" href="class_l_e_d.html">LED</a> on.  <br /></td></tr>
+<tr class="memdesc:ae712764359a7dd95cc7c7829a1e71ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> on by setting the GPIO pin high.  <br /></td></tr>
 <tr class="separator:ae712764359a7dd95cc7c7829a1e71ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a346e4b72ca59cde82feeb4ea61b23b79" id="r_a346e4b72ca59cde82feeb4ea61b23b79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a346e4b72ca59cde82feeb4ea61b23b79">off</a> ()</td></tr>
-<tr class="memdesc:a346e4b72ca59cde82feeb4ea61b23b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the <a class="el" href="class_l_e_d.html">LED</a> off.  <br /></td></tr>
+<tr class="memdesc:a346e4b72ca59cde82feeb4ea61b23b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> off by setting the GPIO pin low.  <br /></td></tr>
 <tr class="separator:a346e4b72ca59cde82feeb4ea61b23b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Controls an <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> connected to a GPIO pin. </p>
+<p>This class provides methods to turn an <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> on and off, abstracting the hardware interfacing details. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ed40c3dddf14dc9c6fdf01316a15ebd" name="a0ed40c3dddf14dc9c6fdf01316a15ebd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ed40c3dddf14dc9c6fdf01316a15ebd">&#9670;&#160;</a></span>LED()</h2>
 
@@ -106,11 +114,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <a class="el" href="class_l_e_d.html">LED</a> class. </p>
-<p>This constructor initializes the GPIO pin used by the <a class="el" href="class_l_e_d.html">LED</a> and sets it to output mode, preparing the <a class="el" href="class_l_e_d.html">LED</a> for use.</p>
+<p>Constructor that initializes an <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> object attached to a specified GPIO pin. </p>
+<p>Constructor for the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td>The GPIO pin number connected to the <a class="el" href="class_l_e_d.html">LED</a>. </td></tr>
+    <tr><td class="paramname">pin</td><td>GPIO pin number that the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> is connected to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This constructor initializes the GPIO pin used by the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> and sets it to output mode, preparing the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> for use.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The GPIO pin number connected to the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -133,8 +148,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Turn the <a class="el" href="class_l_e_d.html">LED</a> off. </p>
-<p>This method sets the GPIO pin to low, turning the <a class="el" href="class_l_e_d.html">LED</a> off. </p>
+<p>Turns the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> off by setting the GPIO pin low. </p>
+<p>Turn the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> off.</p>
+<p>This method sets the GPIO pin to low, turning the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> off. </p>
 
 </div>
 </div>
@@ -153,8 +169,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Turn the <a class="el" href="class_l_e_d.html">LED</a> on. </p>
-<p>This method sets the GPIO pin to high, which turns the <a class="el" href="class_l_e_d.html">LED</a> on. </p>
+<p>Turns the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> on by setting the GPIO pin high. </p>
+<p>Turn the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> on.</p>
+<p>This method sets the GPIO pin to high, which turns the <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> on. </p>
 
 </div>
 </div>

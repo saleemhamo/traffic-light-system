@@ -77,58 +77,324 @@ $(function() {
   <div class="headertitle"><div class="title">CheckingSystem Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages and operates the monitoring system for both pedestrian and vehicle detection.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_checking_system_8h_source.html">CheckingSystem.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c18dcb8a8f29a89958ae3fc0addd7ca" id="r_a2c18dcb8a8f29a89958ae3fc0addd7ca"><td class="memItemLeft" align="right" valign="top"><a id="a2c18dcb8a8f29a89958ae3fc0addd7ca" name="a2c18dcb8a8f29a89958ae3fc0addd7ca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
+<tr class="memitem:a7713379a380738872d8d8f51deb9149b" id="r_a7713379a380738872d8d8f51deb9149b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7713379a380738872d8d8f51deb9149b">CheckingSystem</a> ()</td></tr>
+<tr class="memdesc:a7713379a380738872d8d8f51deb9149b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to initialize the system with default states and sensor configurations.  <br /></td></tr>
+<tr class="separator:a7713379a380738872d8d8f51deb9149b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f29cc3202766d4ed19e5ee52b3a2ce5" id="r_a5f29cc3202766d4ed19e5ee52b3a2ce5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f29cc3202766d4ed19e5ee52b3a2ce5">~CheckingSystem</a> ()</td></tr>
+<tr class="memdesc:a5f29cc3202766d4ed19e5ee52b3a2ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up resources, ensuring all threads are joined if necessary.  <br /></td></tr>
+<tr class="separator:a5f29cc3202766d4ed19e5ee52b3a2ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c18dcb8a8f29a89958ae3fc0addd7ca" id="r_a2c18dcb8a8f29a89958ae3fc0addd7ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c18dcb8a8f29a89958ae3fc0addd7ca">initialize</a> ()</td></tr>
+<tr class="memdesc:a2c18dcb8a8f29a89958ae3fc0addd7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize sensors and system components.  <br /></td></tr>
 <tr class="separator:a2c18dcb8a8f29a89958ae3fc0addd7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a40effe9aa62f89fa5eebc1b2678a0d" id="r_a9a40effe9aa62f89fa5eebc1b2678a0d"><td class="memItemLeft" align="right" valign="top"><a id="a9a40effe9aa62f89fa5eebc1b2678a0d" name="a9a40effe9aa62f89fa5eebc1b2678a0d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+<tr class="memitem:a9a40effe9aa62f89fa5eebc1b2678a0d" id="r_a9a40effe9aa62f89fa5eebc1b2678a0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a40effe9aa62f89fa5eebc1b2678a0d">run</a> ()</td></tr>
+<tr class="memdesc:a9a40effe9aa62f89fa5eebc1b2678a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the system's main operation loop.  <br /></td></tr>
 <tr class="separator:a9a40effe9aa62f89fa5eebc1b2678a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d26bfc0d282e8ba466533fa35a992c8" id="r_a2d26bfc0d282e8ba466533fa35a992c8"><td class="memItemLeft" align="right" valign="top"><a id="a2d26bfc0d282e8ba466533fa35a992c8" name="a2d26bfc0d282e8ba466533fa35a992c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deactivate</b> ()</td></tr>
+<tr class="memitem:a2d26bfc0d282e8ba466533fa35a992c8" id="r_a2d26bfc0d282e8ba466533fa35a992c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d26bfc0d282e8ba466533fa35a992c8">deactivate</a> ()</td></tr>
+<tr class="memdesc:a2d26bfc0d282e8ba466533fa35a992c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safely deactivate and shutdown all system operations.  <br /></td></tr>
 <tr class="separator:a2d26bfc0d282e8ba466533fa35a992c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab817ecd20ce33cff966f37d02f7b9311" id="r_ab817ecd20ce33cff966f37d02f7b9311"><td class="memItemLeft" align="right" valign="top"><a id="ab817ecd20ce33cff966f37d02f7b9311" name="ab817ecd20ce33cff966f37d02f7b9311"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>onPedestriansButtonPress</b> ()</td></tr>
+<tr class="memitem:ab817ecd20ce33cff966f37d02f7b9311" id="r_ab817ecd20ce33cff966f37d02f7b9311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab817ecd20ce33cff966f37d02f7b9311">onPedestriansButtonPress</a> ()</td></tr>
+<tr class="memdesc:ab817ecd20ce33cff966f37d02f7b9311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for pedestrian button presses.  <br /></td></tr>
 <tr class="separator:ab817ecd20ce33cff966f37d02f7b9311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92977e2296309884f578b559e071bdf" id="r_ad92977e2296309884f578b559e071bdf"><td class="memItemLeft" align="right" valign="top"><a id="ad92977e2296309884f578b559e071bdf" name="ad92977e2296309884f578b559e071bdf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerCarsMotionCallback</b> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memitem:ad92977e2296309884f578b559e071bdf" id="r_ad92977e2296309884f578b559e071bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad92977e2296309884f578b559e071bdf">registerCarsMotionCallback</a> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memdesc:ad92977e2296309884f578b559e071bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback function for car motion detection.  <br /></td></tr>
 <tr class="separator:ad92977e2296309884f578b559e071bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d601c48f4dc1570f35ad436572aa718" id="r_a1d601c48f4dc1570f35ad436572aa718"><td class="memItemLeft" align="right" valign="top"><a id="a1d601c48f4dc1570f35ad436572aa718" name="a1d601c48f4dc1570f35ad436572aa718"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerPedestriansMotionCallback</b> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memitem:a1d601c48f4dc1570f35ad436572aa718" id="r_a1d601c48f4dc1570f35ad436572aa718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d601c48f4dc1570f35ad436572aa718">registerPedestriansMotionCallback</a> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memdesc:a1d601c48f4dc1570f35ad436572aa718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback function for pedestrian motion detection.  <br /></td></tr>
 <tr class="separator:a1d601c48f4dc1570f35ad436572aa718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7f810466d5ca58e6835060ab9276739" id="r_ab7f810466d5ca58e6835060ab9276739"><td class="memItemLeft" align="right" valign="top"><a id="ab7f810466d5ca58e6835060ab9276739" name="ab7f810466d5ca58e6835060ab9276739"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerPedestriansButtonCallback</b> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memitem:ab7f810466d5ca58e6835060ab9276739" id="r_ab7f810466d5ca58e6835060ab9276739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7f810466d5ca58e6835060ab9276739">registerPedestriansButtonCallback</a> (const std::function&lt; void()&gt; &amp;callback)</td></tr>
+<tr class="memdesc:ab7f810466d5ca58e6835060ab9276739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback function for pedestrian button press.  <br /></td></tr>
 <tr class="separator:ab7f810466d5ca58e6835060ab9276739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a044b2a799279c430e7b8fd62907e8af8" id="r_a044b2a799279c430e7b8fd62907e8af8"><td class="memItemLeft" align="right" valign="top"><a id="a044b2a799279c430e7b8fd62907e8af8" name="a044b2a799279c430e7b8fd62907e8af8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>enablePedestriansMotionDetection</b> ()</td></tr>
+<tr class="memdesc:a044b2a799279c430e7b8fd62907e8af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the motion detection for pedestrians. <br /></td></tr>
 <tr class="separator:a044b2a799279c430e7b8fd62907e8af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb88d7c2bd782ac49e0404d66dccabc6" id="r_abb88d7c2bd782ac49e0404d66dccabc6"><td class="memItemLeft" align="right" valign="top"><a id="abb88d7c2bd782ac49e0404d66dccabc6" name="abb88d7c2bd782ac49e0404d66dccabc6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disablePedestriansMotionDetection</b> ()</td></tr>
+<tr class="memdesc:abb88d7c2bd782ac49e0404d66dccabc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the motion detection for pedestrians. <br /></td></tr>
 <tr class="separator:abb88d7c2bd782ac49e0404d66dccabc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a712fab4c81bc897549f23448ae92be07" id="r_a712fab4c81bc897549f23448ae92be07"><td class="memItemLeft" align="right" valign="top"><a id="a712fab4c81bc897549f23448ae92be07" name="a712fab4c81bc897549f23448ae92be07"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>enableCarsMotionDetection</b> ()</td></tr>
+<tr class="memdesc:a712fab4c81bc897549f23448ae92be07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the motion detection for cars. <br /></td></tr>
 <tr class="separator:a712fab4c81bc897549f23448ae92be07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b36b39be04d695df0becdbf18258fa3" id="r_a7b36b39be04d695df0becdbf18258fa3"><td class="memItemLeft" align="right" valign="top"><a id="a7b36b39be04d695df0becdbf18258fa3" name="a7b36b39be04d695df0becdbf18258fa3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disableCarsMotionDetection</b> ()</td></tr>
+<tr class="memdesc:a7b36b39be04d695df0becdbf18258fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the motion detection for cars. <br /></td></tr>
 <tr class="separator:a7b36b39be04d695df0becdbf18258fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b734d055f537b92c3e54576b118e13" id="r_a92b734d055f537b92c3e54576b118e13"><td class="memItemLeft" align="right" valign="top"><a id="a92b734d055f537b92c3e54576b118e13" name="a92b734d055f537b92c3e54576b118e13"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>enablePedestriansButton</b> ()</td></tr>
+<tr class="memdesc:a92b734d055f537b92c3e54576b118e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the use of the pedestrian button. <br /></td></tr>
 <tr class="separator:a92b734d055f537b92c3e54576b118e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab43471d98b75be53b49a1bbac9bf892d" id="r_ab43471d98b75be53b49a1bbac9bf892d"><td class="memItemLeft" align="right" valign="top"><a id="ab43471d98b75be53b49a1bbac9bf892d" name="ab43471d98b75be53b49a1bbac9bf892d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disablePedestriansButton</b> ()</td></tr>
+<tr class="memdesc:ab43471d98b75be53b49a1bbac9bf892d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the pedestrian button to prevent its use. <br /></td></tr>
 <tr class="separator:ab43471d98b75be53b49a1bbac9bf892d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d816d4b17d0f8b3d858691ca9e940a" id="r_af2d816d4b17d0f8b3d858691ca9e940a"><td class="memItemLeft" align="right" valign="top"><a id="af2d816d4b17d0f8b3d858691ca9e940a" name="af2d816d4b17d0f8b3d858691ca9e940a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enableSensing</b> ()</td></tr>
+<tr class="memitem:af2d816d4b17d0f8b3d858691ca9e940a" id="r_af2d816d4b17d0f8b3d858691ca9e940a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2d816d4b17d0f8b3d858691ca9e940a">enableSensing</a> ()</td></tr>
+<tr class="memdesc:af2d816d4b17d0f8b3d858691ca9e940a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable all sensors and detection mechanisms.  <br /></td></tr>
 <tr class="separator:af2d816d4b17d0f8b3d858691ca9e940a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156813a2a60db64e096bb070451fca6e" id="r_a156813a2a60db64e096bb070451fca6e"><td class="memItemLeft" align="right" valign="top"><a id="a156813a2a60db64e096bb070451fca6e" name="a156813a2a60db64e096bb070451fca6e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>disableSensing</b> ()</td></tr>
+<tr class="memitem:a156813a2a60db64e096bb070451fca6e" id="r_a156813a2a60db64e096bb070451fca6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a156813a2a60db64e096bb070451fca6e">disableSensing</a> ()</td></tr>
+<tr class="memdesc:a156813a2a60db64e096bb070451fca6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable all sensors and detection mechanisms.  <br /></td></tr>
 <tr class="separator:a156813a2a60db64e096bb070451fca6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages and operates the monitoring system for both pedestrian and vehicle detection. </p>
+<p>Integrates multiple sensors and provides functionalities to register callbacks, activate or deactivate detection, and manage system states through an interface designed for real-time traffic monitoring. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7713379a380738872d8d8f51deb9149b" name="a7713379a380738872d8d8f51deb9149b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7713379a380738872d8d8f51deb9149b">&#9670;&#160;</a></span>CheckingSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CheckingSystem::CheckingSystem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor to initialize the system with default states and sensor configurations. </p>
+<p>Constructor for the <a class="el" href="class_checking_system.html" title="Manages and operates the monitoring system for both pedestrian and vehicle detection.">CheckingSystem</a> class. Initializes all member variables and configures sensors with the appropriate pins. </p>
+
+</div>
+</div>
+<a id="a5f29cc3202766d4ed19e5ee52b3a2ce5" name="a5f29cc3202766d4ed19e5ee52b3a2ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f29cc3202766d4ed19e5ee52b3a2ce5">&#9670;&#160;</a></span>~CheckingSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CheckingSystem::~CheckingSystem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor to clean up resources, ensuring all threads are joined if necessary. </p>
+<p>Destructor for the <a class="el" href="class_checking_system.html" title="Manages and operates the monitoring system for both pedestrian and vehicle detection.">CheckingSystem</a> class. Ensures all components are properly deactivated and threads are joined before destruction. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2d26bfc0d282e8ba466533fa35a992c8" name="a2d26bfc0d282e8ba466533fa35a992c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d26bfc0d282e8ba466533fa35a992c8">&#9670;&#160;</a></span>deactivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::deactivate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Safely deactivate and shutdown all system operations. </p>
+<p>Deactivates the system and ensures a clean shutdown. Sets isActive to false and waits for a brief period to allow threads to finish gracefully. </p>
+
+</div>
+</div>
+<a id="a156813a2a60db64e096bb070451fca6e" name="a156813a2a60db64e096bb070451fca6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a156813a2a60db64e096bb070451fca6e">&#9670;&#160;</a></span>disableSensing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::disableSensing </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable all sensors and detection mechanisms. </p>
+<p>Deactivates all sensors and detection mechanisms in the system. Calls individual disable methods for pedestrian and vehicle detection and button usage. </p>
+
+</div>
+</div>
+<a id="af2d816d4b17d0f8b3d858691ca9e940a" name="af2d816d4b17d0f8b3d858691ca9e940a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d816d4b17d0f8b3d858691ca9e940a">&#9670;&#160;</a></span>enableSensing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::enableSensing </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable all sensors and detection mechanisms. </p>
+<p>Activates all sensors and detection mechanisms in the system. Calls individual enable methods for pedestrian and vehicle detection and button usage. </p>
+
+</div>
+</div>
+<a id="a2c18dcb8a8f29a89958ae3fc0addd7ca" name="a2c18dcb8a8f29a89958ae3fc0addd7ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c18dcb8a8f29a89958ae3fc0addd7ca">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::initialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize sensors and system components. </p>
+<p>Initializes sensors and registers button press callbacks. Configures and initializes all associated sensors and registers callback for the pedestrian button. </p>
+
+</div>
+</div>
+<a id="ab817ecd20ce33cff966f37d02f7b9311" name="ab817ecd20ce33cff966f37d02f7b9311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab817ecd20ce33cff966f37d02f7b9311">&#9670;&#160;</a></span>onPedestriansButtonPress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::onPedestriansButtonPress </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler for pedestrian button presses. </p>
+<p>Handles actions to be performed when the pedestrian button is pressed. If the button is enabled and the callback is set, it triggers the registered callback. </p>
+
+</div>
+</div>
+<a id="ad92977e2296309884f578b559e071bdf" name="ad92977e2296309884f578b559e071bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92977e2296309884f578b559e071bdf">&#9670;&#160;</a></span>registerCarsMotionCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::registerCarsMotionCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a callback function for car motion detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Function to call when car motion is detected. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7f810466d5ca58e6835060ab9276739" name="ab7f810466d5ca58e6835060ab9276739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f810466d5ca58e6835060ab9276739">&#9670;&#160;</a></span>registerPedestriansButtonCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::registerPedestriansButtonCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a callback function for pedestrian button press. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Function to call when the pedestrian button is pressed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1d601c48f4dc1570f35ad436572aa718" name="a1d601c48f4dc1570f35ad436572aa718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d601c48f4dc1570f35ad436572aa718">&#9670;&#160;</a></span>registerPedestriansMotionCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::registerPedestriansMotionCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a callback function for pedestrian motion detection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Function to call when pedestrian motion is detected. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a40effe9aa62f89fa5eebc1b2678a0d" name="a9a40effe9aa62f89fa5eebc1b2678a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a40effe9aa62f89fa5eebc1b2678a0d">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CheckingSystem::run </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start the system's main operation loop. </p>
+<p>Main operation function which activates all systems and starts monitoring. Launches threads for pedestrian and road monitoring and waits for them to complete.</p>
+<p>This method initializes the active monitoring process for both pedestrians and vehicles. It starts two threads: one for pedestrian monitoring and another for road monitoring. Both threads are joined to ensure that the system continues running until both monitoring processes complete.</p>
+<dl class="section note"><dt>Note</dt><dd>This function must be called after all sensors and callbacks are properly initialized. It will block until all monitoring threads complete, which means it should ideally be run in its own thread if the application must perform other tasks concurrently.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>if thread creation fails. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a2c18dcb8a8f29a89958ae3fc0addd7ca" title="Initialize sensors and system components.">initialize()</a>, <a class="el" href="#af2d816d4b17d0f8b3d858691ca9e940a" title="Enable all sensors and detection mechanisms.">enableSensing()</a>, <a class="el" href="#a156813a2a60db64e096bb070451fca6e" title="Disable all sensors and detection mechanisms.">disableSensing()</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/main/<a class="el" href="_checking_system_8h_source.html">CheckingSystem.h</a></li>
-<li>src/main/<b>CheckingSystem.cpp</b></li>
+<li>src/main/<a class="el" href="_checking_system_8cpp.html">CheckingSystem.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
