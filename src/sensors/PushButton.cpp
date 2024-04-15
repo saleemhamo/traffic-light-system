@@ -23,7 +23,7 @@ void PushButton::initialize()
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
 #else
     gpioSetMode(gpioPin, PI_INPUT);
-    gpioSetPullUpDown(gpioPin, PI_PUD_UP);
+    gpioSetPullUpDown((unsigned)gpioPin, PI_PUD_UP);
 #endif
     // Register the interrupt service routine to handle button presses
     attachInterruptHandler();

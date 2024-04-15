@@ -163,14 +163,14 @@ int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int,
     return 0;
 }
 
-// // This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
-// void gpioSetPullUpDown(unsigned pin, unsigned pud)
-// {
-//     string message = "gpioSetPullUpDown(pin: " + to_string(pin) + ", pud: " + to_string(pud) + ") called";
-//     Logger::logInfo(message);
-//     callbacks[pin].emplace_back([pin, pud](int gpio, int level, unsigned tick, void *userData)
-//                                 { gpioWrite(pin, pud); });
-// }
+ // This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
+ void gpioSetPullUpDown(unsigned pin, unsigned pud)
+ {
+     string message = "gpioSetPullUpDown(pin: " + to_string(pin) + ", pud: " + to_string(pud) + ") called";
+     Logger::logInfo(message);
+     callbacks[pin].emplace_back([pin, pud](int gpio, int level, unsigned tick, void *userData)
+                                 { gpioWrite(pin, pud); });
+ }
 
 /**
  * @brief Set a callback function for GPIO pin alert events.

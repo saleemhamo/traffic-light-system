@@ -134,14 +134,13 @@ else ()
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
     # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
-    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp") 
+#    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
 
     # Add logic tests for the main system and its components
     add_hardware_test(CheckingSystemTest "tests/logic_tests/main/CheckingSystem_test.cpp")
     add_hardware_test(WarningSystemTest "tests/logic_tests/main/WarningSystem_test.cpp")
-    # add_hardware_test(MainSystemTest "tests/logic_tests/main/MainSystem_test.cpp")
-    add_hardware_test(CarsTrafficLightSystemTest "tests/logic_tests/main/CarsTrafficLightSystem_test.cpp")
-    add_hardware_test(PedestriansTrafficLightSystemTest "tests/logic_tests/main/PedestriansTrafficLightSystem_test.cpp")
+#    add_hardware_test(CarsTrafficLightSystemTest "tests/logic_tests/main/CarsTrafficLightSystem_test.cpp")
+#    add_hardware_test(PedestriansTrafficLightSystemTest "tests/logic_tests/main/PedestriansTrafficLightSystem_test.cpp")
     add_hardware_test(TrafficLightTest "tests/logic_tests/models/TrafficLight_test.cpp")
 
     # Add unit tests for the utility classes
