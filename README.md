@@ -1,8 +1,26 @@
+<div align="center">
+    <img src="https://github.com/saleemhamo/traffic-light-system/blob/development/docs/LOGO.png" alt="Traffic Light Control System Logo"/>
+    <p>
+        <i>Pioneering Traffic Management Solutions for Urban Mobility 🚦</i>
+    </p>
+    <div id="badges">
+        <!-- Instagram Badge -->
+        <a href="https://www.instagram.com/crossguard_2024"><img src="https://img.shields.io/badge/Instagram-E4405F?style=flat&logo=instagram&logoColor=white" alt="Instagram Badge"/></a>
+        <!-- Latest Release Badge -->
+        <a href="https://github.com/saleemhamo/traffic-light-system/releases"><img src="https://img.shields.io/github/v/release/saleemhamo/traffic-light-system?color=green&label=Latest%20Release" alt="Latest Release Badge"/></a>
+        <!-- Projects Badge -->
+        <a href="https://github.com/users/saleemhamo/projects/2"><img src="https://img.shields.io/badge/Project-View%20Project%20Tab-orange.svg" alt="Project Badge"/></a>
+        <!-- Issues Badge -->
+        <a href="https://github.com/saleemhamo/traffic-light-system/issues"><img src="https://img.shields.io/github/issues/saleemhamo/traffic-light-system.svg" alt="Issues Badge"/></a>
+        <!-- Pull Requests Badge -->
+        <a href="https://github.com/saleemhamo/traffic-light-system/pulls"><img src="https://img.shields.io/github/issues-pr/saleemhamo/traffic-light-system.svg" alt="Pull Requests Badge"/></a>
+    </div>
+</div>
+
+
 # Traffic Light Control System
 
 Welcome to the Traffic Light Control System project, an innovative solution designed to revolutionize urban traffic management across the UK. Our system intelligently optimizes traffic flow and enhances pedestrian safety using cutting-edge technology, all powered by a Raspberry Pi. By analyzing real-time traffic and pedestrian data, we dynamically adjust traffic signals to reduce waiting times and improve the overall safety of road intersections.
-
-![Traffic Light Control System Logo](https://github.com/saleemhamo/traffic-light-system/blob/development/docs/LOGO.png)
 
 This project is a blend of hardware (HW) and software (SW) components, working harmoniously to bring about a seamless traffic management experience soon to be deployed.
 
