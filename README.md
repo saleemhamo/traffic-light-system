@@ -52,10 +52,10 @@ To get started with the Traffic Light Control System, you'll need to set up both
 1. **Hardware Setup**: Follow our [detailed hardware setup guide](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%233:-Implementation-Details#31-hardware-setup) to assemble and configure the sensors and signal lights.
 2. **Software Installation**: Consult our [software setup instructions](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%233:-Implementation-Details#32-software-development) to install and configure the necessary software on your Raspberry Pi.
 
-## Stay Connected
-
-Stay updated with the latest developments and share your feedback with us through our [Instagram profile](https://www.instagram.com/crossguard_2024). We're excited to see how our system enhances your urban traffic management projects!
-
 ---
+> [!TIP]
+> Stay updated with the latest developments and share your feedback with us through our [Instagram profile](https://www.instagram.com/crossguard_2024). We're excited to see how our system enhances urban traffic management for communities by dramatically improving pedestrian safety and slashing those seemingly endless waiting times at crossing!"!
+
+
 
 Embrace the future of traffic control with our Traffic Light Control System, where innovation meets practicality.
