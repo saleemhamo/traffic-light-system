@@ -72,6 +72,28 @@ endif ()
 # Enable CTest for organizing tests
 enable_testing()
 
+# Assuming Google Test has been cloned into 'external/googletest'
+add_subdirectory(external/googletest)  # Include Google Test in the build
+
+# Define a test executable specifically for FirestoreLogger
+add_executable(FirestoreLoggerTest tests/FirestoreLogger_test.cpp)
+
+# Link Google Test libraries to the FirestoreLogger test executable
+target_link_libraries(FirestoreLoggerTest gtest gtest_main)
+
+# Add the FirestoreLoggerTest to CTest
+add_test(NAME FirestoreLoggerTest COMMAND FirestoreLoggerTest)
+
+####### Boost-Based Testing Configuration #######
+find_package(Boost COMPONENTS unit_test_framework QUIET)
+if (NOT Boost_FOUND)
+    FetchContent_Declare(
+        boost
+        URL https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2
+    )
+    FetchContent_MakeAvailable(boost)
+endif ()
+
 # Check for Boost, now assumed to be available either locally or fetched
 find_package(Boost REQUIRED COMPONENTS unit_test_framework)
 include_directories(${Boost_INCLUDE_DIRS})
