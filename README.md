@@ -43,7 +43,7 @@ Our software is developed with efficiency and scalability in mind, featuring:
 - **Dynamic Signal Adjustment Algorithms**: To process data from various sensors and adjust traffic lights accordingly.
 - **User-Friendly Interface**: For easy system setup and monitoring.
 
-The complete software architecture and design document can be found in our [GitHub Wiki](<DESIGN_DOCUMENT_LINK>) under the [Design Document section](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%232:-Design-Document).
+The complete software architecture and design document can be found in our [GitHub Wiki](https://github.com/saleemhamo/traffic-light-system/wiki) under the [Design Document section](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%232:-Design-Document).
 
 ## Getting Started
 
