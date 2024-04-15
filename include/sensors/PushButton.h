@@ -50,17 +50,6 @@ public:
      * @param callback The function to call when the button is pressed.
      */
     void registerButtonPressCallback(ButtonCallback callback);
-    void attachInterruptHandler();
-    void detachInterruptHandler();
-    void gpioInit();
-    /**
-     * @brief Static method used as the interrupt service routine for button presses.
-     * @param gpio GPIO pin number where the interrupt occurred.
-     * @param level New level of the GPIO pin after the interrupt.
-     * @param tick System tick counter value at the time of the interrupt.
-     * @param user User-defined data, expected to be a pointer to the PushButton instance.
-     */
-    static void buttonPressHandler(int gpio, int level, uint32_t tick, void *user); // Static ISR handler
 
     // Disabling copy constructor and assignment operator
     PushButton(const PushButton &) = delete;
@@ -71,6 +60,16 @@ public:
 private:
     int gpioPin;  ///< GPIO pin number.
     ButtonCallback buttonPressCallback;  ///< User-defined callback function to handle button press events.
+
+    /**
+     * @brief Static method used as the interrupt service routine for button presses.
+     * @param gpio GPIO pin number where the interrupt occurred.
+     * @param level New level of the GPIO pin after the interrupt.
+     * @param tick System tick counter value at the time of the interrupt.
+     * @param user User-defined data, expected to be a pointer to the PushButton instance.
+     */
+    static void buttonPressHandler(int gpio, int level, uint32_t tick, void *user); // Static ISR handler
 };
+
 
 #endif //CROSSGUARD_PUSHBUTTON_H

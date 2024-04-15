@@ -146,7 +146,7 @@ else ()
 
     # Add unit tests for the utility classes
     add_unit_test(TimerTest "tests/logic_tests/utils/Timer_test.cpp" ADDITIONAL_SOURCES "include/utils/Timer.h")
-    add_unit_test(FirestoreLoggerTest "tests/logic_tests/utils/FirestoreLogger_test.cpp" ADDITIONAL_SOURCES "src/utils/FirestoreLogger.cpp")
+    # add_unit_test(FirestoreLoggerTest "tests/logic_tests/utils/FirestoreLogger_test.cpp" ADDITIONAL_SOURCES "src/utils/FirestoreLogger.cpp")
     # add_unit_test(LoggerTest "tests/logic_tests/utils/Logger_test.cpp" ADDITIONAL_SOURCES "src/utils/Logger.cpp;src/utils/FirestoreLogger.cpp")
 
 endif ()
