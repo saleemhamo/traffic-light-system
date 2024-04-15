@@ -33,13 +33,13 @@ void PushButton::registerButtonPressCallback(ButtonCallback callback)
 void PushButton::attachInterruptHandler()
 {
     // Attach the interrupt service routine to the GPIO pin
-    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, &PushButton::buttonPressHandler, this);
+    gpioSetAlertFuncEx(gpioPin, &PushButton::buttonPressHandler, this);
 }
 
 void PushButton::detachInterruptHandler()
 {
     // Detach the interrupt service routine from the GPIO pin
-    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, nullptr, nullptr);
+    gpioSetAlertFuncEx(gpioPin, nullptr, nullptr);
 }
 
 void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user)
