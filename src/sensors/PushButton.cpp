@@ -33,13 +33,13 @@ void PushButton::registerButtonPressCallback(ButtonCallback callback)
 void PushButton::attachInterruptHandler()
 {
     // Attach the interrupt service routine to the GPIO pin
-    gpioSetAlertFuncEx(gpioPin, FALLING_EDGE, 0, &PushButton::buttonPressHandler, this);
+    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, &PushButton::buttonPressHandler, this);
 }
 
 void PushButton::detachInterruptHandler()
 {
     // Detach the interrupt service routine from the GPIO pin
-    gpioSetAlertFuncEx(gpioPin, FALLING_EDGE, 0, nullptr, nullptr);
+    gpioSetISRFuncEx(gpioPin, FALLING_EDGE, 0, nullptr, nullptr);
 }
 
 void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user)
@@ -47,15 +47,10 @@ void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *us
     // Cast the user data to the PushButton instance
     PushButton *button = static_cast<PushButton *>(user);
 
-    // Check if a valid callback is registered
+    // Invoke the registered callback, if any
     if (button->buttonPressCallback)
     {
         button->buttonPressCallback();
-    }
-    else
-    {
-        // No callback registered, print the button press event details
-        std::cout << "Button Pressed " << gpio << " " << level << " " << tick << std::endl;
     }
 }
 
