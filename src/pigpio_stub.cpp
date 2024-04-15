@@ -138,6 +138,41 @@ unsigned gpioTick()
 }
 
 /**
+ * @brief Set an ISR function for GPIO pin interrupt events.
+ *
+ * This function simulates setting an ISR function for GPIO pin interrupt events.
+ * It logs the function parameters but does not perform any actual ISR registration.
+ *
+ * @param gpio The GPIO pin number.
+ * @param edge The edge (RISING_EDGE, FALLING_EDGE, or EITHER_EDGE) to trigger the interrupt.
+ * @param timeout Interrupt timeout in milliseconds (<= 0 to cancel).
+ * @param f The ISR function to set.
+ * @param userdata Pointer to arbitrary user data.
+ * @return Returns 0 if OK, otherwise returns PI_BAD_GPIO, PI_BAD_EDGE, or PI_BAD_ISR_INIT.
+ */
+int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int, unsigned, void *), void *user)
+{
+    string message = "gpioSetISRFuncEx(pin: " + to_string(pin) + ", edge: " + to_string(edge) + ", timeout: " + to_string(timeout) +
+                     ", function: " + to_string(reinterpret_cast<uintptr_t>(func)) + ", userdata: " + to_string(reinterpret_cast<uintptr_t>(user)) + ") called";
+    Logger::logInfo(message);
+    // Store the callback function and user data for the specified pin
+    callbacks[pin].emplace_back([func, user](int gpio, int level, unsigned tick, void *userData)
+                                { func(gpio, level, tick, user); });
+
+    // Return success for the stub implementation
+    return 0;
+}
+
+// // This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
+// void gpioSetPullUpDown(unsigned pin, unsigned pud)
+// {
+//     string message = "gpioSetPullUpDown(pin: " + to_string(pin) + ", pud: " + to_string(pud) + ") called";
+//     Logger::logInfo(message);
+//     callbacks[pin].emplace_back([pin, pud](int gpio, int level, unsigned tick, void *userData)
+//                                 { gpioWrite(pin, pud); });
+// }
+
+/**
  * @brief Set a callback function for GPIO pin alert events.
  *
  * This function stores the callback function and user data for the specified GPIO pin.

@@ -44,7 +44,9 @@ public:
      * that is triggered on the falling edge (button press).
      */
     void initialize();
-    
+    void detachInterruptHandler();
+    void attachInterruptHandler();
+    void gpioInit();
     /**
      * @brief Registers a callback function to be called when the button is pressed.
      * @param callback The function to call when the button is pressed.
