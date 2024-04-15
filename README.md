@@ -73,6 +73,8 @@ cmake .
 make
 sudo ./CrossGuard
 ```
+> [!NOTE]
+> The information provided in these steps is subject to change as the development progresses. We welcome contributions from the community to help improve and expand the functionality of the Traffic Light Control System.
 
 ## Project Components
 
