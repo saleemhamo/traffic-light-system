@@ -2,7 +2,7 @@
 #include <iostream>
 #include <unistd.h>
 
-PushButton::PushButton(int pin) : gpioPin(pin)
+PushButton::PushButton(int pin) : gpioPin(pin), buttonPressCallback(nullptr)
 {
     // Initialize the GPIO pin and register the interrupt service routine
     initialize();
@@ -18,45 +18,35 @@ void PushButton::initialize()
 {
     // Initialize the GPIO pin as an input with a pull-up resistor
     gpioInit();
-#if defined(__linux__) && defined(__arm__)
     gpioSetMode(gpioPin, PI_INPUT);
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
-#else
-    gpioSetMode(gpioPin, PI_INPUT);
-    gpioSetPullUpDown((unsigned)gpioPin, PI_PUD_UP);
-#endif
+
     // Register the interrupt service routine to handle button presses
     attachInterruptHandler();
 }
 
 void PushButton::registerButtonPressCallback(ButtonCallback callback)
 {
-    this->buttonPressCallback = callback;
+    buttonPressCallback = callback;
 }
 
 void PushButton::attachInterruptHandler()
 {
-#if defined(__linux__) && defined(__arm__)
     // Attach the interrupt service routine to the GPIO pin
-    gpioSetAlertFunc(gpioPin, &PushButton::buttonPressHandler);
-#else
-    gpioSetAlertFuncEx(gpioPin, &PushButton::buttonPressHandler, this);
-#endif
+    gpioSetAlertFuncEx(gpioPin, FALLING_EDGE, 0, &PushButton::buttonPressHandler, this);
 }
 
 void PushButton::detachInterruptHandler()
 {
-#if defined(__linux__) && defined(__arm__)
     // Detach the interrupt service routine from the GPIO pin
-    gpioSetAlertFunc(gpioPin, nullptr);
-#else
-    gpioSetAlertFuncEx(gpioPin, nullptr, nullptr);
-#endif
+    gpioSetAlertFuncEx(gpioPin, FALLING_EDGE, 0, nullptr, nullptr);
 }
 
 void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user)
 {
+    // Cast the user data to the PushButton instance
     PushButton *button = static_cast<PushButton *>(user);
+
     // Check if a valid callback is registered
     if (button->buttonPressCallback)
     {
