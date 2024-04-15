@@ -29,21 +29,15 @@ void closeApplication(MainSystem &mainSystem);
  * Initializes the application, creates and runs the main system, and then closes the application on completion.
  * @return int The exit code of the application, where 0 indicates successful termination.
  */
-
-void callback() {
-    std::cout << "Button pressed!" << std::endl;
-}
 int main()
 {
     initApplication();
-    PushButton button(6);
-    button.initialize();
-    button.registerButtonPressCallback(callback);
-    // MainSystem mainSystem;
-    // mainSystem.initialize();
-    // mainSystem.runSystems();
 
-    // closeApplication(mainSystem);
+    MainSystem mainSystem;
+    mainSystem.initialize();
+    mainSystem.runSystems();
+
+    closeApplication(mainSystem);
     return 0;
 }
 
