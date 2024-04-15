@@ -77,19 +77,107 @@ $(function() {
   <div class="headertitle"><div class="title">Timer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_timer.html" title="Timer class for asynchronous execution after a specified delay.">Timer</a> class for asynchronous execution after a specified delay.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_timer_8h_source.html">Timer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa236f7e5d652f5d255617659d6cd5e98" id="r_aa236f7e5d652f5d255617659d6cd5e98"><td class="memTemplParams" colspan="2"><a id="aa236f7e5d652f5d255617659d6cd5e98" name="aa236f7e5d652f5d255617659d6cd5e98"></a>
-template&lt;typename Function &gt; </td></tr>
-<tr class="memitem:aa236f7e5d652f5d255617659d6cd5e98"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>setTimeout</b> (Function function, int delay)</td></tr>
-<tr class="separator:aa236f7e5d652f5d255617659d6cd5e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f97da1b1d19ad74a847703ca25c455" id="r_a27f97da1b1d19ad74a847703ca25c455"><td class="memItemLeft" align="right" valign="top"><a id="a27f97da1b1d19ad74a847703ca25c455" name="a27f97da1b1d19ad74a847703ca25c455"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>stopTimer</b> ()</td></tr>
+<tr class="memitem:a5f16e8da27d2a5a5242dead46de05d97" id="r_a5f16e8da27d2a5a5242dead46de05d97"><td class="memItemLeft" align="right" valign="top"><a id="a5f16e8da27d2a5a5242dead46de05d97" name="a5f16e8da27d2a5a5242dead46de05d97"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Timer</b> ()</td></tr>
+<tr class="memdesc:a5f16e8da27d2a5a5242dead46de05d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Initializes the timer in a stopped state. <br /></td></tr>
+<tr class="separator:a5f16e8da27d2a5a5242dead46de05d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b4b71f19c8e36ae253ac69eee149ef1" id="r_a2b4b71f19c8e36ae253ac69eee149ef1"><td class="memTemplParams" colspan="2">template&lt;typename Function &gt; </td></tr>
+<tr class="memitem:a2b4b71f19c8e36ae253ac69eee149ef1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2b4b71f19c8e36ae253ac69eee149ef1">setTimeout</a> (Function function, int delayMs)</td></tr>
+<tr class="memdesc:a2b4b71f19c8e36ae253ac69eee149ef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a timer to execute a function after a specified delay.  <br /></td></tr>
+<tr class="separator:a2b4b71f19c8e36ae253ac69eee149ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27f97da1b1d19ad74a847703ca25c455" id="r_a27f97da1b1d19ad74a847703ca25c455"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27f97da1b1d19ad74a847703ca25c455">stopTimer</a> ()</td></tr>
+<tr class="memdesc:a27f97da1b1d19ad74a847703ca25c455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops any ongoing timer and prevents the scheduled function from executing.  <br /></td></tr>
 <tr class="separator:a27f97da1b1d19ad74a847703ca25c455"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_timer.html" title="Timer class for asynchronous execution after a specified delay.">Timer</a> class for asynchronous execution after a specified delay. </p>
+<p>The <a class="el" href="class_timer.html" title="Timer class for asynchronous execution after a specified delay.">Timer</a> class allows scheduling a function to be executed after a specified delay. It provides functionality to stop the timer, preventing the execution of the function if needed. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2b4b71f19c8e36ae253ac69eee149ef1" name="a2b4b71f19c8e36ae253ac69eee149ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b4b71f19c8e36ae253ac69eee149ef1">&#9670;&#160;</a></span>setTimeout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Function &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Timer::setTimeout </td>
+          <td>(</td>
+          <td class="paramtype">Function</td>          <td class="paramname"><span class="paramname"><em>function</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>delayMs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts a timer to execute a function after a specified delay. </p>
+<p>If there is an ongoing timer, it is stopped before starting the new one.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Function</td><td>Type of the function to be executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">function</td><td>Function to be executed after the delay. </td></tr>
+    <tr><td class="paramname">delayMs</td><td>Delay in milliseconds before the function is executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a27f97da1b1d19ad74a847703ca25c455" name="a27f97da1b1d19ad74a847703ca25c455"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f97da1b1d19ad74a847703ca25c455">&#9670;&#160;</a></span>stopTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Timer::stopTimer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops any ongoing timer and prevents the scheduled function from executing. </p>
+<p>If the timer is already stopped or the function has already executed, this method does nothing. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/utils/<a class="el" href="_timer_8cpp_source.html">Timer.cpp</a></li>
+<li>include/utils/<a class="el" href="_timer_8h_source.html">Timer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

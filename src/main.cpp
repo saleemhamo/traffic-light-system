@@ -58,5 +58,14 @@ void initApplication() {
 
 void closeApplication(MainSystem &mainSystem) {
     mainSystem.shutdown();
-    Logger::close();
+    // Logger::close(); //why there's another loger here when try catch already handles that?
+
+    try {
+        Logger::logInfo("Application stopping");
+        Logger::close();
+    } catch (const std::exception &e) {
+        std::cerr << "Failed to close logger: " << e.what() << std::endl;
+    }
+
+
 }

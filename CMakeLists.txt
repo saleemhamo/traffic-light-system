@@ -37,7 +37,6 @@ add_executable(CrossGuard
         src/main/WarningSystem.cpp
         src/main/CheckingSystem.cpp
         src/main/MainSystem.cpp
-        # include/utils/Timer.cpp
         src/utils/FirestoreLogger.cpp
 )
 
@@ -107,6 +106,17 @@ function(add_hardware_test TEST_NAME TEST_FILE)
 endfunction(add_hardware_test)
 
 
+# Assuming the Timer class is part of the 'utils' group of files
+set(TIMER_SOURCES include/utils/Timer.h) # Adjust path as necessary
+
+# Define a function for non-hardware tests if not already existing
+function(add_unit_test TEST_NAME TEST_FILE)
+    add_executable(${TEST_NAME} ${TEST_FILE} ${TIMER_SOURCES})
+    target_link_libraries(${TEST_NAME} ${Boost_LIBRARIES} cpr::cpr) # Add other dependencies as needed
+    target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+endfunction(add_unit_test)
+
 # Conditional test paths
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
     message(STATUS "Configuring tests for Raspberry Pi environment.")
@@ -119,5 +129,18 @@ else ()
 
     add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
+    add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
+    
+    # Ideas of tests to be implemented (priority order):
+    # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
+    # add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
+    add_unit_test(TimerTest "tests/TimerTest.cpp")
+    # add_unit_test(CheckingSystemTest "tests/hardware_tests/main/CheckingSystem_test.cpp")
+    # add_unit_test(WarningSystemTest "tests/hardware_tests/main/WarningSystem_test.cpp")
+    # add_unit_test(TrafficLightTest "tests/hardware_tests/models/TrafficLight_test.cpp")
+    # add_unit_test(CarsTrafficLightSystemTest "tests/hardware_tests/main/CarsTrafficLightSystem_test.cpp")
+    # add_unit_test(PedestriansTrafficLightSystemTest "tests/hardware_tests/main/PedestriansTrafficLightSystem_test.cpp")
+    # add_unit_test(FirestoreLoggerTest "tests/hardware_tests/utils/FirestoreLogger_test.cpp")
+    # add_unit_test(MainSystemTest "tests/hardware_tests/main/MainSystem_test.cpp")
 
 endif ()

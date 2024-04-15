@@ -85,8 +85,10 @@ $(function() {
 <p>Implementation of the stub functions for the pigpio library. This stub is used for environments not running Linux on ARM hardware. Created by Saleem Hamo on 20/03/2024.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;pigpio_stub.h&quot;</code><br />
-<code>#include &quot;utils/Logger.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_logger_8h_source.html">utils/Logger.h</a>&quot;</code><br />
 <code>#include &lt;map&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -115,6 +117,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f0ef8e2a4e232a34595a41893c18517" id="r_a5f0ef8e2a4e232a34595a41893c18517"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f0ef8e2a4e232a34595a41893c18517">gpioSetAlertFuncEx</a> (unsigned pin, void(*func)(int, int, unsigned, void *), void *user)</td></tr>
 <tr class="memdesc:a5f0ef8e2a4e232a34595a41893c18517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a callback function for GPIO pin alert events.  <br /></td></tr>
 <tr class="separator:a5f0ef8e2a4e232a34595a41893c18517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa879ecdd3452057f5094b51397dc26bb" id="r_aa879ecdd3452057f5094b51397dc26bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa879ecdd3452057f5094b51397dc26bb">simulateCallback</a> (unsigned pin, int level, unsigned tick)</td></tr>
+<tr class="memdesc:aa879ecdd3452057f5094b51397dc26bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate a callback function call for a specific GPIO pin.  <br /></td></tr>
+<tr class="separator:aa879ecdd3452057f5094b51397dc26bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -138,6 +143,10 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>PI_LOW</b> = 0</
 map&lt; unsigned int, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pinStates</b></td></tr>
 <tr class="memdesc:ab27d7e5b4dbdcc29be62d6d6ac9a8ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate GPIO pin states with a map. <br /></td></tr>
 <tr class="separator:ab27d7e5b4dbdcc29be62d6d6ac9a8ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10411622c708c89653324f3cf849c08" id="r_aa10411622c708c89653324f3cf849c08"><td class="memItemLeft" align="right" valign="top"><a id="aa10411622c708c89653324f3cf849c08" name="aa10411622c708c89653324f3cf849c08"></a>
+map&lt; unsigned int, vector&lt; function&lt; void(int, int, unsigned, void *)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>callbacks</b> )</td></tr>
+<tr class="memdesc:aa10411622c708c89653324f3cf849c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map to store the registered callback functions for each GPIO pin. <br /></td></tr>
+<tr class="separator:aa10411622c708c89653324f3cf849c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e0ffbb2a7b952766011a07d361d193" id="r_ad5e0ffbb2a7b952766011a07d361d193"><td class="memItemLeft" align="right" valign="top"><a id="ad5e0ffbb2a7b952766011a07d361d193" name="ad5e0ffbb2a7b952766011a07d361d193"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>simulatedTick</b> = 0</td></tr>
 <tr class="memdesc:ad5e0ffbb2a7b952766011a07d361d193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to simulate the tick counter. <br /></td></tr>
@@ -245,7 +254,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>simulatedTick
 </div><div class="memdoc">
 
 <p>Set a callback function for GPIO pin alert events. </p>
-<p>This function logs the setting of a callback but does not simulate the callback mechanism.</p>
+<p>This function stores the callback function and user data for the specified GPIO pin.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>The GPIO pin number. </td></tr>
@@ -354,6 +363,43 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>simulatedTick
   <table class="params">
     <tr><td class="paramname">pin</td><td>The GPIO pin number. </td></tr>
     <tr><td class="paramname">level</td><td>The level to write to the pin (high or low). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa879ecdd3452057f5094b51397dc26bb" name="aa879ecdd3452057f5094b51397dc26bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa879ecdd3452057f5094b51397dc26bb">&#9670;&#160;</a></span>simulateCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simulateCallback </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>pin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>level</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>tick</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simulate a callback function call for a specific GPIO pin. </p>
+<p>This function calls all the registered callback functions for the specified GPIO pin with the provided level and tick values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>The GPIO pin number for which to simulate the callback. </td></tr>
+    <tr><td class="paramname">level</td><td>The level value to pass to the callback function. </td></tr>
+    <tr><td class="paramname">tick</td><td>The tick value to pass to the callback function. </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_2ecpp_0',['main.cpp',['../src_2main_8cpp.html',1,'']]]
+  ['firestorelogger_2eh_0',['FirestoreLogger.h',['../_firestore_logger_8h.html',1,'']]]
 ];

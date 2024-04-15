@@ -1,3 +1,5 @@
+//Documented by Miguel Rosa
+
 /**
  * @file LED.cpp
  * @brief Controls an LED connected to a GPIO pin on a Raspberry Pi.
