@@ -7,14 +7,16 @@
 
 BOOST_AUTO_TEST_SUITE(PushButtonTests)
 
-// Mock callback function for button press events
+// Flag to track if the mock callback function was called
 bool isButtonPressCallbackCalled = false;
+
+// Mock callback function for button press events
 void mockButtonPressCallback()
 {
     isButtonPressCallbackCalled = true;
 }
 
-BOOST_AUTO_TEST_CASE(ButtonPressHandlerTest)
+BOOST_AUTO_TEST_CASE(ButtonPressHandlerIndirectTest)
 {
     // Set up the mock environment
     gpioInitialise();
@@ -36,7 +38,7 @@ BOOST_AUTO_TEST_CASE(ButtonPressHandlerTest)
     gpioTerminate();
 }
 
-BOOST_AUTO_TEST_CASE(ButtonReleaseHandlerTest)
+BOOST_AUTO_TEST_CASE(ButtonReleaseHandlerIndirectTest)
 {
     // Set up the mock environment
     gpioInitialise();

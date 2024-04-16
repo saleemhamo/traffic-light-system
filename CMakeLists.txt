@@ -134,7 +134,7 @@ else ()
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
     # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
-#    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
+    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
 
     # Add logic tests for the main system and its components
     add_hardware_test(CheckingSystemTest "tests/logic_tests/main/CheckingSystem_test.cpp")
