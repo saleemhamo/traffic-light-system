@@ -31,12 +31,12 @@ public:
      * @param pin The GPIO pin number associated with the button.
      */
     PushButton(int pin);
-    
-     /**
-     * @brief Destructor that cleans up ISR handling if necessary.
-     */
+
+    /**
+    * @brief Destructor that cleans up ISR handling if necessary.
+    */
     ~PushButton();
-    
+
     /**
      * @brief Initializes the button's GPIO pin and sets up the interrupt service routine.
      *
@@ -44,28 +44,28 @@ public:
      * that is triggered on the falling edge (button press).
      */
     void initialize();
-    
+
     /**
      * @brief Detaches the interrupt service routine from the GPIO pin.
      */
     void detachInterruptHandler();
-    
+
     /**
      * @brief Attaches the interrupt service routine to the GPIO pin.
      */
     void attachInterruptHandler();
-    
+
     /**
      * @brief Initializes the GPIO pin as an input.
      */
     void gpioInit();
-    
+
     /**
      * @brief Registers a callback function to be called when the button is pressed.
      * @param callback The function to call when the button is pressed.
      */
     void registerButtonPressCallback(ButtonCallback callback);
-    
+
     /**
      * @brief Registers a callback function to be called when the button is released.
      * @param callback The function to call when the button is released.

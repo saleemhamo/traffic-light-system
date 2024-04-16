@@ -17,8 +17,7 @@
  * activation, and deactivation methods. Utilizes predefined pin numbers
  * from the Constants class for LED and buzzer components.
  */
-class WarningSystem : public SystemInterface
-{
+class WarningSystem : public SystemInterface {
 public:
     /**
      * @brief Constructs a new Warning System instance.
@@ -35,6 +34,11 @@ public:
      */
     void initialize() override;
 
+    /**
+     * @brief Getter of the isInitialized_ variable
+     *
+     * Return the value of isInitialized_.
+     */
     bool isInitialized() const { return isInitialized_; }
 
     /**

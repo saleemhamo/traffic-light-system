@@ -83,6 +83,7 @@ void CheckingSystem::run()
     roadThread.join();
 }
 
+// TODO: {Saleem & Alex}
 // void CheckingSystem::monitorPedestriansButton()
 // {
 //     while (isActive)
