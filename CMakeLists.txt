@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(cpr)
 find_package(OpenCV REQUIRED)
 
 # Include directories
-include_directories(include ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/include/sensors)
+include_directories(include ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/usr/include/libcamera)
 
 # Add the main executable
 add_executable(CrossGuard
