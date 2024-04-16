@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(cpr)
 find_package(OpenCV REQUIRED)
 
 # Include directories
-include_directories(include ${OpenCV_INCLUDE_DIRS} include/sensors/libcam2opencv.h)
+include_directories(include ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/include/sensors)
 
 # Add the main executable
 add_executable(CrossGuard
