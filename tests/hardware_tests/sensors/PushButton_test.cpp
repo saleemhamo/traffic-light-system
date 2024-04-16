@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_CASE(ButtonPressAndReleaseHandlerTest)
     gpioInitialise();
 
     // Create a PushButton instance
-    PushButton button(17);
+    PushButton button(17, EITHER_EDGE, 50);
 
     // Register the callback functions
     button.registerButtonPressCallback(onButtonPress);
