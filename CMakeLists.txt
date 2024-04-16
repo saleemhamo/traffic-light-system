@@ -85,7 +85,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
 endif ()
 
 # Link the libraries to the target.
-target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
+target_link_libraries(CrossGuard PRIVATE curl ${LINK_LIBS})
 
 ####### Testing Configuration #######
 
