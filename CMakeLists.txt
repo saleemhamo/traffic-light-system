@@ -21,8 +21,11 @@ FetchContent_MakeAvailable(cpr)
 # Find OpenCV package
 find_package(OpenCV REQUIRED)
 
+# Find libcamera package
+find_package(libcamera REQUIRED)
+
 # Include directories
-include_directories(include ${OpenCV_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/usr/include/libcamera)
+include_directories(include ${OpenCV_INCLUDE_DIRS} ${LIBCAMERA_INCLUDE_DIRS})
 
 # Add the main executable
 add_executable(CrossGuard
@@ -44,7 +47,7 @@ add_executable(CrossGuard
 )
 
 # Prepare the list of libraries to link.
-set(LINK_LIBS cpr::cpr ${OpenCV_LIBS} cam2opencv)
+set(LINK_LIBS cpr::cpr ${OpenCV_LIBS} ${LIBCAMERA_LIBRARIES} cam2opencv)
 
 # Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
