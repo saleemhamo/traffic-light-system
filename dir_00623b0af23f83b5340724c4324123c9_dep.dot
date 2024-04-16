@@ -1,0 +1,17 @@
+digraph "tests/hardware_tests" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_59425e443f801f1f2fd8bbe4959a3ccf {
+    graph [ bgcolor="#ddddee", pencolor="black", label="tests" fontname="Helvetica", fontsize="10", URL="dir_59425e443f801f1f2fd8bbe4959a3ccf.html"]
+  subgraph clusterdir_00623b0af23f83b5340724c4324123c9 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_00623b0af23f83b5340724c4324123c9.html"];
+    dir_00623b0af23f83b5340724c4324123c9 [shape=plaintext label="hardware_tests"];
+  dir_3af4d2c2347febd8e13f0826fc17f7b2 [shape=box label="actuators" fillcolor="white" style="filled" URL="dir_3af4d2c2347febd8e13f0826fc17f7b2.html"];
+  dir_31162bcdb1c7505d98071a693a1b2499 [shape=box label="sensors" fillcolor="white" style="filled" URL="dir_31162bcdb1c7505d98071a693a1b2499.html"];
+  }
+  }
+  dir_d44c64559bbebec7f509842c48db8b23 [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
+  dir_3af4d2c2347febd8e13f0826fc17f7b2->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="3", labeldistance=1.5 headhref="dir_000015_000000.html"];
+  dir_31162bcdb1c7505d98071a693a1b2499->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="1", labeldistance=1.5 headhref="dir_000016_000000.html"];
+}

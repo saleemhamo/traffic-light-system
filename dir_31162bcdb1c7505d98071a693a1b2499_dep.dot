@@ -1,0 +1,11 @@
+digraph "tests/hardware_tests/sensors" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_00623b0af23f83b5340724c4324123c9 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="hardware_tests" fontname="Helvetica", fontsize="10", URL="dir_00623b0af23f83b5340724c4324123c9.html"]
+  dir_31162bcdb1c7505d98071a693a1b2499 [shape=box, label="sensors", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_31162bcdb1c7505d98071a693a1b2499.html"];
+  }
+  dir_d44c64559bbebec7f509842c48db8b23 [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
+  dir_31162bcdb1c7505d98071a693a1b2499->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="1", labeldistance=1.5 headhref="dir_000016_000000.html"];
+}

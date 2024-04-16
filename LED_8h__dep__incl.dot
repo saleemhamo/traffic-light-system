@@ -1,0 +1,29 @@
+digraph "include/actuators/LED.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="include/actuators/LED.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Header file for the LED class, which controls an LED via a GPIO pin."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="src/actuators/LED.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$LED_8cpp.html",tooltip="Controls an LED connected to a GPIO pin on a Raspberry Pi."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="include/main/WarningSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$WarningSystem_8h_source.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="include/main/MainSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MainSystem_8h.html",tooltip="Header file for the MainSystem class managing the traffic and pedestrian light systems."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/main/MainSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MainSystem_8cpp.html",tooltip="Implementation of the MainSystem class. The MainSystem class is responsible for managing the overall ..."];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Main entry point for the application. Initializes the application, runs the main system,..."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="include/models/TrafficLight.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$TrafficLight_8h_source.html",tooltip=" "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="include/main/CarsTraffic\lLightSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CarsTrafficLightSystem_8h.html",tooltip="Manages a traffic light system for cars using GPIO pins."];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="src/main/CarsTrafficLight\lSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CarsTrafficLightSystem_8cpp.html",tooltip="Implementation of the CarsTrafficLightSystem class."];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="include/main/Pedestrians\lTrafficLightSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PedestriansTrafficLightSystem_8h.html",tooltip="Traffic light system for pedestrian control."];
+  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="src/main/PedestriansTraffic\lLightSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PedestriansTrafficLightSystem_8cpp.html",tooltip="Implements functionality for the PedestriansTrafficLightSystem class."];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

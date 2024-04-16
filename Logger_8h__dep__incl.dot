@@ -1,0 +1,25 @@
+digraph "include/utils/Logger.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="include/utils/Logger.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Defines the Logger class which provides logging functionalities both locally and to Firestore."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="src/main/CarsTrafficLight\lSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CarsTrafficLightSystem_8cpp.html",tooltip="Implementation of the CarsTrafficLightSystem class."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/main/MainSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MainSystem_8cpp.html",tooltip="Implementation of the MainSystem class. The MainSystem class is responsible for managing the overall ..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/main/PedestriansTraffic\lLightSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$PedestriansTrafficLightSystem_8cpp.html",tooltip="Implements functionality for the PedestriansTrafficLightSystem class."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Main entry point for the application. Initializes the application, runs the main system,..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="src/pigpio_stub.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pigpio__stub_8cpp.html",tooltip="Implementation of the stub functions for the pigpio library. This stub is used for environments not r..."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="include/main/CheckingSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CheckingSystem_8h.html",tooltip="Class to manage monitoring and control systems for pedestrian and vehicle traffic."];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="src/main/CheckingSystem.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$CheckingSystem_8cpp.html",tooltip="Implements the CheckingSystem class methods."];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="include/main/MainSystem.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MainSystem_8h.html",tooltip="Header file for the MainSystem class managing the traffic and pedestrian light systems."];
+  Node9 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
