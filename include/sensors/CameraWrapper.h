@@ -1,4 +1,4 @@
-#include "libcam2opencv.h"
+#include "utils/libcam2opencv.h"
 #include <iostream>
 
 class CameraWrapper : public Libcam2OpenCV::Callback {

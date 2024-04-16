@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
-project(CrossGuard)
+
+# Set the build type to RelWithDebInfo if not specified
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    set(CMAKE_BUILD_TYPE "RelWithDebInfo")
+endif()
+
+# Set the project name
+project(CrossGuard
+    VERSION 1.3.0
+    DESCRIPTION "CrossGuard - Pioneering Traffic Management Solutions for Urban Mobility🚦"
+    LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -22,10 +32,21 @@ FetchContent_MakeAvailable(cpr)
 find_package(OpenCV REQUIRED)
 
 # Find libcamera package
-find_package(libcamera REQUIRED)
+find_package(PkgConfig REQUIRED)
+
+# Find the libcamera package
+pkg_check_modules(LIBCAMERA REQUIRED IMPORTED_TARGET libcamera)
+message(STATUS "libcamera library found:")
+message(STATUS "    version: ${LIBCAMERA_VERSION}")
+message(STATUS "    libraries: ${LIBCAMERA_LINK_LIBRARIES}")
+message(STATUS "    include path: ${LIBCAMERA_INCLUDE_DIRS}")
+
+message(STATUS "opencv:")
+message(STATUS "    version: ${OpenCV_VERSION}")
+message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 # Include directories
-include_directories(include ${OpenCV_INCLUDE_DIRS} ${LIBCAMERA_INCLUDE_DIRS})
+include_directories(include ${CMAKE_SOURCE_DIR} ${OpenCV_INCLUDE_DIRS} ${LIBCAMERA_INCLUDE_DIRS})
 
 # Add the main executable
 add_executable(CrossGuard
@@ -45,6 +66,15 @@ add_executable(CrossGuard
         src/main/MainSystem.cpp
         src/utils/FirestoreLogger.cpp
 )
+
+# Add the libcam2opencv directories
+add_library(cam2opencv STATIC src/utils/libcam2opencv.cpp)
+
+target_link_libraries(cam2opencv PkgConfig::LIBCAMERA)
+target_link_libraries(cam2opencv ${OpenCV_LIBS})
+
+set_target_properties(cam2opencv PROPERTIES
+    PUBLIC_HEADER include/utils/libcam2opencv.h)
 
 # Prepare the list of libraries to link.
 set(LINK_LIBS cpr::cpr ${OpenCV_LIBS} ${LIBCAMERA_LIBRARIES} cam2opencv)
