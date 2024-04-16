@@ -20,12 +20,12 @@
 
 # Traffic Light Control System
 
-Welcome to the Traffic Light Control System project, an innovative solution designed to revolutionize urban traffic management across the UK. Our system intelligently optimizes traffic flow and enhances pedestrian safety using cutting-edge technology, all powered by a Raspberry Pi. By analyzing real-time traffic and pedestrian data, we dynamically adjust traffic signals to reduce waiting times and improve the overall safety of road intersections. 
+Welcome to the Traffic Light Control System project, an innovative solution to revolutionize urban traffic management across the UK. Our system intelligently optimizes traffic flow and enhances pedestrian safety using cutting-edge technology, all powered by a Raspberry Pi. By analyzing real-time traffic and pedestrian data, we dynamically adjust traffic signals to reduce waiting times and improve the overall safety of road intersections. 
 
 ## Getting Started with Installation
 
 ### Step 1: Update Your Raspberry Pi
-Before installing any new software, ensure your Raspberry Pi is up-to-date with the latest system updates. This can help prevent compatibility issues and ensure the system runs smoothly.
+Before installing any new software, please ensure your Raspberry Pi is up-to-date with the latest system updates. This can help prevent compatibility issues and ensure the system runs smoothly.
 
 ```bash
 sudo apt-get update
@@ -54,7 +54,7 @@ Several libraries are required for the Traffic Light Control System to function 
 - **Install OpenCV**:
     This library is used for processing images and videos, which is crucial for detecting vehicles and pedestrians.
     ```bash
-    sudo apt-get install libopencv-dev
+    sudo apt-get install libopencv-dev libcamera-dev
     ```
 
 - **Install GStreamer**:
@@ -99,8 +99,8 @@ Our software is developed with efficiency and scalability in mind, featuring:
 
 The complete design document can be found in our [GitHub Wiki](https://github.com/saleemhamo/traffic-light-system/wiki) under the [Design Document section](https://github.com/saleemhamo/traffic-light-system/wiki/Page-%232:-Design-Document).
 
-
-
+> [!NOTE]
+> The camera functionality in the Traffic Light Control System is made possible by the work of the community, particularly through the efforts of [Bernd Porr](https://github.com/berndporr), who provided a convenient interface for integrating libcamera with OpenCV. His repository [libcamera2opencv](https://github.com/berndporr/libcamera2opencv/blob/master/libcam2opencv.h) facilitated the integration of camera functionality with Qt without much hassle.
 ---
 > [!TIP]
 > Stay updated with the latest developments and share your feedback with us through our [Instagram profile](https://www.instagram.com/crossguard_2024). We're excited to see how our system enhances urban traffic management for communities by dramatically improving pedestrian safety and slashing those seemingly endless waiting times at crossing!
