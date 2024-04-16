@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(cpr)
 find_package(OpenCV REQUIRED)
 
 # Include directories
-include_directories(include ${OpenCV_INCLUDE_DIRS})
+include_directories(include ${OpenCV_INCLUDE_DIRS} include/sensors/libcam2opencv.h)
 
 # Add the main executable
 add_executable(CrossGuard
@@ -44,7 +44,7 @@ add_executable(CrossGuard
 )
 
 # Prepare the list of libraries to link.
-set(LINK_LIBS cpr::cpr ${OpenCV_LIBS})
+set(LINK_LIBS cpr::cpr ${OpenCV_LIBS} cam2opencv)
 
 # Conditionally append pigpio to the list if on an appropriate system.
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
@@ -52,7 +52,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
 endif ()
 
 # Link the libraries to the target.
-target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS} cam2opencv)
+target_link_libraries(CrossGuard PRIVATE ${LINK_LIBS})
 
 ####### Testing Configuration #######
 
