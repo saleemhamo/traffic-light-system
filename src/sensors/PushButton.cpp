@@ -30,6 +30,11 @@ void PushButton::registerButtonPressCallback(ButtonCallback callback)
     buttonPressCallback = callback;
 }
 
+void PushButton::registerButtonReleaseCallback(ButtonCallback callback)
+{
+    buttonReleaseCallback = callback;
+}
+
 void PushButton::attachInterruptHandler()
 {
     // Attach the interrupt service routine to the GPIO pin

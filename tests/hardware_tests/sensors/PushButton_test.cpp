@@ -7,56 +7,58 @@
 
 BOOST_AUTO_TEST_SUITE(PushButtonTests)
 
-// Flag to track if the mock callback function was called
+// Flags to track the callback invocations
 bool isButtonPressCallbackCalled = false;
+bool isButtonReleaseCallbackCalled = false;
 
-// Mock callback function for button press events
-void mockButtonPressCallback()
+// Callback functions for button press and release events
+void onButtonPress()
 {
     isButtonPressCallbackCalled = true;
 }
 
-BOOST_AUTO_TEST_CASE(ButtonPressHandlerIndirectTest)
+void onButtonRelease()
 {
-    // Set up the mock environment
-    gpioInitialise();
-
-    // Create a PushButton instance
-    PushButton button(17);
-
-    // Register the mock callback function
-    button.registerButtonPressCallback(mockButtonPressCallback);
-
-    // Simulate a button press event
-    simulateCallback(17, PI_LOW, gpioTick());
-
-    // Assertions
-    BOOST_CHECK_EQUAL(gpioRead(17), PI_LOW);
-    BOOST_CHECK(isButtonPressCallbackCalled);
-
-    // Tear down the mock environment
-    gpioTerminate();
+    isButtonReleaseCallbackCalled = true;
 }
 
-BOOST_AUTO_TEST_CASE(ButtonReleaseHandlerIndirectTest)
+BOOST_AUTO_TEST_CASE(ButtonPressAndReleaseHandlerTest)
 {
     // Set up the mock environment
+    // Logger::setLogLevel(Logger::LogLevel::Debug);
     gpioInitialise();
 
     // Create a PushButton instance
     PushButton button(17);
 
-    // Register the mock callback function
-    button.registerButtonPressCallback(mockButtonPressCallback);
+    // Register the callback functions
+    button.registerButtonPressCallback(onButtonPress);
+    button.registerButtonReleaseCallback(onButtonRelease);
+
+    // Simulate a button press event
+    // Logger::logDebug("Simulating button press event...");
+    simulateCallback(17, PI_LOW, gpioTick());
+
+    // Assertions for button press event
+    BOOST_CHECK_EQUAL(gpioRead(17), PI_LOW);
+    BOOST_CHECK(isButtonPressCallbackCalled);
+    BOOST_CHECK(!isButtonReleaseCallbackCalled);
+
+    // Reset the flags
+    isButtonPressCallbackCalled = false;
+    isButtonReleaseCallbackCalled = false;
 
     // Simulate a button release event
+    // Logger::logDebug("Simulating button release event...");
     simulateCallback(17, PI_HIGH, gpioTick());
 
-    // Assertions
+    // Assertions for button release event
     BOOST_CHECK_EQUAL(gpioRead(17), PI_HIGH);
-    BOOST_CHECK(!isButtonPressCallbackCalled); // Callback should not be called on button release
+    BOOST_CHECK(!isButtonPressCallbackCalled);
+    BOOST_CHECK(isButtonReleaseCallbackCalled);
 
     // Tear down the mock environment
+    // Logger::logDebug("Tearing down the mock environment...");
     gpioTerminate();
 }
 

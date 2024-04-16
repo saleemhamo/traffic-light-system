@@ -44,14 +44,33 @@ public:
      * that is triggered on the falling edge (button press).
      */
     void initialize();
+    
+    /**
+     * @brief Detaches the interrupt service routine from the GPIO pin.
+     */
     void detachInterruptHandler();
+    
+    /**
+     * @brief Attaches the interrupt service routine to the GPIO pin.
+     */
     void attachInterruptHandler();
+    
+    /**
+     * @brief Initializes the GPIO pin as an input.
+     */
     void gpioInit();
+    
     /**
      * @brief Registers a callback function to be called when the button is pressed.
      * @param callback The function to call when the button is pressed.
      */
     void registerButtonPressCallback(ButtonCallback callback);
+    
+    /**
+     * @brief Registers a callback function to be called when the button is released.
+     * @param callback The function to call when the button is released.
+     */
+    void registerButtonReleaseCallback(ButtonCallback callback);
 
     // Disabling copy constructor and assignment operator
     PushButton(const PushButton &) = delete;
@@ -62,6 +81,7 @@ public:
 private:
     int gpioPin;  ///< GPIO pin number.
     ButtonCallback buttonPressCallback;  ///< User-defined callback function to handle button press events.
+    ButtonCallback buttonReleaseCallback;  ///< User-defined callback function to handle button release events.
 
     /**
      * @brief Static method used as the interrupt service routine for button presses.
