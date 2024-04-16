@@ -35,20 +35,32 @@ void motionDetected() {
 
 int main() {
     initApplication();
-    CameraSensor camera;
-    if (camera.initialize()) {
-        camera.setMotionDetectedCallback(motionDetected);
-        camera.run();
+    CameraWrapper cameraWrapper;
+    cameraWrapper.setMotionDetectedCallback([]
+                                            { std::cout << "Motion detected!" << std::endl; });
+    cameraWrapper.start();
 
-        // Keep the main thread running to simulate prolonged observation
-        std::this_thread::sleep_for(std::chrono::minutes(10));
+    // Wait for the user to stop the program
+    std::cout << "Press Enter to stop the program..." << std::endl;
+    std::string line;
+    std::getline(std::cin, line);
 
-        camera.stop();
-    } else {
-        std::cerr << "Failed to initialize the camera." << std::endl;
-    }
-
+    cameraWrapper.stop();
     return 0;
+    // CameraSensor camera;
+    // if (camera.initialize()) {
+    //     camera.setMotionDetectedCallback(motionDetected);
+    //     camera.run();
+
+    //     // Keep the main thread running to simulate prolonged observation
+    //     std::this_thread::sleep_for(std::chrono::minutes(10));
+
+    //     camera.stop();
+    // } else {
+    //     std::cerr << "Failed to initialize the camera." << std::endl;
+    // }
+
+    // return 0;
 
 //    MainSystem mainSystem;
 //    mainSystem.initialize();

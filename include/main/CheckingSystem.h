@@ -6,7 +6,8 @@
 
 
 #include "main/interfaces/SystemInterface.h"
-#include "sensors/CameraSensor.h"
+// #include "sensors/CameraSensor.h"
+#include "sensors/CameraWrapper.h"
 #include "sensors/UltrasonicSensor.h"
 #include "sensors/PushButton.h"
 #include <thread>
