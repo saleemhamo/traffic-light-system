@@ -10,12 +10,12 @@
  * The constructor initializes LED and Buzzer objects using predefined pins
  * from the Constants class. Initially sets the system to an uninitialized state.
  */
-WarningSystem::WarningSystem() 
-    : warningLED(ledPin),
-      warningLED2(ledPin2),
-      warningLED3(ledPin3),
-      warningBuzzer(buzzerPin),
-      isInitialized_(false) {}
+WarningSystem::WarningSystem()
+        : warningLED(ledPin),
+          warningLED2(ledPin2),
+          warningLED3(ledPin3),
+          warningBuzzer(buzzerPin),
+          isInitialized_(false) {}
 
 /**
  * @brief Initializes the warning system by setting all components to the off state.

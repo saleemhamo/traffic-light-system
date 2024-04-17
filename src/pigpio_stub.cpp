@@ -37,8 +37,7 @@ unsigned int simulatedTick = 0;
  *
  * @return Always returns 0 in this stub implementation.
  */
-int gpioInitialise()
-{
+int gpioInitialise() {
     Logger::logInfo("gpioInitialise() called");
     pinStates.clear(); // Clear pin states upon initialization
     simulatedTick = 0; // Reset simulated tick on initialization
@@ -50,8 +49,7 @@ int gpioInitialise()
  *
  * Clears the pin states. Optional in this implementation.
  */
-void gpioTerminate()
-{
+void gpioTerminate() {
     Logger::logInfo("gpioTerminate() called");
     pinStates.clear(); // Optionally clear pin states upon termination
 }
@@ -64,8 +62,7 @@ void gpioTerminate()
  * @param pin The GPIO pin number.
  * @param mode The mode to set for the pin (input or output).
  */
-void gpioSetMode(unsigned pin, unsigned mode)
-{
+void gpioSetMode(unsigned pin, unsigned mode) {
     string message = "gpioSetMode(pin: " + to_string(pin) + ", mode: " + to_string(mode) + ") called";
     Logger::logInfo(message);
     // Mode setting not simulated in pinStates map, as it's primarily for direction
@@ -79,8 +76,7 @@ void gpioSetMode(unsigned pin, unsigned mode)
  * @param pin The GPIO pin number.
  * @param level The level to write to the pin (high or low).
  */
-void gpioWrite(unsigned pin, unsigned level)
-{
+void gpioWrite(unsigned pin, unsigned level) {
     string message = "gpioWrite(pin: " + to_string(pin) + ", level: " + to_string(level) + ") called";
     Logger::logInfo(message);
     // Save the level of the pin in the map
@@ -95,18 +91,14 @@ void gpioWrite(unsigned pin, unsigned level)
  * @param pin The GPIO pin number to read.
  * @return The level of the pin (high or low).
  */
-int gpioRead(unsigned pin)
-{
+int gpioRead(unsigned pin) {
     string message = "gpioRead(pin: " + to_string(pin) + ") called";
     Logger::logInfo(message);
     // Return the stored state if available, otherwise default to LOW
     auto it = pinStates.find(pin);
-    if (it != pinStates.end())
-    {
+    if (it != pinStates.end()) {
         return it->second;
-    }
-    else
-    {
+    } else {
         return PI_LOW; // Default to LOW if not set
     }
 }
@@ -118,8 +110,7 @@ int gpioRead(unsigned pin)
  *
  * @param micros The number of microseconds to delay.
  */
-void gpioDelay(unsigned micros)
-{
+void gpioDelay(unsigned micros) {
     string message = "gpioDelay(" + to_string(micros) + " microseconds) called";
     Logger::logInfo(message);
     // Simulate delay by incrementing the simulatedTick counter
@@ -131,8 +122,7 @@ void gpioDelay(unsigned micros)
  *
  * @return The current simulated tick value.
  */
-unsigned gpioTick()
-{
+unsigned gpioTick() {
     Logger::logInfo("gpioTick() called");
     return simulatedTick;
 }
@@ -150,22 +140,14 @@ unsigned gpioTick()
  * @param userdata Pointer to arbitrary user data.
  * @return Returns 0 if OK, otherwise returns PI_BAD_GPIO, PI_BAD_EDGE, or PI_BAD_ISR_INIT.
  */
-// int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int, unsigned, void *), void *user)
-// {
-//     string message = "gpioSetISRFuncEx(pin: " + to_string(pin) + ", edge: " + to_string(edge) + ", timeout: " + to_string(timeout) +
-//                      ", function: " + to_string(reinterpret_cast<uintptr_t>(func)) + ", userdata: " + to_string(reinterpret_cast<uintptr_t>(user)) + ") called";
-//     Logger::logInfo(message);
-//     // Store the callback function and user data for the specified pin
-//     callbacks[pin].emplace_back([func, user](int gpio, int level, unsigned tick, void *userData)
-//                                 { func(gpio, level, tick, user); });
-
-//     // Return success for the stub implementation
-//     return 0;
-// }
-
-// Function to set the interrupt service routine (ISR) for a GPIO pin
 bool gpioSetISRFuncEx(GpioPin pin, int edge, int debounceMs, void (*func)(int, int, uint32_t, void *), void *userData)
 {
+    string message = "gpioSetISRFuncEx(pin: " + to_string(pin) + ", edge: " + to_string(edge) + ", timeout: " +
+                     to_string(timeout) +
+                     ", function: " + to_string(reinterpret_cast<uintptr_t>(func)) + ", userdata: " +
+                     to_string(reinterpret_cast<uintptr_t>(user)) + ") called";
+    Logger::logInfo(message);
+    
     // Check if the pin number is valid
     if (pin < 0 || pin > 99)
     {
@@ -189,20 +171,19 @@ bool gpioSetISRFuncEx(GpioPin pin, int edge, int debounceMs, void (*func)(int, i
     // associate the callback function with the pin
 
     // I DON"T KNOW HOW TO IMPLEMENT THIS FUNCTION Callbacks :( below is wrong idk how to fix it
-    // callbacks[pin].emplace_back([func, userData](int gpio, int level, unsigned tick, void *userDataCallback)
-    //                             { func(gpio, level, tick, userDataCallback); });
+//     callbacks[pin].emplace_back(
+//             [func, user](int gpio, int level, unsigned tick, void *userData) { func(gpio, level, tick, user); });
 
     // Return true to indicate success
-    return true;
+    return 0;
 }
 
 // This function is supposed to mimic setting the pull-up/pull-down resistors for a GPIO pin.
-void gpioSetPullUpDown(unsigned pin, unsigned pud)
-{
+void gpioSetPullUpDown(unsigned pin, unsigned pud) {
     string message = "gpioSetPullUpDown(pin: " + to_string(pin) + ", pud: " + to_string(pud) + ") called";
     Logger::logInfo(message);
-    callbacks[pin].emplace_back([pin, pud](int gpio, int level, unsigned tick, void *userData)
-                                { gpioWrite(pin, pud); });
+    callbacks[pin].emplace_back(
+            [pin, pud](int gpio, int level, unsigned tick, void *userData) { gpioWrite(pin, pud); });
 }
 
 /**
@@ -215,14 +196,13 @@ void gpioSetPullUpDown(unsigned pin, unsigned pud)
  * @param user A user-defined pointer passed to the callback function.
  * @return Always returns 0 in this stub implementation.
  */
-int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user)
-{
+int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), void *user) {
     string message = "gpioSetAlertFuncEx(pin: " + to_string(pin) + ") called";
     Logger::logInfo(message);
 
     // Store the callback function and user data for the specified pin
-    callbacks[pin].emplace_back([func, user](int gpio, int level, unsigned tick, void *userData)
-                                { func(gpio, level, tick, user); });
+    callbacks[pin].emplace_back(
+            [func, user](int gpio, int level, unsigned tick, void *userData) { func(gpio, level, tick, user); });
 
     return 0; // Success
 }
@@ -237,17 +217,16 @@ int gpioSetAlertFuncEx(unsigned pin, void (*func)(int, int, unsigned, void *), v
  * @param level The level value to pass to the callback function.
  * @param tick The tick value to pass to the callback function.
  */
-void simulateCallback(unsigned pin, int level, unsigned tick)
-{
-    string message = "simulateCallback(pin: " + to_string(pin) + ", level: " + to_string(level) + ", tick: " + to_string(tick) + ") called";
+void simulateCallback(unsigned pin, int level, unsigned tick) {
+    string message =
+            "simulateCallback(pin: " + to_string(pin) + ", level: " + to_string(level) + ", tick: " + to_string(tick) +
+            ") called";
     Logger::logInfo(message);
 
     // Call all registered callback functions for the specified pin
     auto it = callbacks.find(pin);
-    if (it != callbacks.end())
-    {
-        for (const auto &callback : it->second)
-        {
+    if (it != callbacks.end()) {
+        for (const auto &callback: it->second) {
             callback(pin, level, tick, nullptr);
         }
     }

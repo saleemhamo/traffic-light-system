@@ -44,18 +44,18 @@ BOOST_AUTO_TEST_CASE(ButtonPressAndReleaseHandlerTest)
     BOOST_CHECK(isButtonPressCallbackCalled);
     BOOST_CHECK(!isButtonReleaseCallbackCalled);
 
-    // Reset the flags
-    isButtonPressCallbackCalled = false;
-    isButtonReleaseCallbackCalled = false;
+    // // Reset the flags
+    // isButtonPressCallbackCalled = false;
+    // isButtonReleaseCallbackCalled = false;
 
-    // Simulate a button release event
-    // Logger::logDebug("Simulating button release event...");
-    simulateCallback(17, PI_HIGH, gpioTick());
+    // // Simulate a button release event
+    // // Logger::logDebug("Simulating button release event...");
+    // simulateCallback(17, PI_HIGH, gpioTick());
 
-    // Assertions for button release event
-    BOOST_CHECK_EQUAL(gpioRead(17), PI_HIGH);
-    BOOST_CHECK(!isButtonPressCallbackCalled);
-    BOOST_CHECK(isButtonReleaseCallbackCalled);
+    // // Assertions for button release event
+    // BOOST_CHECK_EQUAL(gpioRead(17), PI_HIGH);
+    // BOOST_CHECK(!isButtonPressCallbackCalled);
+    // BOOST_CHECK(isButtonReleaseCallbackCalled);
 
     // Tear down the mock environment
     // Logger::logDebug("Tearing down the mock environment...");

@@ -9,14 +9,12 @@ PushButton::PushButton(int pin, int edge, int debounceMs)
     initialize();
 }
 
-PushButton::~PushButton()
-{
+PushButton::~PushButton() {
     // Detach the interrupt service routine to prevent any callbacks after the object is destroyed
     detachInterruptHandler();
 }
 
-void PushButton::initialize()
-{
+void PushButton::initialize() {
     // Initialize the GPIO pin as an input with a pull-up resistor
     gpioInit();
     gpioSetMode(gpioPin, PI_INPUT);
@@ -26,24 +24,20 @@ void PushButton::initialize()
     attachInterruptHandler();
 }
 
-void PushButton::registerButtonPressCallback(ButtonCallback callback)
-{
+void PushButton::registerButtonPressCallback(ButtonCallback callback) {
     buttonPressCallback = callback;
 }
 
-void PushButton::registerButtonReleaseCallback(ButtonCallback callback)
-{
+void PushButton::registerButtonReleaseCallback(ButtonCallback callback) {
     buttonReleaseCallback = callback;
 }
 
-void PushButton::attachInterruptHandler()
-{
+void PushButton::attachInterruptHandler() {
     // Attach the interrupt service routine to the GPIO pin
     gpioSetISRFuncEx(gpioPin, edgeMode, debounceMs, &PushButton::buttonEventHandler, this);
 }
 
-void PushButton::detachInterruptHandler()
-{
+void PushButton::detachInterruptHandler() {
     // Detach the interrupt service routine from the GPIO pin
     gpioSetISRFuncEx(gpioPin, edgeMode, debounceMs, nullptr, nullptr);
 }
@@ -72,11 +66,9 @@ void PushButton::buttonEventHandler(int gpio, int level, uint32_t tick, void *us
     }
 }
 
-void PushButton::gpioInit()
-{
+void PushButton::gpioInit() {
     // Initialize the GPIO library
-    if (gpioInitialise() < 0)
-    {
+    if (gpioInitialise() < 0) {
         std::cerr << "Unable to connect PIGPIO, exiting" << std::endl;
         throw std::runtime_error("Failed to initialize PIGPIO");
     }

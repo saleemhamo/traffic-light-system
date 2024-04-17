@@ -37,12 +37,10 @@ std::string FirestoreLogger::GenerateTimestamp() {
     return ss.str();
 }
 
-std::string FirestoreLogger::GetApiKey()
-{
+std::string FirestoreLogger::GetApiKey() {
     return apiKey;
 }
 
-std::string FirestoreLogger::GetBaseUrl()
-{
+std::string FirestoreLogger::GetBaseUrl() {
     return baseUrl;
 }
