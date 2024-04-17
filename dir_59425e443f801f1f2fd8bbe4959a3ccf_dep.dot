@@ -6,7 +6,9 @@ digraph "tests" {
     graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_59425e443f801f1f2fd8bbe4959a3ccf.html"];
     dir_59425e443f801f1f2fd8bbe4959a3ccf [shape=plaintext label="tests"];
   dir_00623b0af23f83b5340724c4324123c9 [shape=box label="hardware_tests" fillcolor="white" style="filled" color="red" URL="dir_00623b0af23f83b5340724c4324123c9.html"];
+  dir_50ba7c4cc35488581ca04a703956ea6d [shape=box label="logic_tests" fillcolor="white" style="filled" color="red" URL="dir_50ba7c4cc35488581ca04a703956ea6d.html"];
   }
   dir_d44c64559bbebec7f509842c48db8b23 [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
-  dir_00623b0af23f83b5340724c4324123c9->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="4", labeldistance=1.5 headhref="dir_000014_000000.html"];
+  dir_50ba7c4cc35488581ca04a703956ea6d->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="12", labeldistance=1.5 headhref="dir_000017_000000.html"];
+  dir_00623b0af23f83b5340724c4324123c9->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="5", labeldistance=1.5 headhref="dir_000014_000000.html"];
 }

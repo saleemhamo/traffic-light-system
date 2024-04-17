@@ -110,6 +110,12 @@ Functions</h2></td></tr>
 <tr class="memitem:abd519be38530a70a1f3a853399d7b3cb"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pigpio__stub_8cpp.html#abd519be38530a70a1f3a853399d7b3cb">gpioTick</a> ()</td></tr>
 <tr class="memdesc:abd519be38530a70a1f3a853399d7b3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current value of the simulated tick counter.  <a href="pigpio__stub_8cpp.html#abd519be38530a70a1f3a853399d7b3cb">More...</a><br /></td></tr>
 <tr class="separator:abd519be38530a70a1f3a853399d7b3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521ee6231608ef228f72ddcff453a899"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pigpio__stub_8cpp.html#a521ee6231608ef228f72ddcff453a899">gpioSetISRFuncEx</a> (unsigned pin, int edge, int timeout, void(*func)(int, int, unsigned, void *), void *user)</td></tr>
+<tr class="memdesc:a521ee6231608ef228f72ddcff453a899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an ISR function for GPIO pin interrupt events.  <a href="pigpio__stub_8cpp.html#a521ee6231608ef228f72ddcff453a899">More...</a><br /></td></tr>
+<tr class="separator:a521ee6231608ef228f72ddcff453a899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19777bedcc1771bc173bce7b8b5e8b75"><td class="memItemLeft" align="right" valign="top"><a id="a19777bedcc1771bc173bce7b8b5e8b75"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>gpioSetPullUpDown</b> (unsigned pin, unsigned pud)</td></tr>
+<tr class="separator:a19777bedcc1771bc173bce7b8b5e8b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f0ef8e2a4e232a34595a41893c18517"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pigpio__stub_8cpp.html#a5f0ef8e2a4e232a34595a41893c18517">gpioSetAlertFuncEx</a> (unsigned pin, void(*func)(int, int, unsigned, void *), void *user)</td></tr>
 <tr class="memdesc:a5f0ef8e2a4e232a34595a41893c18517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a callback function for GPIO pin alert events.  <a href="pigpio__stub_8cpp.html#a5f0ef8e2a4e232a34595a41893c18517">More...</a><br /></td></tr>
 <tr class="separator:a5f0ef8e2a4e232a34595a41893c18517"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,6 +276,66 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Always returns 0 in this stub implementation. </dd></dl>
+
+</div>
+</div>
+<a id="a521ee6231608ef228f72ddcff453a899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521ee6231608ef228f72ddcff453a899">&#9670;&nbsp;</a></span>gpioSetISRFuncEx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gpioSetISRFuncEx </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>edge</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timeout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(int, int, unsigned, void *)&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set an ISR function for GPIO pin interrupt events. </p>
+<p>This function simulates setting an ISR function for GPIO pin interrupt events. It logs the function parameters but does not perform any actual ISR registration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gpio</td><td>The GPIO pin number. </td></tr>
+    <tr><td class="paramname">edge</td><td>The edge (RISING_EDGE, FALLING_EDGE, or EITHER_EDGE) to trigger the interrupt. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Interrupt timeout in milliseconds (&lt;= 0 to cancel). </td></tr>
+    <tr><td class="paramname">f</td><td>The ISR function to set. </td></tr>
+    <tr><td class="paramname">userdata</td><td>Pointer to arbitrary user data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 if OK, otherwise returns PI_BAD_GPIO, PI_BAD_EDGE, or PI_BAD_ISR_INIT. </dd></dl>
 
 </div>
 </div>

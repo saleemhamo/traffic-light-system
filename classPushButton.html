@@ -92,15 +92,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa9431019b0abe1298306efc63342fc7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#aa9431019b0abe1298306efc63342fc7b">PushButton</a> (int pin)</td></tr>
 <tr class="memdesc:aa9431019b0abe1298306efc63342fc7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor that initializes a <a class="el" href="classPushButton.html" title="Manages the interaction with a physical push button connected to a GPIO pin.">PushButton</a> with a specific GPIO pin.  <a href="classPushButton.html#aa9431019b0abe1298306efc63342fc7b">More...</a><br /></td></tr>
 <tr class="separator:aa9431019b0abe1298306efc63342fc7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aafdb682ce6d00513583e3983f3ed44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#a3aafdb682ce6d00513583e3983f3ed44">~PushButton</a> ()</td></tr>
-<tr class="memdesc:a3aafdb682ce6d00513583e3983f3ed44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that cleans up ISR handling if necessary.  <a href="classPushButton.html#a3aafdb682ce6d00513583e3983f3ed44">More...</a><br /></td></tr>
+<tr class="memitem:a3aafdb682ce6d00513583e3983f3ed44"><td class="memItemLeft" align="right" valign="top"><a id="a3aafdb682ce6d00513583e3983f3ed44"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#a3aafdb682ce6d00513583e3983f3ed44">~PushButton</a> ()</td></tr>
+<tr class="memdesc:a3aafdb682ce6d00513583e3983f3ed44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that cleans up ISR handling if necessary. <br /></td></tr>
 <tr class="separator:a3aafdb682ce6d00513583e3983f3ed44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac32def7b2f170f1b1ab089724737a334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#ac32def7b2f170f1b1ab089724737a334">initialize</a> ()</td></tr>
 <tr class="memdesc:ac32def7b2f170f1b1ab089724737a334"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the button's GPIO pin and sets up the interrupt service routine.  <a href="classPushButton.html#ac32def7b2f170f1b1ab089724737a334">More...</a><br /></td></tr>
 <tr class="separator:ac32def7b2f170f1b1ab089724737a334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f63a58fbb988590fc339f4bb8700ca"><td class="memItemLeft" align="right" valign="top"><a id="a61f63a58fbb988590fc339f4bb8700ca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#a61f63a58fbb988590fc339f4bb8700ca">detachInterruptHandler</a> ()</td></tr>
+<tr class="memdesc:a61f63a58fbb988590fc339f4bb8700ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detaches the interrupt service routine from the GPIO pin. <br /></td></tr>
+<tr class="separator:a61f63a58fbb988590fc339f4bb8700ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8a5f009c2bdc4af676b19ecdbd8eed"><td class="memItemLeft" align="right" valign="top"><a id="a3e8a5f009c2bdc4af676b19ecdbd8eed"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#a3e8a5f009c2bdc4af676b19ecdbd8eed">attachInterruptHandler</a> ()</td></tr>
+<tr class="memdesc:a3e8a5f009c2bdc4af676b19ecdbd8eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches the interrupt service routine to the GPIO pin. <br /></td></tr>
+<tr class="separator:a3e8a5f009c2bdc4af676b19ecdbd8eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b5e1ab28c54876534c6fdaeb0f7742"><td class="memItemLeft" align="right" valign="top"><a id="a17b5e1ab28c54876534c6fdaeb0f7742"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#a17b5e1ab28c54876534c6fdaeb0f7742">gpioInit</a> ()</td></tr>
+<tr class="memdesc:a17b5e1ab28c54876534c6fdaeb0f7742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the GPIO pin as an input. <br /></td></tr>
+<tr class="separator:a17b5e1ab28c54876534c6fdaeb0f7742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbe4e4bfc75faed9b046c311657759c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#adbe4e4bfc75faed9b046c311657759c7">registerButtonPressCallback</a> (<a class="el" href="classPushButton.html#a2380ed83d1441a522c958f697f985fff">ButtonCallback</a> callback)</td></tr>
 <tr class="memdesc:adbe4e4bfc75faed9b046c311657759c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback function to be called when the button is pressed.  <a href="classPushButton.html#adbe4e4bfc75faed9b046c311657759c7">More...</a><br /></td></tr>
 <tr class="separator:adbe4e4bfc75faed9b046c311657759c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae8237adb955b7bd04f267e38ce9262f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPushButton.html#aae8237adb955b7bd04f267e38ce9262f">registerButtonReleaseCallback</a> (<a class="el" href="classPushButton.html#a2380ed83d1441a522c958f697f985fff">ButtonCallback</a> callback)</td></tr>
+<tr class="memdesc:aae8237adb955b7bd04f267e38ce9262f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback function to be called when the button is released.  <a href="classPushButton.html#aae8237adb955b7bd04f267e38ce9262f">More...</a><br /></td></tr>
+<tr class="separator:aae8237adb955b7bd04f267e38ce9262f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80a4d10d8f41787c9fd1fdb27c2b4540"><td class="memItemLeft" align="right" valign="top"><a id="a80a4d10d8f41787c9fd1fdb27c2b4540"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PushButton</b> (const <a class="el" href="classPushButton.html">PushButton</a> &amp;)=delete</td></tr>
 <tr class="separator:a80a4d10d8f41787c9fd1fdb27c2b4540"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,35 +145,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor that initializes a <a class="el" href="classPushButton.html" title="Manages the interaction with a physical push button connected to a GPIO pin.">PushButton</a> with a specific GPIO pin. </p>
-<p>Constructs a <a class="el" href="classPushButton.html" title="Manages the interaction with a physical push button connected to a GPIO pin.">PushButton</a> instance associated with a specific GPIO pin.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td>The GPIO pin number associated with the button.</td></tr>
-    <tr><td class="paramname">pin</td><td>GPIO pin number to be used for the push button. </td></tr>
+    <tr><td class="paramname">pin</td><td>The GPIO pin number associated with the button. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a3aafdb682ce6d00513583e3983f3ed44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aafdb682ce6d00513583e3983f3ed44">&#9670;&nbsp;</a></span>~PushButton()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PushButton::~PushButton </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destructor that cleans up ISR handling if necessary. </p>
-<p>Destructs the <a class="el" href="classPushButton.html" title="Manages the interaction with a physical push button connected to a GPIO pin.">PushButton</a> instance.</p>
-<p>This destructor ensures that the interrupt service routine is detached, preventing any callbacks from being called after the object is destroyed. </p>
 
 </div>
 </div>
@@ -178,9 +171,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the button's GPIO pin and sets up the interrupt service routine. </p>
-<p>Initializes the <a class="el" href="classPushButton.html" title="Manages the interaction with a physical push button connected to a GPIO pin.">PushButton</a> hardware interface.</p>
-<p>This method sets the GPIO pin as an input and attaches an interrupt handler that is triggered on the falling edge (button press).</p>
-<p>This method sets up the GPIO pin as an input with an internal pull-up resistor and registers the interrupt service routine to handle button presses. </p>
+<p>This method sets the GPIO pin as an input and attaches an interrupt handler that is triggered on the falling edge (button press). </p>
 
 </div>
 </div>
@@ -201,11 +192,35 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Registers a callback function to be called when the button is pressed. </p>
-<p>Registers a callback to be invoked when the button is pressed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">callback</td><td>The function to call when the button is pressed.</td></tr>
-    <tr><td class="paramname">callback</td><td>The callback function to execute on a button press. </td></tr>
+    <tr><td class="paramname">callback</td><td>The function to call when the button is pressed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aae8237adb955b7bd04f267e38ce9262f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8237adb955b7bd04f267e38ce9262f">&#9670;&nbsp;</a></span>registerButtonReleaseCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PushButton::registerButtonReleaseCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPushButton.html#a2380ed83d1441a522c958f697f985fff">ButtonCallback</a>&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a callback function to be called when the button is released. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>The function to call when the button is released. </td></tr>
   </table>
   </dd>
 </dl>

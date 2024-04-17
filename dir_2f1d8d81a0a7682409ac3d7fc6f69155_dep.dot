@@ -1,0 +1,11 @@
+digraph "tests/logic_tests/models" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_50ba7c4cc35488581ca04a703956ea6d {
+    graph [ bgcolor="#ddddee", pencolor="black", label="logic_tests" fontname="Helvetica", fontsize="10", URL="dir_50ba7c4cc35488581ca04a703956ea6d.html"]
+  dir_2f1d8d81a0a7682409ac3d7fc6f69155 [shape=box, label="models", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_2f1d8d81a0a7682409ac3d7fc6f69155.html"];
+  }
+  dir_d44c64559bbebec7f509842c48db8b23 [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
+  dir_2f1d8d81a0a7682409ac3d7fc6f69155->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="2", labeldistance=1.5 headhref="dir_000019_000000.html"];
+}

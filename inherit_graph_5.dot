@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="Logger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLogger.html",tooltip="Provides a thread-safe logging mechanism that writes messages to a file and Google Firestore."];
+  Node0 [label="LED",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLED.html",tooltip="Controls an LED connected to a GPIO pin."];
 }

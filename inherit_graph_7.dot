@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="PushButton",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPushButton.html",tooltip="Manages the interaction with a physical push button connected to a GPIO pin."];
+  Node0 [label="MainSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMainSystem.html",tooltip="Orchestrates the operations of traffic and pedestrian traffic lights, monitoring systems,..."];
 }

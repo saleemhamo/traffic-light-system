@@ -89,14 +89,18 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classFirestoreLogger.html#a2927e711c1730873f97fa0eb3e849b24">Log</a>(<span class="keyword">const</span> std::string &amp;level, <span class="keyword">const</span> std::string &amp;message);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> std::string GenerateTimestamp();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> std::string apiKey; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> std::string baseUrl = <span class="stringliteral">&quot;https://firestore.googleapis.com/v1/projects/traffic-light-control-uofg/databases/(default)/documents/logs&quot;</span>; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> std::string GetApiKey();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> std::string GetBaseUrl();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> std::string GenerateTimestamp();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// FIRESTORELOGGER_H</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> std::string apiKey; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> std::string baseUrl = <span class="stringliteral">&quot;https://firestore.googleapis.com/v1/projects/traffic-light-control-uofg/databases/(default)/documents/logs&quot;</span>; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// FIRESTORELOGGER_H</span></div>
 <div class="ttc" id="aclassFirestoreLogger_html"><div class="ttname"><a href="classFirestoreLogger.html">FirestoreLogger</a></div><div class="ttdoc">Logger class for sending logs to Google Firestore.</div><div class="ttdef"><b>Definition:</b> FirestoreLogger.h:31</div></div>
 <div class="ttc" id="aclassFirestoreLogger_html_a2927e711c1730873f97fa0eb3e849b24"><div class="ttname"><a href="classFirestoreLogger.html#a2927e711c1730873f97fa0eb3e849b24">FirestoreLogger::Log</a></div><div class="ttdeci">static void Log(const std::string &amp;level, const std::string &amp;message)</div><div class="ttdoc">Logs a message with a specified level to Firestore.</div><div class="ttdef"><b>Definition:</b> FirestoreLogger.cpp:9</div></div>
 <div class="ttc" id="aclassFirestoreLogger_html_a68085e177a01d5b1a215dd9e6e6a670a"><div class="ttname"><a href="classFirestoreLogger.html#a68085e177a01d5b1a215dd9e6e6a670a">FirestoreLogger::Initialize</a></div><div class="ttdeci">static void Initialize(const std::string &amp;apiKey)</div><div class="ttdoc">Initializes the logger with an API key for Firestore.</div><div class="ttdef"><b>Definition:</b> FirestoreLogger.cpp:5</div></div>

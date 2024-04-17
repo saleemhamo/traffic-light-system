@@ -13,5 +13,5 @@ digraph "tests/hardware_tests" {
   }
   dir_d44c64559bbebec7f509842c48db8b23 [shape=box label="include" fillcolor="white" style="filled" color="red" URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
   dir_3af4d2c2347febd8e13f0826fc17f7b2->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="3", labeldistance=1.5 headhref="dir_000015_000000.html"];
-  dir_31162bcdb1c7505d98071a693a1b2499->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="1", labeldistance=1.5 headhref="dir_000016_000000.html"];
+  dir_31162bcdb1c7505d98071a693a1b2499->dir_d44c64559bbebec7f509842c48db8b23 [headlabel="2", labeldistance=1.5 headhref="dir_000016_000000.html"];
 }
