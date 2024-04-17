@@ -19,11 +19,10 @@ CheckingSystem::CheckingSystem() : isActive(false),
                                    monitorPedestriansActive(false),
                                    monitorRoadsActive(false),
                                    pedestriansButtonEnabled(false),
-                                   pedestrianSensor(Constants::CheckingSystemUltrasonic2TriggerPin,
-                                                    Constants::CheckingSystemUltrasonic2EchoPin),
-                                   roadSensor(Constants::CheckingSystemUltrasonic1TriggerPin,
-                                              Constants::CheckingSystemUltrasonic1EchoPin),
-                                   pedestriansPushButton(Constants::CheckingSystemButtonPin) {}
+                                   pedestrianSensor(Constants::CheckingSystemUltrasonic2TriggerPin, Constants::CheckingSystemUltrasonic2EchoPin),
+                                   roadSensor(Constants::CheckingSystemUltrasonic1TriggerPin, Constants::CheckingSystemUltrasonic1EchoPin),
+                                   pedestriansPushButton(Constants::CheckingSystemButtonPin, EITHER_EDGE, 50) {}
+
 
 /**
  * @brief Destructor for the CheckingSystem class.
@@ -49,15 +48,15 @@ void CheckingSystem::initialize() {
 /**
  * @brief Main operation function which activates all systems and starts monitoring.
  * Launches threads for pedestrian and road monitoring and waits for them to complete.
- * 
+ *
  * This method initializes the active monitoring process for both pedestrians and vehicles.
- * It starts two threads: one for pedestrian monitoring and another for road monitoring. 
+ * It starts two threads: one for pedestrian monitoring and another for road monitoring.
  * Both threads are joined to ensure that the system continues running until both monitoring processes complete.
  *
  * @note This function must be called after all sensors and callbacks are properly initialized.
  *       It will block until all monitoring threads complete, which means it should ideally
  *       be run in its own thread if the application must perform other tasks concurrently.
- * 
+ *
  * @throws std::system_error if thread creation fails.
  * @see initialize(), enableSensing(), disableSensing()
  */

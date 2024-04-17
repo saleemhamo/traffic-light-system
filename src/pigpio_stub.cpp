@@ -140,17 +140,41 @@ unsigned gpioTick() {
  * @param userdata Pointer to arbitrary user data.
  * @return Returns 0 if OK, otherwise returns PI_BAD_GPIO, PI_BAD_EDGE, or PI_BAD_ISR_INIT.
  */
-int gpioSetISRFuncEx(unsigned pin, int edge, int timeout, void (*func)(int, int, unsigned, void *), void *user) {
+bool gpioSetISRFuncEx(GpioPin pin, int edge, int debounceMs, void (*func)(int, int, uint32_t, void *), void *userData)
+{
     string message = "gpioSetISRFuncEx(pin: " + to_string(pin) + ", edge: " + to_string(edge) + ", timeout: " +
                      to_string(timeout) +
                      ", function: " + to_string(reinterpret_cast<uintptr_t>(func)) + ", userdata: " +
                      to_string(reinterpret_cast<uintptr_t>(user)) + ") called";
     Logger::logInfo(message);
-    // Store the callback function and user data for the specified pin
-    callbacks[pin].emplace_back(
-            [func, user](int gpio, int level, unsigned tick, void *userData) { func(gpio, level, tick, user); });
+    
+    // Check if the pin number is valid
+    if (pin < 0 || pin > 99)
+    {
+        return false;
+    }
 
-    // Return success for the stub implementation
+    // Check if the edge detection mode is valid
+    if (edge != RISING_EDGE && edge != FALLING_EDGE && edge != EITHER_EDGE)
+    {
+        return false;
+    }
+
+    // Check if the debounce time is valid
+    if (debounceMs < 0)
+    {
+        return false;
+    }
+
+    // Store the callback function and user data
+    // In a real implementation, this would set up the GPIO interrupt and
+    // associate the callback function with the pin
+
+    // I DON"T KNOW HOW TO IMPLEMENT THIS FUNCTION Callbacks :( below is wrong idk how to fix it
+//     callbacks[pin].emplace_back(
+//             [func, user](int gpio, int level, unsigned tick, void *userData) { func(gpio, level, tick, user); });
+
+    // Return true to indicate success
     return 0;
 }
 

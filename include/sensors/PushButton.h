@@ -29,12 +29,14 @@ public:
     /**
      * @brief Constructor that initializes a PushButton with a specific GPIO pin.
      * @param pin The GPIO pin number associated with the button.
+     * @param edge The edge to trigger the interrupt on (RISING_EDGE, FALLING_EDGE, or EITHER_EDGE).
+     * @param debounceMs The debounce time in milliseconds.
      */
-    PushButton(int pin);
+    PushButton(int pin, int edge, int debounceMs = 0);
 
     /**
-    * @brief Destructor that cleans up ISR handling if necessary.
-    */
+     * @brief Destructor that cleans up ISR handling if necessary.
+     */
     ~PushButton();
 
     /**
@@ -80,6 +82,8 @@ public:
 
 private:
     int gpioPin;  ///< GPIO pin number.
+    int edgeMode; ///< Edge to trigger the interrupt on (RISING_EDGE, FALLING_EDGE, or EITHER_EDGE).
+    int debounceMs;  ///< Debounce time in milliseconds.
     ButtonCallback buttonPressCallback;  ///< User-defined callback function to handle button press events.
     ButtonCallback buttonReleaseCallback;  ///< User-defined callback function to handle button release events.
 
@@ -90,7 +94,7 @@ private:
      * @param tick System tick counter value at the time of the interrupt.
      * @param user User-defined data, expected to be a pointer to the PushButton instance.
      */
-    static void buttonPressHandler(int gpio, int level, uint32_t tick, void *user); // Static ISR handler
+    static void buttonEventHandler(int gpio, int level, uint32_t tick, void *user); // Static ISR handler
 };
 
 

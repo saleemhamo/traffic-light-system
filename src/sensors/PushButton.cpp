@@ -2,7 +2,9 @@
 #include <iostream>
 #include <unistd.h>
 
-PushButton::PushButton(int pin) : gpioPin(pin), buttonPressCallback(nullptr) {
+PushButton::PushButton(int pin, int edge, int debounceMs)
+    : gpioPin(pin), edgeMode(edge), debounceMs(debounceMs), buttonPressCallback(nullptr), buttonReleaseCallback(nullptr)
+{
     // Initialize the GPIO pin and register the interrupt service routine
     initialize();
 }
@@ -18,7 +20,7 @@ void PushButton::initialize() {
     gpioSetMode(gpioPin, PI_INPUT);
     gpioSetPullUpDown(gpioPin, PI_PUD_UP);
 
-    // Register the interrupt service routine to handle button presses
+    // Register the interrupt service routine to handle button presses and releases
     attachInterruptHandler();
 }
 
@@ -32,21 +34,35 @@ void PushButton::registerButtonReleaseCallback(ButtonCallback callback) {
 
 void PushButton::attachInterruptHandler() {
     // Attach the interrupt service routine to the GPIO pin
-    gpioSetAlertFuncEx(gpioPin, &PushButton::buttonPressHandler, this);
+    gpioSetISRFuncEx(gpioPin, edgeMode, debounceMs, &PushButton::buttonEventHandler, this);
 }
 
 void PushButton::detachInterruptHandler() {
     // Detach the interrupt service routine from the GPIO pin
-    gpioSetAlertFuncEx(gpioPin, nullptr, nullptr);
+    gpioSetISRFuncEx(gpioPin, edgeMode, debounceMs, nullptr, nullptr);
 }
 
-void PushButton::buttonPressHandler(int gpio, int level, uint32_t tick, void *user) {
+void PushButton::buttonEventHandler(int gpio, int level, uint32_t tick, void *user)
+{
     // Cast the user data to the PushButton instance
     PushButton *button = static_cast<PushButton *>(user);
 
-    // Invoke the registered callback, if any
-    if (button->buttonPressCallback) {
-        button->buttonPressCallback();
+    // Determine if it's a button press or release event
+    if (level == PI_LOW)
+    {
+        // Button press event
+        if (button->buttonPressCallback)
+        {
+            button->buttonPressCallback();
+        }
+    }
+    else
+    {
+        // Button release event
+        if (button->buttonReleaseCallback)
+        {
+            button->buttonReleaseCallback();
+        }
     }
 }
 
