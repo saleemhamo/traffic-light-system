@@ -17,6 +17,7 @@ extern const int PI_LOW;
 #define PI_PUD_DOWN 0
 #define PI_PUD_OFF 0
 #define FALLING_EDGE 0
+#define RISING_EDGE 1
 
 // Function declarations to mimic those in the pigpio library.
 int gpioInitialise();

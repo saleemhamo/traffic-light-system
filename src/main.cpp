@@ -113,28 +113,29 @@ void initApplication() {
     try {
         FirestoreLogger::Initialize("INITIALIZE");
         FirestoreLogger::Log("INFO", "Application Started!");
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e) {
         std::cerr << "Failed to connect to firebase: " << e.what() << std::endl;
     }
 
     try {
         Logger::init("app.log");
         Logger::logInfo("Application starting");
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e) {
         std::cerr << "Failed to initialize logger: " << e.what() << std::endl;
     }
 }
 
 void closeApplication(MainSystem &mainSystem) {
     mainSystem.shutdown();
-    Logger::close();
+    // Logger::close(); //why there's another loger here when try catch already handles that?
 
     try {
         Logger::logInfo("Application stopping");
         Logger::close();
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e) {
         std::cerr << "Failed to close logger: " << e.what() << std::endl;
     }
-
-
 }

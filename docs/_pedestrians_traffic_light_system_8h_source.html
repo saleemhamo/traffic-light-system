@@ -83,32 +83,35 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">PedestriansTrafficLightSystem.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;models/TrafficLight.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_pedestrians_traffic_light_system.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pedestrians_traffic_light_system.html">PedestriansTrafficLightSystem</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_traffic_light.html">TrafficLight</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_pedestrians_traffic_light_system.html">PedestriansTrafficLightSystem</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> initialize();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> run();</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> deactivate();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::atomic&lt;bool&gt; isActive;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<a href="_pedestrians_traffic_light_system_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Documented by Miguel Rosa</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;models/TrafficLight.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_pedestrians_traffic_light_system.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pedestrians_traffic_light_system.html">PedestriansTrafficLightSystem</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_traffic_light.html">TrafficLight</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="class_pedestrians_traffic_light_system.html#abcb342352ba09d8456c9da6b84ab2f53">PedestriansTrafficLightSystem</a>(); </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pedestrians_traffic_light_system.html#ae5d67cb922b1ac63d9c3822ff5a509d8">initialize</a>(); </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pedestrians_traffic_light_system.html#ab93d85a579c06e3a07c7eb2c5c00abde">run</a>(); </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_pedestrians_traffic_light_system.html#a17b2ad3088af4b053a0cd49aeb5aaa98">deactivate</a>(); </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::atomic&lt;bool&gt; isActive; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">// PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
-<div class="ttc" id="aclass_pedestrians_traffic_light_system_html"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html">PedestriansTrafficLightSystem</a></div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.h:8</div></div>
-<div class="ttc" id="aclass_traffic_light_html"><div class="ttname"><a href="class_traffic_light.html">TrafficLight</a></div><div class="ttdef"><b>Definition</b> TrafficLight.h:10</div></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif </span><span class="comment">// PEDESTRIANSTRAFFICLIGHTSYSTEM_H</span></div>
+<div class="ttc" id="aclass_pedestrians_traffic_light_system_html"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html">PedestriansTrafficLightSystem</a></div><div class="ttdoc">Manages pedestrian-specific traffic lights.</div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.h:26</div></div>
+<div class="ttc" id="aclass_pedestrians_traffic_light_system_html_a17b2ad3088af4b053a0cd49aeb5aaa98"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html#a17b2ad3088af4b053a0cd49aeb5aaa98">PedestriansTrafficLightSystem::deactivate</a></div><div class="ttdeci">void deactivate()</div><div class="ttdoc">Deactivates the traffic lights, turning them off safely.</div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.cpp:48</div></div>
+<div class="ttc" id="aclass_pedestrians_traffic_light_system_html_ab93d85a579c06e3a07c7eb2c5c00abde"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html#ab93d85a579c06e3a07c7eb2c5c00abde">PedestriansTrafficLightSystem::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Starts the operation of the traffic light, managing its state changes.</div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.cpp:40</div></div>
+<div class="ttc" id="aclass_pedestrians_traffic_light_system_html_abcb342352ba09d8456c9da6b84ab2f53"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html#abcb342352ba09d8456c9da6b84ab2f53">PedestriansTrafficLightSystem::PedestriansTrafficLightSystem</a></div><div class="ttdeci">PedestriansTrafficLightSystem()</div><div class="ttdoc">Constructor initializing the system with default pin settings.</div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.cpp:22</div></div>
+<div class="ttc" id="aclass_pedestrians_traffic_light_system_html_ae5d67cb922b1ac63d9c3822ff5a509d8"><div class="ttname"><a href="class_pedestrians_traffic_light_system.html#ae5d67cb922b1ac63d9c3822ff5a509d8">PedestriansTrafficLightSystem::initialize</a></div><div class="ttdeci">void initialize()</div><div class="ttdoc">Initializes the traffic light system.</div><div class="ttdef"><b>Definition</b> PedestriansTrafficLightSystem.cpp:32</div></div>
+<div class="ttc" id="aclass_traffic_light_html"><div class="ttname"><a href="class_traffic_light.html">TrafficLight</a></div><div class="ttdoc">A class to control a traffic light system using LEDs.</div><div class="ttdef"><b>Definition</b> TrafficLight.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

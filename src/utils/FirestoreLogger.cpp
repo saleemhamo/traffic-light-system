@@ -36,3 +36,11 @@ std::string FirestoreLogger::GenerateTimestamp() {
     ss << std::put_time(std::localtime(&now_c), "%FT%T%z"); // Adjust the format if needed
     return ss.str();
 }
+
+std::string FirestoreLogger::GetApiKey() {
+    return apiKey;
+}
+
+std::string FirestoreLogger::GetBaseUrl() {
+    return baseUrl;
+}

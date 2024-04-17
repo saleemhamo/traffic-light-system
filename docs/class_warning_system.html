@@ -78,40 +78,85 @@ $(function() {
   <div class="headertitle"><div class="title">WarningSystem Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages a warning system with three LEDs and a buzzer.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_warning_system_8h_source.html">WarningSystem.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for WarningSystem:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_warning_system.png" usemap="#WarningSystem_map" alt=""/>
   <map id="WarningSystem_map" name="WarningSystem_map">
-<area href="class_system_interface.html" alt="SystemInterface" shape="rect" coords="0,0,102,24"/>
+<area href="class_system_interface.html" title="Interface for system control classes." alt="SystemInterface" shape="rect" coords="0,0,102,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acf6c550131bb607f6fc60a39e34741ca" id="r_acf6c550131bb607f6fc60a39e34741ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf6c550131bb607f6fc60a39e34741ca">WarningSystem</a> ()</td></tr>
+<tr class="memdesc:acf6c550131bb607f6fc60a39e34741ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new Warning System instance.  <br /></td></tr>
+<tr class="separator:acf6c550131bb607f6fc60a39e34741ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3de86c46399166614ffefafd596a03b6" id="r_a3de86c46399166614ffefafd596a03b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3de86c46399166614ffefafd596a03b6">initialize</a> () override</td></tr>
+<tr class="memdesc:a3de86c46399166614ffefafd596a03b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the warning system components.  <br /></td></tr>
 <tr class="separator:a3de86c46399166614ffefafd596a03b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0150abd3a6d4f11c4cc596a8399d023" id="r_ac0150abd3a6d4f11c4cc596a8399d023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0150abd3a6d4f11c4cc596a8399d023">activate</a> () override</td></tr>
+<tr class="memdesc:ac0150abd3a6d4f11c4cc596a8399d023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the warning system.  <br /></td></tr>
 <tr class="separator:ac0150abd3a6d4f11c4cc596a8399d023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6570504a4879aedcbfdce6e604f718f" id="r_ad6570504a4879aedcbfdce6e604f718f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6570504a4879aedcbfdce6e604f718f">deactivate</a> () override</td></tr>
+<tr class="memdesc:ad6570504a4879aedcbfdce6e604f718f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivates the warning system.  <br /></td></tr>
 <tr class="separator:ad6570504a4879aedcbfdce6e604f718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_system_interface"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_system_interface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_system_interface.html">SystemInterface</a></td></tr>
+<tr class="memitem:aa5513d8af1f6c960ce8ca1b85e8ebabe inherit pub_methods_class_system_interface" id="r_aa5513d8af1f6c960ce8ca1b85e8ebabe"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_interface.html#aa5513d8af1f6c960ce8ca1b85e8ebabe">~SystemInterface</a> ()</td></tr>
+<tr class="memdesc:aa5513d8af1f6c960ce8ca1b85e8ebabe inherit pub_methods_class_system_interface"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
+<tr class="separator:aa5513d8af1f6c960ce8ca1b85e8ebabe inherit pub_methods_class_system_interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a9b629f1c443e69441fde99b94d4382ea" id="r_a9b629f1c443e69441fde99b94d4382ea"><td class="memItemLeft" align="right" valign="top"><a id="a9b629f1c443e69441fde99b94d4382ea" name="a9b629f1c443e69441fde99b94d4382ea"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin</b> = Constants::WarningSystemLedPin</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin</b> = <a class="el" href="_constants_8h.html#abab1394906fba5f1e9827cd90229ee0d">Constants::WarningSystemLedPin</a></td></tr>
+<tr class="memdesc:a9b629f1c443e69441fde99b94d4382ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for the first <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a>. <br /></td></tr>
 <tr class="separator:a9b629f1c443e69441fde99b94d4382ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac21f841acee8e58b6f1372e636494954" id="r_ac21f841acee8e58b6f1372e636494954"><td class="memItemLeft" align="right" valign="top"><a id="ac21f841acee8e58b6f1372e636494954" name="ac21f841acee8e58b6f1372e636494954"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin2</b> = Constants::WarningSystemLed2Pin</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin2</b> = <a class="el" href="_constants_8h.html#aea03ceac9aa4448e8145df192205b8ec">Constants::WarningSystemLed2Pin</a></td></tr>
+<tr class="memdesc:ac21f841acee8e58b6f1372e636494954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for the second <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a>. <br /></td></tr>
 <tr class="separator:ac21f841acee8e58b6f1372e636494954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a412c88c38c4294e0e70ea4171575db19" id="r_a412c88c38c4294e0e70ea4171575db19"><td class="memItemLeft" align="right" valign="top"><a id="a412c88c38c4294e0e70ea4171575db19" name="a412c88c38c4294e0e70ea4171575db19"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin3</b> = Constants::WarningSystemLed3Pin</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>ledPin3</b> = <a class="el" href="_constants_8h.html#adfe573df5f56cda22286310216fcc24f">Constants::WarningSystemLed3Pin</a></td></tr>
+<tr class="memdesc:a412c88c38c4294e0e70ea4171575db19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for the third <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a>. <br /></td></tr>
 <tr class="separator:a412c88c38c4294e0e70ea4171575db19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf4421a1f7bee0304825eb66a92c8ec7" id="r_abf4421a1f7bee0304825eb66a92c8ec7"><td class="memItemLeft" align="right" valign="top"><a id="abf4421a1f7bee0304825eb66a92c8ec7" name="abf4421a1f7bee0304825eb66a92c8ec7"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>buzzerPin</b> = Constants::WarningSystemBuzzerPin</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><b>buzzerPin</b> = <a class="el" href="_constants_8h.html#a94a40c10f7c1705ff11235f08b9b8257">Constants::WarningSystemBuzzerPin</a></td></tr>
+<tr class="memdesc:abf4421a1f7bee0304825eb66a92c8ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pin number for the buzzer. <br /></td></tr>
 <tr class="separator:abf4421a1f7bee0304825eb66a92c8ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages a warning system with three LEDs and a buzzer. </p>
+<p>Inherits from <a class="el" href="class_system_interface.html" title="Interface for system control classes.">SystemInterface</a>, requiring implementation of initialization, activation, and deactivation methods. Utilizes predefined pin numbers from the Constants class for <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> and buzzer components. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acf6c550131bb607f6fc60a39e34741ca" name="acf6c550131bb607f6fc60a39e34741ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf6c550131bb607f6fc60a39e34741ca">&#9670;&#160;</a></span>WarningSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WarningSystem::WarningSystem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a new Warning System instance. </p>
+<p>Constructor for <a class="el" href="class_warning_system.html" title="Manages a warning system with three LEDs and a buzzer.">WarningSystem</a> initializes hardware components.</p>
+<p>Initializes LEDs and buzzer with predefined pins from Constants. The system is not initialized by default.</p>
+<p>The constructor initializes <a class="el" href="class_l_e_d.html" title="Controls an LED connected to a GPIO pin.">LED</a> and <a class="el" href="class_buzzer.html" title="A class to control a buzzer connected to a GPIO pin.">Buzzer</a> objects using predefined pins from the Constants class. Initially sets the system to an uninitialized state. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac0150abd3a6d4f11c4cc596a8399d023" name="ac0150abd3a6d4f11c4cc596a8399d023"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0150abd3a6d4f11c4cc596a8399d023">&#9670;&#160;</a></span>activate()</h2>
@@ -136,7 +181,12 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>buzzerPin
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_system_interface.html">SystemInterface</a>.</p>
+<p>Activates the warning system. </p>
+<p>Activates the warning system by turning on all LEDs and the buzzer.</p>
+<p>Turns on all LEDs and the buzzer if the system has been initialized.</p>
+<p>If the system has been initialized, this method activates all three LEDs and the buzzer to signal a warning state. </p>
+
+<p>Implements <a class="el" href="class_system_interface.html#a4c8d622d3936b050953be10732bf5085">SystemInterface</a>.</p>
 
 </div>
 </div>
@@ -163,7 +213,12 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>buzzerPin
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_system_interface.html">SystemInterface</a>.</p>
+<p>Deactivates the warning system. </p>
+<p>Deactivates the warning system by turning off all LEDs and the buzzer.</p>
+<p>Turns off all LEDs and the buzzer if the system has been initialized.</p>
+<p>Ensures that all warning signals are turned off if the system has been initialized, returning the system to a non-alert state. </p>
+
+<p>Implements <a class="el" href="class_system_interface.html#af1441e9e985f52ba3c705c7ce27693c6">SystemInterface</a>.</p>
 
 </div>
 </div>
@@ -190,7 +245,12 @@ static const int&#160;</td><td class="memItemRight" valign="bottom"><b>buzzerPin
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_system_interface.html">SystemInterface</a>.</p>
+<p>Initializes the warning system components. </p>
+<p>Initializes the warning system by setting all components to the off state.</p>
+<p>Sets all LEDs and the buzzer to their off state and marks the system as initialized.</p>
+<p>This method prepares the system for operation by ensuring all LEDs and the buzzer start in the off state and sets the system as initialized. </p>
+
+<p>Implements <a class="el" href="class_system_interface.html#a1a1b32d43c7f9811d704d01089f4d6ef">SystemInterface</a>.</p>
 
 </div>
 </div>

@@ -77,31 +77,169 @@ $(function() {
   <div class="headertitle"><div class="title">UltrasonicSensor Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides functionality for interfacing with an ultrasonic sensor for distance measurement.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_ultrasonic_sensor_8h_source.html">UltrasonicSensor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac9b8f56595387f22404a4cba92c29dcd" id="r_ac9b8f56595387f22404a4cba92c29dcd"><td class="memItemLeft" align="right" valign="top"><a id="ac9b8f56595387f22404a4cba92c29dcd" name="ac9b8f56595387f22404a4cba92c29dcd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UltrasonicSensor</b> (int triggerPin, int echoPin)</td></tr>
+<tr class="memitem:ac9b8f56595387f22404a4cba92c29dcd" id="r_ac9b8f56595387f22404a4cba92c29dcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9b8f56595387f22404a4cba92c29dcd">UltrasonicSensor</a> (int triggerPin, int echoPin)</td></tr>
+<tr class="memdesc:ac9b8f56595387f22404a4cba92c29dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="class_ultrasonic_sensor.html" title="Provides functionality for interfacing with an ultrasonic sensor for distance measurement.">UltrasonicSensor</a> with specified GPIO pins.  <br /></td></tr>
 <tr class="separator:ac9b8f56595387f22404a4cba92c29dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14359169b99de6a1cbdf82863a434c9f" id="r_a14359169b99de6a1cbdf82863a434c9f"><td class="memItemLeft" align="right" valign="top"><a id="a14359169b99de6a1cbdf82863a434c9f" name="a14359169b99de6a1cbdf82863a434c9f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
+<tr class="memitem:aec2722048b7070bd2b0f665b210f0d1a" id="r_aec2722048b7070bd2b0f665b210f0d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec2722048b7070bd2b0f665b210f0d1a">~UltrasonicSensor</a> ()</td></tr>
+<tr class="memdesc:aec2722048b7070bd2b0f665b210f0d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs the <a class="el" href="class_ultrasonic_sensor.html" title="Provides functionality for interfacing with an ultrasonic sensor for distance measurement.">UltrasonicSensor</a> instance.  <br /></td></tr>
+<tr class="separator:aec2722048b7070bd2b0f665b210f0d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14359169b99de6a1cbdf82863a434c9f" id="r_a14359169b99de6a1cbdf82863a434c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14359169b99de6a1cbdf82863a434c9f">initialize</a> ()</td></tr>
+<tr class="memdesc:a14359169b99de6a1cbdf82863a434c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the sensor and prepares it for distance measurements.  <br /></td></tr>
 <tr class="separator:a14359169b99de6a1cbdf82863a434c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a476774acedbda499ba57d86cb11e4165" id="r_a476774acedbda499ba57d86cb11e4165"><td class="memItemLeft" align="right" valign="top"><a id="a476774acedbda499ba57d86cb11e4165" name="a476774acedbda499ba57d86cb11e4165"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>calculateDistance</b> ()</td></tr>
+<tr class="memitem:a476774acedbda499ba57d86cb11e4165" id="r_a476774acedbda499ba57d86cb11e4165"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a476774acedbda499ba57d86cb11e4165">calculateDistance</a> ()</td></tr>
+<tr class="memdesc:a476774acedbda499ba57d86cb11e4165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the distance to an object in front of the sensor.  <br /></td></tr>
 <tr class="separator:a476774acedbda499ba57d86cb11e4165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15e506f2a136f05e91d5f1b4b2dc5fc0" id="r_a15e506f2a136f05e91d5f1b4b2dc5fc0"><td class="memItemLeft" align="right" valign="top"><a id="a15e506f2a136f05e91d5f1b4b2dc5fc0" name="a15e506f2a136f05e91d5f1b4b2dc5fc0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMotionDetected</b> (float distanceThreshold=0.1f)</td></tr>
-<tr class="separator:a15e506f2a136f05e91d5f1b4b2dc5fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85de4b6c7c74c6168045b6ec6332e481" id="r_a85de4b6c7c74c6168045b6ec6332e481"><td class="memItemLeft" align="right" valign="top"><a id="a85de4b6c7c74c6168045b6ec6332e481" name="a85de4b6c7c74c6168045b6ec6332e481"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UltrasonicSensor</b> (int trig, int echo)</td></tr>
-<tr class="separator:a85de4b6c7c74c6168045b6ec6332e481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38afa35aa2c887232d7e7878302fab0f" id="r_a38afa35aa2c887232d7e7878302fab0f"><td class="memItemLeft" align="right" valign="top"><a id="a38afa35aa2c887232d7e7878302fab0f" name="a38afa35aa2c887232d7e7878302fab0f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>measureDistance</b> ()</td></tr>
-<tr class="separator:a38afa35aa2c887232d7e7878302fab0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b26277da09aa2112a4b4a83a264c37" id="r_a76b26277da09aa2112a4b4a83a264c37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76b26277da09aa2112a4b4a83a264c37">isMotionDetected</a> (float distanceThreshold=5.0f)</td></tr>
+<tr class="memdesc:a76b26277da09aa2112a4b4a83a264c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for motion detection based on changes in measured distance.  <br /></td></tr>
+<tr class="separator:a76b26277da09aa2112a4b4a83a264c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides functionality for interfacing with an ultrasonic sensor for distance measurement. </p>
+<p>This class handles initialization, distance measurement, and motion detection using an ultrasonic sensor connected to specified GPIO pins on a Raspberry Pi. It encapsulates details of sending pulses and measuring response times to calculate distances. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac9b8f56595387f22404a4cba92c29dcd" name="ac9b8f56595387f22404a4cba92c29dcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9b8f56595387f22404a4cba92c29dcd">&#9670;&#160;</a></span>UltrasonicSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UltrasonicSensor::UltrasonicSensor </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>triggerPin</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>echoPin</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="class_ultrasonic_sensor.html" title="Provides functionality for interfacing with an ultrasonic sensor for distance measurement.">UltrasonicSensor</a> with specified GPIO pins. </p>
+<p>Initializes an <a class="el" href="class_ultrasonic_sensor.html" title="Provides functionality for interfacing with an ultrasonic sensor for distance measurement.">UltrasonicSensor</a> and starts its initialization.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">triggerPin</td><td>The GPIO pin used to trigger the sensor. </td></tr>
+    <tr><td class="paramname">echoPin</td><td>The GPIO pin used to receive the echo signal from the sensor.</td></tr>
+    <tr><td class="paramname">triggerPin</td><td>GPIO pin used to trigger the sensor. </td></tr>
+    <tr><td class="paramname">echoPin</td><td>GPIO pin used to receive the echo signal. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aec2722048b7070bd2b0f665b210f0d1a" name="aec2722048b7070bd2b0f665b210f0d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2722048b7070bd2b0f665b210f0d1a">&#9670;&#160;</a></span>~UltrasonicSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UltrasonicSensor::~UltrasonicSensor </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructs the <a class="el" href="class_ultrasonic_sensor.html" title="Provides functionality for interfacing with an ultrasonic sensor for distance measurement.">UltrasonicSensor</a> instance. </p>
+<p>Cleans up GPIO resources.</p>
+<p>Ensures proper shutdown of the GPIO functionality, primarily used on systems where GPIO pins require manual cleanup. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a476774acedbda499ba57d86cb11e4165" name="a476774acedbda499ba57d86cb11e4165"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a476774acedbda499ba57d86cb11e4165">&#9670;&#160;</a></span>calculateDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float UltrasonicSensor::calculateDistance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the distance to an object in front of the sensor. </p>
+<p>Measures the distance by timing how long it takes for an echo to return.</p>
+<dl class="section return"><dt>Returns</dt><dd>The measured distance in centimeters.</dd></dl>
+<p>This method triggers the sensor, waits for the echo, and calculates the distance based on the time delay between sending the pulse and receiving the echo. </p><dl class="section return"><dt>Returns</dt><dd>Distance to the nearest object in centimeters. </dd></dl>
+
+</div>
+</div>
+<a id="a14359169b99de6a1cbdf82863a434c9f" name="a14359169b99de6a1cbdf82863a434c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14359169b99de6a1cbdf82863a434c9f">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UltrasonicSensor::initialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the sensor and prepares it for distance measurements. </p>
+<p>Sets up the sensor hardware and prepares it for operation.</p>
+<p>Sets the GPIO modes for the trigger and echo pins, and registers the echo reception callback.</p>
+<p>Initializes the GPIO library, sets the GPIO modes for the pins, and registers the callback function for echo detection. </p>
+
+</div>
+</div>
+<a id="a76b26277da09aa2112a4b4a83a264c37" name="a76b26277da09aa2112a4b4a83a264c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b26277da09aa2112a4b4a83a264c37">&#9670;&#160;</a></span>isMotionDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UltrasonicSensor::isMotionDetected </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>distanceThreshold</em><span class="paramdefsep"> = </span><span class="paramdefval">5.0f</span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks for motion detection based on changes in measured distance. </p>
+<p>Detects motion based on changes in measured distances.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distanceThreshold</td><td>The minimum change in distance to consider as motion (default is 5.0 cm). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if motion is detected, false otherwise.</dd></dl>
+<p>Measures the current distance and compares it to the previous measurement. If the change exceeds the specified threshold and is within a practical range, motion is considered detected. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distanceThreshold</td><td>Minimum distance change to qualify as motion. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if motion is detected, otherwise false. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/sensors/<a class="el" href="_ultrasonic_sensor_8h_source.html">UltrasonicSensor.h</a></li>
-<li>tests/hardware_tests/hc-sr04/<b>ultrasonicControl.cpp</b></li>
 <li>src/sensors/<b>UltrasonicSensor.cpp</b></li>
 </ul>
 </div><!-- contents -->

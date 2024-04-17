@@ -1,12 +1,32 @@
+/**
+ * @file MainSystem.cpp
+ * @brief Implementation of the MainSystem class.
+ * The MainSystem class is responsible for managing the overall operation of the traffic light system. It initializes all subsystems, runs them, and shuts them down. It also handles callbacks from the CheckingSystem and manages the traffic light state.
+ * @author (Alex)
+ * @version 1.0
+ */
+
 #include "main/MainSystem.h"
 #include "utils/Logger.h"
 
+/**
+ * @brief Construct a new Main System:: Main System object
+ * Initializes the traffic light state to OFF.
+ */
 MainSystem::MainSystem() : trafficLightState(OFF) {}
 
+/**
+ * @brief Destruct a new Main System:: Main System object
+ * Shuts down all subsystems.
+ */
 MainSystem::~MainSystem() {
     shutdown();
 }
 
+/**
+ * @brief Initializes all subsystems.
+ * This function initializes all subsystems of the traffic light system.
+ */
 void MainSystem::initialize() {
     // Initialize all subsystems here
     Logger::logInfo("MainSystem::initialize called");
@@ -21,6 +41,10 @@ void MainSystem::initialize() {
     checkingSystem.registerPedestriansButtonCallback([this]() { this->onPedestriansButtonClicked(); });
 }
 
+/**
+ * @brief Runs all subsystems.
+ * This function runs all subsystems of the traffic light system.
+ */
 void MainSystem::runSystems() {
     enableTrafficLightsNormalBehaviour();
     std::thread trafficLightsThread(&MainSystem::runTrafficLightsNormalBehaviour, this);
@@ -30,6 +54,10 @@ void MainSystem::runSystems() {
     // Enable running warning system if needed
 }
 
+/**
+ * @brief Shuts down all subsystems.
+ * This function shuts down all subsystems of the traffic light system.
+ */
 void MainSystem::shutdown() {
     carsTrafficLight.deactivate();
     pedestriansTrafficLight.deactivate();
@@ -38,6 +66,10 @@ void MainSystem::shutdown() {
     // Join all threads here if they are joinable
 }
 
+/**
+ * @brief Callback for when cars motion is detected.
+ * This function is called when the CheckingSystem detects motion from cars. It checks the current traffic light state and takes appropriate action.
+ */
 void MainSystem::onCarsMotionDetected() {
     Logger::logInfo("Cars motion detected");
     std::cout << "Cars motion detected" << std::endl;
@@ -60,6 +92,10 @@ void MainSystem::onCarsMotionDetected() {
     }, 10000);
 }
 
+/**
+ * @brief Callback for when pedestrians motion is detected.
+ * This function is called when the CheckingSystem detects motion from pedestrians. It checks the current traffic light state and takes appropriate action.
+ */
 void MainSystem::onPedestriansMotionDetected() {
     Logger::logInfo("Pedestrians motion detected");
     std::cout << "Pedestrians motion detected" << std::endl;
@@ -82,23 +118,40 @@ void MainSystem::onPedestriansMotionDetected() {
     }, 10000);
 }
 
+/**
+ * @brief Callback for when the pedestrians button is clicked.
+ * This function is called when the CheckingSystem detects a click on the pedestrians button. It checks the current traffic light state and takes appropriate action.
+ */
 void MainSystem::onPedestriansButtonClicked() {
     std::cout << "Pedestrians button clicked" << std::endl;
     if (trafficLightState != CARS_GREEN_PEDESTRIANS_RED) {
         return; // Do Nothing
     }
 
+    if (checkingSystem.isRoadMotionDetected()) {
+        std::cout << "checkingSystem::isRoadMotionDetected" << std::endl;
+        return; // Do Nothing
+    }
+
+    std::cout << "Road is empty" << std::endl;
+    turnPedestriansTrafficLightGreen();
     // State is CARS_GREEN_PEDESTRIANS_RED
     // if road status is empty (sensor or camera) -> turn to CARS_RED_PEDESTRIANS_GREEN
     // continue normal behaviour
-
 }
 
+/**
+ * @brief Enables the normal behaviour of traffic lights.
+ * This function enables the normal operation of traffic lights.
+ */
 void MainSystem::enableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = true;
-
 }
 
+/**
+ * @brief Disables the normal behaviour of traffic lights.
+ * This function disables the normal operation of traffic lights.
+ */
 void MainSystem::disableTrafficLightsNormalBehaviour() {
     isTrafficLightRunningInNormalBehaviour = false;
     carsTrafficLightTimer.stopTimer();
@@ -106,6 +159,10 @@ void MainSystem::disableTrafficLightsNormalBehaviour() {
     yellowTrafficLightTimer.stopTimer();
 }
 
+/**
+ * @brief Turns the cars traffic light green.
+ * This function turns the cars traffic light green and initiates a sequence for pedestrians traffic light.
+ */
 void MainSystem::turnCarsTrafficLightGreen() {
     Logger::logInfo("turnCarsTrafficLightGreen called");
     if (!isTrafficLightRunningInNormalBehaviour) {
@@ -121,9 +178,12 @@ void MainSystem::turnCarsTrafficLightGreen() {
     }, 2000);
 
     Logger::logInfo("turnCarsTrafficLightGreen finished");
-
 }
 
+/**
+ * @brief Turns the pedestrians traffic light green.
+ * This function turns the pedestrians traffic light green and initiates a sequence for cars traffic light.
+ */
 void MainSystem::turnPedestriansTrafficLightGreen() {
     Logger::logInfo("turnPedestriansTrafficLightGreen called");
     if (!isTrafficLightRunningInNormalBehaviour) {
@@ -134,10 +194,12 @@ void MainSystem::turnPedestriansTrafficLightGreen() {
     trafficLightState = CARS_RED_PEDESTRIANS_GREEN;
     carsTrafficLightTimer.setTimeout([this] { turnCarsTrafficLightGreen(); }, 20000);
     Logger::logInfo("turnPedestriansTrafficLightGreen finished");
-
-
 }
 
+/**
+ * @brief Turns all traffic lights red.
+ * This function turns all traffic lights red, stopping both car and pedestrian traffic.
+ */
 void MainSystem::turnAllTrafficLightsRed() {
     Logger::logInfo("turnAllTrafficLightsRed called");
     carsTrafficLight.turnRed();
@@ -145,7 +207,10 @@ void MainSystem::turnAllTrafficLightsRed() {
     trafficLightState = OFF;
 }
 
-
+/**
+ * @brief Runs the normal behavior of traffic lights.
+ * This function initiates the normal operation of traffic lights.
+ */
 void MainSystem::runTrafficLightsNormalBehaviour() {
     Logger::logInfo("runTrafficLightsNormalBehaviour called");
     turnCarsTrafficLightGreen();

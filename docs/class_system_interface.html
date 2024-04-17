@@ -77,28 +77,159 @@ $(function() {
   <div class="headertitle"><div class="title">SystemInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface for system control classes.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_system_interface_8h_source.html">SystemInterface.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SystemInterface:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_system_interface.png" usemap="#SystemInterface_map" alt=""/>
   <map id="SystemInterface_map" name="SystemInterface_map">
-<area href="class_warning_system.html" alt="WarningSystem" shape="rect" coords="0,56,102,80"/>
+<area href="class_warning_system.html" title="Manages a warning system with three LEDs and a buzzer." alt="WarningSystem" shape="rect" coords="0,56,102,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a1b32d43c7f9811d704d01089f4d6ef" id="r_a1a1b32d43c7f9811d704d01089f4d6ef"><td class="memItemLeft" align="right" valign="top"><a id="a1a1b32d43c7f9811d704d01089f4d6ef" name="a1a1b32d43c7f9811d704d01089f4d6ef"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()=0</td></tr>
+<tr class="memitem:aa5513d8af1f6c960ce8ca1b85e8ebabe" id="r_aa5513d8af1f6c960ce8ca1b85e8ebabe"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5513d8af1f6c960ce8ca1b85e8ebabe">~SystemInterface</a> ()</td></tr>
+<tr class="memdesc:aa5513d8af1f6c960ce8ca1b85e8ebabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <br /></td></tr>
+<tr class="separator:aa5513d8af1f6c960ce8ca1b85e8ebabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a1b32d43c7f9811d704d01089f4d6ef" id="r_a1a1b32d43c7f9811d704d01089f4d6ef"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a1b32d43c7f9811d704d01089f4d6ef">initialize</a> ()=0</td></tr>
+<tr class="memdesc:a1a1b32d43c7f9811d704d01089f4d6ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the system.  <br /></td></tr>
 <tr class="separator:a1a1b32d43c7f9811d704d01089f4d6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c8d622d3936b050953be10732bf5085" id="r_a4c8d622d3936b050953be10732bf5085"><td class="memItemLeft" align="right" valign="top"><a id="a4c8d622d3936b050953be10732bf5085" name="a4c8d622d3936b050953be10732bf5085"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>activate</b> ()=0</td></tr>
+<tr class="memitem:a4c8d622d3936b050953be10732bf5085" id="r_a4c8d622d3936b050953be10732bf5085"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c8d622d3936b050953be10732bf5085">activate</a> ()=0</td></tr>
+<tr class="memdesc:a4c8d622d3936b050953be10732bf5085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the system.  <br /></td></tr>
 <tr class="separator:a4c8d622d3936b050953be10732bf5085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1441e9e985f52ba3c705c7ce27693c6" id="r_af1441e9e985f52ba3c705c7ce27693c6"><td class="memItemLeft" align="right" valign="top"><a id="af1441e9e985f52ba3c705c7ce27693c6" name="af1441e9e985f52ba3c705c7ce27693c6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>deactivate</b> ()=0</td></tr>
+<tr class="memitem:af1441e9e985f52ba3c705c7ce27693c6" id="r_af1441e9e985f52ba3c705c7ce27693c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1441e9e985f52ba3c705c7ce27693c6">deactivate</a> ()=0</td></tr>
+<tr class="memdesc:af1441e9e985f52ba3c705c7ce27693c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivates the system.  <br /></td></tr>
 <tr class="separator:af1441e9e985f52ba3c705c7ce27693c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for system control classes. </p>
+<p>An abstract class that defines the standard interface for all system control classes. It requires implementing the initialize, activate, and deactivate methods to ensure that derived classes conform to expected system control protocols. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa5513d8af1f6c960ce8ca1b85e8ebabe" name="aa5513d8af1f6c960ce8ca1b85e8ebabe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5513d8af1f6c960ce8ca1b85e8ebabe">&#9670;&#160;</a></span>~SystemInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual SystemInterface::~SystemInterface </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor. </p>
+<p>Ensures that derived classes can be deleted safely via a base class pointer, which is crucial for polymorphic use. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c8d622d3936b050953be10732bf5085" name="a4c8d622d3936b050953be10732bf5085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8d622d3936b050953be10732bf5085">&#9670;&#160;</a></span>activate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SystemInterface::activate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Activates the system. </p>
+<p>Activates or enables the system. Implementation must define what it means for the specific system to be "active." </p>
+
+<p>Implemented in <a class="el" href="class_warning_system.html#ac0150abd3a6d4f11c4cc596a8399d023">WarningSystem</a>.</p>
+
+</div>
+</div>
+<a id="af1441e9e985f52ba3c705c7ce27693c6" name="af1441e9e985f52ba3c705c7ce27693c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1441e9e985f52ba3c705c7ce27693c6">&#9670;&#160;</a></span>deactivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SystemInterface::deactivate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deactivates the system. </p>
+<p>Turns off or disables the system. Implementations must ensure that all necessary procedures for safely shutting down or disabling the system are included. </p>
+
+<p>Implemented in <a class="el" href="class_warning_system.html#ad6570504a4879aedcbfdce6e604f718f">WarningSystem</a>.</p>
+
+</div>
+</div>
+<a id="a1a1b32d43c7f9811d704d01089f4d6ef" name="a1a1b32d43c7f9811d704d01089f4d6ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a1b32d43c7f9811d704d01089f4d6ef">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SystemInterface::initialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the system. </p>
+<p>Prepares the system for operation. Must be implemented by any derived class to handle specific initialization procedures. </p>
+
+<p>Implemented in <a class="el" href="class_warning_system.html#a3de86c46399166614ffefafd596a03b6">WarningSystem</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/main/interfaces/<a class="el" href="_system_interface_8h_source.html">SystemInterface.h</a></li>
 </ul>
