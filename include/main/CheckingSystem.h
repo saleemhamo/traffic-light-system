@@ -63,7 +63,7 @@ public:
     void enableSensing(); ///< Enable all sensors and detection mechanisms.
     void disableSensing(); ///< Disable all sensors and detection mechanisms.
 
-
+    bool isRoadMotionDetected();
 
 private:
     std::atomic<bool> isActive; ///< Indicates if the system is currently active.
