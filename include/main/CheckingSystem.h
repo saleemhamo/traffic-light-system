@@ -33,7 +33,7 @@
 
 class CheckingSystem {
 public:
-     CheckingSystem();  ///< Constructor to initialize the system with default states and sensor configurations.
+    CheckingSystem();  ///< Constructor to initialize the system with default states and sensor configurations.
     ~CheckingSystem(); ///< Destructor to clean up resources, ensuring all threads are joined if necessary.
 
     void initialize(); ///< Initialize sensors and system components.
@@ -42,23 +42,28 @@ public:
 
     void onPedestriansButtonPress(); ///< Handler for pedestrian button presses.
 
-    void registerCarsMotionCallback(const std::function<void()>& callback);
-    void registerPedestriansMotionCallback(const std::function<void()>& callback);
-    void registerPedestriansButtonCallback(const std::function<void()>& callback);
+    void registerCarsMotionCallback(const std::function<void()> &callback);
+
+    void registerPedestriansMotionCallback(const std::function<void()> &callback);
+
+    void registerPedestriansButtonCallback(const std::function<void()> &callback);
 
     void enablePedestriansMotionDetection();
+
     void disablePedestriansMotionDetection();
 
     void enableCarsMotionDetection();
+
     void disableCarsMotionDetection();
 
     void enablePedestriansButton();
+
     void disablePedestriansButton();
 
     void enableSensing(); ///< Enable all sensors and detection mechanisms.
     void disableSensing(); ///< Disable all sensors and detection mechanisms.
 
-
+    bool isRoadMotionDetected();
 
 private:
     std::atomic<bool> isActive; ///< Indicates if the system is currently active.
@@ -82,6 +87,7 @@ private:
     void monitorPedestrian(); ///< Function to monitor pedestrian movements continuously.
     void monitorRoad(); ///< Function to monitor vehicle movements continuously.
 
+    void monitorPedestriansButton();
 };
 
 #endif // CHECKINGSYSTEM_H

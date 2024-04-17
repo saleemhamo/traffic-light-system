@@ -64,7 +64,7 @@ if (NOT Boost_FOUND)
             URL https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2
     )
     FetchContent_MakeAvailable(boost)
-    # Adjust the include path as needed based on how Boost is structured when fetched
+
 endif ()
 
 ####### Testing Configuration #######
@@ -105,13 +105,11 @@ function(add_hardware_test TEST_NAME TEST_FILE)
     add_test(NAME ${TEST_NAME}UnitTest COMMAND ${TEST_NAME})
 endfunction(add_hardware_test)
 
-
-# Assuming the Timer class is part of the 'utils' group of files
-set(TIMER_SOURCES include/utils/Timer.h) # Adjust path as necessary
-
 # Define a function for non-hardware tests if not already existing
 function(add_unit_test TEST_NAME TEST_FILE)
-    add_executable(${TEST_NAME} ${TEST_FILE} ${TIMER_SOURCES})
+    cmake_parse_arguments(ADD_UNIT_TEST "" "ADDITIONAL_SOURCES" "" ${ARGN})
+
+    add_executable(${TEST_NAME} ${TEST_FILE} ${ADD_UNIT_TEST_ADDITIONAL_SOURCES}) # Include additional sources if provided
     target_link_libraries(${TEST_NAME} ${Boost_LIBRARIES} cpr::cpr) # Add other dependencies as needed
     target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
@@ -127,20 +125,18 @@ else ()
     message(STATUS "Configuring tests for non-Raspberry Pi environment.")
     include_directories(${CMAKE_SOURCE_DIR}/include)
 
+    # Add hardware tests for actuators and sensors
     add_hardware_test(BuzzerTest "tests/hardware_tests/actuators/Buzzer_test.cpp")
     add_hardware_test(LEDTest "tests/hardware_tests/actuators/LED_test.cpp")
     add_hardware_test(UltrasonicSensorTest "tests/hardware_tests/sensors/Ultrasonic_test.cpp")
-    
-    # Ideas of tests to be implemented (priority order):
-    # add_hardware_test(CameraSensorTest "tests/hardware_tests/sensors/Camera_test.cpp")
-    # add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
-    add_unit_test(TimerTest "tests/TimerTest.cpp")
-    # add_unit_test(CheckingSystemTest "tests/hardware_tests/main/CheckingSystem_test.cpp")
-    # add_unit_test(WarningSystemTest "tests/hardware_tests/main/WarningSystem_test.cpp")
-    # add_unit_test(TrafficLightTest "tests/hardware_tests/models/TrafficLight_test.cpp")
-    # add_unit_test(CarsTrafficLightSystemTest "tests/hardware_tests/main/CarsTrafficLightSystem_test.cpp")
-    # add_unit_test(PedestriansTrafficLightSystemTest "tests/hardware_tests/main/PedestriansTrafficLightSystem_test.cpp")
-    # add_unit_test(FirestoreLoggerTest "tests/hardware_tests/utils/FirestoreLogger_test.cpp")
-    # add_unit_test(MainSystemTest "tests/hardware_tests/main/MainSystem_test.cpp")
+    add_hardware_test(PushButtonTest "tests/hardware_tests/sensors/PushButton_test.cpp")
+
+    # Add logic tests for the main system and its components
+    add_hardware_test(CheckingSystemTest "tests/logic_tests/main/CheckingSystem_test.cpp")
+    add_hardware_test(WarningSystemTest "tests/logic_tests/main/WarningSystem_test.cpp")
+    add_hardware_test(TrafficLightTest "tests/logic_tests/models/TrafficLight_test.cpp")
+
+    # Add unit tests for the utility classes
+    add_unit_test(TimerTest "tests/logic_tests/utils/Timer_test.cpp" ADDITIONAL_SOURCES "include/utils/Timer.h")
 
 endif ()

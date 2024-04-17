@@ -43,6 +43,10 @@ public:
      */
     static void Log(const std::string &level, const std::string &message);
 
+    static std::string GetApiKey();
+
+    static std::string GetBaseUrl();
+
 private:
     /**
      * @brief Generates a timestamp string in ISO 8601 format.

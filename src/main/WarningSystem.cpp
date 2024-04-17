@@ -10,12 +10,12 @@
  * The constructor initializes LED and Buzzer objects using predefined pins
  * from the Constants class. Initially sets the system to an uninitialized state.
  */
-WarningSystem::WarningSystem() 
-    : warningLED(ledPin),
-      warningLED2(ledPin2),
-      warningLED3(ledPin3),
-      warningBuzzer(buzzerPin),
-      isInitialized(false) {}
+WarningSystem::WarningSystem()
+        : warningLED(ledPin),
+          warningLED2(ledPin2),
+          warningLED3(ledPin3),
+          warningBuzzer(buzzerPin),
+          isInitialized_(false) {}
 
 /**
  * @brief Initializes the warning system by setting all components to the off state.
@@ -24,11 +24,9 @@ WarningSystem::WarningSystem()
  * start in the off state and sets the system as initialized.
  */
 void WarningSystem::initialize() {
-    warningLED.off();
-    warningLED2.off();
-    warningLED3.off();
-    warningBuzzer.off();
-    isInitialized = true;
+    // Initialize the LED and buzzer (if necessary)
+    // For example, you might set an initial state or perform a self-check
+    isInitialized_ = true;
 }
 
 /**
@@ -38,7 +36,7 @@ void WarningSystem::initialize() {
  * and the buzzer to signal a warning state.
  */
 void WarningSystem::activate() {
-    if (isInitialized) {
+    if (isInitialized_) {
         warningLED.on();
         warningLED2.on();
         warningLED3.on();
@@ -53,7 +51,7 @@ void WarningSystem::activate() {
  * returning the system to a non-alert state.
  */
 void WarningSystem::deactivate() {
-    if (isInitialized) {
+    if (isInitialized_) {
         warningLED.off();
         warningLED2.off();
         warningLED3.off();
